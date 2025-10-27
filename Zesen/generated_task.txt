@@ -1,0 +1,38 @@
+```json
+[
+    {
+        "task_title": "Parse Current Date",
+        "task_description": "使用dateutil.parser模块解析Unix系统命令输出的当前日期字符串，获取当前的日期对象。",
+        "expected_output": "2003-10-11",
+        "expected_input": "Sat Oct 11 17:13:46 UTC 2003"
+    },
+    {
+        "task_title": "Calculate Next Year with Friday 13th in August",
+        "task_description": "利用dateutil.rrule模块计算下一个8月13日是星期五的年份。",
+        "expected_output": "2004",
+        "expected_input": "2003-10-11"
+    },
+    {
+        "task_title": "Compute Time Until Next Easter",
+        "task_description": "使用dateutil.easter模块计算从当前日期到下一个复活节的时间差。",
+        "expected_output": "relativedelta(months=+6)",
+        "expected_input": "2003-10-11, 2004-04-11"
+    },
+    {
+        "task_title": "Determine Next Easter Date",
+        "task_description": "通过将当前日期与计算出的时间差相加，确定下一个复活节的具体日期。",
+        "expected_output": "2004-04-11",
+        "expected_input": "2003-10-11, relativedelta(months=+6)"
+    }
+]
+```
+
+该示例代码执行了以下任务：
+
+1. **解析当前日期**：使用`dateutil.parser`模块解析一个字符串（Unix系统命令的输出），将其转换为日期对象。输出结果为"2003-10-11"，即当前日期。
+
+2. **计算下一个8月13日是星期五的年份**：利用`dateutil.rrule`模块，计算下一个8月13日落在星期五的年份。根据当前日期"2003-10-11"，计算结果为"2004"。
+
+3. **计算离下一个复活节的时间差**：使用`dateutil.easter`模块，计算从当前日期到下一个复活节的时间差，输出为"relativedelta(months=+6)"，表示距离下一个复活节还有6个月。
+
+4. **确定下一个复活节的具体日期**：通过将当前日期与前一步计算的时间差相加，确定下一个复活节的具体日期，输出结果为"2004-04-11"。
