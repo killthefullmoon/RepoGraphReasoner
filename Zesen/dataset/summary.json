@@ -1,0 +1,66 @@
+{
+  "total_repos": 10,
+  "successful": 10,
+  "failed": 0,
+  "readme_found": 10,
+  "tasks_generated": 10,
+  "total_tasks": 59,
+  "average_tasks_per_repo": 5.9,
+  "language_distribution": {
+    "Python": 10
+  },
+  "error_types": {},
+  "top_repos": [
+    {
+      "name": "Significant-Gravitas/AutoGPT",
+      "stars": 179320,
+      "description": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters."
+    },
+    {
+      "name": "langflow-ai/langflow",
+      "stars": 136272,
+      "description": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows."
+    },
+    {
+      "name": "yt-dlp/yt-dlp",
+      "stars": 132886,
+      "description": "A feature-rich command-line audio/video downloader"
+    },
+    {
+      "name": "deepseek-ai/DeepSeek-V3",
+      "stars": 100009,
+      "description": null
+    },
+    {
+      "name": "nvbn/thefuck",
+      "stars": 94490,
+      "description": "Magnificent app which corrects your previous console command."
+    },
+    {
+      "name": "pytorch/pytorch",
+      "stars": 94295,
+      "description": "Tensors and Dynamic neural networks in Python with strong GPU acceleration"
+    },
+    {
+      "name": "comfyanonymous/ComfyUI",
+      "stars": 92097,
+      "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface."
+    },
+    {
+      "name": "fastapi/fastapi",
+      "stars": 91238,
+      "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
+    },
+    {
+      "name": "openai/whisper",
+      "stars": 90010,
+      "description": "Robust Speech Recognition via Large-Scale Weak Supervision"
+    },
+    {
+      "name": "microsoft/markitdown",
+      "stars": 82164,
+      "description": "Python tool for converting files and office documents to Markdown."
+    }
+  ],
+  "generated_at": "2025-10-27T21:22:51.114766"
+}

@@ -1,0 +1,42 @@
+{
+  "repo": {
+    "full_name": "fastapi/fastapi",
+    "stars": 91238,
+    "forks": 8128,
+    "language": "Python",
+    "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production",
+    "topics": [
+      "api",
+      "async",
+      "asyncio",
+      "fastapi",
+      "framework",
+      "json",
+      "json-schema",
+      "openapi",
+      "openapi3",
+      "pydantic",
+      "python",
+      "python-types",
+      "python3",
+      "redoc",
+      "rest",
+      "starlette",
+      "swagger",
+      "swagger-ui",
+      "uvicorn",
+      "web"
+    ],
+    "url": "https://github.com/fastapi/fastapi",
+    "created_at": "2018-12-08T08:21:47Z",
+    "updated_at": "2025-10-28T01:10:53Z"
+  },
+  "readme_file": "dataset/readmes/fastapi_fastapi_README.md",
+  "task_file": "dataset/tasks/fastapi_fastapi_tasks.json",
+  "num_tasks": 5,
+  "num_setup_commands": 1,
+  "num_docker_commands": 0,
+  "has_docker_files": false,
+  "docker_files_list": [],
+  "processed_at": "2025-10-27T21:22:01.265292"
+}

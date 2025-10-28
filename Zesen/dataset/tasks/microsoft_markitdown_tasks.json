@@ -1,0 +1,111 @@
+{
+  "tasks": [
+    {
+      "task_title": "Convert PDF to Markdown",
+      "task_description": "将PDF文件转换为Markdown格式的文档。",
+      "example_code": null,
+      "running_command": "markitdown path-to-file.pdf > document.md",
+      "expected_input": "path-to-file.pdf",
+      "expected_output": "document.md内容"
+    },
+    {
+      "task_title": "Convert PDF to Markdown with Output File",
+      "task_description": "将PDF文件转换为Markdown格式并指定输出文件。",
+      "example_code": null,
+      "running_command": "markitdown path-to-file.pdf -o document.md",
+      "expected_input": "path-to-file.pdf",
+      "expected_output": "document.md内容"
+    },
+    {
+      "task_title": "Convert PDF from Standard Input",
+      "task_description": "通过标准输入将PDF文件转换为Markdown格式。",
+      "example_code": null,
+      "running_command": "cat path-to-file.pdf | markitdown",
+      "expected_input": "path-to-file.pdf",
+      "expected_output": "Markdown内容"
+    },
+    {
+      "task_title": "List Available Plugins",
+      "task_description": "列出可用的插件。",
+      "example_code": null,
+      "running_command": "markitdown --list-plugins",
+      "expected_input": null,
+      "expected_output": "可用插件列表"
+    },
+    {
+      "task_title": "Use Plugins for Conversion",
+      "task_description": "使用插件将PDF文件转换为Markdown格式。",
+      "example_code": null,
+      "running_command": "markitdown --use-plugins path-to-file.pdf",
+      "expected_input": "path-to-file.pdf",
+      "expected_output": "Markdown内容"
+    },
+    {
+      "task_title": "Convert PDF with Document Intelligence Endpoint",
+      "task_description": "将PDF文件转换为Markdown格式并使用文档智能端点。",
+      "example_code": null,
+      "running_command": "markitdown path-to-file.pdf -o document.md -d -e \"<document_intelligence_endpoint>\"",
+      "expected_input": "path-to-file.pdf, <document_intelligence_endpoint>",
+      "expected_output": "document.md内容"
+    },
+    {
+      "task_title": "Convert Excel to Markdown without Plugins",
+      "task_description": "将Excel文件转换为Markdown格式，禁用插件。",
+      "example_code": "from markitdown import MarkItDown\n\nmd = MarkItDown(enable_plugins=False)\nresult = md.convert(\"test.xlsx\")\nprint(result.text_content)",
+      "running_command": null,
+      "expected_input": "test.xlsx",
+      "expected_output": "Markdown内容"
+    },
+    {
+      "task_title": "Convert PDF with Document Intelligence Endpoint in Code",
+      "task_description": "将PDF文件转换为Markdown格式并使用文档智能端点。",
+      "example_code": "from markitdown import MarkItDown\n\nmd = MarkItDown(docintel_endpoint=\"<document_intelligence_endpoint>\")\nresult = md.convert(\"test.pdf\")\nprint(result.text_content)",
+      "running_command": null,
+      "expected_input": "test.pdf, <document_intelligence_endpoint>",
+      "expected_output": "Markdown内容"
+    },
+    {
+      "task_title": "Convert Image to Markdown with OpenAI",
+      "task_description": "将图像文件转换为Markdown格式，使用OpenAI的LLM。",
+      "example_code": "from markitdown import MarkItDown\nfrom openai import OpenAI\n\nclient = OpenAI()\nmd = MarkItDown(llm_client=client, llm_model=\"gpt-4o\", llm_prompt=\"optional custom prompt\")\nresult = md.convert(\"example.jpg\")\nprint(result.text_content)",
+      "running_command": null,
+      "expected_input": "example.jpg",
+      "expected_output": "Markdown内容"
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "python -m venv .venv\nsource .venv/bin/activate",
+      "uv venv --python=3.12 .venv\nsource .venv/bin/activate\n# NOTE: Be sure to use 'uv pip install' rather than just 'pip install' to install packages in this virtual environment",
+      "conda create -n markitdown python=3.12\nconda activate markitdown",
+      "git clone git@github.com:microsoft/markitdown.git\ncd markitdown\npip install -e 'packages/markitdown[all]'",
+      "pip install 'markitdown[pdf, docx, pptx]'",
+      "  pip install hatch  # Other ways of installing hatch: https://hatch.pypa.io/dev/install/\n  hatch shell\n  hatch test"
+    ],
+    "docker_commands": [
+      "docker build -t markitdown:latest .\ndocker run --rm -i markitdown:latest < ~/your-file.pdf > output.md"
+    ],
+    "docker_files": {
+      "Dockerfile": "FROM python:3.13-slim-bullseye\n\nENV DEBIAN_FRONTEND=noninteractive\nENV EXIFTOOL_PATH=/usr/bin/exiftool\nENV FFMPEG_PATH=/usr/bin/ffmpeg\n\n# Runtime dependency\nRUN apt-get update && apt-get install -y --no-install-recommends \\\n    ffmpeg \\\n    exiftool\n\nARG INSTALL_GIT=false\nRUN if [ \"$INSTALL_GIT\" = \"true\" ]; then \\\n    apt-get install -y --no-install-recommends \\\n    git; \\\n    fi\n\n# Cleanup\nRUN rm -rf /var/lib/apt/lists/*\n\nWORKDIR /app\nCOPY . /app\nRUN pip --no-cache-dir install \\\n    /app/packages/markitdown[all] \\\n    /app/packages/markitdown-sample-plugin\n\n# Default USERID and GROUPID\nARG USERID=nobody\nARG GROUPID=nogroup\n\nUSER $USERID:$GROUPID\n\nENTRYPOINT [ \"markitdown\" ]\n",
+      ".dockerignore": "*\n!packages/\n"
+    }
+  },
+  "input_to_gpt": {
+    "repo_name": "microsoft/markitdown",
+    "num_code_blocks": 11,
+    "total_length": 978,
+    "code_blocks": [
+      "markitdown path-to-file.pdf > document.md",
+      "markitdown path-to-file.pdf -o document.md",
+      "cat path-to-file.pdf | markitdown",
+      "markitdown --list-plugins",
+      "markitdown --use-plugins path-to-file.pdf",
+      "markitdown path-to-file.pdf -o document.md -d -e \"<document_intelligence_endpoint>\"",
+      "from markitdown import MarkItDown\n\nmd = MarkItDown(enable_plugins=False) # Set to True to enable plugins\nresult = md.convert(\"test.xlsx\")\nprint(result.text_content)",
+      "from markitdown import MarkItDown\n\nmd = MarkItDown(docintel_endpoint=\"<document_intelligence_endpoint>\")\nresult = md.convert(\"test.pdf\")\nprint(result.text_content)",
+      "from markitdown import MarkItDown\nfrom openai import OpenAI\n\nclient = OpenAI()\nmd = MarkItDown(llm_client=client, llm_model=\"gpt-4o\", llm_prompt=\"optional custom prompt\")\nresult = md.convert(\"example.jpg\")\nprint(result.text_content)",
+      "  cd packages/markitdown",
+      "  # Reopen the project in Devcontainer and run:\n  hatch test"
+    ]
+  }
+}

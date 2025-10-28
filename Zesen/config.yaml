@@ -1,0 +1,74 @@
+# GitHub数据集Pipeline配置文件
+
+# API配置
+api:
+  github_token: null  # 从环境变量 GITHUB_TOKEN 获取
+  openai_api_key: null  # 从环境变量 OPENAI_API_KEY 获取
+
+# 搜索配置
+search:
+  default_query: "stars:>1000 language:python"
+  sort_by: "stars"  # stars, forks, updated
+  max_results: 50
+
+# 处理配置
+processing:
+  clone_repos: false  # false=只获取README（推荐）, true=克隆完整仓库
+  parallel: false  # 是否并行处理
+  max_workers: 3  # 并行处理的最大线程数
+  delay_seconds: 2.0  # 请求间隔（秒）
+  timeout: 90  # API超时时间（秒）
+
+# 输出配置
+output:
+  base_dir: "./github_dataset"
+  save_readme: true
+  save_metadata: true
+  save_jsonl: true  # 保存为JSONL格式的数据集
+
+# OpenAI配置
+openai:
+  model: "gpt-4o-mini"
+  max_tokens: 2000
+  temperature: 0.5
+  max_readme_length: 8000  # README最大长度（字符）
+
+# 过滤配置
+filters:
+  min_stars: 100
+  languages: ["Python"]
+  exclude_forks: true
+  exclude_archived: true
+  require_readme: true
+
+# 预设查询集合
+presets:
+  top-python:
+    query: "stars:>5000 language:python"
+    description: "顶级Python项目"
+  
+  ml-libs:
+    query: "stars:>2000 language:python topic:machine-learning"
+    description: "机器学习库"
+  
+  web-frameworks:
+    query: "stars:>1000 language:python topic:web-framework"
+    description: "Web框架"
+  
+  data-science:
+    query: "stars:>1000 language:python topic:data-science"
+    description: "数据科学工具"
+  
+  cli-tools:
+    query: "stars:>500 language:python topic:cli"
+    description: "命令行工具"
+  
+  automation:
+    query: "stars:>500 language:python topic:automation"
+    description: "自动化工具"
+  
+  educational:
+    query: "stars:>500 language:python topic:tutorial OR topic:learning"
+    description: "教育项目"
+
+

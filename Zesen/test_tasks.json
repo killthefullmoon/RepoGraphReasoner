@@ -1,0 +1,23 @@
+[
+  {
+    "task_title": "计算下一个复活节的日期",
+    "task_description": "使用dateutil库中的功能，计算下一个复活节的日期，并输出距离今天有多少时间。",
+    "expected_input": [
+      "from dateutil.relativedelta import *",
+      "from dateutil.easter import *",
+      "from dateutil.rrule import *",
+      "from dateutil.parser import *",
+      "from datetime import *",
+      "now = parse('Sat Oct 11 17:13:46 UTC 2003')",
+      "today = now.date()",
+      "year = rrule(YEARLY, dtstart=now, bymonth=8, bymonthday=13, byweekday=FR)[0].year",
+      "rdelta = relativedelta(easter(year), today)"
+    ],
+    "expected_output": [
+      "Today is: 2003-10-11",
+      "Year with next Aug 13th on a Friday is: 2004",
+      "How far is the Easter of that year: relativedelta(months=+6)",
+      "And the Easter of that year is: 2004-04-11"
+    ]
+  }
+]

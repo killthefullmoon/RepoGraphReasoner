@@ -1,0 +1,82 @@
+[
+  {
+    "repo_name": "Significant-Gravitas/AutoGPT",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 3,
+    "error": null
+  },
+  {
+    "repo_name": "langflow-ai/langflow",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 1,
+    "error": null
+  },
+  {
+    "repo_name": "yt-dlp/yt-dlp",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 12,
+    "error": null
+  },
+  {
+    "repo_name": "deepseek-ai/DeepSeek-V3",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 3,
+    "error": null
+  },
+  {
+    "repo_name": "nvbn/thefuck",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 10,
+    "error": null
+  },
+  {
+    "repo_name": "pytorch/pytorch",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 5,
+    "error": null
+  },
+  {
+    "repo_name": "comfyanonymous/ComfyUI",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 6,
+    "error": null
+  },
+  {
+    "repo_name": "fastapi/fastapi",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 5,
+    "error": null
+  },
+  {
+    "repo_name": "openai/whisper",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 5,
+    "error": null
+  },
+  {
+    "repo_name": "microsoft/markitdown",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 9,
+    "error": null
+  }
+]
