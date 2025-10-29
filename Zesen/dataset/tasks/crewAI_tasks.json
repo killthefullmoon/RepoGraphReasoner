@@ -1,0 +1,37 @@
+{
+  "tasks": [
+    {
+      "task_title": "创建团队",
+      "task_description": "该任务用于创建一个新的团队，指定项目名称。使用了crewAI的CLI命令。",
+      "example_code": null,
+      "running_command": "crewai create crew",
+      "expected_input": "project_name",
+      "expected_output": "团队已创建，项目名称为 project_name"
+    },
+    {
+      "task_title": "创建最新的AI开发团队",
+      "task_description": "该任务用于创建一个名为latest-ai-development的团队，使用了crewAI的CLI命令。",
+      "example_code": null,
+      "running_command": "crewai create crew latest-ai-development",
+      "expected_input": "latest-ai-development",
+      "expected_output": "团队已创建，项目名称为 latest-ai-development"
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "pip install crewai",
+      "pip install 'crewai[tools]'"
+    ],
+    "docker_commands": [],
+    "docker_files": {}
+  },
+  "input_to_gpt": {
+    "repo_name": "crewAIInc/crewAI",
+    "num_code_blocks": 2,
+    "total_length": 80,
+    "code_blocks": [
+      "crewai create crew <project_name>",
+      "crewai create crew latest-ai-development"
+    ]
+  }
+}

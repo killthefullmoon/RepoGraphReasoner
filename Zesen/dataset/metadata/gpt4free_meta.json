@@ -1,0 +1,44 @@
+{
+  "repo": {
+    "full_name": "xtekky/gpt4free",
+    "stars": 65454,
+    "forks": 13718,
+    "language": "Python",
+    "description": "The official gpt4free repository | various collection of powerful language models | o4, o3 and deepseek r1, gpt-4.1, gemini 2.5",
+    "topics": [
+      "chatbot",
+      "chatbots",
+      "chatgpt",
+      "chatgpt-4",
+      "chatgpt-api",
+      "chatgpt-free",
+      "chatgpt4",
+      "deepseek",
+      "deepseek-api",
+      "deepseek-r1",
+      "gpt",
+      "gpt-4",
+      "gpt-4o",
+      "gpt4",
+      "gpt4-api",
+      "language-model",
+      "openai",
+      "openai-api",
+      "openai-chatgpt",
+      "reverse-engineering"
+    ],
+    "url": "https://github.com/xtekky/gpt4free",
+    "created_at": "2023-03-29T17:00:43Z",
+    "updated_at": "2025-10-29T02:15:51Z"
+  },
+  "readme_file": "dataset/readmes/gpt4free_README.md",
+  "task_file": "dataset/tasks/gpt4free_tasks.json",
+  "num_tasks": 6,
+  "num_setup_commands": 3,
+  "num_docker_commands": 3,
+  "has_docker_files": true,
+  "docker_files_list": [
+    "docker-compose.yml"
+  ],
+  "processed_at": "2025-10-28T23:05:40.499100"
+}

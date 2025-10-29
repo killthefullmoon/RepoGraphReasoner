@@ -1,0 +1,38 @@
+{
+  "tasks": [
+    {
+      "task_title": "Launch the GUI server",
+      "task_description": "启动OpenHands的GUI服务器，提供图形用户界面供用户操作。",
+      "example_code": null,
+      "running_command": "uvx --python 3.12 --from openhands-ai openhands serve",
+      "expected_input": null,
+      "expected_output": "GUI server is running"
+    },
+    {
+      "task_title": "Launch the CLI",
+      "task_description": "启动OpenHands的命令行接口，允许用户通过命令行进行操作。",
+      "example_code": null,
+      "running_command": "uvx --python 3.12 --from openhands-ai openhands",
+      "expected_input": null,
+      "expected_output": "CLI is ready for commands"
+    }
+  ],
+  "setup": {
+    "setup_commands": [],
+    "docker_commands": [
+      "docker pull docker.all-hands.dev/all-hands-ai/runtime:0.59-nikolaik\n\ndocker run -it --rm --pull=always \\\n    -e SANDBOX_RUNTIME_CONTAINER_IMAGE=docker.all-hands.dev/all-hands-ai/runtime:0.59-nikolaik \\\n    -e LOG_ALL_EVENTS=true \\\n    -v /var/run/docker.sock:/var/run/docker.sock \\\n    -v ~/.openhands:/.openhands \\\n    -p 3000:3000 \\\n    --add-host host.docker.internal:host-gateway \\\n    --name openhands-app \\\n    docker.all-hands.dev/all-hands-ai/openhands:0.59"
+    ],
+    "docker_files": {
+      "docker-compose.yml": "\nservices:\n  openhands:\n    build:\n      context: ./\n      dockerfile: ./containers/app/Dockerfile\n    image: openhands:latest\n    container_name: openhands-app-${DATE:-}\n    environment:\n      - SANDBOX_RUNTIME_CONTAINER_IMAGE=${SANDBOX_RUNTIME_CONTAINER_IMAGE:-docker.all-hands.dev/openhands/runtime:0.59-nikolaik}\n      #- SANDBOX_USER_ID=${SANDBOX_USER_ID:-1234} # enable this only if you want a specific non-root sandbox user but you will have to manually adjust permissions of ~/.openhands for this user\n      - WORKSPACE_MOUNT_PATH=${WORKSPACE_BASE:-$PWD/workspace}\n    ports:\n      - \"3000:3000\"\n    extra_hosts:\n      - \"host.docker.internal:host-gateway\"\n    volumes:\n      - /var/run/docker.sock:/var/run/docker.sock\n      - ~/.openhands:/.openhands\n      - ${WORKSPACE_BASE:-$PWD/workspace}:/opt/workspace_base\n    pull_policy: build\n    stdin_open: true\n    tty: true\n",
+      ".dockerignore": "# NodeJS\nfrontend/node_modules\n\n# Configuration (except pyproject.toml)\n*.ini\n*.toml\n!pyproject.toml\n*.yml\n\n# Documentation (except README.md)\n*.md\n!README.md\n\n# Hidden files and directories\n.*\n__pycache__\n\n# Unneded files and directories\n/dev_config/\n/docs/\n/evaluation/\n/tests/\nCITATION.cff\n"
+    }
+  },
+  "input_to_gpt": {
+    "repo_name": "OpenHands/OpenHands",
+    "num_code_blocks": 1,
+    "total_length": 146,
+    "code_blocks": [
+      "# Launch the GUI server\nuvx --python 3.12 --from openhands-ai openhands serve\n\n# Or launch the CLI\nuvx --python 3.12 --from openhands-ai openhands"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "repo": {
+    "full_name": "google-research/bert",
+    "stars": 39608,
+    "forks": 9704,
+    "language": "Python",
+    "description": "TensorFlow code and pre-trained models for BERT",
+    "topics": [
+      "google",
+      "natural-language-processing",
+      "natural-language-understanding",
+      "nlp",
+      "tensorflow"
+    ],
+    "url": "https://github.com/google-research/bert",
+    "created_at": "2018-10-25T22:57:34Z",
+    "updated_at": "2025-10-29T00:35:00Z"
+  },
+  "readme_file": "dataset/readmes/bert_README.md",
+  "task_file": "dataset/tasks/bert_tasks.json",
+  "num_tasks": 10,
+  "num_setup_commands": 0,
+  "num_docker_commands": 0,
+  "has_docker_files": false,
+  "docker_files_list": [],
+  "processed_at": "2025-10-28T23:14:54.234560"
+}

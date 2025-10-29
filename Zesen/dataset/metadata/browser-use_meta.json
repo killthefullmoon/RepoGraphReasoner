@@ -1,0 +1,32 @@
+{
+  "repo": {
+    "full_name": "browser-use/browser-use",
+    "stars": 71871,
+    "forks": 8521,
+    "language": "Python",
+    "description": "🌐 Make websites accessible for AI agents. Automate tasks online with ease.",
+    "topics": [
+      "ai-agents",
+      "ai-tools",
+      "browser-automation",
+      "browser-use",
+      "llm",
+      "playwright",
+      "python"
+    ],
+    "url": "https://github.com/browser-use/browser-use",
+    "created_at": "2024-10-31T16:00:56Z",
+    "updated_at": "2025-10-29T02:52:02Z"
+  },
+  "readme_file": "dataset/readmes/browser-use_README.md",
+  "task_file": "dataset/tasks/browser-use_tasks.json",
+  "num_tasks": 8,
+  "num_setup_commands": 0,
+  "num_docker_commands": 0,
+  "has_docker_files": true,
+  "docker_files_list": [
+    "Dockerfile",
+    ".dockerignore"
+  ],
+  "processed_at": "2025-10-28T23:04:47.164475"
+}

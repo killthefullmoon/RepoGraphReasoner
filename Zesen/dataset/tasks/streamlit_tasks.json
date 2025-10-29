@@ -1,0 +1,27 @@
+{
+  "tasks": [
+    {
+      "task_title": "Slider Input and Display Result",
+      "task_description": "这个任务展示了如何使用Streamlit创建一个滑块输入，并计算和显示输入值的平方。",
+      "example_code": "import streamlit as st\nx = st.slider(\"Select a value\")\nst.write(x, \"squared is\", x * x)",
+      "running_command": null,
+      "expected_input": "任意数值（例如：5）",
+      "expected_output": "5 squared is 25"
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "$ pip install streamlit\n$ streamlit hello"
+    ],
+    "docker_commands": [],
+    "docker_files": {}
+  },
+  "input_to_gpt": {
+    "repo_name": "streamlit/streamlit",
+    "num_code_blocks": 1,
+    "total_length": 87,
+    "code_blocks": [
+      "import streamlit as st\nx = st.slider(\"Select a value\")\nst.write(x, \"squared is\", x * x)"
+    ]
+  }
+}

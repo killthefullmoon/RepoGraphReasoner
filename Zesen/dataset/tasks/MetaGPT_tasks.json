@@ -1,0 +1,30 @@
+{
+  "tasks": [
+    {
+      "task_title": "初始化配置",
+      "task_description": "该任务用于初始化MetaGPT的配置文件，生成默认配置文件以供用户修改。",
+      "example_code": null,
+      "running_command": "metagpt --init-config",
+      "expected_input": null,
+      "expected_output": "创建 ~/.metagpt/config2.yaml 文件"
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "pip install --upgrade metagpt\n# or `pip install --upgrade git+https://github.com/geekan/MetaGPT.git`\n# or `git clone https://github.com/geekan/MetaGPT && cd MetaGPT && pip install --upgrade -e .`"
+    ],
+    "docker_commands": [],
+    "docker_files": {
+      "Dockerfile": "# Use a base image with Python3.9 and Nodejs20 slim version\nFROM nikolaik/python-nodejs:python3.9-nodejs20-slim\n\n# Install Debian software needed by MetaGPT and clean up in one RUN command to reduce image size\nRUN apt update &&\\\n    apt install -y libgomp1 git chromium fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst fonts-freefont-ttf libxss1 --no-install-recommends file &&\\\n    apt clean && rm -rf /var/lib/apt/lists/*\n\n# Install Mermaid CLI globally\nENV CHROME_BIN=\"/usr/bin/chromium\" \\\n    puppeteer_config=\"/app/metagpt/config/puppeteer-config.json\"\\\n    PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=\"true\"\nRUN npm install -g @mermaid-js/mermaid-cli &&\\\n    npm cache clean --force\n\n# Install Python dependencies and install MetaGPT\nCOPY . /app/metagpt\nWORKDIR /app/metagpt\nRUN mkdir workspace &&\\\n    pip install --no-cache-dir -r requirements.txt &&\\\n    pip install -e .\n\n# Running with an infinite loop using the tail command\nCMD [\"sh\", \"-c\", \"tail -f /dev/null\"]\n\n",
+      ".dockerignore": "workspace\ntmp\nbuild\ndist\ndata\ngeckodriver.log\n"
+    }
+  },
+  "input_to_gpt": {
+    "repo_name": "FoundationAgents/MetaGPT",
+    "num_code_blocks": 1,
+    "total_length": 190,
+    "code_blocks": [
+      "# Check https://docs.deepwisdom.ai/main/en/guide/get_started/configuration.html for more details\nmetagpt --init-config  # it will create ~/.metagpt/config2.yaml, just modify it to your needs"
+    ]
+  }
+}

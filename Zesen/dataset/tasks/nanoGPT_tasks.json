@@ -1,0 +1,123 @@
+{
+  "tasks": [
+    {
+      "task_title": "Prepare Shakespeare Character Dataset",
+      "task_description": "准备莎士比亚字符数据集以供训练使用。",
+      "example_code": null,
+      "running_command": "python data/shakespeare_char/prepare.py",
+      "expected_input": null,
+      "expected_output": "Data preparation complete."
+    },
+    {
+      "task_title": "Train Shakespeare Character Model",
+      "task_description": "训练莎士比亚字符模型，使用指定的配置文件。",
+      "example_code": null,
+      "running_command": "python train.py config/train_shakespeare_char.py",
+      "expected_input": null,
+      "expected_output": "Training complete."
+    },
+    {
+      "task_title": "Sample from Trained Shakespeare Character Model",
+      "task_description": "从训练好的莎士比亚字符模型中生成文本样本。",
+      "example_code": null,
+      "running_command": "python sample.py --out_dir=out-shakespeare-char",
+      "expected_input": null,
+      "expected_output": "Generated samples saved in out-shakespeare-char."
+    },
+    {
+      "task_title": "Train Shakespeare Character Model with Parameters",
+      "task_description": "使用更多参数训练莎士比亚字符模型。",
+      "example_code": null,
+      "running_command": "python train.py config/train_shakespeare_char.py --device=cpu --compile=False --eval_iters=20 --log_interval=1 --block_size=64 --batch_size=12 --n_layer=4 --n_head=4 --n_embd=128 --max_iters=2000 --lr_decay_iters=2000 --dropout=0.0",
+      "expected_input": null,
+      "expected_output": "Training complete."
+    },
+    {
+      "task_title": "Sample from Trained Shakespeare Character Model on CPU",
+      "task_description": "在CPU上从训练好的莎士比亚字符模型中生成文本样本。",
+      "example_code": null,
+      "running_command": "python sample.py --out_dir=out-shakespeare-char --device=cpu",
+      "expected_input": null,
+      "expected_output": "Generated samples saved in out-shakespeare-char."
+    },
+    {
+      "task_title": "Prepare OpenWebText Dataset",
+      "task_description": "准备OpenWebText数据集以供训练使用。",
+      "example_code": null,
+      "running_command": "python data/openwebtext/prepare.py",
+      "expected_input": null,
+      "expected_output": "Data preparation complete."
+    },
+    {
+      "task_title": "Train GPT-2 Model with Distributed Training",
+      "task_description": "使用分布式训练训练GPT-2模型。",
+      "example_code": null,
+      "running_command": "torchrun --standalone --nproc_per_node=8 train.py config/train_gpt2.py",
+      "expected_input": null,
+      "expected_output": "Distributed training complete."
+    },
+    {
+      "task_title": "Distributed Training on Master Node",
+      "task_description": "在主节点上运行分布式训练。",
+      "example_code": null,
+      "running_command": "torchrun --nproc_per_node=8 --nnodes=2 --node_rank=0 --master_addr=123.456.123.456 --master_port=1234 train.py",
+      "expected_input": null,
+      "expected_output": "Distributed training complete."
+    },
+    {
+      "task_title": "Distributed Training on Worker Node",
+      "task_description": "在工作节点上运行分布式训练。",
+      "example_code": null,
+      "running_command": "torchrun --nproc_per_node=8 --nnodes=2 --node_rank=1 --master_addr=123.456.123.456 --master_port=1234 train.py",
+      "expected_input": null,
+      "expected_output": "Distributed training complete."
+    },
+    {
+      "task_title": "Evaluate GPT-2 Model",
+      "task_description": "评估不同配置的GPT-2模型。",
+      "example_code": null,
+      "running_command": "$ python train.py config/eval_gpt2.py",
+      "expected_input": null,
+      "expected_output": "Evaluation complete."
+    },
+    {
+      "task_title": "Fine-tune Shakespeare Model",
+      "task_description": "对莎士比亚模型进行微调。",
+      "example_code": null,
+      "running_command": "python train.py config/finetune_shakespeare.py",
+      "expected_input": null,
+      "expected_output": "Fine-tuning complete."
+    },
+    {
+      "task_title": "Sample from Fine-tuned GPT-2 Model",
+      "task_description": "从微调后的GPT-2模型中生成文本样本，带有初始化文本和样本数量的参数。",
+      "example_code": null,
+      "running_command": "python sample.py --init_from=gpt2-xl --start=\"What is the answer to life, the universe, and everything?\" --num_samples=5 --max_new_tokens=100",
+      "expected_input": "What is the answer to life, the universe, and everything?",
+      "expected_output": "Generated samples based on the input."
+    }
+  ],
+  "setup": {
+    "setup_commands": [],
+    "docker_commands": [],
+    "docker_files": {}
+  },
+  "input_to_gpt": {
+    "repo_name": "karpathy/nanoGPT",
+    "num_code_blocks": 11,
+    "total_length": 1284,
+    "code_blocks": [
+      "python data/shakespeare_char/prepare.py",
+      "python train.py config/train_shakespeare_char.py",
+      "python sample.py --out_dir=out-shakespeare-char",
+      "python train.py config/train_shakespeare_char.py --device=cpu --compile=False --eval_iters=20 --log_interval=1 --block_size=64 --batch_size=12 --n_layer=4 --n_head=4 --n_embd=128 --max_iters=2000 --lr_decay_iters=2000 --dropout=0.0",
+      "python sample.py --out_dir=out-shakespeare-char --device=cpu",
+      "python data/openwebtext/prepare.py",
+      "torchrun --standalone --nproc_per_node=8 train.py config/train_gpt2.py",
+      "# Run on the first (master) node with example IP 123.456.123.456:\ntorchrun --nproc_per_node=8 --nnodes=2 --node_rank=0 --master_addr=123.456.123.456 --master_port=1234 train.py\n# Run on the worker node:\ntorchrun --nproc_per_node=8 --nnodes=2 --node_rank=1 --master_addr=123.456.123.456 --master_port=1234 train.py",
+      "$ python train.py config/eval_gpt2.py\n$ python train.py config/eval_gpt2_medium.py\n$ python train.py config/eval_gpt2_large.py\n$ python train.py config/eval_gpt2_xl.py",
+      "python train.py config/finetune_shakespeare.py",
+      "python sample.py \\\n    --init_from=gpt2-xl \\\n    --start=\"What is the answer to life, the universe, and everything?\" \\\n    --num_samples=5 --max_new_tokens=100"
+    ]
+  }
+}

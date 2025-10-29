@@ -1,0 +1,25 @@
+{
+  "tasks": [
+    {
+      "task_title": "FP8权重转换为BF16格式",
+      "task_description": "该任务用于将FP8格式的权重文件转换为BF16格式，使用了Python脚本进行处理。",
+      "example_code": null,
+      "running_command": "python fp8_cast_bf16.py --input-fp8-hf-path /path/to/fp8_weights --output-bf16-hf-path /path/to/bf16_weights",
+      "expected_input": "/path/to/fp8_weights, /path/to/bf16_weights",
+      "expected_output": "转换完成，BF16权重文件已生成"
+    }
+  ],
+  "setup": {
+    "setup_commands": [],
+    "docker_commands": [],
+    "docker_files": {}
+  },
+  "input_to_gpt": {
+    "repo_name": "deepseek-ai/DeepSeek-V3",
+    "num_code_blocks": 1,
+    "total_length": 121,
+    "code_blocks": [
+      "cd inference\npython fp8_cast_bf16.py --input-fp8-hf-path /path/to/fp8_weights --output-bf16-hf-path /path/to/bf16_weights"
+    ]
+  }
+}

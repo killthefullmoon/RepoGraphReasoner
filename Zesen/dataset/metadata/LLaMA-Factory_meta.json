@@ -1,0 +1,44 @@
+{
+  "repo": {
+    "full_name": "hiyouga/LLaMA-Factory",
+    "stars": 61011,
+    "forks": 7377,
+    "language": "Python",
+    "description": "Unified Efficient Fine-Tuning of 100+ LLMs & VLMs (ACL 2024)",
+    "topics": [
+      "agent",
+      "ai",
+      "deepseek",
+      "fine-tuning",
+      "gemma",
+      "gpt",
+      "instruction-tuning",
+      "large-language-models",
+      "llama",
+      "llama3",
+      "llm",
+      "lora",
+      "moe",
+      "nlp",
+      "peft",
+      "qlora",
+      "quantization",
+      "qwen",
+      "rlhf",
+      "transformers"
+    ],
+    "url": "https://github.com/hiyouga/LLaMA-Factory",
+    "created_at": "2023-05-28T10:09:12Z",
+    "updated_at": "2025-10-29T02:55:32Z"
+  },
+  "readme_file": "dataset/readmes/LLaMA-Factory_README.md",
+  "task_file": "dataset/tasks/LLaMA-Factory_tasks.json",
+  "num_tasks": 12,
+  "num_setup_commands": 7,
+  "num_docker_commands": 4,
+  "has_docker_files": true,
+  "docker_files_list": [
+    ".dockerignore"
+  ],
+  "processed_at": "2025-10-28T23:06:49.635764"
+}

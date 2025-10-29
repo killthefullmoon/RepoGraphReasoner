@@ -1,0 +1,146 @@
+{
+  "tasks": [
+    {
+      "task_title": "打印带样式的文本",
+      "task_description": "使用Rich库的print功能打印带有样式的文本。",
+      "example_code": "from rich import print\n\nprint(\"Hello, [bold magenta]World[/bold magenta]!\")",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "Hello, World! (with 'World' in bold magenta)"
+    },
+    {
+      "task_title": "安装Pretty打印",
+      "task_description": "使用Pretty模块安装Rich的Pretty打印功能。",
+      "example_code": "from rich import pretty\npretty.install()",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "创建控制台对象",
+      "task_description": "创建一个Rich控制台对象以用于打印。",
+      "example_code": "from rich.console import Console\n\nconsole = Console()",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "打印多个文本",
+      "task_description": "使用控制台对象打印多个文本。",
+      "example_code": "console.print(\"Hello\", \"World!\")",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "Hello World!"
+    },
+    {
+      "task_title": "打印带样式的文本",
+      "task_description": "使用控制台对象打印带样式的文本。",
+      "example_code": "console.print(\"Hello\", \"World!\", style=\"bold red\")",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "Hello World! (with 'Hello' in bold red)"
+    },
+    {
+      "task_title": "打印带格式的文本",
+      "task_description": "使用控制台对象打印带有多种样式的文本。",
+      "example_code": "console.print(\"Where there is a [bold cyan]Will[/bold cyan] there [u]is[/u] a [i]way[/i].\")",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "Where there is a Will there is a way. (with styles applied)"
+    },
+    {
+      "task_title": "检查对象的属性和方法",
+      "task_description": "使用inspect功能检查列表对象的属性和方法。",
+      "example_code": "my_list = [\"foo\", \"bar\"]\nfrom rich import inspect\ninspect(my_list, methods=True)",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "Display of the 'my_list' object's attributes and methods."
+    },
+    {
+      "task_title": "记录信息",
+      "task_description": "使用控制台对象记录信息和本地变量。",
+      "example_code": "console.log(test_data, log_locals=True)",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "Log output of test_data with local variables."
+    },
+    {
+      "task_title": "打印表格",
+      "task_description": "使用Rich库打印格式化的表格。",
+      "example_code": "from rich.table import Table\n\n...\ntable.add_row(...)\nconsole.print(table)",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "Formatted table displaying movie data."
+    },
+    {
+      "task_title": "跟踪进度",
+      "task_description": "使用track功能显示进度条。",
+      "example_code": "from rich.progress import track\n\nfor step in track(range(100)):\n    do_step(step)",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "Progress bar indicating completion of steps."
+    },
+    {
+      "task_title": "显示任务状态",
+      "task_description": "使用状态上下文显示任务进展。",
+      "example_code": "with console.status(\"[bold green]Working on tasks...\") as status:\n    ...\n    console.log(f\"{task} complete\")",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "Log messages indicating task completion."
+    },
+    {
+      "task_title": "打印目录内容",
+      "task_description": "打印指定目录的文件列表。",
+      "example_code": "directory = os.listdir(sys.argv[1])\nprint(Columns(directory))",
+      "running_command": null,
+      "expected_input": "Directory path",
+      "expected_output": "Formatted list of files in the specified directory."
+    },
+    {
+      "task_title": "打印Markdown内容",
+      "task_description": "读取并打印Markdown文件内容。",
+      "example_code": "with open(\"README.md\") as readme:\n    markdown = Markdown(readme.read())\nconsole.print(markdown)",
+      "running_command": null,
+      "expected_input": "README.md file",
+      "expected_output": "Formatted Markdown content from the README file."
+    },
+    {
+      "task_title": "打印代码语法高亮",
+      "task_description": "使用Syntax功能打印带语法高亮的代码片段。",
+      "example_code": "syntax = Syntax(my_code, \"python\", theme=\"monokai\", line_numbers=True)\nconsole.print(syntax)",
+      "running_command": null,
+      "expected_input": "Python code string",
+      "expected_output": "Formatted code with syntax highlighting."
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "python -m pip install rich"
+    ],
+    "docker_commands": [],
+    "docker_files": {}
+  },
+  "input_to_gpt": {
+    "repo_name": "Textualize/rich",
+    "num_code_blocks": 16,
+    "total_length": 3252,
+    "code_blocks": [
+      "python -m rich",
+      "from rich import print\n\nprint(\"Hello, [bold magenta]World[/bold magenta]!\", \":vampire:\", locals())",
+      ">>> from rich import pretty\n>>> pretty.install()",
+      "from rich.console import Console\n\nconsole = Console()",
+      "console.print(\"Hello\", \"World!\")",
+      "console.print(\"Hello\", \"World!\", style=\"bold red\")",
+      "console.print(\"Where there is a [bold cyan]Will[/bold cyan] there [u]is[/u] a [i]way[/i].\")",
+      ">>> my_list = [\"foo\", \"bar\"]\n>>> from rich import inspect\n>>> inspect(my_list, methods=True)",
+      "from rich.console import Console\nconsole = Console()\n\ntest_data = [\n    {\"jsonrpc\": \"2.0\", \"method\": \"sum\", \"params\": [None, 1, 2, 4, False, True], \"id\": \"1\",},\n    {\"jsonrpc\": \"2.0\", \"method\": \"notify_hello\", \"params\": [7]},\n    {\"jsonrpc\": \"2.0\", \"method\": \"subtract\", \"params\": [42, 23], \"id\": \"2\"},\n]\n\ndef test_log():\n    enabled = False\n    context = {\n        \"foo\": \"bar\",\n    }\n    movies = [\"Deadpool\", \"Rise of the Skywalker\"]\n    console.log(\"Hello from\", console, \"!\")\n    console.log(test_data, log_locals=True)\n\n\ntest_log()",
+      ">>> console.print(\":smiley: :vampire: :pile_of_poo: :thumbs_up: :raccoon:\")\n😃 🧛 💩 👍 🦝",
+      "from rich.console import Console\nfrom rich.table import Table\n\nconsole = Console()\n\ntable = Table(show_header=True, header_style=\"bold magenta\")\ntable.add_column(\"Date\", style=\"dim\", width=12)\ntable.add_column(\"Title\")\ntable.add_column(\"Production Budget\", justify=\"right\")\ntable.add_column(\"Box Office\", justify=\"right\")\ntable.add_row(\n    \"Dec 20, 2019\", \"Star Wars: The Rise of Skywalker\", \"$275,000,000\", \"$375,126,118\"\n)\ntable.add_row(\n    \"May 25, 2018\",\n    \"[red]Solo[/red]: A Star Wars Story\",\n    \"$275,000,000\",\n    \"$393,151,347\",\n)\ntable.add_row(\n    \"Dec 15, 2017\",\n    \"Star Wars Ep. VIII: The Last Jedi\",\n    \"$262,000,000\",\n    \"[bold]$1,332,539,889[/bold]\",\n)\n\nconsole.print(table)",
+      "from rich.progress import track\n\nfor step in track(range(100)):\n    do_step(step)",
+      "from time import sleep\nfrom rich.console import Console\n\nconsole = Console()\ntasks = [f\"task {n}\" for n in range(1, 11)]\n\nwith console.status(\"[bold green]Working on tasks...\") as status:\n    while tasks:\n        task = tasks.pop(0)\n        sleep(1)\n        console.log(f\"{task} complete\")",
+      "import os\nimport sys\n\nfrom rich import print\nfrom rich.columns import Columns\n\ndirectory = os.listdir(sys.argv[1])\nprint(Columns(directory))",
+      "from rich.console import Console\nfrom rich.markdown import Markdown\n\nconsole = Console()\nwith open(\"README.md\") as readme:\n    markdown = Markdown(readme.read())\nconsole.print(markdown)",
+      "from rich.console import Console\nfrom rich.syntax import Syntax\n\nmy_code = '''\ndef iter_first_last(values: Iterable[T]) -> Iterable[Tuple[bool, bool, T]]:\n    \"\"\"Iterate and generate a tuple with a flag for first and last value.\"\"\"\n    iter_values = iter(values)\n    try:\n        previous_value = next(iter_values)\n    except StopIteration:\n        return\n    first = True\n    for value in iter_values:\n        yield first, False, previous_value\n        first = False\n        previous_value = value\n    yield first, True, previous_value\n'''\nsyntax = Syntax(my_code, \"python\", theme=\"monokai\", line_numbers=True)\nconsole = Console()\nconsole.print(syntax)"
+    ]
+  }
+}

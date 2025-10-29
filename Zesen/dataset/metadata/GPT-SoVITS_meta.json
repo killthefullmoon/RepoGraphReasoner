@@ -1,0 +1,32 @@
+{
+  "repo": {
+    "full_name": "RVC-Boss/GPT-SoVITS",
+    "stars": 51888,
+    "forks": 5683,
+    "language": "Python",
+    "description": "1 min voice data can also be used to train a good TTS model! (few shot voice cloning)",
+    "topics": [
+      "text-to-speech",
+      "tts",
+      "vits",
+      "voice-clone",
+      "voice-cloneai",
+      "voice-cloning"
+    ],
+    "url": "https://github.com/RVC-Boss/GPT-SoVITS",
+    "created_at": "2024-01-14T18:05:21Z",
+    "updated_at": "2025-10-29T02:18:05Z"
+  },
+  "readme_file": "dataset/readmes/GPT-SoVITS_README.md",
+  "task_file": "dataset/tasks/GPT-SoVITS_tasks.json",
+  "num_tasks": 3,
+  "num_setup_commands": 0,
+  "num_docker_commands": 0,
+  "has_docker_files": true,
+  "docker_files_list": [
+    "Dockerfile",
+    "docker-compose.yaml",
+    ".dockerignore"
+  ],
+  "processed_at": "2025-10-28T23:09:48.280752"
+}

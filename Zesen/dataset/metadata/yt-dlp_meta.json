@@ -1,0 +1,29 @@
+{
+  "repo": {
+    "full_name": "yt-dlp/yt-dlp",
+    "stars": 133008,
+    "forks": 10679,
+    "language": "Python",
+    "description": "A feature-rich command-line audio/video downloader",
+    "topics": [
+      "cli",
+      "downloader",
+      "python",
+      "sponsorblock",
+      "youtube-dl",
+      "youtube-downloader",
+      "yt-dlp"
+    ],
+    "url": "https://github.com/yt-dlp/yt-dlp",
+    "created_at": "2020-10-26T04:22:55Z",
+    "updated_at": "2025-10-29T02:23:01Z"
+  },
+  "readme_file": "dataset/readmes/yt-dlp_README.md",
+  "task_file": "dataset/tasks/yt-dlp_tasks.json",
+  "num_tasks": 10,
+  "num_setup_commands": 0,
+  "num_docker_commands": 0,
+  "has_docker_files": false,
+  "docker_files_list": [],
+  "processed_at": "2025-10-28T23:01:55.994892"
+}

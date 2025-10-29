@@ -1,0 +1,150 @@
+{
+  "tasks": [
+    {
+      "task_title": "获取视频文件名",
+      "task_description": "使用youtube-dl获取视频的文件名，支持特殊字符。",
+      "example_code": null,
+      "running_command": "youtube-dl --get-filename -o '%(title)s.%(ext)s' BaW_jenozKc",
+      "expected_input": "BaW_jenozKc",
+      "expected_output": "youtube-dl test video ''_ä↭𝕐.mp4"
+    },
+    {
+      "task_title": "获取简化文件名",
+      "task_description": "使用youtube-dl获取视频的文件名，限制文件名中的字符。",
+      "example_code": null,
+      "running_command": "youtube-dl --get-filename -o '%(title)s.%(ext)s' BaW_jenozKc --restrict-filenames",
+      "expected_input": "BaW_jenozKc",
+      "expected_output": "youtube-dl_test_video_.mp4"
+    },
+    {
+      "task_title": "下载YouTube播放列表",
+      "task_description": "下载YouTube播放列表中的视频，并按视频顺序保存在不同目录中。",
+      "example_code": null,
+      "running_command": "youtube-dl -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' https://www.youtube.com/playlist?list=PLwiyx1dc3P2JR9N8gQaQN_BCvlSlap7re",
+      "expected_input": "https://www.youtube.com/playlist?list=PLwiyx1dc3P2JR9N8gQaQN_BCvlSlap7re",
+      "expected_output": "下载的播放列表视频"
+    },
+    {
+      "task_title": "下载YouTube频道的所有播放列表",
+      "task_description": "下载YouTube频道/用户的所有播放列表，并将每个播放列表保存在不同目录中。",
+      "example_code": null,
+      "running_command": "youtube-dl -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' https://www.youtube.com/user/TheLinuxFoundation/playlists",
+      "expected_input": "https://www.youtube.com/user/TheLinuxFoundation/playlists",
+      "expected_output": "下载的频道播放列表视频"
+    },
+    {
+      "task_title": "下载Udemy课程",
+      "task_description": "下载Udemy课程，按章节保存在指定目录中。",
+      "example_code": null,
+      "running_command": "youtube-dl -u user -p password -o '~/MyVideos/%(playlist)s/%(chapter_number)s - %(chapter)s/%(title)s.%(ext)s' https://www.udemy.com/java-tutorial/",
+      "expected_input": "https://www.udemy.com/java-tutorial/",
+      "expected_output": "下载的Udemy课程视频"
+    },
+    {
+      "task_title": "下载整部剧集",
+      "task_description": "下载整部剧集，按系列和季节保存在指定目录中。",
+      "example_code": null,
+      "running_command": "youtube-dl -o 'C:/MyVideos/%(series)s/%(season_number)s - %(season)s/%(episode_number)s - %(episode)s.%(ext)s' https://videomore.ru/kino_v_detalayah/5_sezon/367617",
+      "expected_input": "https://videomore.ru/kino_v_detalayah/5_sezon/367617",
+      "expected_output": "下载的剧集视频"
+    },
+    {
+      "task_title": "流式下载视频",
+      "task_description": "将正在下载的视频流式传输到标准输出。",
+      "example_code": null,
+      "running_command": "youtube-dl -o - BaW_jenozKc",
+      "expected_input": "BaW_jenozKc",
+      "expected_output": "视频流数据"
+    },
+    {
+      "task_title": "下载最佳mp4格式",
+      "task_description": "下载可用的最佳mp4格式，或如果没有mp4可用则下载其他最佳格式。",
+      "example_code": null,
+      "running_command": "youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'",
+      "expected_input": null,
+      "expected_output": "下载的最佳mp4格式视频"
+    },
+    {
+      "task_title": "下载不超过480p的最佳格式",
+      "task_description": "下载最佳格式，但不超过480p。",
+      "example_code": null,
+      "running_command": "youtube-dl -f 'bestvideo[height<=480]+bestaudio/best[height<=480]'",
+      "expected_input": null,
+      "expected_output": "下载的不超过480p的视频"
+    },
+    {
+      "task_title": "下载最大50MB的视频",
+      "task_description": "下载最佳视频格式，但不大于50 MB。",
+      "example_code": null,
+      "running_command": "youtube-dl -f 'best[filesize<50M]'",
+      "expected_input": null,
+      "expected_output": "下载的最大50MB的视频"
+    },
+    {
+      "task_title": "通过HTTP/HTTPS协议下载最佳格式",
+      "task_description": "通过HTTP/HTTPS协议下载最佳格式。",
+      "example_code": null,
+      "running_command": "youtube-dl -f '(bestvideo+bestaudio/best)[protocol^=http]'",
+      "expected_input": null,
+      "expected_output": "下载的最佳格式视频"
+    },
+    {
+      "task_title": "下载最佳视频和音频格式",
+      "task_description": "下载最佳视频格式和最佳音频格式，但不合并。",
+      "example_code": null,
+      "running_command": "youtube-dl -f 'bestvideo,bestaudio' -o '%(title)s.f%(format_id)s.%(ext)s'",
+      "expected_input": null,
+      "expected_output": "下载的最佳视频和音频格式"
+    },
+    {
+      "task_title": "下载最近6个月上传的视频",
+      "task_description": "仅下载最近6个月内上传的视频。",
+      "example_code": null,
+      "running_command": "youtube-dl --dateafter now-6months",
+      "expected_input": null,
+      "expected_output": "下载的最近6个月上传的视频"
+    },
+    {
+      "task_title": "下载特定日期上传的视频",
+      "task_description": "仅下载在1970年1月1日上传的视频。",
+      "example_code": null,
+      "running_command": "youtube-dl --date 19700101",
+      "expected_input": null,
+      "expected_output": "下载的在特定日期上传的视频"
+    },
+    {
+      "task_title": "下载特定十年上传的视频",
+      "task_description": "仅下载在2000年代上传的视频。",
+      "example_code": null,
+      "running_command": "youtube-dl --dateafter 20000101 --datebefore 20091231",
+      "expected_input": null,
+      "expected_output": "下载的在特定十年上传的视频"
+    }
+  ],
+  "setup": {
+    "setup_commands": [],
+    "docker_commands": [],
+    "docker_files": {}
+  },
+  "input_to_gpt": {
+    "repo_name": "ytdl-org/youtube-dl",
+    "num_code_blocks": 14,
+    "total_length": 4481,
+    "code_blocks": [
+      "$ youtube-dl --get-filename -o '%(title)s.%(ext)s' BaW_jenozKc\nyoutube-dl test video ''_ä↭𝕐.mp4    # All kinds of weird characters\n\n$ youtube-dl --get-filename -o '%(title)s.%(ext)s' BaW_jenozKc --restrict-filenames\nyoutube-dl_test_video_.mp4          # A simple file name\n\n# Download YouTube playlist videos in separate directory indexed by video order in a playlist\n$ youtube-dl -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' https://www.youtube.com/playlist?list=PLwiyx1dc3P2JR9N8gQaQN_BCvlSlap7re\n\n# Download all playlists of YouTube channel/user keeping each playlist in separate directory:\n$ youtube-dl -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' https://www.youtube.com/user/TheLinuxFoundation/playlists\n\n# Download Udemy course keeping each chapter in separate directory under MyVideos directory in your home\n$ youtube-dl -u user -p password -o '~/MyVideos/%(playlist)s/%(chapter_number)s - %(chapter)s/%(title)s.%(ext)s' https://www.udemy.com/java-tutorial/\n\n# Download entire series season keeping each series and each season in separate directory under C:/MyVideos\n$ youtube-dl -o \"C:/MyVideos/%(series)s/%(season_number)s - %(season)s/%(episode_number)s - %(episode)s.%(ext)s\" https://videomore.ru/kino_v_detalayah/5_sezon/367617\n\n# Stream the video being downloaded to stdout\n$ youtube-dl -o - BaW_jenozKc",
+      "# Download best mp4 format available or any other best if no mp4 available\n$ youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'\n\n# Download best format available but no better than 480p\n$ youtube-dl -f 'bestvideo[height<=480]+bestaudio/best[height<=480]'\n\n# Download best video only format but no bigger than 50 MB\n$ youtube-dl -f 'best[filesize<50M]'\n\n# Download best format available via direct link over HTTP/HTTPS protocol\n$ youtube-dl -f '(bestvideo+bestaudio/best)[protocol^=http]'\n\n# Download the best video format and the best audio format without merging them\n$ youtube-dl -f 'bestvideo,bestaudio' -o '%(title)s.f%(format_id)s.%(ext)s'",
+      "# Download only the videos uploaded in the last 6 months\n$ youtube-dl --dateafter now-6months\n\n# Download only the videos uploaded on January 1, 1970\n$ youtube-dl --date 19700101\n\n$ # Download only the videos uploaded in the 200x decade\n$ youtube-dl --dateafter 20000101 --datebefore 20091231",
+      "    # coding: utf-8\n    from __future__ import unicode_literals\n\n    from .common import InfoExtractor\n\n\n    class YourExtractorIE(InfoExtractor):\n        _VALID_URL = r'https?://(?:www\\.)?yourextractor\\.com/watch/(?P<id>[0-9]+)'\n        _TEST = {\n            'url': 'https://yourextractor.com/watch/42',\n            'md5': 'TODO: md5 sum of the first 10241 bytes of the video file (use --test)',\n            'info_dict': {\n                'id': '42',\n                'ext': 'mp4',\n                'title': 'Video title goes here',\n                'thumbnail': r're:^https?://.*\\.jpg$',\n                # TODO more properties, either as:\n                # * A value\n                # * MD5 checksum; start the string with md5:\n                # * A regular expression; start the string with re:\n                # * Any Python type (for example int or float)\n            }\n        }\n\n        def _real_extract(self, url):\n            video_id = self._match_id(url)\n            webpage = self._download_webpage(url, video_id)\n\n            # TODO more code goes here, for example ...\n            title = self._html_search_regex(r'<h1>(.+?)</h1>', webpage, 'title')\n\n            return {\n                'id': video_id,\n                'title': title,\n                'description': self._og_search_description(webpage),\n                'uploader': self._search_regex(r'<div[^>]+id=\"uploader\"[^>]*>([^<]+)<', webpage, 'uploader', fatal=False),\n                # TODO more properties (see youtube_dl/extractor/common.py)\n            }",
+      "meta = self._download_json(url, video_id)",
+      "{\n    ...\n    \"summary\": \"some fancy summary text\",\n    ...\n}",
+      "description = meta.get('summary')  # correct",
+      "description = meta['summary']  # incorrect",
+      "description = self._search_regex(\n    r'<span[^>]+id=\"title\"[^>]*>([^<]+)<',\n    webpage, 'description', fatal=False)",
+      "description = self._search_regex(\n    r'<span[^>]+id=\"title\"[^>]*>([^<]+)<',\n    webpage, 'description', default=None)",
+      "title = meta['title']",
+      "title = meta.get('title') or self._og_search_title(webpage)",
+      "r'(?:id|ID)=(?P<id>\\d+)'",
+      "r'(id|ID)=(?P<id>\\d+)'"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "repo": {
+    "full_name": "mem0ai/mem0",
+    "stars": 41956,
+    "forks": 4510,
+    "language": "Python",
+    "description": "Universal memory layer for AI Agents; Announcing OpenMemory MCP - local and secure memory management.",
+    "topics": [
+      "agents",
+      "ai",
+      "ai-agents",
+      "application",
+      "chatbots",
+      "chatgpt",
+      "genai",
+      "hacktoberfest",
+      "llm",
+      "long-term-memory",
+      "memory",
+      "memory-management",
+      "python",
+      "rag",
+      "state-management"
+    ],
+    "url": "https://github.com/mem0ai/mem0",
+    "created_at": "2023-06-20T08:58:36Z",
+    "updated_at": "2025-10-29T03:07:01Z"
+  },
+  "readme_file": "dataset/readmes/mem0_README.md",
+  "task_file": "dataset/tasks/mem0_tasks.json",
+  "num_tasks": 1,
+  "num_setup_commands": 2,
+  "num_docker_commands": 0,
+  "has_docker_files": false,
+  "docker_files_list": [],
+  "processed_at": "2025-10-28T23:13:06.706934"
+}

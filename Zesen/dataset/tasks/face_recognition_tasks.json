@@ -1,0 +1,82 @@
+{
+  "tasks": [
+    {
+      "task_title": "获取人脸位置",
+      "task_description": "加载图像并获取图像中所有人脸的位置坐标。",
+      "example_code": "import face_recognition\nimage = face_recognition.load_image_file(\"my_picture.jpg\")\nface_locations = face_recognition.face_locations(image)",
+      "running_command": null,
+      "expected_input": "my_picture.jpg",
+      "expected_output": "[[top, right, bottom, left], ...]"
+    },
+    {
+      "task_title": "获取人脸特征点",
+      "task_description": "加载图像并获取图像中所有人脸的特征点位置。",
+      "example_code": "import face_recognition\nimage = face_recognition.load_image_file(\"my_picture.jpg\")\nface_landmarks_list = face_recognition.face_landmarks(image)",
+      "running_command": null,
+      "expected_input": "my_picture.jpg",
+      "expected_output": "[{'left_eye': [(x, y), ...], ...}, ...]"
+    },
+    {
+      "task_title": "人脸编码",
+      "task_description": "加载已知和未知图像，生成其人脸编码以进行比较。",
+      "example_code": "import face_recognition\nknown_image = face_recognition.load_image_file(\"biden.jpg\")\nunknown_image = face_recognition.load_image_file(\"unknown.jpg\")\nbiden_encoding = face_recognition.face_encodings(known_image)[0]\nunknown_encoding = face_recognition.face_encodings(unknown_image)[0]\nresults = face_recognition.compare_faces([biden_encoding], unknown_encoding)",
+      "running_command": null,
+      "expected_input": "biden.jpg, unknown.jpg",
+      "expected_output": "[True/False]"
+    },
+    {
+      "task_title": "批量人脸识别",
+      "task_description": "使用命令行工具进行批量人脸识别，识别已知和未知图像中的人脸。",
+      "example_code": null,
+      "running_command": "face_recognition ./pictures_of_people_i_know/ ./unknown_pictures/",
+      "expected_input": "./pictures_of_people_i_know/, ./unknown_pictures/",
+      "expected_output": "/unknown_pictures/unknown.jpg,Barack Obama\n/face_recognition_test/unknown_pictures/unknown.jpg,unknown_person"
+    },
+    {
+      "task_title": "人脸识别与距离",
+      "task_description": "使用命令行工具进行人脸识别并显示相似度距离。",
+      "example_code": null,
+      "running_command": "face_recognition --show-distance true ./pictures_of_people_i_know/ ./unknown_pictures/",
+      "expected_input": "./pictures_of_people_i_know/, ./unknown_pictures/",
+      "expected_output": "/unknown_pictures/unknown.jpg,Barack Obama,0.378542298956785\n/face_recognition_test/unknown_pictures/unknown.jpg,unknown_person,None"
+    },
+    {
+      "task_title": "使用多核处理进行人脸识别",
+      "task_description": "使用命令行工具并指定使用多个CPU进行人脸识别。",
+      "example_code": null,
+      "running_command": "face_recognition --cpus 4 ./pictures_of_people_i_know/ ./unknown_pictures/",
+      "expected_input": "./pictures_of_people_i_know/, ./unknown_pictures/",
+      "expected_output": "/unknown_pictures/unknown.jpg,Barack Obama\n/face_recognition_test/unknown_pictures/unknown.jpg,unknown_person"
+    }
+  ],
+  "setup": {
+    "setup_commands": [],
+    "docker_commands": [],
+    "docker_files": {
+      "Dockerfile": "# This is a sample Dockerfile you can modify to deploy your own app based on face_recognition\n\nFROM python:3.10.3-slim-bullseye\n\nRUN apt-get -y update\nRUN apt-get install -y --fix-missing \\\n    build-essential \\\n    cmake \\\n    gfortran \\\n    git \\\n    wget \\\n    curl \\\n    graphicsmagick \\\n    libgraphicsmagick1-dev \\\n    libatlas-base-dev \\\n    libavcodec-dev \\\n    libavformat-dev \\\n    libgtk2.0-dev \\\n    libjpeg-dev \\\n    liblapack-dev \\\n    libswscale-dev \\\n    pkg-config \\\n    python3-dev \\\n    python3-numpy \\\n    software-properties-common \\\n    zip \\\n    && apt-get clean && rm -rf /tmp/* /var/tmp/*\n\nRUN cd ~ && \\\n    mkdir -p dlib && \\\n    git clone -b 'v19.9' --single-branch https://github.com/davisking/dlib.git dlib/ && \\\n    cd  dlib/ && \\\n    python3 setup.py install --yes USE_AVX_INSTRUCTIONS\n\n\n# The rest of this file just runs an example script.\n\n# If you wanted to use this Dockerfile to run your own app instead, maybe you would do this:\n# COPY . /root/your_app_or_whatever\n# RUN cd /root/your_app_or_whatever && \\\n#     pip3 install -r requirements.txt\n# RUN whatever_command_you_run_to_start_your_app\n\nCOPY . /root/face_recognition\nRUN cd /root/face_recognition && \\\n    pip3 install -r requirements.txt && \\\n    python3 setup.py install\n\n# Add pip3 install opencv-python==4.1.2.30 if you want to run the live webcam examples\n\nCMD cd /root/face_recognition/examples && \\\n    python3 recognize_faces_in_pictures.py\n",
+      "docker-compose.yml": "version: '2.3'\n\nservices:\n  face_recognition:\n    image: face_recognition\n    container_name: face_recognition\n    working_dir: /face_recognition/examples\n    build:\n      context: .\n      #Uncomment this line to run the example on the GPU (requires Nvidia-Docker)\n      # dockerfile: Dockerfile.gpu \n    command: python3 -u find_faces_in_picture_cnn.py\n    volumes:\n      - ./:/face_recognition\n    #Uncomment this line to run the example on the GPU (requires Nvidia-Docker)\n    # runtime: nvidia"
+    }
+  },
+  "input_to_gpt": {
+    "repo_name": "ageitgey/face_recognition",
+    "num_code_blocks": 15,
+    "total_length": 3217,
+    "code_blocks": [
+      "import face_recognition\nimage = face_recognition.load_image_file(\"your_file.jpg\")\nface_locations = face_recognition.face_locations(image)",
+      "import face_recognition\nimage = face_recognition.load_image_file(\"your_file.jpg\")\nface_landmarks_list = face_recognition.face_landmarks(image)",
+      "import face_recognition\nknown_image = face_recognition.load_image_file(\"biden.jpg\")\nunknown_image = face_recognition.load_image_file(\"unknown.jpg\")\n\nbiden_encoding = face_recognition.face_encodings(known_image)[0]\nunknown_encoding = face_recognition.face_encodings(unknown_image)[0]\n\nresults = face_recognition.compare_faces([biden_encoding], unknown_encoding)",
+      "pip3 install face_recognition",
+      "pkg install graphics/py-face_recognition",
+      "$ face_recognition ./pictures_of_people_i_know/ ./unknown_pictures/\n\n/unknown_pictures/unknown.jpg,Barack Obama\n/face_recognition_test/unknown_pictures/unknown.jpg,unknown_person",
+      "$ face_detection  ./folder_with_pictures/\n\nexamples/image1.jpg,65,215,169,112\nexamples/image2.jpg,62,394,211,244\nexamples/image2.jpg,95,941,244,792",
+      "$ face_recognition --tolerance 0.54 ./pictures_of_people_i_know/ ./unknown_pictures/\n\n/unknown_pictures/unknown.jpg,Barack Obama\n/face_recognition_test/unknown_pictures/unknown.jpg,unknown_person",
+      "$ face_recognition --show-distance true ./pictures_of_people_i_know/ ./unknown_pictures/\n\n/unknown_pictures/unknown.jpg,Barack Obama,0.378542298956785\n/face_recognition_test/unknown_pictures/unknown.jpg,unknown_person,None",
+      "$ face_recognition ./pictures_of_people_i_know/ ./unknown_pictures/ | cut -d ',' -f2\n\nBarack Obama\nunknown_person",
+      "$ face_recognition --cpus 4 ./pictures_of_people_i_know/ ./unknown_pictures/",
+      "import face_recognition\n\nimage = face_recognition.load_image_file(\"my_picture.jpg\")\nface_locations = face_recognition.face_locations(image)\n\n# face_locations is now an array listing the co-ordinates of each face!",
+      "import face_recognition\n\nimage = face_recognition.load_image_file(\"my_picture.jpg\")\nface_locations = face_recognition.face_locations(image, model=\"cnn\")\n\n# face_locations is now an array listing the co-ordinates of each face!",
+      "import face_recognition\n\nimage = face_recognition.load_image_file(\"my_picture.jpg\")\nface_landmarks_list = face_recognition.face_landmarks(image)\n\n# face_landmarks_list is now an array with the locations of each facial feature in each face.\n# face_landmarks_list[0]['left_eye'] would be the location and outline of the first person's left eye.",
+      "import face_recognition\n\npicture_of_me = face_recognition.load_image_file(\"me.jpg\")\nmy_face_encoding = face_recognition.face_encodings(picture_of_me)[0]\n\n# my_face_encoding now contains a universal 'encoding' of my facial features that can be compared to any other picture of a face!\n\nunknown_picture = face_recognition.load_image_file(\"unknown.jpg\")\nunknown_face_encoding = face_recognition.face_encodings(unknown_picture)[0]\n\n# Now we can see the two face encodings are of the same person with `compare_faces`!\n\nresults = face_recognition.compare_faces([my_face_encoding], unknown_face_encoding)\n\nif results[0] == True:\n    print(\"It's a picture of me!\")\nelse:\n    print(\"It's not a picture of me!\")"
+    ]
+  }
+}

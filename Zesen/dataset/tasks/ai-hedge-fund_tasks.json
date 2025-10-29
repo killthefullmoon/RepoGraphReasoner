@@ -1,0 +1,60 @@
+{
+  "tasks": [
+    {
+      "task_title": "Run main script with tickers",
+      "task_description": "运行主脚本以获取指定股票（AAPL, MSFT, NVDA）的数据。",
+      "example_code": null,
+      "running_command": "poetry run python src/main.py --ticker AAPL,MSFT,NVDA",
+      "expected_input": "AAPL, MSFT, NVDA",
+      "expected_output": "Financial data for AAPL, MSFT, NVDA"
+    },
+    {
+      "task_title": "Run main script with tickers and Ollama",
+      "task_description": "运行主脚本以获取指定股票（AAPL, MSFT, NVDA）的数据，并启用Ollama功能。",
+      "example_code": null,
+      "running_command": "poetry run python src/main.py --ticker AAPL,MSFT,NVDA --ollama",
+      "expected_input": "AAPL, MSFT, NVDA",
+      "expected_output": "Financial data for AAPL, MSFT, NVDA with Ollama"
+    },
+    {
+      "task_title": "Run main script with date range",
+      "task_description": "运行主脚本以获取指定股票（AAPL, MSFT, NVDA）在特定日期范围内的数据。",
+      "example_code": null,
+      "running_command": "poetry run python src/main.py --ticker AAPL,MSFT,NVDA --start-date 2024-01-01 --end-date 2024-03-01",
+      "expected_input": "AAPL, MSFT, NVDA, 2024-01-01, 2024-03-01",
+      "expected_output": "Financial data for AAPL, MSFT, NVDA from 2024-01-01 to 2024-03-01"
+    },
+    {
+      "task_title": "Run backtester script with tickers",
+      "task_description": "运行回测脚本以测试指定股票（AAPL, MSFT, NVDA）的投资策略。",
+      "example_code": null,
+      "running_command": "poetry run python src/backtester.py --ticker AAPL,MSFT,NVDA",
+      "expected_input": "AAPL, MSFT, NVDA",
+      "expected_output": "Backtest results for AAPL, MSFT, NVDA"
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "git clone https://github.com/virattt/ai-hedge-fund.git\ncd ai-hedge-fund",
+      "curl -sSL https://install.python-poetry.org | python3 -",
+      "poetry install"
+    ],
+    "docker_commands": [],
+    "docker_files": {
+      ".dockerignore": "# Git\n.git\n.gitignore\n\n# Poetry\n.venv\n__pycache__/\n*.py[cod]\n*$py.class\n.pytest_cache/\n\n# Environment\n.env\n\n# IDEs and editors\n.idea/\n.vscode/\n*.swp\n*.swo\n\n# Logs and data\nlogs/\ndata/\n*.log\n\n# OS specific\n.DS_Store\nThumbs.db \n"
+    }
+  },
+  "input_to_gpt": {
+    "repo_name": "virattt/ai-hedge-fund",
+    "num_code_blocks": 6,
+    "total_length": 600,
+    "code_blocks": [
+      "# Create .env file for your API keys (in the root directory)\ncp .env.example .env",
+      "# For running LLMs hosted by openai (gpt-4o, gpt-4o-mini, etc.)\nOPENAI_API_KEY=your-openai-api-key\n\n# For getting financial data to power the hedge fund\nFINANCIAL_DATASETS_API_KEY=your-financial-datasets-api-key",
+      "poetry run python src/main.py --ticker AAPL,MSFT,NVDA",
+      "poetry run python src/main.py --ticker AAPL,MSFT,NVDA --ollama",
+      "poetry run python src/main.py --ticker AAPL,MSFT,NVDA --start-date 2024-01-01 --end-date 2024-03-01",
+      "poetry run python src/backtester.py --ticker AAPL,MSFT,NVDA"
+    ]
+  }
+}

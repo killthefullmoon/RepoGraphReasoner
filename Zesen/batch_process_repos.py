@@ -15,6 +15,7 @@ from dataclasses import dataclass, asdict
 from datetime import datetime
 import requests
 import base64
+import yaml
 
 # 配置日志
 logging.basicConfig(
@@ -231,8 +232,9 @@ class BatchRepoProcessor:
         setup_keywords = [
             'pip install', 'conda install', 'npm install', 'yarn add',
             'apt-get', 'brew install', 'requirements.txt', 'setup.py',
-            'python -m venv', 'virtualenv', 'conda create', 'poetry install',
-            'git clone', 'wget', 'curl', 'download', 'installation','powershell','pip'
+            'python -m venv', 'conda create', 'poetry install',
+            'git clone', 'wget', 'curl','powershell',
+            'sudo apt-get install','sudo dnf install'
         ]
         
         # Docker关键词
@@ -264,9 +266,6 @@ class BatchRepoProcessor:
                         # 如果不是我们关心的语言，跳过这个代码块
                         if current_block_type is None:
                             in_code_block = False
-                    else:
-                        # 没有语言标记，保守地认为可能是代码
-                        current_block_type = 'potential_code'
                 else:
                     # 结束代码块 - 分类
                     if current_block and current_block_type == 'potential_code':
@@ -348,18 +347,15 @@ class BatchRepoProcessor:
             return False
         
         # 组合代码块
-        code_samples = "\n\n---CODE BLOCK---\n\n".join(example_code[:3])  # 只看前3个代码块
-        
-        # 限制README长度
-        readme_preview = readme_content[:3000] if len(readme_content) > 3000 else readme_content
+        code_samples = "\n\n---CODE BLOCK---\n\n".join(example_code)  # 只看前3个代码块
         
         prompt = f"""
 你是一个代码分析专家。请判断以下代码块是否是展示该仓库/工具的使用示例。
 
 仓库名称: {repo_name}
 
-README摘要:
-{readme_preview}
+README内容:
+{readme_content}
 
 代码块示例:
 {code_samples}
@@ -375,7 +371,7 @@ README摘要:
 - 代码只是展示一个算法/数据结构的实现
 - 仓库本身是教程/书籍，代码是教学内容而非工具使用
 - 代码不涉及调用该仓库的功能
-- 例如: 算法书中的排序算法实现
+- 例如: 算法书中的排序算法实现，ML 入门教程，或者系统设计教程等
 
 请只返回JSON格式:
 {{
@@ -392,7 +388,7 @@ README摘要:
         }
         
         data = {
-            "model": "gpt-4o-mini",
+            "model": "gpt-4o",
             "messages": [
                 {"role": "system", "content": "你是代码分析专家，总是返回有效的JSON。"},
                 {"role": "user", "content": prompt}
@@ -450,14 +446,11 @@ README摘要:
         if not example_code:
             logger.warning(f"没有示例代码可供分析: {repo_name}")
             return None
-        
+
+        for i in example_code:
+            print("i: ", i)
         # 组合所有示例代码
         example_text = "\n\n---\n\n".join(example_code)
-        
-        # 限制长度
-        max_length = 8000
-        if len(example_text) > max_length:
-            example_text = example_text[:max_length] + "\n\n[内容已截断]"
         
         # 记录发送给GPT的原始输入
         gpt_input = {
@@ -579,7 +572,8 @@ README摘要:
         """
         logger.info(f"处理仓库: {repo.full_name}")
         
-        repo_safe_name = repo.full_name.replace("/", "_")
+        # 提取仓库名称（只用repo部分，不用owner）
+        repo_name = repo.full_name.split('/')[-1]
         
         # 1. 获取README
         readme_content, readme_filename = self.get_readme(repo.full_name)
@@ -594,10 +588,7 @@ README摘要:
                 error="README未找到"
             )
         
-        # 保存README
-        readme_file = self.readmes_dir / f"{repo_safe_name}_{readme_filename}"
-        with open(readme_file, 'w', encoding='utf-8') as f:
-            f.write(readme_content)
+        # 注意：README 将在验证通过后保存
         
         # 2. 提取代码块（setup、docker、示例代码）
         code_blocks = self.extract_code_blocks(readme_content)
@@ -659,22 +650,44 @@ README摘要:
         if isinstance(tasks_data, list):
             tasks_list = tasks_data
         
+        # 过滤掉所有关键字段都是null的任务
+        filtered_tasks = []
+        for task in tasks_list:
+            # 检查是否所有关键字段都是null
+            if not all([
+                task.get('example_code') is None,
+                task.get('running_command') is None,
+                task.get('expected_input') is None,
+                task.get('expected_output') is None
+            ]):
+                # 至少有一个字段不是null，保留这个任务
+                filtered_tasks.append(task)
+            else:
+                logger.debug(f"过滤掉无效任务: {task.get('task_title', 'Unknown')}")
+        
+        tasks_list = filtered_tasks
+        
         # 检查任务列表是否为空，如果为空则跳过
         if not tasks_list or len(tasks_list) == 0:
-            logger.warning(f"生成的任务列表为空，跳过仓库: {repo.full_name}")
+            logger.warning(f"过滤后任务列表为空，跳过仓库: {repo.full_name}")
             return ProcessResult(
                 repo_name=repo.full_name,
                 success=False,
                 readme_found=True,
                 tasks_generated=False,
                 num_tasks=0,
-                error="生成的任务列表为空"
+                error="过滤后任务列表为空"
             )
         
         # 提取input_to_gpt（用于调试）
         input_to_gpt = tasks_data.get('input_to_gpt', {})
         
-        # 6. 保存任务（包含setup和docker信息）
+        # 6. 保存README（只有成功生成任务的才保存）
+        readme_file = self.readmes_dir / f"{repo_name}_{readme_filename}"
+        with open(readme_file, 'w', encoding='utf-8') as f:
+            f.write(readme_content)
+        
+        # 7. 保存任务（包含setup和docker信息）
         complete_tasks_data = {
             "tasks": tasks_list,
             "setup": {
@@ -685,13 +698,13 @@ README摘要:
             "input_to_gpt": input_to_gpt  # 添加调试信息
         }
         
-        task_file = self.tasks_dir / f"{repo_safe_name}_tasks.json"
+        task_file = self.tasks_dir / f"{repo_name}_tasks.json"
         with open(task_file, 'w', encoding='utf-8') as f:
             json.dump(complete_tasks_data, f, indent=2, ensure_ascii=False)
         
-        # 7. 保存Docker文件到独立目录
+        # 8. 保存Docker文件到独立目录
         if docker_files:
-            docker_dir = self.output_dir / "docker_files" / repo_safe_name
+            docker_dir = self.output_dir / "docker_files" / repo_name
             docker_dir.mkdir(parents=True, exist_ok=True)
             
             for filename, content in docker_files.items():
@@ -699,7 +712,7 @@ README摘要:
                 with open(docker_file_path, 'w', encoding='utf-8') as f:
                     f.write(content)
         
-        # 8. 保存元数据
+        # 9. 保存元数据
         metadata = {
             "repo": repo.to_dict(),
             "readme_file": str(readme_file),
@@ -712,11 +725,11 @@ README摘要:
             "processed_at": datetime.now().isoformat()
         }
         
-        metadata_file = self.metadata_dir / f"{repo_safe_name}_meta.json"
+        metadata_file = self.metadata_dir / f"{repo_name}_meta.json"
         with open(metadata_file, 'w', encoding='utf-8') as f:
             json.dump(metadata, f, indent=2, ensure_ascii=False)
         
-        # 9. 追加到数据集文件（JSONL格式 - 增强版）
+        # 10. 追加到数据集文件（JSONL格式 - 以 repo name 为 key）
         dataset_entry = {
             "repo_name": repo.full_name,
             "stars": repo.stars,
@@ -727,7 +740,6 @@ README摘要:
                 "docker_commands": code_blocks['docker_commands'],
                 "has_docker_files": bool(docker_files)
             },
-            "input_to_gpt": input_to_gpt,  # 添加调试信息
             "timestamp": datetime.now().isoformat()
         }
         
@@ -936,116 +948,64 @@ README摘要:
         print("="*60 + "\n")
 
 
-def create_preset_queries():
-    """创建预设查询"""
-    return {
-        "top-python": "stars:>5000 language:python",
-        "ml-libs": "stars:>2000 language:python topic:machine-learning",
-        "web-frameworks": "stars:>1000 language:python topic:web OR topic:framework",
-        "data-tools": "stars:>1000 language:python topic:data-science OR topic:data-analysis",
-        "cli-tools": "stars:>500 language:python topic:cli OR topic:command-line",
-        "automation": "stars:>500 language:python topic:automation",
-        "testing": "stars:>500 language:python topic:testing",
-        "recent-popular": "stars:>1000 language:python pushed:>2024-01-01",
-        "educational": "stars:>500 language:python topic:education OR topic:tutorial OR topic:learning"
-    }
+def load_config(config_path: str = "config.yaml") -> Dict:
+    """加载配置文件"""
+    config_file = Path(config_path)
+    if not config_file.exists():
+        logger.warning(f"配置文件 {config_path} 不存在，使用默认配置")
+        return {}
+    
+    try:
+        with open(config_file, 'r', encoding='utf-8') as f:
+            config = yaml.safe_load(f)
+            logger.info(f"已加载配置文件: {config_path}")
+            return config or {}
+    except Exception as e:
+        logger.error(f"加载配置文件失败: {e}")
+        return {}
 
 
 def main():
     """主函数"""
-    import argparse
+    # 加载配置文件
+    config = load_config()
     
-    presets = create_preset_queries()
+    # 从配置文件获取设置
+    search_config = config.get('search', {})
+    processing_config = config.get('processing', {})
+    output_config = config.get('output', {})
+    openai_config = config.get('openai', {})
+    presets = config.get('presets', {})
     
-    parser = argparse.ArgumentParser(
-        description='GitHub高质量数据集批量处理工具',
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog=f"""
-预设查询:
-{chr(10).join(f'  {k}: {v}' for k, v in presets.items())}
-
-使用示例:
-  # 基本用法
-  python batch_process_repos.py
-  
-  # 使用预设查询
-  python batch_process_repos.py --preset ml-libs
-  
-  # 自定义查询
-  python batch_process_repos.py --query "stars:>2000 language:python topic:web"
-  
-  # 指定仓库数量和输出目录
-  python batch_process_repos.py --max-repos 100 --output ./my_dataset
-  
-  # 调整请求间隔（避免rate limit）
-  python batch_process_repos.py --delay 3.0
-        """
-    )
-    
-    parser.add_argument('--query', '-q',
-                       help='自定义GitHub搜索查询')
-    
-    parser.add_argument('--preset', '-p',
-                       choices=list(presets.keys()),
-                       help='使用预设查询')
-    
-    parser.add_argument('--max-repos', '-m',
-                       type=int,
-                       default=50,
-                       help='最大处理仓库数（默认: 50）')
-    
-    parser.add_argument('--output', '-o',
-                       default='./dataset',
-                       help='输出目录（默认: ./dataset）')
-    
-    parser.add_argument('--delay', '-d',
-                       type=float,
-                       default=2.0,
-                       help='请求间隔秒数（默认: 2.0）')
-    
-    parser.add_argument('--github-token', '-g',
-                       help='GitHub API Token')
-    
-    parser.add_argument('--openai-key', '-k',
-                       help='OpenAI API密钥')
-    
-    parser.add_argument('--languages', '-l',
-                       nargs='+',
-                       default=['python', 'sh', 'bash', 'console', 'shell', 'cmd'],
-                       help='要提取的代码块语言列表（默认: python sh bash console shell cmd powershell）')
-    
-    args = parser.parse_args()
+    # 从环境变量或配置获取API密钥
+    github_token = os.getenv("GITHUB_TOKEN") or config.get('api', {}).get('github_token')
+    openai_api_key = os.getenv("OPENAI_API_KEY") or config.get('api', {}).get('openai_api_key')
     
     # 确定搜索查询
-    if args.preset:
-        search_query = presets[args.preset]
-        logger.info(f"使用预设查询 '{args.preset}'")
-    elif args.query:
-        search_query = args.query
-    else:
-        search_query = "stars:>1000 language:python"
-        logger.info("使用默认查询")
+    search_query = search_config.get('default_query', "stars:>1000 language:python")
+    logger.info(f"使用搜索查询: {search_query}")
+    
+    # 获取代码块语言列表（从配置文件或使用默认值）
+    code_languages = config.get('code_languages', ['python', 'sh', 'bash', 'console', 'shell', 'cmd', 'powershell'])
     
     # 创建处理器
     processor = BatchRepoProcessor(
-        github_token=args.github_token,
-        openai_api_key=args.openai_key,
-        output_dir=args.output,
-        code_block_languages=args.languages
+        github_token=github_token,
+        openai_api_key=openai_api_key,
+        output_dir=output_config.get('base_dir', './dataset'),
+        code_block_languages=code_languages
     )
     
-    # 打印语言配置
-    logger.info(f"代码块语言过滤: {', '.join(args.languages)}")
+    logger.info(f"输出目录: {output_config.get('base_dir', './dataset')}")
+    logger.info(f"代码块语言过滤: {', '.join(code_languages)}")
     
     # 运行处理
     processor.run(
         search_query=search_query,
-        max_repos=args.max_repos,
-        delay_seconds=args.delay
+        max_repos=search_config.get('max_results', 50),
+        delay_seconds=processing_config.get('delay_seconds', 2.0)
     )
 
 
 if __name__ == "__main__":
     main()
-
-

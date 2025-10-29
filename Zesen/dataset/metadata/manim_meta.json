@@ -1,0 +1,26 @@
+{
+  "repo": {
+    "full_name": "3b1b/manim",
+    "stars": 81503,
+    "forks": 6911,
+    "language": "Python",
+    "description": "Animation engine for explanatory math videos",
+    "topics": [
+      "3b1b-videos",
+      "animation",
+      "explanatory-math-videos",
+      "python"
+    ],
+    "url": "https://github.com/3b1b/manim",
+    "created_at": "2015-03-22T18:50:58Z",
+    "updated_at": "2025-10-29T02:36:13Z"
+  },
+  "readme_file": "dataset/readmes/manim_README.md",
+  "task_file": "dataset/tasks/manim_tasks.json",
+  "num_tasks": 1,
+  "num_setup_commands": 6,
+  "num_docker_commands": 0,
+  "has_docker_files": false,
+  "docker_files_list": [],
+  "processed_at": "2025-10-28T23:04:01.261358"
+}

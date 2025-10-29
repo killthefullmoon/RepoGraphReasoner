@@ -1,0 +1,82 @@
+{
+  "tasks": [
+    {
+      "task_title": "运行图形用户界面",
+      "task_description": "启动图形用户界面以与模型进行交互。",
+      "example_code": "from g4f.gui import run_gui\nrun_gui()",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "启动图形用户界面"
+    },
+    {
+      "task_title": "通过CLI启动GUI",
+      "task_description": "通过命令行接口启动图形用户界面，指定端口和调试模式。",
+      "example_code": null,
+      "running_command": "python -m g4f.cli gui --port 8080 --debug",
+      "expected_input": null,
+      "expected_output": "启动图形用户界面"
+    },
+    {
+      "task_title": "通过CLI启动服务",
+      "task_description": "通过命令行接口启动服务，指定端口和调试模式。",
+      "example_code": null,
+      "running_command": "python -m g4f --port 8080 --debug",
+      "expected_input": null,
+      "expected_output": "服务已启动"
+    },
+    {
+      "task_title": "生成聊天回复",
+      "task_description": "使用客户端与模型进行对话，获取回复。",
+      "example_code": "from g4f.client import Client\n\nclient = Client()\nresponse = client.chat.completions.create(\n    model=\"gpt-4o-mini\",\n    messages=[{\"role\": \"user\", \"content\": \"Hello, how are you?\"}],\n    web_search=False\n)\nprint(response.choices[0].message.content)",
+      "running_command": null,
+      "expected_input": "Hello, how are you?",
+      "expected_output": "模型的回复内容"
+    },
+    {
+      "task_title": "生成图像",
+      "task_description": "使用客户端生成图像并返回图像的URL。",
+      "example_code": "from g4f.client import Client\n\nclient = Client()\nresponse = client.images.generate(\n    model=\"flux\",\n    prompt=\"a white siamese cat\",\n    response_format=\"url\"\n)\nprint(f\"Generated image URL: {response.data[0].url}\")",
+      "running_command": null,
+      "expected_input": "a white siamese cat",
+      "expected_output": "Generated image URL: <image_url>"
+    },
+    {
+      "task_title": "异步生成聊天回复",
+      "task_description": "使用异步客户端与模型进行对话，获取回复。",
+      "example_code": "from g4f.client import AsyncClient\nimport asyncio\n\nasync def main():\n    client = AsyncClient()\n    response = await client.chat.completions.create(\n        model=\"gpt-4o-mini\",\n        messages=[{\"role\": \"user\", \"content\": \"Explain quantum computing briefly\"}],\n    )\n    print(response.choices[0].message.content)\n\nasyncio.run(main())",
+      "running_command": null,
+      "expected_input": "Explain quantum computing briefly",
+      "expected_output": "模型的回复内容"
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "pip install -U g4f[all]",
+      "git clone https://github.com/xtekky/gpt4free.git\ncd gpt4free\npip install -r requirements.txt\npip install -e .",
+      "pip install -U g4f[all]"
+    ],
+    "docker_commands": [
+      "   docker pull hlohaus789/g4f",
+      "   docker run -p 8080:8080 -p 7900:7900 \\\n     --shm-size=\"2g\" \\\n     -v ${PWD}/har_and_cookies:/app/har_and_cookies \\\n     -v ${PWD}/generated_media:/app/generated_media \\\n     hlohaus789/g4f:latest",
+      "mkdir -p ${PWD}/har_and_cookies ${PWD}/generated_media\nchown -R 1000:1000 ${PWD}/har_and_cookies ${PWD}/generated_media\n\ndocker run \\\n  -p 1337:8080 -p 8080:8080 \\\n  -v ${PWD}/har_and_cookies:/app/har_and_cookies \\\n  -v ${PWD}/generated_media:/app/generated_media \\\n  hlohaus789/g4f:latest-slim"
+    ],
+    "docker_files": {
+      "docker-compose.yml": "version: '3'\n\nservices:\n  gpt4free:\n    image: hlohaus789/g4f:latest\n    shm_size: 2gb\n    build:\n      context: .\n      dockerfile: docker/Dockerfile\n    volumes:\n      - .:/app\n    ports:\n      - '8080:8080'\n      - '1337:8080'\n      - '7900:7900'\n    environment:\n      - OLLAMA_HOST=host.docker.internal\n"
+    }
+  },
+  "input_to_gpt": {
+    "repo_name": "xtekky/gpt4free",
+    "num_code_blocks": 8,
+    "total_length": 1137,
+    "code_blocks": [
+      "     mkdir -p ${PWD}/har_and_cookies ${PWD}/generated_media\n     sudo chown -R 1200:1201 ${PWD}/har_and_cookies ${PWD}/generated_media",
+      "from g4f.gui import run_gui\nrun_gui()",
+      "python -m g4f.cli gui --port 8080 --debug",
+      "python -m g4f --port 8080 --debug",
+      "python -m g4f.cli gui --port 8080 --debug",
+      "from g4f.client import Client\n\nclient = Client()\nresponse = client.chat.completions.create(\n    model=\"gpt-4o-mini\",\n    messages=[{\"role\": \"user\", \"content\": \"Hello, how are you?\"}],\n    web_search=False\n)\nprint(response.choices[0].message.content)",
+      "from g4f.client import Client\n\nclient = Client()\nresponse = client.images.generate(\n    model=\"flux\",\n    prompt=\"a white siamese cat\",\n    response_format=\"url\"\n)\nprint(f\"Generated image URL: {response.data[0].url}\")",
+      "from g4f.client import AsyncClient\nimport asyncio\n\nasync def main():\n    client = AsyncClient()\n    response = await client.chat.completions.create(\n        model=\"gpt-4o-mini\",\n        messages=[{\"role\": \"user\", \"content\": \"Explain quantum computing briefly\"}],\n    )\n    print(response.choices[0].message.content)\n\nasyncio.run(main())"
+    ]
+  }
+}

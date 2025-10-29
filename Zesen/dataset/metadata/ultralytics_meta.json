@@ -1,0 +1,44 @@
+{
+  "repo": {
+    "full_name": "ultralytics/ultralytics",
+    "stars": 47987,
+    "forks": 9257,
+    "language": "Python",
+    "description": "Ultralytics YOLO 🚀",
+    "topics": [
+      "cli",
+      "computer-vision",
+      "deep-learning",
+      "hub",
+      "image-classification",
+      "instance-segmentation",
+      "machine-learning",
+      "object-detection",
+      "pose-estimation",
+      "python",
+      "pytorch",
+      "rotated-object-detection",
+      "segment-anything",
+      "tracking",
+      "ultralytics",
+      "yolo",
+      "yolo-world",
+      "yolo11",
+      "yolov10",
+      "yolov8"
+    ],
+    "url": "https://github.com/ultralytics/ultralytics",
+    "created_at": "2022-09-11T16:39:45Z",
+    "updated_at": "2025-10-29T03:06:09Z"
+  },
+  "readme_file": "dataset/readmes/ultralytics_README.md",
+  "task_file": "dataset/tasks/ultralytics_tasks.json",
+  "num_tasks": 6,
+  "num_setup_commands": 1,
+  "num_docker_commands": 0,
+  "has_docker_files": true,
+  "docker_files_list": [
+    ".dockerignore"
+  ],
+  "processed_at": "2025-10-28T23:11:11.401704"
+}

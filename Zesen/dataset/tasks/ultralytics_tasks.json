@@ -1,0 +1,70 @@
+{
+  "tasks": [
+    {
+      "task_title": "使用预训练YOLO模型进行预测",
+      "task_description": "使用预训练的YOLO模型（如YOLO11n）对图像进行预测。",
+      "example_code": null,
+      "running_command": "yolo predict model=yolo11n.pt source='https://ultralytics.com/images/bus.jpg'",
+      "expected_input": "https://ultralytics.com/images/bus.jpg",
+      "expected_output": "预测结果，包括检测到的对象及其位置信息"
+    },
+    {
+      "task_title": "加载预训练YOLO模型",
+      "task_description": "加载一个预训练的YOLO11n模型以进行后续操作。",
+      "example_code": "from ultralytics import YOLO\n\nmodel = YOLO(\"yolo11n.pt\")",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "加载的YOLO模型对象"
+    },
+    {
+      "task_title": "训练YOLO模型",
+      "task_description": "在COCO8数据集上训练YOLO模型，指定训练的轮数和图像大小。",
+      "example_code": "train_results = model.train(\n    data=\"coco8.yaml\",\n    epochs=100,\n    imgsz=640,\n    device=\"cpu\",\n)",
+      "running_command": null,
+      "expected_input": "coco8.yaml, 100, 640, cpu",
+      "expected_output": "训练结果，包括损失值和模型性能指标"
+    },
+    {
+      "task_title": "评估模型性能",
+      "task_description": "在验证集上评估模型的性能并获取性能指标。",
+      "example_code": "metrics = model.val()",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "模型性能指标"
+    },
+    {
+      "task_title": "对图像进行对象检测",
+      "task_description": "对指定图像进行对象检测并展示检测结果。",
+      "example_code": "results = model(\"path/to/image.jpg\")\nresults[0].show()",
+      "running_command": null,
+      "expected_input": "path/to/image.jpg",
+      "expected_output": "检测结果的可视化展示"
+    },
+    {
+      "task_title": "导出模型",
+      "task_description": "将YOLO模型导出为ONNX格式，以便于部署。",
+      "example_code": "path = model.export(format=\"onnx\")",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "导出模型的路径"
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "pip install ultralytics"
+    ],
+    "docker_commands": [],
+    "docker_files": {
+      ".dockerignore": "# Python\n__pycache__\n*.pyc\n*.pyo\n*.pyd\n.Python\n*.py[cod]\n*$py.class\n.pytest_cache\n.coverage\ncoverage.xml\n.ruff_cache\n*.egg-info\ndist\nbuild\n\n# Development\n.env\n.venv\nenv/\nvenv/\nENV/\n.idea\n.vscode\n*.swp\n*.swo\n.DS_Store\n\n# Project specific\n*.log\nbenchmarks.log\nruns/\n\n# Dependencies\nnode_modules/\n"
+    }
+  },
+  "input_to_gpt": {
+    "repo_name": "ultralytics/ultralytics",
+    "num_code_blocks": 2,
+    "total_length": 886,
+    "code_blocks": [
+      "# Predict using a pretrained YOLO model (e.g., YOLO11n) on an image\nyolo predict model=yolo11n.pt source='https://ultralytics.com/images/bus.jpg'",
+      "from ultralytics import YOLO\n\n# Load a pretrained YOLO11n model\nmodel = YOLO(\"yolo11n.pt\")\n\n# Train the model on the COCO8 dataset for 100 epochs\ntrain_results = model.train(\n    data=\"coco8.yaml\",  # Path to dataset configuration file\n    epochs=100,  # Number of training epochs\n    imgsz=640,  # Image size for training\n    device=\"cpu\",  # Device to run on (e.g., 'cpu', 0, [0,1,2,3])\n)\n\n# Evaluate the model's performance on the validation set\nmetrics = model.val()\n\n# Perform object detection on an image\nresults = model(\"path/to/image.jpg\")  # Predict on an image\nresults[0].show()  # Display results\n\n# Export the model to ONNX format for deployment\npath = model.export(format=\"onnx\")  # Returns the path to the exported model"
+    ]
+  }
+}

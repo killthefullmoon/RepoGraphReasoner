@@ -1,0 +1,32 @@
+{
+  "tasks": [
+    {
+      "task_title": "Opening Manim Example",
+      "task_description": "展示如何使用Manim库创建一个简单的动画示例，演示了基本的动画功能。",
+      "example_code": "from manim import *\n\nclass OpeningManimExample(Scene):\n    def construct(self):\n        square = Square()\n        self.play(Create(square))\n        self.wait(1)",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "一个包含方形动画的场景"
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "# Install manimgl\npip install manimgl\n\n# Try it out\nmanimgl",
+      "# Install manimgl\npip install -e .\n\n# Try it out\nmanimgl example_scenes.py OpeningManimExample\n# or\nmanim-render example_scenes.py OpeningManimExample",
+      "    git clone https://github.com/3b1b/manim.git\n    cd manim\n    pip install -e .\n    manimgl example_scenes.py OpeningManimExample",
+      "    brew install ffmpeg mactex",
+      "    arch -arm64 brew install pkg-config cairo",
+      "    git clone https://github.com/3b1b/manim.git\n    cd manim\n    pip install -e .\n    manimgl example_scenes.py OpeningManimExample (make sure to add manimgl to path first.)"
+    ],
+    "docker_commands": [],
+    "docker_files": {}
+  },
+  "input_to_gpt": {
+    "repo_name": "3b1b/manim",
+    "num_code_blocks": 1,
+    "total_length": 45,
+    "code_blocks": [
+      "manimgl example_scenes.py OpeningManimExample"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "repo": {
+    "full_name": "pathwaycom/pathway",
+    "stars": 48875,
+    "forks": 1433,
+    "language": "Python",
+    "description": "Python ETL framework for stream processing, real-time analytics, LLM pipelines, and RAG.",
+    "topics": [
+      "batch-processing",
+      "data-analytics",
+      "data-pipelines",
+      "data-processing",
+      "dataflow",
+      "etl",
+      "etl-framework",
+      "iot-analytics",
+      "kafka",
+      "machine-learning-algorithms",
+      "pathway",
+      "python",
+      "real-time",
+      "rust",
+      "stream-processing",
+      "streaming",
+      "time-series-analysis"
+    ],
+    "url": "https://github.com/pathwaycom/pathway",
+    "created_at": "2022-11-27T13:01:14Z",
+    "updated_at": "2025-10-29T00:39:32Z"
+  },
+  "readme_file": "dataset/readmes/pathway_README.md",
+  "task_file": "dataset/tasks/pathway_tasks.json",
+  "num_tasks": 5,
+  "num_setup_commands": 1,
+  "num_docker_commands": 0,
+  "has_docker_files": true,
+  "docker_files_list": [
+    ".dockerignore"
+  ],
+  "processed_at": "2025-10-28T23:10:35.847476"
+}

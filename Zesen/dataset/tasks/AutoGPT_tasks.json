@@ -1,0 +1,43 @@
+{
+  "tasks": [
+    {
+      "task_title": "创建、启动和停止代理",
+      "task_description": "使用agent命令来创建、启动和停止代理。",
+      "example_code": null,
+      "running_command": "cli.py agent",
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "启动基准测试",
+      "task_description": "使用benchmark命令来启动基准测试并列出测试和类别。",
+      "example_code": null,
+      "running_command": "cli.py benchmark",
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "安装系统所需依赖",
+      "task_description": "使用setup命令来安装系统所需的依赖。",
+      "example_code": null,
+      "running_command": "cli.py setup",
+      "expected_input": null,
+      "expected_output": null
+    }
+  ],
+  "setup": {
+    "setup_commands": [],
+    "docker_commands": [],
+    "docker_files": {
+      ".dockerignore": "# Ignore everything by default, selectively add things to context\n*\n\n# Platform - Libs\n!autogpt_platform/autogpt_libs/autogpt_libs/\n!autogpt_platform/autogpt_libs/pyproject.toml\n!autogpt_platform/autogpt_libs/poetry.lock\n!autogpt_platform/autogpt_libs/README.md\n\n# Platform - Backend\n!autogpt_platform/backend/backend/\n!autogpt_platform/backend/test/e2e_test_data.py\n!autogpt_platform/backend/migrations/\n!autogpt_platform/backend/schema.prisma\n!autogpt_platform/backend/pyproject.toml\n!autogpt_platform/backend/poetry.lock\n!autogpt_platform/backend/README.md\n!autogpt_platform/backend/.env\n\n# Platform - Market\n!autogpt_platform/market/market/\n!autogpt_platform/market/scripts.py\n!autogpt_platform/market/schema.prisma\n!autogpt_platform/market/pyproject.toml\n!autogpt_platform/market/poetry.lock\n!autogpt_platform/market/README.md\n\n# Platform - Frontend\n!autogpt_platform/frontend/src/\n!autogpt_platform/frontend/public/\n!autogpt_platform/frontend/scripts/\n!autogpt_platform/frontend/package.json\n!autogpt_platform/frontend/pnpm-lock.yaml\n!autogpt_platform/frontend/tsconfig.json\n!autogpt_platform/frontend/README.md\n## config\n!autogpt_platform/frontend/*.config.*\n!autogpt_platform/frontend/.env.*\n!autogpt_platform/frontend/.env\n\n# Classic - AutoGPT\n!classic/original_autogpt/autogpt/\n!classic/original_autogpt/pyproject.toml\n!classic/original_autogpt/poetry.lock\n!classic/original_autogpt/README.md\n!classic/original_autogpt/tests/\n\n# Classic - Benchmark\n!classic/benchmark/agbenchmark/\n!classic/benchmark/pyproject.toml\n!classic/benchmark/poetry.lock\n!classic/benchmark/README.md\n\n# Classic - Forge\n!classic/forge/\n!classic/forge/pyproject.toml\n!classic/forge/poetry.lock\n!classic/forge/README.md\n\n# Classic - Frontend\n!classic/frontend/build/web/\n\n# Explicitly re-ignore some folders\n.*\n**/__pycache__\n"
+    }
+  },
+  "input_to_gpt": {
+    "repo_name": "Significant-Gravitas/AutoGPT",
+    "num_code_blocks": 1,
+    "total_length": 297,
+    "code_blocks": [
+      "$ ./run\nUsage: cli.py [OPTIONS] COMMAND [ARGS]...\n\nOptions:\n  --help  Show this message and exit.\n\nCommands:\n  agent      Commands to create, start and stop agents\n  benchmark  Commands to start the benchmark and list tests and categories\n  setup      Installs dependencies needed for your system."
+    ]
+  }
+}

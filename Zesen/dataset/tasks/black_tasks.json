@@ -1,0 +1,36 @@
+{
+  "tasks": [
+    {
+      "task_title": "格式化Python源文件或目录",
+      "task_description": "使用Black工具对指定的Python源文件或目录进行代码格式化，确保代码符合PEP 8风格指南。",
+      "example_code": null,
+      "running_command": "black {source_file_or_directory}",
+      "expected_input": "source_file_or_directory",
+      "expected_output": "格式化后的Python代码"
+    },
+    {
+      "task_title": "使用Python模块格式化代码",
+      "task_description": "通过Python模块方式调用Black工具，对指定的Python源文件或目录进行代码格式化。",
+      "example_code": null,
+      "running_command": "python -m black {source_file_or_directory}",
+      "expected_input": "source_file_or_directory",
+      "expected_output": "格式化后的Python代码"
+    }
+  ],
+  "setup": {
+    "setup_commands": [],
+    "docker_commands": [],
+    "docker_files": {
+      "Dockerfile": "FROM python:3.12-slim AS builder\n\nRUN mkdir /src\nCOPY . /src/\nENV VIRTUAL_ENV=/opt/venv\nENV HATCH_BUILD_HOOKS_ENABLE=1\n# Install build tools to compile black + dependencies\nRUN apt update && apt install -y build-essential git python3-dev\nRUN python -m venv $VIRTUAL_ENV\nRUN python -m pip install --no-cache-dir hatch hatch-fancy-pypi-readme hatch-vcs\nRUN . /opt/venv/bin/activate && pip install --no-cache-dir --upgrade pip setuptools \\\n    && cd /src && hatch build -t wheel \\\n    && pip install --no-cache-dir dist/*-cp* \\\n    && pip install black[colorama,d,uvloop]\n\nFROM python:3.12-slim\n\n# copy only Python packages to limit the image size\nCOPY --from=builder /opt/venv /opt/venv\nENV PATH=\"/opt/venv/bin:$PATH\"\n\nCMD [\"/opt/venv/bin/black\"]\n"
+    }
+  },
+  "input_to_gpt": {
+    "repo_name": "psf/black",
+    "num_code_blocks": 2,
+    "total_length": 81,
+    "code_blocks": [
+      "black {source_file_or_directory}",
+      "python -m black {source_file_or_directory}"
+    ]
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "tasks": [
+    {
+      "task_title": "加载预训练模型和分词器",
+      "task_description": "从预训练模型库加载分词器和模型，并将模型设置为半精度和CUDA设备。",
+      "example_code": "from transformers import AutoTokenizer, AutoModel\n\ntokenizer = AutoTokenizer.from_pretrained(\"THUDM/chatglm-6b\", trust_remote_code=True)\nmodel = AutoModel.from_pretrained(\"THUDM/chatglm-6b\", trust_remote_code=True).half().cuda()",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "模型聊天功能",
+      "task_description": "使用加载的模型和分词器进行对话，返回模型的响应和对话历史。",
+      "example_code": "response, history = model.chat(tokenizer, \"你好\", history=[])\nprint(response)",
+      "running_command": null,
+      "expected_input": "你好",
+      "expected_output": "你好👋!我是人工智能助手 ChatGLM-6B,很高兴见到你,欢迎问我任何问题。"
+    },
+    {
+      "task_title": "继续对话",
+      "task_description": "在已有对话历史的基础上继续与模型对话，获取新的响应。",
+      "example_code": "response, history = model.chat(tokenizer, \"晚上睡不着应该怎么办\", history=history)\nprint(response)",
+      "running_command": null,
+      "expected_input": "晚上睡不着应该怎么办",
+      "expected_output": "晚上睡不着可能会让你感到焦虑或不舒服,但以下是一些可以帮助你入睡的方法:\n\n1. 制定规律的睡眠时间表:保持规律的睡眠时间表可以帮助你建立健康的睡眠习惯,使你更容易入睡。尽量在每天的相同时间上床,并在同一时间起床。\n2. 创造一个舒适的睡眠环境:确保睡眠环境舒适,安静,黑暗且温度适宜。可以使用舒适的床上用品,并保持房间通风。\n3. 放松身心:在睡前做些放松的活动,例如泡个热水澡,听些轻柔的音乐,阅读一些有趣的书籍等,有助于缓解紧张和焦虑,使你更容易入睡。\n4. 避免饮用含有咖啡因的饮料:咖啡因是一种刺激性物质,会影响你的睡眠质量。尽量避免在睡前饮用含有咖啡因的饮料,例如咖啡,茶和可乐。\n5. 避免在床上做与睡眠无关的事情:在床上做些与睡眠无关的事情,例如看电影,玩游戏或工作等,可能会干扰你的睡眠。\n6. 尝试呼吸技巧:深呼吸是一种放松技巧,可以帮助你缓解紧张和焦虑,使你更容易入睡。试着慢慢吸气,保持几秒钟,然后缓慢呼气。"
+    },
+    {
+      "task_title": "模型量化",
+      "task_description": "加载模型时进行量化，以减少内存占用和提高效率。",
+      "example_code": "model = AutoModel.from_pretrained(\"THUDM/chatglm-6b\", trust_remote_code=True).quantize(8).half().cuda()",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "使用本地路径加载模型",
+      "task_description": "从本地路径加载模型，并设置为半精度和特定设备。",
+      "example_code": "model = AutoModel.from_pretrained(\"your local path\", trust_remote_code=True).half().to('mps')",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "在多个GPU上加载模型",
+      "task_description": "使用自定义工具在多个GPU上加载模型以进行并行处理。",
+      "example_code": "from utils import load_model_on_gpus\nmodel = load_model_on_gpus(\"THUDM/chatglm-6b\", num_gpus=2)",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": null
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "git clone https://huggingface.co/THUDM/chatglm-6b",
+      "GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/THUDM/chatglm-6b",
+      "git clone https://github.com/THUDM/ChatGLM-6B\ncd ChatGLM-6B",
+      "curl -X POST \"http://127.0.0.1:8000\" \\\n     -H 'Content-Type: application/json' \\\n     -d '{\"prompt\": \"你好\", \"history\": []}'"
+    ],
+    "docker_commands": [],
+    "docker_files": {}
+  },
+  "input_to_gpt": {
+    "repo_name": "zai-org/ChatGLM-6B",
+    "num_code_blocks": 13,
+    "total_length": 2127,
+    "code_blocks": [
+      ">>> from transformers import AutoTokenizer, AutoModel\n>>> tokenizer = AutoTokenizer.from_pretrained(\"THUDM/chatglm-6b\", trust_remote_code=True)\n>>> model = AutoModel.from_pretrained(\"THUDM/chatglm-6b\", trust_remote_code=True).half().cuda()\n>>> model = model.eval()\n>>> response, history = model.chat(tokenizer, \"你好\", history=[])\n>>> print(response)\n你好👋!我是人工智能助手 ChatGLM-6B,很高兴见到你,欢迎问我任何问题。\n>>> response, history = model.chat(tokenizer, \"晚上睡不着应该怎么办\", history=history)\n>>> print(response)\n晚上睡不着可能会让你感到焦虑或不舒服,但以下是一些可以帮助你入睡的方法:\n\n1. 制定规律的睡眠时间表:保持规律的睡眠时间表可以帮助你建立健康的睡眠习惯,使你更容易入睡。尽量在每天的相同时间上床,并在同一时间起床。\n2. 创造一个舒适的睡眠环境:确保睡眠环境舒适,安静,黑暗且温度适宜。可以使用舒适的床上用品,并保持房间通风。\n3. 放松身心:在睡前做些放松的活动,例如泡个热水澡,听些轻柔的音乐,阅读一些有趣的书籍等,有助于缓解紧张和焦虑,使你更容易入睡。\n4. 避免饮用含有咖啡因的饮料:咖啡因是一种刺激性物质,会影响你的睡眠质量。尽量避免在睡前饮用含有咖啡因的饮料,例如咖啡,茶和可乐。\n5. 避免在床上做与睡眠无关的事情:在床上做些与睡眠无关的事情,例如看电影,玩游戏或工作等,可能会干扰你的睡眠。\n6. 尝试呼吸技巧:深呼吸是一种放松技巧,可以帮助你缓解紧张和焦虑,使你更容易入睡。试着慢慢吸气,保持几秒钟,然后缓慢呼气。\n\n如果这些方法无法帮助你入睡,你可以考虑咨询医生或睡眠专家,寻求进一步的建议。",
+      "git checkout v1.1.0",
+      "python web_demo.py",
+      "python cli_demo.py",
+      "python api.py",
+      "{\n  \"response\":\"你好👋！我是人工智能助手 ChatGLM-6B，很高兴见到你，欢迎问我任何问题。\",\n  \"history\":[[\"你好\",\"你好👋！我是人工智能助手 ChatGLM-6B，很高兴见到你，欢迎问我任何问题。\"]],\n  \"status\":200,\n  \"time\":\"2023-03-23 21:38:40\"\n}",
+      "# 按需修改，目前只支持 4/8 bit 量化\nmodel = AutoModel.from_pretrained(\"THUDM/chatglm-6b\", trust_remote_code=True).quantize(8).half().cuda()",
+      "# INT8 量化的模型将\"THUDM/chatglm-6b-int4\"改为\"THUDM/chatglm-6b-int8\"\nmodel = AutoModel.from_pretrained(\"THUDM/chatglm-6b-int4\", trust_remote_code=True).half().cuda()",
+      "model = AutoModel.from_pretrained(\"THUDM/chatglm-6b\", trust_remote_code=True).float()",
+      "# INT8 量化的模型将\"THUDM/chatglm-6b-int4\"改为\"THUDM/chatglm-6b-int8\"\nmodel = AutoModel.from_pretrained(\"THUDM/chatglm-6b-int4\",trust_remote_code=True).float()",
+      "model = AutoModel.from_pretrained(\"your local path\", trust_remote_code=True).half().to('mps')",
+      "# INT8 量化的模型将\"THUDM/chatglm-6b-int4\"改为\"THUDM/chatglm-6b-int8\"\nmodel = AutoModel.from_pretrained(\"THUDM/chatglm-6b-int4\",trust_remote_code=True).float()",
+      "from utils import load_model_on_gpus\nmodel = load_model_on_gpus(\"THUDM/chatglm-6b\", num_gpus=2)"
+    ]
+  }
+}

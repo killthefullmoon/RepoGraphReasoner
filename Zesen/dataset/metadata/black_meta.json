@@ -1,0 +1,33 @@
+{
+  "repo": {
+    "full_name": "psf/black",
+    "stars": 41093,
+    "forks": 2652,
+    "language": "Python",
+    "description": "The uncompromising Python code formatter",
+    "topics": [
+      "autopep8",
+      "code",
+      "codeformatter",
+      "formatter",
+      "gofmt",
+      "hacktoberfest",
+      "pre-commit-hook",
+      "python",
+      "yapf"
+    ],
+    "url": "https://github.com/psf/black",
+    "created_at": "2018-03-14T19:54:45Z",
+    "updated_at": "2025-10-29T00:45:41Z"
+  },
+  "readme_file": "dataset/readmes/black_README.md",
+  "task_file": "dataset/tasks/black_tasks.json",
+  "num_tasks": 2,
+  "num_setup_commands": 0,
+  "num_docker_commands": 0,
+  "has_docker_files": true,
+  "docker_files_list": [
+    "Dockerfile"
+  ],
+  "processed_at": "2025-10-28T23:13:46.894801"
+}

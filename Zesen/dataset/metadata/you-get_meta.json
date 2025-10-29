@@ -1,0 +1,21 @@
+{
+  "repo": {
+    "full_name": "soimort/you-get",
+    "stars": 56519,
+    "forks": 9801,
+    "language": "Python",
+    "description": ":arrow_double_down: Dumb downloader that scrapes the web",
+    "topics": [],
+    "url": "https://github.com/soimort/you-get",
+    "created_at": "2012-08-20T15:53:36Z",
+    "updated_at": "2025-10-28T20:37:14Z"
+  },
+  "readme_file": "dataset/readmes/you-get_README.md",
+  "task_file": "dataset/tasks/you-get_tasks.json",
+  "num_tasks": 1,
+  "num_setup_commands": 7,
+  "num_docker_commands": 0,
+  "has_docker_files": false,
+  "docker_files_list": [],
+  "processed_at": "2025-10-28T23:07:43.901025"
+}

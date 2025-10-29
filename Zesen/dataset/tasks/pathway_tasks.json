@@ -1,0 +1,63 @@
+{
+  "tasks": [
+    {
+      "task_title": "读取CSV数据",
+      "task_description": "使用Pathway库读取CSV文件，并定义数据的模式。",
+      "example_code": "import pathway as pw\n\nclass InputSchema(pw.Schema):\n  value: int\n\ninput_table = pw.io.csv.read(\n  \"./input/\",\n  schema=InputSchema\n)",
+      "running_command": null,
+      "expected_input": "./input/",
+      "expected_output": "数据表格对象，包含CSV文件中的数据"
+    },
+    {
+      "task_title": "过滤数据",
+      "task_description": "对读取的数据进行过滤，只保留值大于或等于0的记录。",
+      "example_code": "filtered_table = input_table.filter(input_table.value>=0)",
+      "running_command": null,
+      "expected_input": "input_table",
+      "expected_output": "过滤后的数据表格对象，包含值大于或等于0的记录"
+    },
+    {
+      "task_title": "计算总和",
+      "task_description": "对过滤后的数据进行聚合计算，计算'value'列的总和。",
+      "example_code": "result_table = filtered_table.reduce(\n  sum_value = pw.reducers.sum(filtered_table.value)\n)",
+      "running_command": null,
+      "expected_input": "filtered_table",
+      "expected_output": "结果表格对象，包含'value'列的总和"
+    },
+    {
+      "task_title": "写入JSONL文件",
+      "task_description": "将计算结果写入到JSON Lines格式的文件中。",
+      "example_code": "pw.io.jsonlines.write(result_table, \"output.jsonl\")",
+      "running_command": null,
+      "expected_input": "result_table",
+      "expected_output": "output.jsonl文件，包含聚合结果"
+    },
+    {
+      "task_title": "运行计算",
+      "task_description": "执行Pathway的计算流程。",
+      "example_code": "pw.run()",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "执行计算流程的结果"
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "pip install -U pathway"
+    ],
+    "docker_commands": [],
+    "docker_files": {
+      ".dockerignore": "target/debug/\n!target/**/*.whl\n"
+    }
+  },
+  "input_to_gpt": {
+    "repo_name": "pathwaycom/pathway",
+    "num_code_blocks": 3,
+    "total_length": 570,
+    "code_blocks": [
+      "import pathway as pw\n\n# Define the schema of your data (Optional)\nclass InputSchema(pw.Schema):\n  value: int\n\n# Connect to your data using connectors\ninput_table = pw.io.csv.read(\n  \"./input/\",\n  schema=InputSchema\n)\n\n#Define your operations on the data\nfiltered_table = input_table.filter(input_table.value>=0)\nresult_table = filtered_table.reduce(\n  sum_value = pw.reducers.sum(filtered_table.value)\n)\n\n# Load your results to external systems\npw.io.jsonlines.write(result_table, \"output.jsonl\")\n\n# Run the computation\npw.run()",
+      "import pathway as pw",
+      "pw.run()"
+    ]
+  }
+}

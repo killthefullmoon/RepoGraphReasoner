@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "task_title": "数据处理",
+      "task_description": "使用MinerU库处理指定路径下的数据，并将结果输出到另一个路径。",
+      "example_code": null,
+      "running_command": "mineru -p <input_path> -o <output_path>",
+      "expected_input": "<input_path>, <output_path>",
+      "expected_output": "处理后的数据文件"
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "pip install --upgrade pip\npip install uv\nuv pip install -U \"mineru[core]\"",
+      "git clone https://github.com/opendatalab/MinerU.git\ncd MinerU\nuv pip install -e .[core]"
+    ],
+    "docker_commands": [],
+    "docker_files": {}
+  },
+  "input_to_gpt": {
+    "repo_name": "opendatalab/MinerU",
+    "num_code_blocks": 1,
+    "total_length": 39,
+    "code_blocks": [
+      "mineru -p <input_path> -o <output_path>"
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "tasks": [
+    {
+      "task_title": "使用CUDA执行",
+      "task_description": "通过CUDA执行模型推理。",
+      "example_code": null,
+      "running_command": "python run.py --execution-provider cuda",
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "使用CoreML执行",
+      "task_description": "通过CoreML执行模型推理。",
+      "example_code": null,
+      "running_command": "python3.10 run.py --execution-provider coreml",
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "使用DirectML执行",
+      "task_description": "通过DirectML执行模型推理。",
+      "example_code": null,
+      "running_command": "python run.py --execution-provider directml",
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "使用OpenVINO执行",
+      "task_description": "通过OpenVINO执行模型推理。",
+      "example_code": null,
+      "running_command": "python run.py --execution-provider openvino",
+      "expected_input": null,
+      "expected_output": null
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "git clone https://github.com/hacksider/Deep-Live-Cam.git\ncd Deep-Live-Cam",
+      "python -m venv venv\nvenv\\Scripts\\activate\npip install -r requirements.txt",
+      "# Ensure you use the installed Python 3.10\npython3 -m venv venv\nsource venv/bin/activate\npip install -r requirements.txt",
+      "# Install Python 3.11 (specific version is important)\nbrew install python@3.11\n\n# Install tkinter package (required for the GUI)\nbrew install python-tk@3.10\n\n# Create and activate virtual environment with Python 3.11\npython3.11 -m venv venv\nsource venv/bin/activate\n\n# Install dependencies\npip install -r requirements.txt",
+      "# Deactivate the virtual environment\nrm -rf venv\n\n# Reinstall the virtual environment\npython -m venv venv\nsource venv/bin/activate\n\n# install the dependencies again\npip install -r requirements.txt\n\n# gfpgan and basicsrs issue fix\npip install git+https://github.com/xinntao/BasicSR.git@master\npip uninstall gfpgan -y\npip install git+https://github.com/TencentARC/GFPGAN.git@master",
+      "pip install -U torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128\npip uninstall onnxruntime onnxruntime-gpu\npip install onnxruntime-gpu==1.21.0",
+      "pip uninstall onnxruntime onnxruntime-silicon\npip install onnxruntime-silicon==1.13.1",
+      "pip uninstall onnxruntime onnxruntime-coreml\npip install onnxruntime-coreml==1.21.0",
+      "pip uninstall onnxruntime onnxruntime-directml\npip install onnxruntime-directml==1.21.0",
+      "pip uninstall onnxruntime onnxruntime-openvino\npip install onnxruntime-openvino==1.21.0"
+    ],
+    "docker_commands": [],
+    "docker_files": {}
+  },
+  "input_to_gpt": {
+    "repo_name": "hacksider/Deep-Live-Cam",
+    "num_code_blocks": 6,
+    "total_length": 465,
+    "code_blocks": [
+      "python run.py --execution-provider cuda",
+      "python3.10 run.py --execution-provider coreml",
+      "  # List all installed Python versions\n  brew list | grep python\n  \n  # Uninstall conflicting versions if needed\n  brew uninstall --ignore-dependencies python@3.11 python@3.13\n  \n  # Keep only Python 3.11\n  brew cleanup",
+      "python run.py --execution-provider coreml",
+      "python run.py --execution-provider directml",
+      "python run.py --execution-provider openvino"
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "tasks": [
+    {
+      "task_title": "启动应用程序",
+      "task_description": "运行主应用程序以启动聊天机器人功能。",
+      "example_code": null,
+      "running_command": "python3 app.py",
+      "expected_input": null,
+      "expected_output": "应用程序启动并开始监听消息"
+    },
+    {
+      "task_title": "后台运行应用程序",
+      "task_description": "在后台启动应用程序并跟踪输出日志。",
+      "example_code": null,
+      "running_command": "nohup python3 app.py & tail -f nohup.out",
+      "expected_input": null,
+      "expected_output": "后台运行，输出日志实时更新"
+    },
+    {
+      "task_title": "查看Docker日志",
+      "task_description": "查看chatgpt-on-wechat容器的实时日志。",
+      "example_code": null,
+      "running_command": "sudo docker logs -f chatgpt-on-wechat",
+      "expected_input": null,
+      "expected_output": "实时输出Docker容器的日志"
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "bash <(curl -sS https://cdn.link-ai.tech/code/cow/install.sh)",
+      "git clone https://github.com/zhayujie/chatgpt-on-wechat\ncd chatgpt-on-wechat/",
+      "pip3 install -r requirements.txt"
+    ],
+    "docker_commands": [
+      "wget https://cdn.link-ai.tech/code/cow/docker-compose.yml",
+      "sudo docker compose up -d         # 若docker-compose为 1.X 版本，则执行 `sudo  docker-compose up -d`"
+    ],
+    "docker_files": {
+      "Dockerfile": "FROM ghcr.io/zhayujie/chatgpt-on-wechat:latest\n\nENTRYPOINT [\"/entrypoint.sh\"]"
+    }
+  },
+  "input_to_gpt": {
+    "repo_name": "zhayujie/chatgpt-on-wechat",
+    "num_code_blocks": 6,
+    "total_length": 2223,
+    "code_blocks": [
+      "pip3 install -r requirements-optional.txt",
+      "  cp config-template.json config.json",
+      "# config.json 文件内容示例\n{\n  \"channel_type\": \"web\",                                      # 接入渠道类型，默认为web，支持修改为:terminal, wechatmp, wechatmp_service, wechatcom_app, dingtalk, feishu\n  \"model\": \"gpt-4o-mini\",                                     # 模型名称, 支持 gpt-4o-mini, gpt-4.1, gpt-4o, deepseek-reasoner, wenxin, xunfei, glm-4, claude-3-7-sonnet-latest, moonshot等\n  \"open_ai_api_key\": \"YOUR API KEY\",                          # 如果使用openAI模型则填入上面创建的 OpenAI API KEY\n  \"open_ai_api_base\": \"https://api.openai.com/v1\",            # OpenAI接口代理地址，修改此项可接入第三方模型接口\n  \"proxy\": \"\",                                                # 代理客户端的ip和端口，国内环境开启代理的需要填写该项，如 \"127.0.0.1:7890\"\n  \"single_chat_prefix\": [\"bot\", \"@bot\"],                      # 私聊时文本需要包含该前缀才能触发机器人回复\n  \"single_chat_reply_prefix\": \"[bot] \",                       # 私聊时自动回复的前缀，用于区分真人\n  \"group_chat_prefix\": [\"@bot\"],                              # 群聊时包含该前缀则会触发机器人回复\n  \"group_name_white_list\": [\"ChatGPT测试群\", \"ChatGPT测试群2\"], # 开启自动回复的群名称列表\n  \"group_chat_in_one_session\": [\"ChatGPT测试群\"],              # 支持会话上下文共享的群名称  \n  \"image_create_prefix\": [\"画\", \"看\", \"找\"],                   # 开启图片回复的前缀\n  \"conversation_max_tokens\": 1000,                            # 支持上下文记忆的最多字符数\n  \"speech_recognition\": false,                                # 是否开启语音识别\n  \"group_speech_recognition\": false,                          # 是否开启群组语音识别\n  \"voice_reply_voice\": false,                                 # 是否使用语音回复语音\n  \"character_desc\": \"你是基于大语言模型的AI智能助手，旨在回答并解决人们的任何问题，并且可以使用多种语言与人交流。\",  # 系统提示词\n  # 订阅欢迎语，公众号和企业微信channel中使用，当被订阅时会自动回复以下内容\n  \"subscribe_msg\": \"感谢您的关注！\\n这里是AI智能助手，可以自由对话。\\n支持语音对话。\\n支持图片输入。\\n支持图片输出，画字开头的消息将按要求创作图片。\\n支持tool、角色扮演和文字冒险等丰富的插件。\\n输入{trigger_prefix}#help 查看详细指令。\",\n  \"use_linkai\": false,                                        # 是否使用LinkAI接口，默认关闭，设置为true后可对接LinkAI平台的智能体\n  \"linkai_api_key\": \"\",                                       # LinkAI Api Key\n  \"linkai_app_code\": \"\"                                       # LinkAI 应用或工作流的code\n}",
+      "python3 app.py         # windows环境下该命令通常为 python app.py",
+      "nohup python3 app.py & tail -f nohup.out",
+      "sudo docker logs -f chatgpt-on-wechat"
+    ]
+  }
+}

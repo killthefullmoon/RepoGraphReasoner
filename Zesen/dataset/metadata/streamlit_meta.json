@@ -1,0 +1,30 @@
+{
+  "repo": {
+    "full_name": "streamlit/streamlit",
+    "stars": 41977,
+    "forks": 3836,
+    "language": "Python",
+    "description": "Streamlit — A faster way to build and share data apps.",
+    "topics": [
+      "data-analysis",
+      "data-science",
+      "data-visualization",
+      "deep-learning",
+      "developer-tools",
+      "machine-learning",
+      "python",
+      "streamlit"
+    ],
+    "url": "https://github.com/streamlit/streamlit",
+    "created_at": "2019-08-24T00:14:52Z",
+    "updated_at": "2025-10-29T03:11:36Z"
+  },
+  "readme_file": "dataset/readmes/streamlit_README.md",
+  "task_file": "dataset/tasks/streamlit_tasks.json",
+  "num_tasks": 1,
+  "num_setup_commands": 1,
+  "num_docker_commands": 0,
+  "has_docker_files": false,
+  "docker_files_list": [],
+  "processed_at": "2025-10-28T23:12:55.427865"
+}

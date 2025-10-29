@@ -1,0 +1,32 @@
+{
+  "repo": {
+    "full_name": "run-llama/llama_index",
+    "stars": 44950,
+    "forks": 6490,
+    "language": "Python",
+    "description": "LlamaIndex is the leading framework for building LLM-powered agents over your data.",
+    "topics": [
+      "agents",
+      "application",
+      "data",
+      "fine-tuning",
+      "framework",
+      "llamaindex",
+      "llm",
+      "multi-agents",
+      "rag",
+      "vector-database"
+    ],
+    "url": "https://github.com/run-llama/llama_index",
+    "created_at": "2022-11-02T04:24:54Z",
+    "updated_at": "2025-10-29T01:46:11Z"
+  },
+  "readme_file": "dataset/readmes/llama_index_README.md",
+  "task_file": "dataset/tasks/llama_index_tasks.json",
+  "num_tasks": 5,
+  "num_setup_commands": 2,
+  "num_docker_commands": 0,
+  "has_docker_files": false,
+  "docker_files_list": [],
+  "processed_at": "2025-10-28T23:11:57.074960"
+}

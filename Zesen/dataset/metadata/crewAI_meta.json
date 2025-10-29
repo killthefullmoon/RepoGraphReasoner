@@ -1,0 +1,27 @@
+{
+  "repo": {
+    "full_name": "crewAIInc/crewAI",
+    "stars": 39806,
+    "forks": 5301,
+    "language": "Python",
+    "description": "Framework for orchestrating role-playing, autonomous AI agents. By fostering collaborative intelligence, CrewAI empowers agents to work together seamlessly, tackling complex tasks.",
+    "topics": [
+      "agents",
+      "ai",
+      "ai-agents",
+      "aiagentframework",
+      "llms"
+    ],
+    "url": "https://github.com/crewAIInc/crewAI",
+    "created_at": "2023-10-27T03:26:59Z",
+    "updated_at": "2025-10-29T03:09:59Z"
+  },
+  "readme_file": "dataset/readmes/crewAI_README.md",
+  "task_file": "dataset/tasks/crewAI_tasks.json",
+  "num_tasks": 2,
+  "num_setup_commands": 2,
+  "num_docker_commands": 0,
+  "has_docker_files": false,
+  "docker_files_list": [],
+  "processed_at": "2025-10-28T23:14:21.804995"
+}

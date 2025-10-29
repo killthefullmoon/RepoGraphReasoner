@@ -1,0 +1,27 @@
+{
+  "tasks": [
+    {
+      "task_title": "Generate a DeepSpeed Report",
+      "task_description": "使用DeepSpeed生成报告，以便分析训练过程中的性能和效率。",
+      "example_code": "from deepspeed import deepspeed\n\ndef main():\n    # Initialize DeepSpeed\n    ds = deepspeed.initialize()\n    # Generate report\n    report = ds.report()\n    print(report)\n\nif __name__ == '__main__':\n    main()",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "{'report': {...}}"
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "pip install deepspeed"
+    ],
+    "docker_commands": [],
+    "docker_files": {}
+  },
+  "input_to_gpt": {
+    "repo_name": "deepspeedai/DeepSpeed",
+    "num_code_blocks": 1,
+    "total_length": 9,
+    "code_blocks": [
+      "ds_report"
+    ]
+  }
+}

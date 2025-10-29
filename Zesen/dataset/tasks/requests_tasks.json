@@ -1,0 +1,29 @@
+{
+  "tasks": [
+    {
+      "task_title": "基本认证请求",
+      "task_description": "使用基本认证发送GET请求，并获取响应的状态码、头部、编码、文本和JSON数据。",
+      "example_code": "import requests\n\nr = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass'))\n\nr.status_code\nr.headers['content-type']\nr.encoding\nr.text\nr.json()",
+      "running_command": null,
+      "expected_input": "https://httpbin.org/basic-auth/user/pass, ('user', 'pass')",
+      "expected_output": "200, 'application/json; charset=utf8', 'utf-8', '{\"authenticated\": true, ...}', {'authenticated': True, ...}"
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "$ python -m pip install requests",
+      "git clone -c fetch.fsck.badTimezone=ignore https://github.com/psf/requests.git"
+    ],
+    "docker_commands": [],
+    "docker_files": {}
+  },
+  "input_to_gpt": {
+    "repo_name": "psf/requests",
+    "num_code_blocks": 2,
+    "total_length": 354,
+    "code_blocks": [
+      ">>> import requests\n>>> r = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass'))\n>>> r.status_code\n200\n>>> r.headers['content-type']\n'application/json; charset=utf8'\n>>> r.encoding\n'utf-8'\n>>> r.text\n'{\"authenticated\": true, ...'\n>>> r.json()\n{'authenticated': True, ...}",
+      "git config --global fetch.fsck.badTimezone ignore"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "repo": {
+    "full_name": "karpathy/nanoGPT",
+    "stars": 48344,
+    "forks": 8097,
+    "language": "Python",
+    "description": "The simplest, fastest repository for training/finetuning medium-sized GPTs.",
+    "topics": [],
+    "url": "https://github.com/karpathy/nanoGPT",
+    "created_at": "2022-12-28T00:51:12Z",
+    "updated_at": "2025-10-29T03:02:33Z"
+  },
+  "readme_file": "dataset/readmes/nanoGPT_README.md",
+  "task_file": "dataset/tasks/nanoGPT_tasks.json",
+  "num_tasks": 12,
+  "num_setup_commands": 0,
+  "num_docker_commands": 0,
+  "has_docker_files": false,
+  "docker_files_list": [],
+  "processed_at": "2025-10-28T23:10:57.897477"
+}

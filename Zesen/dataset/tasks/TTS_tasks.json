@@ -1,0 +1,78 @@
+{
+  "tasks": [
+    {
+      "task_title": "列出可用的TTS模型",
+      "task_description": "使用TTS API列出所有可用的文本到语音模型。",
+      "example_code": "print(TTS().list_models())",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "可用模型的列表"
+    },
+    {
+      "task_title": "文本转语音",
+      "task_description": "将文本转换为语音并输出为音频数组，使用指定的说话者音频和语言。",
+      "example_code": "wav = tts.tts(text=\"Hello world!\", speaker_wav=\"my/cloning/audio.wav\", language=\"en\")",
+      "running_command": null,
+      "expected_input": "Hello world!",
+      "expected_output": "音频数组（语音的幅度值）"
+    },
+    {
+      "task_title": "文本转语音并保存到文件",
+      "task_description": "将文本转换为语音并保存为指定的音频文件。",
+      "example_code": "tts.tts_to_file(text=\"Hello world!\", speaker_wav=\"my/cloning/audio.wav\", language=\"en\", file_path=\"output.wav\")",
+      "running_command": null,
+      "expected_input": "Hello world!",
+      "expected_output": "输出文件output.wav"
+    },
+    {
+      "task_title": "多语言文本转语音",
+      "task_description": "使用多语言模型将文本转换为语音并保存为文件，支持多种语言。",
+      "example_code": "tts.tts_to_file(\"C'est le clonage de la voix.\", speaker_wav=\"my/cloning/audio.wav\", language=\"fr-fr\", file_path=\"output.wav\")",
+      "running_command": null,
+      "expected_input": "C'est le clonage de la voix.",
+      "expected_output": "输出文件output.wav"
+    },
+    {
+      "task_title": "语音转换",
+      "task_description": "使用指定的源和目标音频文件进行语音转换，并将结果保存为音频文件。",
+      "example_code": "tts.voice_conversion_to_file(source_wav=\"my/source.wav\", target_wav=\"my/target.wav\", file_path=\"output.wav\")",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "输出文件output.wav"
+    },
+    {
+      "task_title": "带有语音转换的文本转语音",
+      "task_description": "将文本转换为语音，同时进行语音转换，并保存为文件。",
+      "example_code": "tts.tts_with_vc_to_file(\"Wie sage ich auf Italienisch, dass ich dich liebe?\", speaker_wav=\"target/speaker.wav\", file_path=\"output.wav\")",
+      "running_command": null,
+      "expected_input": "Wie sage ich auf Italienisch, dass ich dich liebe?",
+      "expected_output": "输出文件output.wav"
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "pip install TTS",
+      "git clone https://github.com/coqui-ai/TTS\npip install -e .[all,dev,notebooks]  # Select the relevant extras"
+    ],
+    "docker_commands": [
+      "docker run --rm -it -p 5002:5002 --entrypoint /bin/bash ghcr.io/coqui-ai/tts-cpu\npython3 TTS/server/server.py --list_models #To get the list of available models\npython3 TTS/server/server.py --model_name tts_models/en/vctk/vits # To start a server"
+    ],
+    "docker_files": {
+      "Dockerfile": "ARG BASE=nvidia/cuda:11.8.0-base-ubuntu22.04\nFROM ${BASE}\n\nRUN apt-get update && apt-get upgrade -y\nRUN apt-get install -y --no-install-recommends gcc g++ make python3 python3-dev python3-pip python3-venv python3-wheel espeak-ng libsndfile1-dev && rm -rf /var/lib/apt/lists/*\nRUN pip3 install llvmlite --ignore-installed\n\n# Install Dependencies:\nRUN pip3 install torch torchaudio --extra-index-url https://download.pytorch.org/whl/cu118\nRUN rm -rf /root/.cache/pip\n\n# Copy TTS repository contents:\nWORKDIR /root\nCOPY . /root\n\nRUN make install\n\nENTRYPOINT [\"tts\"]\nCMD [\"--help\"]\n",
+      ".dockerignore": ".git/\nDockerfile\nbuild/\ndist/\nTTS.egg-info/\ntests/outputs/*\ntests/train_outputs/*\n__pycache__/\n*.pyc"
+    }
+  },
+  "input_to_gpt": {
+    "repo_name": "coqui-ai/TTS",
+    "num_code_blocks": 6,
+    "total_length": 2187,
+    "code_blocks": [
+      "$ make system-deps  # intended to be used on Ubuntu (Debian). Let us know if you have a different OS.\n$ make install",
+      "import torch\nfrom TTS.api import TTS\n\n# Get device\ndevice = \"cuda\" if torch.cuda.is_available() else \"cpu\"\n\n# List available 🐸TTS models\nprint(TTS().list_models())\n\n# Init TTS\ntts = TTS(\"tts_models/multilingual/multi-dataset/xtts_v2\").to(device)\n\n# Run TTS\n# ❗ Since this model is multi-lingual voice cloning model, we must set the target speaker_wav and language\n# Text to speech list of amplitude values as output\nwav = tts.tts(text=\"Hello world!\", speaker_wav=\"my/cloning/audio.wav\", language=\"en\")\n# Text to speech to a file\ntts.tts_to_file(text=\"Hello world!\", speaker_wav=\"my/cloning/audio.wav\", language=\"en\", file_path=\"output.wav\")",
+      "# Init TTS with the target model name\ntts = TTS(model_name=\"tts_models/de/thorsten/tacotron2-DDC\", progress_bar=False).to(device)\n\n# Run TTS\ntts.tts_to_file(text=\"Ich bin eine Testnachricht.\", file_path=OUTPUT_PATH)\n\n# Example voice cloning with YourTTS in English, French and Portuguese\ntts = TTS(model_name=\"tts_models/multilingual/multi-dataset/your_tts\", progress_bar=False).to(device)\ntts.tts_to_file(\"This is voice cloning.\", speaker_wav=\"my/cloning/audio.wav\", language=\"en\", file_path=\"output.wav\")\ntts.tts_to_file(\"C'est le clonage de la voix.\", speaker_wav=\"my/cloning/audio.wav\", language=\"fr-fr\", file_path=\"output.wav\")\ntts.tts_to_file(\"Isso é clonagem de voz.\", speaker_wav=\"my/cloning/audio.wav\", language=\"pt-br\", file_path=\"output.wav\")",
+      "tts = TTS(model_name=\"voice_conversion_models/multilingual/vctk/freevc24\", progress_bar=False).to(\"cuda\")\ntts.voice_conversion_to_file(source_wav=\"my/source.wav\", target_wav=\"my/target.wav\", file_path=\"output.wav\")",
+      "\ntts = TTS(\"tts_models/de/thorsten/tacotron2-DDC\")\ntts.tts_with_vc_to_file(\n    \"Wie sage ich auf Italienisch, dass ich dich liebe?\",\n    speaker_wav=\"target/speaker.wav\",\n    file_path=\"output.wav\"\n)",
+      "# TTS with on the fly voice conversion\napi = TTS(\"tts_models/deu/fairseq/vits\")\napi.tts_with_vc_to_file(\n    \"Wie sage ich auf Italienisch, dass ich dich liebe?\",\n    speaker_wav=\"target/speaker.wav\",\n    file_path=\"output.wav\"\n)"
+    ]
+  }
+}

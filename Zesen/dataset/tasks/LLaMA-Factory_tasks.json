@@ -1,0 +1,137 @@
+{
+  "tasks": [
+    {
+      "task_title": "同步额外依赖",
+      "task_description": "使用uv工具同步额外的torch和metrics依赖，允许预发布版本。",
+      "example_code": null,
+      "running_command": "uv sync --extra torch --extra metrics --prerelease=allow",
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "训练LLaMA模型（预训练）",
+      "task_description": "使用llamafactory-cli命令行工具训练LLaMA模型，配置文件为llama3_lora_pretrain.yaml，允许预发布版本。",
+      "example_code": null,
+      "running_command": "uv run --prerelease=allow llamafactory-cli train examples/train_lora/llama3_lora_pretrain.yaml",
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "训练LLaMA模型（微调）",
+      "task_description": "使用llamafactory-cli命令行工具训练LLaMA模型，配置文件为llama3_lora_sft.yaml。",
+      "example_code": null,
+      "running_command": "llamafactory-cli train examples/train_lora/llama3_lora_sft.yaml",
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "与LLaMA模型对话",
+      "task_description": "使用llamafactory-cli命令行工具与LLaMA模型进行对话，配置文件为llama3_lora_sft.yaml。",
+      "example_code": null,
+      "running_command": "llamafactory-cli chat examples/inference/llama3_lora_sft.yaml",
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "导出LLaMA模型",
+      "task_description": "使用llamafactory-cli命令行工具导出LLaMA模型，配置文件为llama3_lora_sft.yaml。",
+      "example_code": null,
+      "running_command": "llamafactory-cli export examples/merge_lora/llama3_lora_sft.yaml",
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "启动Web界面",
+      "task_description": "使用llamafactory-cli命令行工具启动LLaMA模型的Web界面。",
+      "example_code": null,
+      "running_command": "llamafactory-cli webui",
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "启动Docker容器（CUDA）",
+      "task_description": "进入docker/docker-cuda目录，启动Docker容器。",
+      "example_code": null,
+      "running_command": "cd docker/docker-cuda/ && docker compose up -d && docker compose exec llamafactory bash",
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "启动Docker容器（NPU）",
+      "task_description": "进入docker/docker-npu目录，启动Docker容器。",
+      "example_code": null,
+      "running_command": "cd docker/docker-npu/ && docker compose up -d && docker compose exec llamafactory bash",
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "启动Docker容器（ROCM）",
+      "task_description": "进入docker/docker-rocm目录，启动Docker容器。",
+      "example_code": null,
+      "running_command": "cd docker/docker-rocm/ && docker compose up -d && docker compose exec llamafactory bash",
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "启动API服务",
+      "task_description": "使用llamafactory-cli命令行工具启动API服务，配置文件为llama3.yaml，设置推理后端为vllm。",
+      "example_code": null,
+      "running_command": "API_PORT=8000 llamafactory-cli api examples/inference/llama3.yaml infer_backend=vllm vllm_enforce_eager=true",
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "使用ModelScope Hub",
+      "task_description": "设置环境变量以使用ModelScope Hub。",
+      "example_code": null,
+      "running_command": "export USE_MODELSCOPE_HUB=1",
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "使用OpenMind Hub",
+      "task_description": "设置环境变量以使用OpenMind Hub。",
+      "example_code": null,
+      "running_command": "export USE_OPENMIND_HUB=1",
+      "expected_input": null,
+      "expected_output": null
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "pip install --upgrade huggingface_hub\nhuggingface-cli login",
+      "git clone --depth 1 https://github.com/hiyouga/LLaMA-Factory.git\ncd LLaMA-Factory\npip install -e \".[torch,metrics]\" --no-build-isolation",
+      "pip uninstall torch torchvision torchaudio\npip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126\npython -c \"import torch; print(torch.cuda.is_available())\"",
+      "pip install https://github.com/jllllll/bitsandbytes-windows-webui/releases/download/wheels/bitsandbytes-0.41.2.post2-py3-none-win_amd64.whl",
+      "# replace the url according to your CANN version and devices\n# install CANN Toolkit\nwget https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Milan-ASL/Milan-ASL%20V100R001C20SPC702/Ascend-cann-toolkit_8.0.0.alpha002_linux-\"$(uname -i)\".run\nbash Ascend-cann-toolkit_8.0.0.alpha002_linux-\"$(uname -i)\".run --install\n\n# install CANN Kernels\nwget https://ascend-repo.obs.cn-east-2.myhuaweicloud.com/Milan-ASL/Milan-ASL%20V100R001C20SPC702/Ascend-cann-kernels-910b_8.0.0.alpha002_linux-\"$(uname -i)\".run\nbash Ascend-cann-kernels-910b_8.0.0.alpha002_linux-\"$(uname -i)\".run --install\n\n# set env variables\nsource /usr/local/Ascend/ascend-toolkit/set_env.sh",
+      "# Install bitsandbytes from source\n# Clone bitsandbytes repo, Ascend NPU backend is currently enabled on multi-backend-refactor branch\ngit clone -b multi-backend-refactor https://github.com/bitsandbytes-foundation/bitsandbytes.git\ncd bitsandbytes/\n\n# Install dependencies\npip install -r requirements-dev.txt\n\n# Install the dependencies for the compilation tools. Note that the commands for this step may vary depending on the operating system. The following are provided for reference\napt-get install -y build-essential cmake\n\n# Compile & install  \ncmake -DCOMPUTE_BACKEND=npu -S .\nmake\npip install .",
+      "git clone -b main https://github.com/huggingface/transformers.git\ncd transformers\npip install ."
+    ],
+    "docker_commands": [
+      "docker run -it --rm --gpus=all --ipc=host hiyouga/llamafactory:latest",
+      "docker build -f ./docker/docker-cuda/Dockerfile \\\n    --build-arg PIP_INDEX=https://pypi.org/simple \\\n    --build-arg EXTRAS=metrics \\\n    -t llamafactory:latest .\n\ndocker run -dit --ipc=host --gpus=all \\\n    -p 7860:7860 \\\n    -p 8000:8000 \\\n    --name llamafactory \\\n    llamafactory:latest\n\ndocker exec -it llamafactory bash",
+      "docker build -f ./docker/docker-npu/Dockerfile \\\n    --build-arg PIP_INDEX=https://pypi.org/simple \\\n    --build-arg EXTRAS=torch-npu,metrics \\\n    -t llamafactory:latest .\n\ndocker run -dit --ipc=host \\\n    -v /usr/local/dcmi:/usr/local/dcmi \\\n    -v /usr/local/bin/npu-smi:/usr/local/bin/npu-smi \\\n    -v /usr/local/Ascend/driver:/usr/local/Ascend/driver \\\n    -v /etc/ascend_install.info:/etc/ascend_install.info \\\n    -p 7860:7860 \\\n    -p 8000:8000 \\\n    --device /dev/davinci0 \\\n    --device /dev/davinci_manager \\\n    --device /dev/devmm_svm \\\n    --device /dev/hisi_hdc \\\n    --name llamafactory \\\n    llamafactory:latest\n\ndocker exec -it llamafactory bash",
+      "docker build -f ./docker/docker-rocm/Dockerfile \\\n    --build-arg PIP_INDEX=https://pypi.org/simple \\\n    --build-arg EXTRAS=metrics \\\n    -t llamafactory:latest .\n\ndocker run -dit --ipc=host \\\n    -p 7860:7860 \\\n    -p 8000:8000 \\\n    --device /dev/kfd \\\n    --device /dev/dri \\\n    --name llamafactory \\\n    llamafactory:latest\n\ndocker exec -it llamafactory bash"
+    ],
+    "docker_files": {
+      ".dockerignore": ".vscode\n.git\n.github\n.venv\ncache\ndocker\nsaves\nhf_cache\nms_cache\nom_cache\nshared_data\noutput\n.dockerignore\n.gitattributes\n.gitignore\n"
+    }
+  },
+  "input_to_gpt": {
+    "repo_name": "hiyouga/LLaMA-Factory",
+    "num_code_blocks": 10,
+    "total_length": 907,
+    "code_blocks": [
+      "uv sync --extra torch --extra metrics --prerelease=allow",
+      "uv run --prerelease=allow llamafactory-cli train examples/train_lora/llama3_lora_pretrain.yaml",
+      "llamafactory-cli train examples/train_lora/llama3_lora_sft.yaml\nllamafactory-cli chat examples/inference/llama3_lora_sft.yaml\nllamafactory-cli export examples/merge_lora/llama3_lora_sft.yaml",
+      "llamafactory-cli webui",
+      "cd docker/docker-cuda/\ndocker compose up -d\ndocker compose exec llamafactory bash",
+      "cd docker/docker-npu/\ndocker compose up -d\ndocker compose exec llamafactory bash",
+      "cd docker/docker-rocm/\ndocker compose up -d\ndocker compose exec llamafactory bash",
+      "API_PORT=8000 llamafactory-cli api examples/inference/llama3.yaml infer_backend=vllm vllm_enforce_eager=true",
+      "export USE_MODELSCOPE_HUB=1 # `set USE_MODELSCOPE_HUB=1` for Windows",
+      "export USE_OPENMIND_HUB=1 # `set USE_OPENMIND_HUB=1` for Windows"
+    ]
+  }
+}

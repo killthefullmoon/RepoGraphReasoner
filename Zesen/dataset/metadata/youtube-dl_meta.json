@@ -1,0 +1,21 @@
+{
+  "repo": {
+    "full_name": "ytdl-org/youtube-dl",
+    "stars": 138581,
+    "forks": 10526,
+    "language": "Python",
+    "description": "Command-line program to download videos from YouTube.com and other video sites",
+    "topics": [],
+    "url": "https://github.com/ytdl-org/youtube-dl",
+    "created_at": "2010-10-31T14:35:07Z",
+    "updated_at": "2025-10-29T02:20:46Z"
+  },
+  "readme_file": "dataset/readmes/youtube-dl_README.md",
+  "task_file": "dataset/tasks/youtube-dl_tasks.json",
+  "num_tasks": 15,
+  "num_setup_commands": 0,
+  "num_docker_commands": 0,
+  "has_docker_files": false,
+  "docker_files_list": [],
+  "processed_at": "2025-10-28T23:01:27.624771"
+}

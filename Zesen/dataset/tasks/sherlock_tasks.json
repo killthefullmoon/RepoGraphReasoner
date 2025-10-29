@@ -1,0 +1,55 @@
+{
+  "tasks": [
+    {
+      "task_title": "Check a single username",
+      "task_description": "This task checks the availability of a single username across various social networks.",
+      "example_code": null,
+      "running_command": "sherlock user123",
+      "expected_input": "user123",
+      "expected_output": "[{\"username\": \"user123\", \"links\": [\"https://www.1337x.to/user/user123/\", ...]}]"
+    },
+    {
+      "task_title": "Check multiple usernames",
+      "task_description": "This task checks the availability of multiple usernames across various social networks.",
+      "example_code": null,
+      "running_command": "sherlock user1 user2 user3",
+      "expected_input": "user1 user2 user3",
+      "expected_output": "[{\"username\": \"user1\", \"links\": [...]}, {\"username\": \"user2\", \"links\": [...]}, {\"username\": \"user3\", \"links\": [...]}]"
+    },
+    {
+      "task_title": "Display help information",
+      "task_description": "This task displays the help information and usage instructions for the Sherlock tool.",
+      "example_code": null,
+      "running_command": "sherlock --help",
+      "expected_input": null,
+      "expected_output": "usage: sherlock [-h] [--version] [--verbose] ..."
+    },
+    {
+      "task_title": "Call Sherlock via API",
+      "task_description": "This task demonstrates how to call the Sherlock service using an API with a JSON input.",
+      "example_code": null,
+      "running_command": "echo '{\"usernames\":[\"user123\"]}' | apify call -so netmilk/sherlock",
+      "expected_input": "{\"usernames\":[\"user123\"]}",
+      "expected_output": "[{\"username\": \"user123\", \"links\": [\"https://www.1337x.to/user/user123/\", ...]}]"
+    }
+  ],
+  "setup": {
+    "setup_commands": [],
+    "docker_commands": [],
+    "docker_files": {
+      "Dockerfile": "# Release instructions:\n  # 1. Update the version tag in the Dockerfile to match the version in sherlock/__init__.py\n  # 2. Update the VCS_REF tag to match the tagged version's FULL commit hash\n  # 3. Build image with BOTH latest and version tags\n    # i.e. `docker build -t sherlock/sherlock:0.16.0 -t sherlock/sherlock:latest .`\n\nFROM python:3.12-slim-bullseye AS build\nWORKDIR /sherlock\n\nRUN pip3 install --no-cache-dir --upgrade pip\n\nFROM python:3.12-slim-bullseye\nWORKDIR /sherlock\n\nARG VCS_REF= # CHANGE ME ON UPDATE\nARG VCS_URL=\"https://github.com/sherlock-project/sherlock\"\nARG VERSION_TAG= # CHANGE ME ON UPDATE\n\nENV SHERLOCK_ENV=docker\n\nLABEL org.label-schema.vcs-ref=$VCS_REF \\\n      org.label-schema.vcs-url=$VCS_URL \\\n      org.label-schema.name=\"Sherlock\" \\\n      org.label-schema.version=$VERSION_TAG \\\n      website=\"https://sherlockproject.xyz\"\n\nRUN pip3 install --no-cache-dir sherlock-project==$VERSION_TAG\n\nWORKDIR /sherlock\n\nENTRYPOINT [\"sherlock\"]\n",
+      ".dockerignore": ".git/\n.vscode/\nscreenshot/\ntests/\n*.txt\n!/requirements.txt\nvenv/\ndevel/"
+    }
+  },
+  "input_to_gpt": {
+    "repo_name": "sherlock-project/sherlock",
+    "num_code_blocks": 4,
+    "total_length": 2866,
+    "code_blocks": [
+      "sherlock user123",
+      "sherlock user1 user2 user3",
+      "$ sherlock --help\nusage: sherlock [-h] [--version] [--verbose] [--folderoutput FOLDEROUTPUT]\n                [--output OUTPUT] [--tor] [--unique-tor] [--csv] [--xlsx]\n                [--site SITE_NAME] [--proxy PROXY_URL] [--json JSON_FILE]\n                [--timeout TIMEOUT] [--print-all] [--print-found] [--no-color]\n                [--browse] [--local] [--nsfw]\n                USERNAMES [USERNAMES ...]\n\nSherlock: Find Usernames Across Social Networks (Version 0.14.3)\n\npositional arguments:\n  USERNAMES             One or more usernames to check with social networks.\n                        Check similar usernames using {?} (replace to '_', '-', '.').\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --version             Display version information and dependencies.\n  --verbose, -v, -d, --debug\n                        Display extra debugging information and metrics.\n  --folderoutput FOLDEROUTPUT, -fo FOLDEROUTPUT\n                        If using multiple usernames, the output of the results will be\n                        saved to this folder.\n  --output OUTPUT, -o OUTPUT\n                        If using single username, the output of the result will be saved\n                        to this file.\n  --tor, -t             Make requests over Tor; increases runtime; requires Tor to be\n                        installed and in system path.\n  --unique-tor, -u      Make requests over Tor with new Tor circuit after each request;\n                        increases runtime; requires Tor to be installed and in system\n                        path.\n  --csv                 Create Comma-Separated Values (CSV) File.\n  --xlsx                Create the standard file for the modern Microsoft Excel\n                        spreadsheet (xlsx).\n  --site SITE_NAME      Limit analysis to just the listed sites. Add multiple options to\n                        specify more than one site.\n  --proxy PROXY_URL, -p PROXY_URL\n                        Make requests over a proxy. e.g. socks5://127.0.0.1:1080\n  --json JSON_FILE, -j JSON_FILE\n                        Load data from a JSON file or an online, valid, JSON file.\n  --timeout TIMEOUT     Time (in seconds) to wait for response to requests (Default: 60)\n  --print-all           Output sites where the username was not found.\n  --print-found         Output sites where the username was found.\n  --no-color            Don't color terminal output\n  --browse, -b          Browse to all results on default browser.\n  --local, -l           Force the use of the local data.json file.\n  --nsfw                Include checking of NSFW sites from default list.",
+      "$ echo '{\"usernames\":[\"user123\"]}' | apify call -so netmilk/sherlock\n[{\n  \"username\": \"user123\",\n  \"links\": [\n    \"https://www.1337x.to/user/user123/\",\n    ...\n  ]\n}]"
+    ]
+  }
+}

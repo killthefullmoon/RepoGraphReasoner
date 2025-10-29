@@ -1,0 +1,23 @@
+{
+  "repo": {
+    "full_name": "virattt/ai-hedge-fund",
+    "stars": 42104,
+    "forks": 7451,
+    "language": "Python",
+    "description": "An AI Hedge Fund Team",
+    "topics": [],
+    "url": "https://github.com/virattt/ai-hedge-fund",
+    "created_at": "2024-11-29T16:30:01Z",
+    "updated_at": "2025-10-29T02:13:41Z"
+  },
+  "readme_file": "dataset/readmes/ai-hedge-fund_README.md",
+  "task_file": "dataset/tasks/ai-hedge-fund_tasks.json",
+  "num_tasks": 4,
+  "num_setup_commands": 3,
+  "num_docker_commands": 0,
+  "has_docker_files": true,
+  "docker_files_list": [
+    ".dockerignore"
+  ],
+  "processed_at": "2025-10-28T23:12:45.457550"
+}

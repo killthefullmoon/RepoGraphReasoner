@@ -1,0 +1,25 @@
+{
+  "tasks": [
+    {
+      "task_title": "创建简单的Flask应用",
+      "task_description": "该任务展示如何创建一个基本的Flask应用，并定义一个路由，返回'Hello, World!'。",
+      "example_code": "from flask import Flask\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef hello():\n    return \"Hello, World!\"",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "Hello, World!"
+    }
+  ],
+  "setup": {
+    "setup_commands": [],
+    "docker_commands": [],
+    "docker_files": {}
+  },
+  "input_to_gpt": {
+    "repo_name": "pallets/flask",
+    "num_code_blocks": 1,
+    "total_length": 125,
+    "code_blocks": [
+      "# save this as app.py\nfrom flask import Flask\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef hello():\n    return \"Hello, World!\""
+    ]
+  }
+}

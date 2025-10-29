@@ -1,0 +1,29 @@
+{
+  "tasks": [
+    {
+      "task_title": "运行Langflow",
+      "task_description": "使用Langflow库运行一个流任务。",
+      "example_code": null,
+      "running_command": "uv run langflow run",
+      "expected_input": null,
+      "expected_output": "启动Langflow服务并运行指定任务"
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "uv pip install langflow -U"
+    ],
+    "docker_commands": [],
+    "docker_files": {
+      ".dockerignore": "src/frontend/node_modules\nsrc/frontend/build\nsrc/frontend/coverage\nsrc/frontend/test-results\nsrc/frontend/playwright-report\nsrc/frontend/.dspy_cache\n**/.DS_Store\n**/__pycache__\n**/*.pyc\n**/.pytest_cache\n**/.venv\n**/.env"
+    }
+  },
+  "input_to_gpt": {
+    "repo_name": "langflow-ai/langflow",
+    "num_code_blocks": 1,
+    "total_length": 19,
+    "code_blocks": [
+      "uv run langflow run"
+    ]
+  }
+}

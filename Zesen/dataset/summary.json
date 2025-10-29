@@ -1,66 +1,66 @@
 {
-  "total_repos": 10,
-  "successful": 10,
+  "total_repos": 50,
+  "successful": 50,
   "failed": 0,
-  "readme_found": 10,
-  "tasks_generated": 10,
-  "total_tasks": 59,
-  "average_tasks_per_repo": 5.9,
+  "readme_found": 50,
+  "tasks_generated": 50,
+  "total_tasks": 233,
+  "average_tasks_per_repo": 4.66,
   "language_distribution": {
-    "Python": 10
+    "Python": 50
   },
   "error_types": {},
   "top_repos": [
     {
       "name": "Significant-Gravitas/AutoGPT",
-      "stars": 179320,
+      "stars": 179345,
       "description": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters."
     },
     {
+      "name": "ytdl-org/youtube-dl",
+      "stars": 138581,
+      "description": "Command-line program to download videos from YouTube.com and other video sites"
+    },
+    {
       "name": "langflow-ai/langflow",
-      "stars": 136272,
+      "stars": 136412,
       "description": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows."
     },
     {
       "name": "yt-dlp/yt-dlp",
-      "stars": 132886,
+      "stars": 133008,
       "description": "A feature-rich command-line audio/video downloader"
     },
     {
       "name": "deepseek-ai/DeepSeek-V3",
-      "stars": 100009,
+      "stars": 100031,
       "description": null
     },
     {
       "name": "nvbn/thefuck",
-      "stars": 94490,
+      "stars": 94501,
       "description": "Magnificent app which corrects your previous console command."
     },
     {
-      "name": "pytorch/pytorch",
-      "stars": 94295,
-      "description": "Tensors and Dynamic neural networks in Python with strong GPU acceleration"
-    },
-    {
       "name": "comfyanonymous/ComfyUI",
-      "stars": 92097,
+      "stars": 92192,
       "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface."
     },
     {
       "name": "fastapi/fastapi",
-      "stars": 91238,
+      "stars": 91264,
       "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
     },
     {
       "name": "openai/whisper",
-      "stars": 90010,
+      "stars": 90053,
       "description": "Robust Speech Recognition via Large-Scale Weak Supervision"
     },
     {
       "name": "microsoft/markitdown",
-      "stars": 82164,
+      "stars": 82211,
       "description": "Python tool for converting files and office documents to Markdown."
     }
   ],
-  "generated_at": "2025-10-27T21:22:51.114766"
+  "generated_at": "2025-10-28T23:15:09.231739"
 }

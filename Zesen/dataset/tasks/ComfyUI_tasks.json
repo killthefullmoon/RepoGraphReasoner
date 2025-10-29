@@ -1,0 +1,43 @@
+{
+  "tasks": [
+    {
+      "task_title": "Run ComfyUI with AMD GPU support",
+      "task_description": "This task involves running the ComfyUI application on AMD GPUs that are not officially supported by ROCm, using specific environment variables to set the graphics version.",
+      "example_code": null,
+      "running_command": "HSA_OVERRIDE_GFX_VERSION=10.3.0 python main.py",
+      "expected_input": null,
+      "expected_output": "ComfyUI application running with AMD GPU support"
+    },
+    {
+      "task_title": "Run ComfyUI for RDNA3 AMD GPUs",
+      "task_description": "This task involves running the ComfyUI application specifically for AMD RDNA3 GPUs by setting the appropriate graphics version.",
+      "example_code": null,
+      "running_command": "HSA_OVERRIDE_GFX_VERSION=11.0.0 python main.py",
+      "expected_input": null,
+      "expected_output": "ComfyUI application running with RDNA3 AMD GPU support"
+    },
+    {
+      "task_title": "Enable experimental memory efficient attention",
+      "task_description": "This task involves enabling experimental memory efficient attention in ComfyUI on certain AMD GPUs using a specific command, which may improve performance.",
+      "example_code": null,
+      "running_command": "Enable memory efficient attention on recent PyTorch",
+      "expected_input": null,
+      "expected_output": "Memory efficient attention enabled"
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "pip install comfy-cli\ncomfy install"
+    ],
+    "docker_commands": [],
+    "docker_files": {}
+  },
+  "input_to_gpt": {
+    "repo_name": "comfyanonymous/ComfyUI",
+    "num_code_blocks": 1,
+    "total_length": 608,
+    "code_blocks": [
+      "\n### For AMD cards not officially supported by ROCm\n\nTry running it with this command if you have issues:\n\nFor 6700, 6600 and maybe other RDNA2 or older: ```HSA_OVERRIDE_GFX_VERSION=10.3.0 python main.py```\n\nFor AMD 7600 and maybe other RDNA3 cards: ```HSA_OVERRIDE_GFX_VERSION=11.0.0 python main.py```\n\n### AMD ROCm Tips\n\nYou can enable experimental memory efficient attention on recent pytorch in ComfyUI on some AMD GPUs using this command, it should already be enabled by default on RDNA3. If this improves speed for you on latest pytorch on your GPU please report it so that I can enable it by default.\n"
+    ]
+  }
+}

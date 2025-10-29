@@ -1,0 +1,107 @@
+{
+  "tasks": [
+    {
+      "task_title": "Chat with Interpreter",
+      "task_description": "与解释器进行对话，执行单个命令或开始交互式聊天。",
+      "example_code": "interpreter.chat(\"Plot AAPL and META's normalized stock prices\")",
+      "running_command": null,
+      "expected_input": "Plot AAPL and META's normalized stock prices",
+      "expected_output": "执行绘制AAPL和META的标准化股价的命令"
+    },
+    {
+      "task_title": "Stream Chat Response",
+      "task_description": "通过流式响应从解释器获取消息。",
+      "example_code": "for chunk in interpreter.chat(message, display=False, stream=True):\n  print(chunk)",
+      "running_command": null,
+      "expected_input": "What operating system are we on?",
+      "expected_output": "操作系统的相关信息"
+    },
+    {
+      "task_title": "Add Subtitles to Videos",
+      "task_description": "为指定文件夹中的所有视频添加字幕。",
+      "example_code": "interpreter.chat(\"Add subtitles to all videos in /videos.\")",
+      "running_command": null,
+      "expected_input": "Add subtitles to all videos in /videos.",
+      "expected_output": "为/videos中的所有视频添加字幕"
+    },
+    {
+      "task_title": "Reset and Resume Chat",
+      "task_description": "重置解释器的消息并恢复先前的聊天记录。",
+      "example_code": "messages = interpreter.chat(\"My name is Killian.\")\ninterpreter.messages = []\ninterpreter.messages = messages",
+      "running_command": null,
+      "expected_input": "My name is Killian.",
+      "expected_output": "将'Killian'的消息恢复到聊天记录中"
+    },
+    {
+      "task_title": "Modify System Message",
+      "task_description": "修改系统消息以运行不需要用户确认的shell命令。",
+      "example_code": "interpreter.system_message += \"\"\nRun shell commands with -y so the user doesn't have to confirm them.\n\"\"",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "系统消息已更新"
+    },
+    {
+      "task_title": "Set LLM Model",
+      "task_description": "设置使用的语言模型。",
+      "example_code": "interpreter.llm.model = \"gpt-3.5-turbo\"",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "LLM模型设置为gpt-3.5-turbo"
+    },
+    {
+      "task_title": "Chat API Endpoint",
+      "task_description": "通过FastAPI创建一个聊天API端点，处理消息并流式返回结果。",
+      "example_code": "app = FastAPI()\n@app.get(\"/chat\")\ndef chat_endpoint(message: str):\n    ...",
+      "running_command": null,
+      "expected_input": "message",
+      "expected_output": "流式返回聊天结果"
+    },
+    {
+      "task_title": "Enable Verbose Mode",
+      "task_description": "在命令行中启用或禁用详细模式。",
+      "example_code": null,
+      "running_command": "> %verbose true",
+      "expected_input": null,
+      "expected_output": "详细模式已启用"
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "pip install git+https://github.com/OpenInterpreter/open-interpreter.git",
+      "pip install open-interpreter",
+      "pip install fastapi uvicorn\nuvicorn server:app --reload"
+    ],
+    "docker_commands": [],
+    "docker_files": {
+      "Dockerfile": "###########################################################################################\n# This Dockerfile runs an LMC-compatible websocket server at / on port 8000.              #\n# To learn more about LMC, visit https://docs.openinterpreter.com/protocols/lmc-messages. #\n###########################################################################################\n\nFROM python:3.11.8\n\n# Set environment variables\n# ENV OPENAI_API_KEY ...\n\nENV HOST 0.0.0.0\n# ^ Sets the server host to 0.0.0.0, Required for the server to be accessible outside the container\n\n# Copy required files into container\nRUN mkdir -p interpreter scripts\nCOPY interpreter/ interpreter/\nCOPY scripts/ scripts/\nCOPY poetry.lock pyproject.toml README.md ./\n\n# Expose port 8000\nEXPOSE 8000\n\n# Install server dependencies\nRUN pip install \".[server]\"\n\n# Start the server\nENTRYPOINT [\"interpreter\", \"--server\"]"
+    }
+  },
+  "input_to_gpt": {
+    "repo_name": "openinterpreter/open-interpreter",
+    "num_code_blocks": 21,
+    "total_length": 2640,
+    "code_blocks": [
+      "interpreter",
+      "interpreter",
+      "from interpreter import interpreter\n\ninterpreter.chat(\"Plot AAPL and META's normalized stock prices\") # Executes a single command\ninterpreter.chat() # Starts an interactive chat",
+      "message = \"What operating system are we on?\"\n\nfor chunk in interpreter.chat(message, display=False, stream=True):\n  print(chunk)",
+      "interpreter",
+      "interpreter.chat()",
+      "message = \"What operating system are we on?\"\n\nfor chunk in interpreter.chat(message, display=False, stream=True):\n  print(chunk)",
+      "interpreter.chat(\"Add subtitles to all videos in /videos.\")\n\n# ... Streams output to your terminal, completes task ...\n\ninterpreter.chat(\"These look great but can you make the subtitles bigger?\")\n\n# ...",
+      "interpreter.messages = []",
+      "messages = interpreter.chat(\"My name is Killian.\") # Save messages to 'messages'\ninterpreter.messages = [] # Reset interpreter (\"Killian\" will be forgotten)\n\ninterpreter.messages = messages # Resume chat from 'messages' (\"Killian\" will be remembered)",
+      "interpreter.system_message += \"\"\"\nRun shell commands with -y so the user doesn't have to confirm them.\n\"\"\"\nprint(interpreter.system_message)",
+      "interpreter --model gpt-3.5-turbo\ninterpreter --model claude-2\ninterpreter --model command-nightly",
+      "interpreter.llm.model = \"gpt-3.5-turbo\"",
+      "interpreter --api_base \"http://localhost:1234/v1\" --api_key \"fake_key\"",
+      "interpreter --local",
+      "from interpreter import interpreter\n\ninterpreter.offline = True # Disables online features like Open Procedures\ninterpreter.llm.model = \"openai/x\" # Tells OI to send messages in OpenAI's format\ninterpreter.llm.api_key = \"fake_key\" # LiteLLM, which we use to talk to LM Studio, requires this\ninterpreter.llm.api_base = \"http://localhost:1234/v1\" # Point this at any OpenAI compatible server\n\ninterpreter.chat()",
+      "interpreter --local --max_tokens 1000 --context_window 3000",
+      "$ interpreter\n...\n> %verbose true <- Turns on verbose mode\n\n> %verbose false <- Turns off verbose mode",
+      "# server.py\n\nfrom fastapi import FastAPI\nfrom fastapi.responses import StreamingResponse\nfrom interpreter import interpreter\n\napp = FastAPI()\n\n@app.get(\"/chat\")\ndef chat_endpoint(message: str):\n    def event_stream():\n        for result in interpreter.chat(message, stream=True):\n            yield f\"data: {result}\\n\\n\"\n\n    return StreamingResponse(event_stream(), media_type=\"text/event-stream\")\n\n@app.get(\"/history\")\ndef history_endpoint():\n    return interpreter.messages",
+      "npm i -g mintlify@latest",
+      "# Assuming you're at the project's root directory\ncd ./docs\n\n# Run the documentation server\nmintlify dev"
+    ]
+  }
+}

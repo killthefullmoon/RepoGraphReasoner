@@ -8,6 +8,14 @@
     "error": null
   },
   {
+    "repo_name": "ytdl-org/youtube-dl",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 15,
+    "error": null
+  },
+  {
     "repo_name": "langflow-ai/langflow",
     "success": true,
     "readme_found": true,
@@ -20,7 +28,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 12,
+    "num_tasks": 10,
     "error": null
   },
   {
@@ -28,7 +36,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 3,
+    "num_tasks": 1,
     "error": null
   },
   {
@@ -36,15 +44,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 10,
-    "error": null
-  },
-  {
-    "repo_name": "pytorch/pytorch",
-    "success": true,
-    "readme_found": true,
-    "tasks_generated": true,
-    "num_tasks": 5,
+    "num_tasks": 8,
     "error": null
   },
   {
@@ -52,7 +52,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 6,
+    "num_tasks": 3,
     "error": null
   },
   {
@@ -60,7 +60,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 5,
+    "num_tasks": 4,
     "error": null
   },
   {
@@ -77,6 +77,326 @@
     "readme_found": true,
     "tasks_generated": true,
     "num_tasks": 9,
+    "error": null
+  },
+  {
+    "repo_name": "3b1b/manim",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 1,
+    "error": null
+  },
+  {
+    "repo_name": "hacksider/Deep-Live-Cam",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 4,
+    "error": null
+  },
+  {
+    "repo_name": "Shubhamsaboo/awesome-llm-apps",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 3,
+    "error": null
+  },
+  {
+    "repo_name": "browser-use/browser-use",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 8,
+    "error": null
+  },
+  {
+    "repo_name": "pallets/flask",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 1,
+    "error": null
+  },
+  {
+    "repo_name": "sherlock-project/sherlock",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 4,
+    "error": null
+  },
+  {
+    "repo_name": "xtekky/gpt4free",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 6,
+    "error": null
+  },
+  {
+    "repo_name": "OpenHands/OpenHands",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 2,
+    "error": null
+  },
+  {
+    "repo_name": "PaddlePaddle/PaddleOCR",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 9,
+    "error": null
+  },
+  {
+    "repo_name": "hiyouga/LLaMA-Factory",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 12,
+    "error": null
+  },
+  {
+    "repo_name": "localstack/localstack",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 3,
+    "error": null
+  },
+  {
+    "repo_name": "openinterpreter/open-interpreter",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 8,
+    "error": null
+  },
+  {
+    "repo_name": "FoundationAgents/MetaGPT",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 1,
+    "error": null
+  },
+  {
+    "repo_name": "meta-llama/llama",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 1,
+    "error": null
+  },
+  {
+    "repo_name": "soimort/you-get",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 1,
+    "error": null
+  },
+  {
+    "repo_name": "ultralytics/yolov5",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 9,
+    "error": null
+  },
+  {
+    "repo_name": "ageitgey/face_recognition",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 6,
+    "error": null
+  },
+  {
+    "repo_name": "Textualize/rich",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 14,
+    "error": null
+  },
+  {
+    "repo_name": "OpenBB-finance/OpenBB",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 1,
+    "error": null
+  },
+  {
+    "repo_name": "psf/requests",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 1,
+    "error": null
+  },
+  {
+    "repo_name": "RVC-Boss/GPT-SoVITS",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 3,
+    "error": null
+  },
+  {
+    "repo_name": "microsoft/autogen",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 3,
+    "error": null
+  },
+  {
+    "repo_name": "pathwaycom/pathway",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 5,
+    "error": null
+  },
+  {
+    "repo_name": "karpathy/nanoGPT",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 12,
+    "error": null
+  },
+  {
+    "repo_name": "ultralytics/ultralytics",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 6,
+    "error": null
+  },
+  {
+    "repo_name": "opendatalab/MinerU",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 1,
+    "error": null
+  },
+  {
+    "repo_name": "unslothai/unsloth",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 3,
+    "error": null
+  },
+  {
+    "repo_name": "run-llama/llama_index",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 5,
+    "error": null
+  },
+  {
+    "repo_name": "coqui-ai/TTS",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 6,
+    "error": null
+  },
+  {
+    "repo_name": "docling-project/docling",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 3,
+    "error": null
+  },
+  {
+    "repo_name": "virattt/ai-hedge-fund",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 4,
+    "error": null
+  },
+  {
+    "repo_name": "streamlit/streamlit",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 1,
+    "error": null
+  },
+  {
+    "repo_name": "mem0ai/mem0",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 1,
+    "error": null
+  },
+  {
+    "repo_name": "zai-org/ChatGLM-6B",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 6,
+    "error": null
+  },
+  {
+    "repo_name": "psf/black",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 2,
+    "error": null
+  },
+  {
+    "repo_name": "deepspeedai/DeepSpeed",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 1,
+    "error": null
+  },
+  {
+    "repo_name": "gradio-app/gradio",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 2,
+    "error": null
+  },
+  {
+    "repo_name": "crewAIInc/crewAI",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 2,
+    "error": null
+  },
+  {
+    "repo_name": "google-research/bert",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 10,
+    "error": null
+  },
+  {
+    "repo_name": "zhayujie/chatgpt-on-wechat",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 3,
     "error": null
   }
 ]

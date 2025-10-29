@@ -1,0 +1,27 @@
+{
+  "tasks": [
+    {
+      "task_title": "Chat Completion",
+      "task_description": "该任务用于生成聊天回复，使用了指定的模型和分词器，支持设置最大序列长度和批处理大小。",
+      "example_code": null,
+      "running_command": "torchrun --nproc_per_node 1 example_chat_completion.py --ckpt_dir llama-2-7b-chat/ --tokenizer_path tokenizer.model --max_seq_len 512 --max_batch_size 6",
+      "expected_input": null,
+      "expected_output": null
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "    pip install -e ."
+    ],
+    "docker_commands": [],
+    "docker_files": {}
+  },
+  "input_to_gpt": {
+    "repo_name": "meta-llama/llama",
+    "num_code_blocks": 1,
+    "total_length": 170,
+    "code_blocks": [
+      "torchrun --nproc_per_node 1 example_chat_completion.py \\\n    --ckpt_dir llama-2-7b-chat/ \\\n    --tokenizer_path tokenizer.model \\\n    --max_seq_len 512 --max_batch_size 6"
+    ]
+  }
+}
