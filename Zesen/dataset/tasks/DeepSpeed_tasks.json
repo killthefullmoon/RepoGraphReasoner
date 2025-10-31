@@ -1,12 +1,12 @@
 {
   "tasks": [
     {
-      "task_title": "Generate a DeepSpeed Report",
-      "task_description": "使用DeepSpeed生成报告，以便分析训练过程中的性能和效率。",
-      "example_code": "from deepspeed import deepspeed\n\ndef main():\n    # Initialize DeepSpeed\n    ds = deepspeed.initialize()\n    # Generate report\n    report = ds.report()\n    print(report)\n\nif __name__ == '__main__':\n    main()",
+      "task_title": "Generate DeepSpeed Report",
+      "task_description": "使用DeepSpeed生成模型训练的详细报告，包括性能指标和配置参数。",
+      "example_code": "import deepspeed\n\ndsr = deepspeed.utils.DSReport()\ndsr.generate()",
       "running_command": null,
       "expected_input": null,
-      "expected_output": "{'report': {...}}"
+      "expected_output": "DeepSpeed Report: ... (包含模型性能和配置的详细信息)"
     }
   ],
   "setup": {
@@ -14,7 +14,8 @@
       "pip install deepspeed"
     ],
     "docker_commands": [],
-    "docker_files": {}
+    "docker_files": {},
+    "docker_setup_descriptions": null
   },
   "input_to_gpt": {
     "repo_name": "deepspeedai/DeepSpeed",

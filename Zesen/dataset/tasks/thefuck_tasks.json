@@ -1,66 +1,66 @@
 {
   "tasks": [
     {
-      "task_title": "Fix git push without upstream branch",
-      "task_description": "Automatically fix the issue of pushing to a git branch that has no upstream branch set.",
+      "task_title": "Fix Git Push Command",
+      "task_description": "Automatically corrects the git push command by setting the upstream branch.",
       "example_code": null,
       "running_command": "fuck",
-      "expected_input": null,
+      "expected_input": "git push",
       "expected_output": "git push --set-upstream origin master"
     },
     {
-      "task_title": "Correct misspelled command",
-      "task_description": "Suggest the correct command when a misspelled command is entered.",
+      "task_title": "Fix Misspelled Command",
+      "task_description": "Suggests the correct command when a misspelled command is entered.",
       "example_code": null,
       "running_command": "fuck",
       "expected_input": "puthon",
       "expected_output": "python"
     },
     {
-      "task_title": "Fix unrecognized git command",
-      "task_description": "Automatically correct an unrecognized git command to its intended form.",
+      "task_title": "Fix Git Branch Command",
+      "task_description": "Automatically corrects the git branch command when a typo is detected.",
       "example_code": null,
       "running_command": "fuck",
       "expected_input": "git brnch",
       "expected_output": "git branch"
     },
     {
-      "task_title": "Fix unrecognized lein task",
-      "task_description": "Automatically correct an unrecognized lein task to its intended form.",
+      "task_title": "Fix Lein Command",
+      "task_description": "Suggests the correct Lein command when an invalid task is entered.",
       "example_code": null,
       "running_command": "fuck",
       "expected_input": "lein rpl",
       "expected_output": "lein repl"
     },
     {
-      "task_title": "Enable The Fuck with custom alias",
-      "task_description": "Set up a custom alias for The Fuck to use in the terminal.",
-      "example_code": null,
-      "running_command": "eval $(thefuck --alias)",
-      "expected_input": null,
-      "expected_output": null
-    },
-    {
-      "task_title": "Run The Fuck with confirmation",
-      "task_description": "Run The Fuck with a confirmation prompt before executing the suggested command.",
+      "task_title": "Run thefuck with Confirmation",
+      "task_description": "Executes thefuck with confirmation required.",
       "example_code": null,
       "running_command": "fuck --yeah",
       "expected_input": null,
       "expected_output": null
     },
     {
-      "task_title": "Run The Fuck with a reverse option",
-      "task_description": "Run The Fuck with the reverse option to undo the last command.",
+      "task_title": "Re-run Last Command",
+      "task_description": "Re-runs the last fixed command.",
       "example_code": null,
       "running_command": "fuck -r",
       "expected_input": null,
       "expected_output": null
     },
     {
-      "task_title": "Upgrade The Fuck",
-      "task_description": "Upgrade The Fuck package to the latest version.",
-      "example_code": null,
-      "running_command": "pip3 install thefuck --upgrade",
+      "task_title": "Match Command Example",
+      "task_description": "Defines a function to match commands based on output.",
+      "example_code": "def match(command):\n    return ('permission denied' in command.output.lower() or 'EACCES' in command.output)",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "Get New Command Example",
+      "task_description": "Defines a function to get a new command based on the old one.",
+      "example_code": "def get_new_command(command):\n    return 'sudo {}'.format(command.script)",
+      "running_command": null,
       "expected_input": null,
       "expected_output": null
     }
@@ -73,7 +73,8 @@
       "pip install thefuck"
     ],
     "docker_commands": [],
-    "docker_files": {}
+    "docker_files": {},
+    "docker_setup_descriptions": null
   },
   "input_to_gpt": {
     "repo_name": "nvbn/thefuck",

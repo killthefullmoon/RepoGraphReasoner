@@ -2,11 +2,11 @@
   "tasks": [
     {
       "task_title": "获取历史股票价格",
-      "task_description": "此任务用于获取指定股票（如AAPL）的历史价格数据，并将其转换为DataFrame格式。",
+      "task_description": "此任务用于获取指定股票（如AAPL）的历史价格数据，并将结果转换为数据框格式。",
       "example_code": "from openbb import obb\noutput = obb.equity.price.historical(\"AAPL\")\ndf = output.to_dataframe()",
       "running_command": null,
       "expected_input": "AAPL",
-      "expected_output": "DataFrame包含AAPL的历史价格数据"
+      "expected_output": "一个包含AAPL历史价格数据的数据框"
     }
   ],
   "setup": {
@@ -14,7 +14,8 @@
       "pip install \"openbb[all]\""
     ],
     "docker_commands": [],
-    "docker_files": {}
+    "docker_files": {},
+    "docker_setup_descriptions": null
   },
   "input_to_gpt": {
     "repo_name": "OpenBB-finance/OpenBB",

@@ -1,8 +1,8 @@
 {
   "repo": {
     "full_name": "openinterpreter/open-interpreter",
-    "stars": 60723,
-    "forks": 5209,
+    "stars": 60742,
+    "forks": 5210,
     "language": "Python",
     "description": "A natural language interface for computers",
     "topics": [
@@ -15,7 +15,7 @@
     ],
     "url": "https://github.com/openinterpreter/open-interpreter",
     "created_at": "2023-07-14T07:10:44Z",
-    "updated_at": "2025-10-29T01:44:51Z"
+    "updated_at": "2025-10-30T23:18:26Z"
   },
   "readme_file": "dataset/readmes/open-interpreter_README.md",
   "task_file": "dataset/tasks/open-interpreter_tasks.json",
@@ -26,5 +26,8 @@
   "docker_files_list": [
     "Dockerfile"
   ],
-  "processed_at": "2025-10-28T23:07:12.132695"
+  "docker_setup_descriptions": {
+    "Dockerfile": "### Building and Running Docker for openinterpreter/open-interpreter\n\nTo build and run the Docker container for the openinterpreter/open-interpreter project, follow these steps:\n\n1. **Clone the Repository**:\n   ```bash\n   git clone https://github.com/openinterpreter/open-interpreter.git\n   cd open-interpreter\n   ```\n\n2. **Build the Docker Image**:\n   Use the following command to build the Docker image from the provided `Dockerfile`:\n   ```bash\n   docker build -t open-interpreter .\n   ```\n\n3. **Run the Docker Container**:\n   Start the container, mapping port 8000 of the container to port 8000 on your host:\n   ```bash\n   docker run -p 8000:8000 open-interpreter\n   ```\n\n### Semantic Meaning of the Dockerfile\n\n- **Base Image**: The Dockerfile starts with `FROM python:3.11.8`, indicating that it uses Python 3.11.8 as the base image, which is essential for running Python applications.\n\n- **Environment Variables**: \n  - `ENV HOST 0.0.0.0` sets the server host to `0.0.0.0`, allowing the server to be accessed from outside the Docker container.\n\n- **Directory Structure**: \n  - `RUN mkdir -p interpreter scripts` creates necessary directories within the container.\n  - `COPY` commands transfer files from the host into the container, ensuring that the application code and dependencies are available.\n\n- **Port Exposure**: \n  - `EXPOSE 8000` informs Docker that the container listens on port 8000 at runtime, which is crucial for accessing the websocket server.\n\n- **Dependency Installation**: \n  - `RUN pip install \".[server]\"` installs the server dependencies specified in the `pyproject.toml` and `poetry.lock` files, ensuring that the application has all necessary libraries.\n\n- **Entry Point**: \n  - `ENTRYPOINT [\"interpreter\", \"--server\"]` specifies the command that runs when the container starts, launching the LMC-compatible websocket server.\n\nThis Dockerfile effectively sets up an environment for running a websocket server that adheres to the LMC protocol, making it accessible for external connections."
+  },
+  "processed_at": "2025-10-30T20:42:37.825756"
 }

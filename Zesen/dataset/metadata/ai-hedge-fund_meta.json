@@ -1,14 +1,14 @@
 {
   "repo": {
     "full_name": "virattt/ai-hedge-fund",
-    "stars": 42104,
-    "forks": 7451,
+    "stars": 42138,
+    "forks": 7457,
     "language": "Python",
     "description": "An AI Hedge Fund Team",
     "topics": [],
     "url": "https://github.com/virattt/ai-hedge-fund",
     "created_at": "2024-11-29T16:30:01Z",
-    "updated_at": "2025-10-29T02:13:41Z"
+    "updated_at": "2025-10-31T00:35:05Z"
   },
   "readme_file": "dataset/readmes/ai-hedge-fund_README.md",
   "task_file": "dataset/tasks/ai-hedge-fund_tasks.json",
@@ -19,5 +19,8 @@
   "docker_files_list": [
     ".dockerignore"
   ],
-  "processed_at": "2025-10-28T23:12:45.457550"
+  "docker_setup_descriptions": {
+    ".dockerignore": "### Building and Running Docker with `.dockerignore` from `virattt/ai-hedge-fund`\n\n#### Overview of `.dockerignore`\n\nThe `.dockerignore` file is used to specify files and directories that should be excluded from the Docker build context. This helps to reduce the size of the Docker image and speeds up the build process by preventing unnecessary files from being sent to the Docker daemon. The semantic meaning of each entry in the provided `.dockerignore` file is as follows:\n\n1. **Git-related files**:\n   - `.git` and `.gitignore`: Exclude version control metadata to keep the image clean and avoid unnecessary bloat.\n\n2. **Python environment and cache**:\n   - `.venv`: Exclude virtual environment directories to avoid including local dependencies.\n   - `__pycache__/`, `*.py[cod]`, `*$py.class`, `.pytest_cache/`: Exclude compiled Python files and cache directories that are not needed for deployment.\n\n3. **Environment variables**:\n   - `.env`: Exclude environment variable files to prevent sensitive information from being included in the image.\n\n4. **IDE and editor files**:\n   - `.idea/`, `.vscode/`, `*.swp`, `*.swo`: Exclude configuration files and temporary files created by IDEs and text editors.\n\n5. **Logs and data**:\n   - `logs/`, `data/`, `*.log`: Exclude log files and data directories that are not necessary for the application to run.\n\n6. **Operating System specific files**:\n   - `.DS_Store`, `Thumbs.db`: Exclude OS-specific metadata files that do not contribute to the application.\n\n#### Building and Running Docker\n\n1. **Clone the Repository**:\n   ```bash\n   git clone https://github.com/virattt/ai-hedge-fund.git\n   cd ai-hedge-fund\n   ```\n\n2. **Build the Docker Image**:\n   Use the following command to build the Docker image. Replace `your-image-name` with your desired image name.\n   ```bash\n   docker build -t your-image-name .\n   ```\n\n3. **Run the Docker Container**:\n   After building the image, run the container using:\n   ```bash\n   docker run -d --name your-container-name your-image-name\n   ```\n\n4. **Check Running Containers**:\n   To verify that your container is running, use:\n   ```bash\n   docker ps\n   ```\n\n5. **Stop and Remove the Container** (if needed):\n   To stop and remove the container, use:\n   ```bash\n   docker stop your-container-name\n   docker rm your-container-name\n   ```\n\n#### Note:\n- Ensure that Docker is installed and running on your machine before executing these commands.\n- Review the repository's README for any specific Docker commands or configurations that may be required for your application."
+  },
+  "processed_at": "2025-10-30T20:54:31.448080"
 }

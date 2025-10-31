@@ -1,28 +1,28 @@
 {
   "tasks": [
     {
-      "task_title": "Run ComfyUI with AMD GPU support",
-      "task_description": "This task involves running the ComfyUI application on AMD GPUs that are not officially supported by ROCm, using specific environment variables to set the graphics version.",
+      "task_title": "运行ComfyUI以支持AMD卡",
+      "task_description": "通过设置HSA_OVERRIDE_GFX_VERSION环境变量来运行ComfyUI，支持特定的AMD显卡。",
       "example_code": null,
       "running_command": "HSA_OVERRIDE_GFX_VERSION=10.3.0 python main.py",
       "expected_input": null,
-      "expected_output": "ComfyUI application running with AMD GPU support"
+      "expected_output": "运行ComfyUI应用程序"
     },
     {
-      "task_title": "Run ComfyUI for RDNA3 AMD GPUs",
-      "task_description": "This task involves running the ComfyUI application specifically for AMD RDNA3 GPUs by setting the appropriate graphics version.",
+      "task_title": "运行ComfyUI以支持AMD RDNA3卡",
+      "task_description": "通过设置HSA_OVERRIDE_GFX_VERSION环境变量来运行ComfyUI，支持AMD RDNA3显卡。",
       "example_code": null,
       "running_command": "HSA_OVERRIDE_GFX_VERSION=11.0.0 python main.py",
       "expected_input": null,
-      "expected_output": "ComfyUI application running with RDNA3 AMD GPU support"
+      "expected_output": "运行ComfyUI应用程序"
     },
     {
-      "task_title": "Enable experimental memory efficient attention",
-      "task_description": "This task involves enabling experimental memory efficient attention in ComfyUI on certain AMD GPUs using a specific command, which may improve performance.",
+      "task_title": "启用实验性内存高效注意力",
+      "task_description": "在某些AMD GPU上启用实验性内存高效注意力，这在最新的PyTorch中可以提高速度。",
       "example_code": null,
-      "running_command": "Enable memory efficient attention on recent PyTorch",
+      "running_command": null,
       "expected_input": null,
-      "expected_output": "Memory efficient attention enabled"
+      "expected_output": "内存高效注意力已启用"
     }
   ],
   "setup": {
@@ -30,7 +30,8 @@
       "pip install comfy-cli\ncomfy install"
     ],
     "docker_commands": [],
-    "docker_files": {}
+    "docker_files": {},
+    "docker_setup_descriptions": null
   },
   "input_to_gpt": {
     "repo_name": "comfyanonymous/ComfyUI",

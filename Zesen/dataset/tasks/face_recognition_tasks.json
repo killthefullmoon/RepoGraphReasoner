@@ -6,19 +6,19 @@
       "example_code": "import face_recognition\nimage = face_recognition.load_image_file(\"my_picture.jpg\")\nface_locations = face_recognition.face_locations(image)",
       "running_command": null,
       "expected_input": "my_picture.jpg",
-      "expected_output": "[[top, right, bottom, left], ...]"
+      "expected_output": "人脸坐标数组"
     },
     {
       "task_title": "获取人脸特征点",
-      "task_description": "加载图像并获取图像中所有人脸的特征点位置。",
+      "task_description": "加载图像并获取每个面部特征的坐标，如眼睛、鼻子等。",
       "example_code": "import face_recognition\nimage = face_recognition.load_image_file(\"my_picture.jpg\")\nface_landmarks_list = face_recognition.face_landmarks(image)",
       "running_command": null,
       "expected_input": "my_picture.jpg",
-      "expected_output": "[{'left_eye': [(x, y), ...], ...}, ...]"
+      "expected_output": "面部特征点数组"
     },
     {
       "task_title": "人脸编码",
-      "task_description": "加载已知和未知图像，生成其人脸编码以进行比较。",
+      "task_description": "加载已知图像和未知图像，生成面部编码并进行比较，以识别是否为同一人。",
       "example_code": "import face_recognition\nknown_image = face_recognition.load_image_file(\"biden.jpg\")\nunknown_image = face_recognition.load_image_file(\"unknown.jpg\")\nbiden_encoding = face_recognition.face_encodings(known_image)[0]\nunknown_encoding = face_recognition.face_encodings(unknown_image)[0]\nresults = face_recognition.compare_faces([biden_encoding], unknown_encoding)",
       "running_command": null,
       "expected_input": "biden.jpg, unknown.jpg",
@@ -26,27 +26,51 @@
     },
     {
       "task_title": "批量人脸识别",
-      "task_description": "使用命令行工具进行批量人脸识别，识别已知和未知图像中的人脸。",
+      "task_description": "使用CLI工具批量识别指定文件夹中的未知人脸，并输出识别结果。",
       "example_code": null,
-      "running_command": "face_recognition ./pictures_of_people_i_know/ ./unknown_pictures/",
+      "running_command": "$ face_recognition ./pictures_of_people_i_know/ ./unknown_pictures/",
       "expected_input": "./pictures_of_people_i_know/, ./unknown_pictures/",
       "expected_output": "/unknown_pictures/unknown.jpg,Barack Obama\n/face_recognition_test/unknown_pictures/unknown.jpg,unknown_person"
     },
     {
-      "task_title": "人脸识别与距离",
-      "task_description": "使用命令行工具进行人脸识别并显示相似度距离。",
+      "task_title": "人脸检测",
+      "task_description": "使用CLI工具检测指定文件夹中每张图像的人脸位置，并输出坐标。",
       "example_code": null,
-      "running_command": "face_recognition --show-distance true ./pictures_of_people_i_know/ ./unknown_pictures/",
+      "running_command": "$ face_detection  ./folder_with_pictures/",
+      "expected_input": "./folder_with_pictures/",
+      "expected_output": "examples/image1.jpg,65,215,169,112\nexamples/image2.jpg,62,394,211,244\nexamples/image2.jpg,95,941,244,792"
+    },
+    {
+      "task_title": "自定义容忍度进行人脸比较",
+      "task_description": "使用CLI工具设置容忍度进行人脸比较，输出识别结果。",
+      "example_code": null,
+      "running_command": "$ face_recognition --tolerance 0.54 ./pictures_of_people_i_know/ ./unknown_pictures/",
+      "expected_input": "./pictures_of_people_i_know/, ./unknown_pictures/",
+      "expected_output": "/unknown_pictures/unknown.jpg,Barack Obama\n/face_recognition_test/unknown_pictures/unknown.jpg,unknown_person"
+    },
+    {
+      "task_title": "显示人脸识别距离",
+      "task_description": "使用CLI工具进行人脸识别并显示识别距离。",
+      "example_code": null,
+      "running_command": "$ face_recognition --show-distance true ./pictures_of_people_i_know/ ./unknown_pictures/",
       "expected_input": "./pictures_of_people_i_know/, ./unknown_pictures/",
       "expected_output": "/unknown_pictures/unknown.jpg,Barack Obama,0.378542298956785\n/face_recognition_test/unknown_pictures/unknown.jpg,unknown_person,None"
     },
     {
-      "task_title": "使用多核处理进行人脸识别",
-      "task_description": "使用命令行工具并指定使用多个CPU进行人脸识别。",
+      "task_title": "并行处理人脸识别",
+      "task_description": "使用CLI工具设置并行处理的CPU数量进行人脸识别。",
       "example_code": null,
-      "running_command": "face_recognition --cpus 4 ./pictures_of_people_i_know/ ./unknown_pictures/",
+      "running_command": "$ face_recognition --cpus 4 ./pictures_of_people_i_know/ ./unknown_pictures/",
       "expected_input": "./pictures_of_people_i_know/, ./unknown_pictures/",
-      "expected_output": "/unknown_pictures/unknown.jpg,Barack Obama\n/face_recognition_test/unknown_pictures/unknown.jpg,unknown_person"
+      "expected_output": "识别结果"
+    },
+    {
+      "task_title": "比较人脸编码",
+      "task_description": "加载图像生成面部编码并比较两个编码是否为同一人。",
+      "example_code": "import face_recognition\npicture_of_me = face_recognition.load_image_file(\"me.jpg\")\nmy_face_encoding = face_recognition.face_encodings(picture_of_me)[0]\nunknown_picture = face_recognition.load_image_file(\"unknown.jpg\")\nunknown_face_encoding = face_recognition.face_encodings(unknown_picture)[0]\nresults = face_recognition.compare_faces([my_face_encoding], unknown_face_encoding)\nif results[0] == True:\n    print(\"It's a picture of me!\")\nelse:\n    print(\"It's not a picture of me!\")",
+      "running_command": null,
+      "expected_input": "me.jpg, unknown.jpg",
+      "expected_output": "It's a picture of me!/It's not a picture of me!"
     }
   ],
   "setup": {
@@ -55,6 +79,10 @@
     "docker_files": {
       "Dockerfile": "# This is a sample Dockerfile you can modify to deploy your own app based on face_recognition\n\nFROM python:3.10.3-slim-bullseye\n\nRUN apt-get -y update\nRUN apt-get install -y --fix-missing \\\n    build-essential \\\n    cmake \\\n    gfortran \\\n    git \\\n    wget \\\n    curl \\\n    graphicsmagick \\\n    libgraphicsmagick1-dev \\\n    libatlas-base-dev \\\n    libavcodec-dev \\\n    libavformat-dev \\\n    libgtk2.0-dev \\\n    libjpeg-dev \\\n    liblapack-dev \\\n    libswscale-dev \\\n    pkg-config \\\n    python3-dev \\\n    python3-numpy \\\n    software-properties-common \\\n    zip \\\n    && apt-get clean && rm -rf /tmp/* /var/tmp/*\n\nRUN cd ~ && \\\n    mkdir -p dlib && \\\n    git clone -b 'v19.9' --single-branch https://github.com/davisking/dlib.git dlib/ && \\\n    cd  dlib/ && \\\n    python3 setup.py install --yes USE_AVX_INSTRUCTIONS\n\n\n# The rest of this file just runs an example script.\n\n# If you wanted to use this Dockerfile to run your own app instead, maybe you would do this:\n# COPY . /root/your_app_or_whatever\n# RUN cd /root/your_app_or_whatever && \\\n#     pip3 install -r requirements.txt\n# RUN whatever_command_you_run_to_start_your_app\n\nCOPY . /root/face_recognition\nRUN cd /root/face_recognition && \\\n    pip3 install -r requirements.txt && \\\n    python3 setup.py install\n\n# Add pip3 install opencv-python==4.1.2.30 if you want to run the live webcam examples\n\nCMD cd /root/face_recognition/examples && \\\n    python3 recognize_faces_in_pictures.py\n",
       "docker-compose.yml": "version: '2.3'\n\nservices:\n  face_recognition:\n    image: face_recognition\n    container_name: face_recognition\n    working_dir: /face_recognition/examples\n    build:\n      context: .\n      #Uncomment this line to run the example on the GPU (requires Nvidia-Docker)\n      # dockerfile: Dockerfile.gpu \n    command: python3 -u find_faces_in_picture_cnn.py\n    volumes:\n      - ./:/face_recognition\n    #Uncomment this line to run the example on the GPU (requires Nvidia-Docker)\n    # runtime: nvidia"
+    },
+    "docker_setup_descriptions": {
+      "Dockerfile": "### Building and Running Docker for Face Recognition\n\nTo build and run a Docker container using the provided `Dockerfile` from the `ageitgey/face_recognition` repository, follow these steps:\n\n#### Step 1: Clone the Repository\nFirst, clone the repository to your local machine:\n```bash\ngit clone https://github.com/ageitgey/face_recognition.git\ncd face_recognition\n```\n\n#### Step 2: Build the Docker Image\nUse the Docker CLI to build the image from the `Dockerfile`:\n```bash\ndocker build -t face_recognition .\n```\nThis command creates a Docker image named `face_recognition` using the instructions defined in the `Dockerfile`.\n\n#### Step 3: Run the Docker Container\nAfter the image is built, run the container:\n```bash\ndocker run -it --rm face_recognition\n```\nThis command starts a new container from the `face_recognition` image and runs it interactively. The `--rm` flag ensures the container is removed after it stops.\n\n### Semantic Meaning of the Dockerfile\n\n1. **Base Image**: \n   - `FROM python:3.10.3-slim-bullseye`: This line specifies that the image is based on a slim version of Python 3.10.3, which is lightweight and suitable for running Python applications.\n\n2. **System Dependencies**:\n   - The `RUN apt-get` commands install essential system packages and libraries required for building and running the face recognition application. This includes compilers, image processing libraries, and other utilities.\n\n3. **Dlib Installation**:\n   - The Dockerfile clones the `dlib` library from GitHub and installs it. Dlib is a toolkit for machine learning and image processing, crucial for the face recognition functionality.\n\n4. **Application Setup**:\n   - The `COPY` command copies the contents of the local directory into the Docker image. This is where your application code resides.\n   - The subsequent `RUN` command installs any Python dependencies listed in `requirements.txt` and sets up the application.\n\n5. **Command Execution**:\n   - The `CMD` instruction specifies the default command to run when the container starts. In this case, it runs a Python script that recognizes faces in pictures, demonstrating the core functionality of the application.\n\n### Additional Notes\n- If you want to run live webcam examples, you may need to add the line `RUN pip3 install opencv-python==4.1.2.30` to the Dockerfile before the final `CMD` instruction.\n- Ensure Docker is installed and running on your machine before executing these commands.",
+      "docker-compose.yml": "### Building and Running Docker with `docker-compose.yml` for `ageitgey/face_recognition`\n\nTo build and run the Docker container for the `ageitgey/face_recognition` repository using the provided `docker-compose.yml`, follow these steps:\n\n1. **Clone the Repository**:\n   ```bash\n   git clone https://github.com/ageitgey/face_recognition.git\n   cd face_recognition\n   ```\n\n2. **Understand the `docker-compose.yml` File**:\n   - **Version**: Specifies the version of the Docker Compose file format being used (`2.3`).\n   - **Services**: Defines the services that make up your application.\n     - **face_recognition**: This is the main service defined.\n       - **image**: Specifies the Docker image to use (`face_recognition`).\n       - **container_name**: Sets the name of the container to `face_recognition`.\n       - **working_dir**: Sets the working directory inside the container to `/face_recognition/examples`.\n       - **build**: Configures the build context for the Docker image.\n         - **context**: Indicates the directory containing the Dockerfile (current directory).\n         - **dockerfile**: (Commented out) Can be uncommented to use a GPU-enabled Dockerfile if Nvidia-Docker is installed.\n       - **command**: The command to run when the container starts (`python3 -u find_faces_in_picture_cnn.py`), which executes a Python script for face recognition.\n       - **volumes**: Mounts the current directory (`./`) to `/face_recognition` in the container, allowing access to local files.\n       - **runtime**: (Commented out) Can be uncommented to enable GPU support if Nvidia-Docker is used.\n\n3. **Build the Docker Image**:\n   Run the following command to build the Docker image defined in the `docker-compose.yml`:\n   ```bash\n   docker-compose build\n   ```\n\n4. **Run the Docker Container**:\n   Start the container using:\n   ```bash\n   docker-compose up\n   ```\n\n5. **Using GPU (Optional)**:\n   If you want to run the container with GPU support, uncomment the `dockerfile` and `runtime` lines in the `docker-compose.yml`, then rebuild and run the container again.\n\n6. **Stopping the Container**:\n   To stop the running container, use:\n   ```bash\n   docker-compose down\n   ```\n\n### Related Docker Commands from README:\n- Ensure to check the README file for any additional commands or configurations that may be required for specific use cases or setups.\n\nThis concise guide should help you effectively build and run the Docker container for face recognition tasks using the specified `docker-compose.yml`."
     }
   },
   "input_to_gpt": {

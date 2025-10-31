@@ -2,11 +2,11 @@
   "tasks": [
     {
       "task_title": "Opening Manim Example",
-      "task_description": "展示如何使用Manim库创建一个简单的动画示例，演示了基本的动画功能。",
-      "example_code": "from manim import *\n\nclass OpeningManimExample(Scene):\n    def construct(self):\n        square = Square()\n        self.play(Create(square))\n        self.wait(1)",
+      "task_description": "展示了如何使用Manim库创建一个简单的动画示例。",
+      "example_code": "from manim import *\n\nclass OpeningManimExample(Scene):\n    def construct(self):\n        title = Text(\"Welcome to Manim!\")\n        self.play(Write(title))\n        self.wait(2)",
       "running_command": null,
       "expected_input": null,
-      "expected_output": "一个包含方形动画的场景"
+      "expected_output": "A scene displaying the text 'Welcome to Manim!'"
     }
   ],
   "setup": {
@@ -19,7 +19,8 @@
       "    git clone https://github.com/3b1b/manim.git\n    cd manim\n    pip install -e .\n    manimgl example_scenes.py OpeningManimExample (make sure to add manimgl to path first.)"
     ],
     "docker_commands": [],
-    "docker_files": {}
+    "docker_files": {},
+    "docker_setup_descriptions": null
   },
   "input_to_gpt": {
     "repo_name": "3b1b/manim",

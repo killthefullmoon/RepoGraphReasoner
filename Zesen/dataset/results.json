@@ -28,7 +28,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 10,
+    "num_tasks": 11,
     "error": null
   },
   {
@@ -68,7 +68,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 5,
+    "num_tasks": 7,
     "error": null
   },
   {
@@ -92,15 +92,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 4,
-    "error": null
-  },
-  {
-    "repo_name": "Shubhamsaboo/awesome-llm-apps",
-    "success": true,
-    "readme_found": true,
-    "tasks_generated": true,
-    "num_tasks": 3,
+    "num_tasks": 5,
     "error": null
   },
   {
@@ -108,7 +100,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 8,
+    "num_tasks": 7,
     "error": null
   },
   {
@@ -148,7 +140,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 9,
+    "num_tasks": 8,
     "error": null
   },
   {
@@ -204,7 +196,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 9,
+    "num_tasks": 11,
     "error": null
   },
   {
@@ -212,7 +204,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 6,
+    "num_tasks": 9,
     "error": null
   },
   {
@@ -252,7 +244,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 3,
+    "num_tasks": 4,
     "error": null
   },
   {
@@ -292,7 +284,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 3,
+    "num_tasks": 4,
     "error": null
   },
   {
@@ -300,7 +292,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 5,
+    "num_tasks": 6,
     "error": null
   },
   {
@@ -308,15 +300,15 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 6,
+    "num_tasks": 7,
     "error": null
   },
   {
-    "repo_name": "docling-project/docling",
+    "repo_name": "mem0ai/mem0",
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 3,
+    "num_tasks": 1,
     "error": null
   },
   {
@@ -336,19 +328,11 @@
     "error": null
   },
   {
-    "repo_name": "mem0ai/mem0",
-    "success": true,
-    "readme_found": true,
-    "tasks_generated": true,
-    "num_tasks": 1,
-    "error": null
-  },
-  {
     "repo_name": "zai-org/ChatGLM-6B",
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 6,
+    "num_tasks": 7,
     "error": null
   },
   {
@@ -380,7 +364,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 2,
+    "num_tasks": 1,
     "error": null
   },
   {
@@ -397,6 +381,22 @@
     "readme_found": true,
     "tasks_generated": true,
     "num_tasks": 3,
+    "error": null
+  },
+  {
+    "repo_name": "lm-sys/FastChat",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 6,
+    "error": null
+  },
+  {
+    "repo_name": "NanmiCoder/MediaCrawler",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 6,
     "error": null
   }
 ]

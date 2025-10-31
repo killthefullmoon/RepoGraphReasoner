@@ -1,8 +1,8 @@
 {
   "repo": {
     "full_name": "xtekky/gpt4free",
-    "stars": 65454,
-    "forks": 13718,
+    "stars": 65456,
+    "forks": 13712,
     "language": "Python",
     "description": "The official gpt4free repository | various collection of powerful language models | o4, o3 and deepseek r1, gpt-4.1, gemini 2.5",
     "topics": [
@@ -29,7 +29,7 @@
     ],
     "url": "https://github.com/xtekky/gpt4free",
     "created_at": "2023-03-29T17:00:43Z",
-    "updated_at": "2025-10-29T02:15:51Z"
+    "updated_at": "2025-10-30T20:35:03Z"
   },
   "readme_file": "dataset/readmes/gpt4free_README.md",
   "task_file": "dataset/tasks/gpt4free_tasks.json",
@@ -40,5 +40,8 @@
   "docker_files_list": [
     "docker-compose.yml"
   ],
-  "processed_at": "2025-10-28T23:05:40.499100"
+  "docker_setup_descriptions": {
+    "docker-compose.yml": "### Building and Running Docker with `docker-compose.yml` for `xtekky/gpt4free`\n\nTo build and run the Docker container for the `gpt4free` service using the provided `docker-compose.yml` file, follow these steps:\n\n1. **Understanding the `docker-compose.yml` File:**\n   - **Version:** Specifies the Docker Compose file format version (3 in this case).\n   - **Services:** Defines the services that will be run. Here, we have a single service named `gpt4free`.\n     - **Image:** Specifies the Docker image to use (`hlohaus789/g4f:latest`).\n     - **shm_size:** Allocates shared memory size (2GB) for the container, which is important for applications that require significant memory.\n     - **Build:** Indicates that the service should be built from a Dockerfile located in the `docker` directory of the current context.\n     - **Volumes:** Mounts the current directory (`.`) to `/app` in the container, allowing for persistent data storage and access to local files.\n     - **Ports:** Maps host ports to container ports:\n       - `8080` on the host to `8080` in the container (main service).\n       - `1337` on the host to `8080` in the container (alternative access).\n       - `7900` on the host to `7900` in the container (additional service).\n     - **Environment:** Sets the environment variable `OLLAMA_HOST` to `host.docker.internal`, enabling the container to access the host machine.\n\n2. **Building and Running the Docker Container:**\n   - **Prerequisites:** Ensure you have Docker and Docker Compose installed on your machine.\n   - **Clone the Repository:**\n     ```bash\n     git clone https://github.com/xtekky/gpt4free.git\n     cd gpt4free\n     ```\n   - **Create Required Directories:**\n     ```bash\n     mkdir -p ${PWD}/har_and_cookies ${PWD}/generated_media\n     chown -R 1000:1000 ${PWD}/har_and_cookies ${PWD}/generated_media\n     ```\n   - **Build and Start the Service:**\n     ```bash\n     docker-compose up --build\n     ```\n\n3. **Accessing the Application:**\n   - Once the container is running, you can access the application via:\n     - `http://localhost:8080` for the main service.\n     - `http://localhost:1337` for the alternative access.\n     - `http://localhost:7900` for the additional service.\n\nBy following these steps, you will successfully build and run the `gpt4free` service using Docker Compose, allowing you to leverage the functionalities provided by the application."
+  },
+  "processed_at": "2025-10-30T20:39:07.893422"
 }

@@ -1,8 +1,8 @@
 {
   "repo": {
     "full_name": "hiyouga/LLaMA-Factory",
-    "stars": 61011,
-    "forks": 7377,
+    "stars": 61275,
+    "forks": 7419,
     "language": "Python",
     "description": "Unified Efficient Fine-Tuning of 100+ LLMs & VLMs (ACL 2024)",
     "topics": [
@@ -29,7 +29,7 @@
     ],
     "url": "https://github.com/hiyouga/LLaMA-Factory",
     "created_at": "2023-05-28T10:09:12Z",
-    "updated_at": "2025-10-29T02:55:32Z"
+    "updated_at": "2025-10-30T23:41:44Z"
   },
   "readme_file": "dataset/readmes/LLaMA-Factory_README.md",
   "task_file": "dataset/tasks/LLaMA-Factory_tasks.json",
@@ -40,5 +40,8 @@
   "docker_files_list": [
     ".dockerignore"
   ],
-  "processed_at": "2025-10-28T23:06:49.635764"
+  "docker_setup_descriptions": {
+    ".dockerignore": "### Building and Running Docker for hiyouga/LLaMA-Factory\n\n#### Overview of `.dockerignore`\nThe `.dockerignore` file is used to specify files and directories that should be excluded from the Docker build context. This helps to reduce the size of the context sent to the Docker daemon, speeding up the build process and preventing unnecessary files from being included in the final image. In the provided `.dockerignore`, the following entries are excluded:\n\n- **Development and configuration files**: `.vscode`, `.git`, `.github`, `.venv`, `.dockerignore`, `.gitattributes`, `.gitignore`\n- **Cache and output directories**: `cache`, `docker`, `saves`, `hf_cache`, `ms_cache`, `om_cache`, `shared_data`, `output`\n\nThese exclusions ensure that only relevant files are included in the Docker image, maintaining a clean and efficient build.\n\n#### Step-by-Step Instructions\n\n1. **Clone the Repository**:\n   ```bash\n   git clone https://github.com/hiyouga/LLaMA-Factory.git\n   cd LLaMA-Factory\n   ```\n\n2. **Build the Docker Image**:\n   You can build the Docker image using one of the provided Dockerfiles. For example, to build with CUDA support:\n   ```bash\n   docker build -f ./docker/docker-cuda/Dockerfile \\\n       --build-arg PIP_INDEX=https://pypi.org/simple \\\n       --build-arg EXTRAS=metrics \\\n       -t llamafactory:latest .\n   ```\n\n3. **Run the Docker Container**:\n   After building the image, you can run it with GPU support:\n   ```bash\n   docker run -dit --ipc=host --gpus=all \\\n       -p 7860:7860 \\\n       -p 8000:8000 \\\n       --name llamafactory \\\n       llamafactory:latest\n   ```\n\n4. **Access the Running Container**:\n   To execute commands inside the running container:\n   ```bash\n   docker exec -it llamafactory bash\n   ```\n\n5. **Alternative Builds**:\n   If you need to build for NPU or ROCm, use the respective Dockerfiles:\n   ```bash\n   docker build -f ./docker/docker-npu/Dockerfile \\\n       --build-arg PIP_INDEX=https://pypi.org/simple \\\n       --build-arg EXTRAS=torch-npu,metrics \\\n       -t llamafactory:latest .\n\n   docker build -f ./docker/docker-rocm/Dockerfile \\\n       --build-arg PIP_INDEX=https://pypi.org/simple \\\n       --build-arg EXTRAS=metrics \\\n       -t llamafactory:latest .\n   ```\n\n6. **Run with NPU or ROCm**:\n   For running with NPU:\n   ```bash\n   docker run -dit --ipc=host \\\n       -v /usr/local/dcmi:/usr/local/dcmi \\\n       -v /usr/local/bin/npu-smi:/usr/local/bin/npu-smi \\\n       -v /usr/local/Ascend/driver:/usr/local/Ascend/driver \\\n       -v /etc/ascend_install.info:/etc/ascend_install.info \\\n       -p 7860:7860 \\\n       -p 8000:8000 \\\n       --device /dev/davinci0 \\\n       --device /dev/davinci_manager \\\n       --device /dev/devmm_svm \\\n       --device /dev/hisi_hdc \\\n       --name llamafactory \\\n       llamafactory:latest\n   ```\n\n   For running with ROCm:\n   ```bash\n   docker run -dit --ipc=host \\\n       -p 7860:7860 \\\n       -p 8000:8000 \\\n       --device /dev/kfd \\\n       --device /dev/dri \\\n       --name llamafactory \\\n       llamafactory:latest\n   ```\n\nBy following these steps, you can efficiently build and run the Docker container for the LLaMA-Factory project while ensuring that unnecessary files are excluded from the build context."
+  },
+  "processed_at": "2025-10-30T20:41:17.851796"
 }

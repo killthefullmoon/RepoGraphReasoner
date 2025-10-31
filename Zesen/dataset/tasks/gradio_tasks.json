@@ -2,22 +2,22 @@
   "tasks": [
     {
       "task_title": "问候用户",
-      "task_description": "这个任务通过用户输入的名字和强度来生成问候语。使用了Gradio库的Interface功能来创建一个简单的Web界面。",
+      "task_description": "创建一个Gradio接口，用于根据用户输入的名字和强度问候用户。强度决定问候语的重复次数。",
       "example_code": "import gradio as gr\n\ndef greet(name, intensity):\n    return \"Hello, \" + name + \"!\" * int(intensity)\n\ndemo = gr.Interface(\n    fn=greet,\n    inputs=[\"text\", \"slider\"],\n    outputs=[\"text\"],\n)\n\ndemo.launch()",
       "running_command": null,
       "expected_input": {
         "name": "Alice",
-        "intensity": 2
+        "intensity": 3
       },
-      "expected_output": "Hello, Alice!Hello, Alice!"
+      "expected_output": "Hello, Alice!Hello, Alice!Hello, Alice!"
     },
     {
       "task_title": "简单问候",
-      "task_description": "这个任务通过用户输入的名字生成简单的问候语。使用Gradio库的Interface功能，并支持分享功能。",
-      "example_code": "import gradio as gr\n\ndef greet(name):\n    return \"Hello \" + name + \"!\"\n\ndemo = gr.Interface(fn=greet, inputs=\"textbox\", outputs=\"textbox\")\n    \ndemo.launch(share=True)  # Share your demo with just 1 extra parameter 🚀",
+      "task_description": "创建一个Gradio接口，用于根据用户输入的名字进行简单问候。",
+      "example_code": "import gradio as gr\n\ndef greet(name):\n    return \"Hello \" + name + \"!\"\n\ndemo = gr.Interface(fn=greet, inputs=\"textbox\", outputs=\"textbox\")\n    \ndemo.launch(share=True)",
       "running_command": null,
-      "expected_input": "Alice",
-      "expected_output": "Hello Alice!"
+      "expected_input": "Bob",
+      "expected_output": "Hello Bob!"
     }
   ],
   "setup": {
@@ -27,6 +27,9 @@
     "docker_commands": [],
     "docker_files": {
       ".dockerignore": "# Python build\n.eggs/\ngradio.egg-info/*\n!gradio.egg-info/requires.txt\n!gradio.egg-info/PKG-INFO\ndist/\n*.pyc\n__pycache__/\n*.py[cod]\n*$py.class\nbuild/\n\n# JS build\ngradio/templates/frontend/static\ngradio/templates/frontend/cdn\n\n# Secrets\n.env\n\n# Gradio run artifacts\n*.db\n*.sqlite3\ngradio/launches.json\ngradio/hash_seed.txt\n\n# Tests\n.coverage\ncoverage.xml\ntest.txt\n\n# Demos\ndemo/tmp.zip\ndemo/flagged\ndemo/files/*.avi\ndemo/files/*.mp4\n\n# Etc\n.idea/*\n.DS_Store\n*.bak\nworkspace.code-workspace"
+    },
+    "docker_setup_descriptions": {
+      ".dockerignore": "### Building and Running Docker with `.dockerignore` from `gradio-app/gradio`\n\n#### Overview of `.dockerignore`\n\nThe `.dockerignore` file is used to specify files and directories that should be excluded from the Docker build context. This helps to reduce the size of the context sent to the Docker daemon, improving build performance and security by preventing sensitive or unnecessary files from being included in the Docker image.\n\n#### Semantic Meaning of the Entries\n\n1. **Python Build Artifacts**:\n   - Excludes Python egg files and build directories (`.eggs/`, `dist/`, `build/`) to avoid packaging unnecessary files.\n   - Allows specific metadata files from `gradio.egg-info/` to be included, which are essential for package management.\n\n2. **JavaScript Build Artifacts**:\n   - Excludes static files and CDN resources in `gradio/templates/frontend/` to keep the image clean.\n\n3. **Secrets**:\n   - Excludes `.env` files to prevent sensitive environment variables from being included in the image.\n\n4. **Gradio Run Artifacts**:\n   - Excludes database files and other runtime artifacts (`*.db`, `*.sqlite3`, `gradio/launches.json`, `gradio/hash_seed.txt`) to avoid bloating the image with transient data.\n\n5. **Tests**:\n   - Excludes test coverage reports and related files to streamline the build for production.\n\n6. **Demos**:\n   - Excludes demo-related files that are not needed for the application to run.\n\n7. **Miscellaneous**:\n   - Excludes IDE configurations and system files like `.idea/*`, `.DS_Store`, and backup files to keep the repository clean.\n\n#### Steps to Build and Run Docker\n\n1. **Clone the Repository**:\n   ```bash\n   git clone https://github.com/gradio-app/gradio.git\n   cd gradio\n   ```\n\n2. **Build the Docker Image**:\n   Ensure you are in the root of the repository where the `Dockerfile` is located, then run:\n   ```bash\n   docker build -t gradio-app .\n   ```\n\n3. **Run the Docker Container**:\n   After building the image, you can run it using:\n   ```bash\n   docker run -p 7860:7860 gradio-app\n   ```\n\n4. **Access the Application**:\n   Open your web browser and navigate to `http://localhost:7860` to access the Gradio application.\n\nBy following these steps and understanding the purpose of the `.dockerignore` file, you can efficiently build and run the Gradio application in a Docker container."
     }
   },
   "input_to_gpt": {

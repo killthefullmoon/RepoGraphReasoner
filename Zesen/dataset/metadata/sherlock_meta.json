@@ -1,8 +1,8 @@
 {
   "repo": {
     "full_name": "sherlock-project/sherlock",
-    "stars": 69906,
-    "forks": 8200,
+    "stars": 69963,
+    "forks": 8209,
     "language": "Python",
     "description": "Hunt down social media accounts by username across social networks",
     "topics": [
@@ -25,7 +25,7 @@
     ],
     "url": "https://github.com/sherlock-project/sherlock",
     "created_at": "2018-12-24T14:30:48Z",
-    "updated_at": "2025-10-29T02:59:32Z"
+    "updated_at": "2025-10-30T20:44:42Z"
   },
   "readme_file": "dataset/readmes/sherlock_README.md",
   "task_file": "dataset/tasks/sherlock_tasks.json",
@@ -37,5 +37,9 @@
     "Dockerfile",
     ".dockerignore"
   ],
-  "processed_at": "2025-10-28T23:05:18.947571"
+  "docker_setup_descriptions": {
+    "Dockerfile": "### Building and Running Docker for the Sherlock Project\n\nTo build and run the Docker image for the Sherlock project using the provided `Dockerfile`, follow these steps:\n\n#### 1. Update Version Information\nBefore building the Docker image, ensure you update the following in the `Dockerfile`:\n- **VERSION_TAG**: Set this to match the version specified in `sherlock/__init__.py`.\n- **VCS_REF**: Update this to reflect the full commit hash of the tagged version.\n\n#### 2. Build the Docker Image\nRun the following command to build the Docker image, tagging it with both the specific version and `latest`:\n\n```bash\ndocker build -t sherlock/sherlock:<VERSION_TAG> -t sherlock/sherlock:latest .\n```\nReplace `<VERSION_TAG>` with the actual version number you updated in the Dockerfile.\n\n#### 3. Understanding the Dockerfile\n- **Base Image**: The Dockerfile uses `python:3.12-slim-bullseye` as the base image for both the build and runtime stages.\n- **Working Directory**: The working directory is set to `/sherlock`, where the application will reside.\n- **Package Installation**: The `pip3 install` command installs the Sherlock project using the specified version tag, ensuring the latest version of pip is used without caching.\n- **Environment Variables**: The `SHERLOCK_ENV` variable is set to `docker`, indicating the environment context.\n- **Labels**: Metadata about the image is added using labels, including version, VCS reference, and project URL.\n- **Entry Point**: The container will execute the `sherlock` command by default when it starts.\n\n#### 4. Running the Docker Container\nAfter building the image, you can run the container using:\n\n```bash\ndocker run --rm sherlock/sherlock:latest [options]\n```\nReplace `[options]` with any command-line arguments you want to pass to the Sherlock application.\n\n### Related README Docker Commands\nRefer to the project’s README for additional Docker commands and usage examples specific to the Sherlock project.",
+    ".dockerignore": "### Building and Running Docker with `.dockerignore` in the Sherlock Project\n\n#### Purpose of `.dockerignore`\nThe `.dockerignore` file is used to specify files and directories that should be excluded from the Docker build context. This helps to reduce the size of the Docker image and speeds up the build process by preventing unnecessary files from being sent to the Docker daemon.\n\n#### Semantic Meaning of the `.dockerignore` File\n- **`.git/`**: Excludes the entire Git repository, preventing version control files from being included.\n- **`.vscode/`**: Excludes Visual Studio Code settings and configurations.\n- **`screenshot/`**: Excludes any screenshots that are not needed for the application.\n- **`tests/`**: Excludes test files, which are typically not required for production builds.\n- **`*.txt`**: Excludes all text files, except those explicitly allowed.\n- **`!/requirements.txt`**: This negation rule allows the inclusion of the `requirements.txt` file, which is essential for installing dependencies.\n- **`venv/`**: Excludes the virtual environment directory, which is not needed in the Docker image.\n- **`devel/`**: Excludes development-related files or directories.\n\n#### Building and Running Docker\n1. **Build the Docker Image**:\n   Navigate to the root of the `sherlock-project` repository and run the following command:\n   ```bash\n   docker build -t sherlock .\n   ```\n\n2. **Run the Docker Container**:\n   After building the image, run the container using:\n   ```bash\n   docker run -it --rm sherlock\n   ```\n\n### Summary\nUtilize the `.dockerignore` file to optimize your Docker builds by excluding unnecessary files, while ensuring essential files like `requirements.txt` are included. Follow the provided commands to build and run the Docker container for the Sherlock project."
+  },
+  "processed_at": "2025-10-30T20:38:33.598642"
 }

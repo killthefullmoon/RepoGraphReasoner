@@ -9,7 +9,7 @@
       "expected_output": "document.md内容"
     },
     {
-      "task_title": "Convert PDF to Markdown with Output File",
+      "task_title": "Convert PDF to Markdown with Output File Option",
       "task_description": "将PDF文件转换为Markdown格式并指定输出文件。",
       "example_code": null,
       "running_command": "markitdown path-to-file.pdf -o document.md",
@@ -18,7 +18,7 @@
     },
     {
       "task_title": "Convert PDF from Standard Input",
-      "task_description": "从标准输入中读取PDF文件并转换为Markdown格式。",
+      "task_description": "通过标准输入将PDF文件转换为Markdown格式。",
       "example_code": null,
       "running_command": "cat path-to-file.pdf | markitdown",
       "expected_input": "path-to-file.pdf",
@@ -30,11 +30,11 @@
       "example_code": null,
       "running_command": "markitdown --list-plugins",
       "expected_input": null,
-      "expected_output": "可用插件列表"
+      "expected_output": "插件列表"
     },
     {
       "task_title": "Use Plugins for Conversion",
-      "task_description": "使用插件将PDF文件转换为Markdown格式。",
+      "task_description": "在转换过程中使用插件。",
       "example_code": null,
       "running_command": "markitdown --use-plugins path-to-file.pdf",
       "expected_input": "path-to-file.pdf",
@@ -42,23 +42,23 @@
     },
     {
       "task_title": "Convert PDF with Document Intelligence Endpoint",
-      "task_description": "将PDF文件转换为Markdown格式，并使用指定的文档智能端点。",
+      "task_description": "使用指定的文档智能端点将PDF文件转换为Markdown格式。",
       "example_code": null,
       "running_command": "markitdown path-to-file.pdf -o document.md -d -e \"<document_intelligence_endpoint>\"",
       "expected_input": "path-to-file.pdf, <document_intelligence_endpoint>",
       "expected_output": "document.md内容"
     },
     {
-      "task_title": "Convert Excel File to Markdown",
-      "task_description": "将Excel文件转换为Markdown格式，不启用插件。",
-      "example_code": "from markitdown import MarkItDown\n\nmd = MarkItDown(enable_plugins=False)\nresult = md.convert(\"test.xlsx\")\nprint(result.text_content)",
+      "task_title": "Convert Excel to Markdown without Plugins",
+      "task_description": "将Excel文件转换为Markdown格式，禁用插件。",
+      "example_code": "from markitdown import MarkItDown\n\nmd = MarkItDown(enable_plugins=False) # Set to True to enable plugins\nresult = md.convert(\"test.xlsx\")\nprint(result.text_content)",
       "running_command": null,
       "expected_input": "test.xlsx",
       "expected_output": "Markdown内容"
     },
     {
-      "task_title": "Convert PDF with Document Intelligence",
-      "task_description": "将PDF文件转换为Markdown格式，并使用文档智能端点。",
+      "task_title": "Convert PDF using Document Intelligence Endpoint",
+      "task_description": "使用文档智能端点将PDF文件转换为Markdown格式。",
       "example_code": "from markitdown import MarkItDown\n\nmd = MarkItDown(docintel_endpoint=\"<document_intelligence_endpoint>\")\nresult = md.convert(\"test.pdf\")\nprint(result.text_content)",
       "running_command": null,
       "expected_input": "test.pdf, <document_intelligence_endpoint>",
@@ -66,7 +66,7 @@
     },
     {
       "task_title": "Convert Image to Markdown using OpenAI",
-      "task_description": "将图像文件转换为Markdown格式，使用OpenAI的客户端和模型。",
+      "task_description": "将图像文件转换为Markdown格式，使用OpenAI的LLM。",
       "example_code": "from markitdown import MarkItDown\nfrom openai import OpenAI\n\nclient = OpenAI()\nmd = MarkItDown(llm_client=client, llm_model=\"gpt-4o\", llm_prompt=\"optional custom prompt\")\nresult = md.convert(\"example.jpg\")\nprint(result.text_content)",
       "running_command": null,
       "expected_input": "example.jpg",
@@ -88,6 +88,10 @@
     "docker_files": {
       "Dockerfile": "FROM python:3.13-slim-bullseye\n\nENV DEBIAN_FRONTEND=noninteractive\nENV EXIFTOOL_PATH=/usr/bin/exiftool\nENV FFMPEG_PATH=/usr/bin/ffmpeg\n\n# Runtime dependency\nRUN apt-get update && apt-get install -y --no-install-recommends \\\n    ffmpeg \\\n    exiftool\n\nARG INSTALL_GIT=false\nRUN if [ \"$INSTALL_GIT\" = \"true\" ]; then \\\n    apt-get install -y --no-install-recommends \\\n    git; \\\n    fi\n\n# Cleanup\nRUN rm -rf /var/lib/apt/lists/*\n\nWORKDIR /app\nCOPY . /app\nRUN pip --no-cache-dir install \\\n    /app/packages/markitdown[all] \\\n    /app/packages/markitdown-sample-plugin\n\n# Default USERID and GROUPID\nARG USERID=nobody\nARG GROUPID=nogroup\n\nUSER $USERID:$GROUPID\n\nENTRYPOINT [ \"markitdown\" ]\n",
       ".dockerignore": "*\n!packages/\n"
+    },
+    "docker_setup_descriptions": {
+      "Dockerfile": "### Building and Running Docker for `microsoft/markitdown`\n\nTo build and run the Docker container for the `microsoft/markitdown` project using the provided `Dockerfile`, follow these steps:\n\n#### Step 1: Understanding the Dockerfile\n\n1. **Base Image**: \n   - `FROM python:3.13-slim-bullseye`: This line specifies that the container will be built on a lightweight version of Python 3.13 based on Debian Bullseye.\n\n2. **Environment Variables**:\n   - `ENV DEBIAN_FRONTEND=noninteractive`: Sets the environment to avoid interactive prompts during package installation.\n   - `ENV EXIFTOOL_PATH` and `ENV FFMPEG_PATH`: Define paths for `exiftool` and `ffmpeg`, which are installed later.\n\n3. **Install Dependencies**:\n   - The `RUN apt-get update && apt-get install -y --no-install-recommends` command installs `ffmpeg` and `exiftool`, which are essential for processing multimedia files and metadata.\n\n4. **Conditional Git Installation**:\n   - The `ARG INSTALL_GIT=false` and subsequent `RUN` command allow for optional installation of Git based on the value of `INSTALL_GIT`.\n\n5. **Cleanup**:\n   - `RUN rm -rf /var/lib/apt/lists/*`: Cleans up the package list to reduce image size.\n\n6. **Working Directory**:\n   - `WORKDIR /app`: Sets the working directory inside the container to `/app`.\n\n7. **Copying Files**:\n   - `COPY . /app`: Copies the contents of the current directory on the host to the `/app` directory in the container.\n\n8. **Install Python Packages**:\n   - The `RUN pip --no-cache-dir install` command installs `markitdown` and its sample plugin from the copied files.\n\n9. **User Configuration**:\n   - `ARG USERID=nobody` and `ARG GROUPID=nogroup`: Set default user and group IDs for running the container.\n\n10. **Entrypoint**:\n    - `ENTRYPOINT [ \"markitdown\" ]`: Specifies that the container will run the `markitdown` command by default when started.\n\n#### Step 2: Build the Docker Image\n\nRun the following command in the terminal from the directory containing the `Dockerfile`:\n\n```bash\ndocker build -t markitdown:latest .\n```\n\nThis command builds the Docker image and tags it as `markitdown:latest`.\n\n#### Step 3: Run the Docker Container\n\nTo execute the `markitdown` command, use the following command, replacing `~/your-file.pdf` with the path to your PDF file:\n\n```bash\ndocker run --rm -i markitdown:latest < ~/your-file.pdf > output.md\n```\n\nThis command runs the container, processes the input PDF, and outputs the result to `output.md`. The `--rm` flag ensures that the container is removed after execution.\n\n### Summary\n\nBy following these steps, you will successfully build and run the Docker container for the `microsoft/markitdown` project, enabling you to convert PDF files to Markdown format efficiently.",
+      ".dockerignore": "### Building and Running Docker with `.dockerignore` in the `microsoft/markitdown` Repository\n\n#### Semantic Meaning of `.dockerignore`\n\nThe `.dockerignore` file is used to specify which files and directories should be excluded from the Docker build context. In the provided `.dockerignore` content:\n\n```\n*\n!packages/\n```\n\n- `*` indicates that all files and directories in the context should be ignored by default.\n- `!packages/` is an exception that allows the `packages` directory to be included in the build context.\n\nThis means that when you build the Docker image, only the contents of the `packages` directory will be sent to the Docker daemon, optimizing the build process by excluding unnecessary files.\n\n#### Steps to Build and Run Docker\n\n1. **Build the Docker Image:**\n   Open your terminal and navigate to the directory containing the Dockerfile and the `.dockerignore` file. Run the following command to build the Docker image:\n\n   ```bash\n   docker build -t markitdown:latest .\n   ```\n\n   This command builds the Docker image and tags it as `markitdown:latest`.\n\n2. **Run the Docker Container:**\n   After successfully building the image, you can run the container to convert a PDF file to Markdown. Use the following command, replacing `~/your-file.pdf` with the path to your PDF file:\n\n   ```bash\n   docker run --rm -i markitdown:latest < ~/your-file.pdf > output.md\n   ```\n\n   This command runs the `markitdown` container, takes input from your specified PDF file, and outputs the converted Markdown to `output.md`. The `--rm` flag ensures that the container is removed after it exits.\n\n### Summary\n- The `.dockerignore` file optimizes the build context by excluding all files except for the `packages` directory.\n- Use the provided Docker commands to build and run the application effectively."
     }
   },
   "input_to_gpt": {

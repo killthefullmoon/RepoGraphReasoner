@@ -1,7 +1,7 @@
 {
   "repo": {
     "full_name": "pathwaycom/pathway",
-    "stars": 48875,
+    "stars": 48952,
     "forks": 1433,
     "language": "Python",
     "description": "Python ETL framework for stream processing, real-time analytics, LLM pipelines, and RAG.",
@@ -26,7 +26,7 @@
     ],
     "url": "https://github.com/pathwaycom/pathway",
     "created_at": "2022-11-27T13:01:14Z",
-    "updated_at": "2025-10-29T00:39:32Z"
+    "updated_at": "2025-10-30T20:37:15Z"
   },
   "readme_file": "dataset/readmes/pathway_README.md",
   "task_file": "dataset/tasks/pathway_tasks.json",
@@ -37,5 +37,8 @@
   "docker_files_list": [
     ".dockerignore"
   ],
-  "processed_at": "2025-10-28T23:10:35.847476"
+  "docker_setup_descriptions": {
+    ".dockerignore": "### Building and Running Docker with `.dockerignore` in `pathwaycom/pathway`\n\n#### Overview of `.dockerignore`\n\nThe `.dockerignore` file is used to specify which files and directories should be excluded from the Docker build context. This helps optimize the build process by reducing the size of the context sent to the Docker daemon, speeding up builds, and preventing unnecessary files from being included in the image.\n\n#### Semantic Meaning of the Provided `.dockerignore` Content\n\n- `target/debug/`: This line excludes the entire `target/debug/` directory from the Docker build context. This is typically where build artifacts are stored during development, and excluding it helps keep the image lightweight.\n  \n- `!target/**/*.whl`: This line is an exception rule that includes all `.whl` (wheel) files located anywhere within the `target` directory and its subdirectories. This is useful for ensuring that any built Python packages are included in the Docker image, even though the rest of the `target/debug/` directory is excluded.\n\n#### Steps to Build and Run Docker\n\n1. **Navigate to the Repository Directory**:\n   ```bash\n   cd pathwaycom/pathway\n   ```\n\n2. **Build the Docker Image**:\n   Use the following command to build the Docker image. Replace `your-image-name` with your desired image name.\n   ```bash\n   docker build -t your-image-name .\n   ```\n\n3. **Run the Docker Container**:\n   After building the image, run a container using the following command. Replace `your-image-name` with the name you used in the build step.\n   ```bash\n   docker run -d your-image-name\n   ```\n\n#### Additional Notes\n\n- Ensure that Docker is installed and running on your machine before executing the commands.\n- You may refer to the repository's README for any specific Docker commands or configurations that may be necessary for your application."
+  },
+  "processed_at": "2025-10-30T20:49:51.414407"
 }

@@ -1,8 +1,8 @@
 {
   "repo": {
     "full_name": "microsoft/markitdown",
-    "stars": 82211,
-    "forks": 4618,
+    "stars": 82287,
+    "forks": 4629,
     "language": "Python",
     "description": "Python tool for converting files and office documents to Markdown.",
     "topics": [
@@ -16,7 +16,7 @@
     ],
     "url": "https://github.com/microsoft/markitdown",
     "created_at": "2024-11-13T19:56:40Z",
-    "updated_at": "2025-10-29T02:18:36Z"
+    "updated_at": "2025-10-31T00:18:17Z"
   },
   "readme_file": "dataset/readmes/markitdown_README.md",
   "task_file": "dataset/tasks/markitdown_tasks.json",
@@ -28,5 +28,9 @@
     "Dockerfile",
     ".dockerignore"
   ],
-  "processed_at": "2025-10-28T23:03:54.996241"
+  "docker_setup_descriptions": {
+    "Dockerfile": "### Building and Running Docker for `microsoft/markitdown`\n\nTo build and run the Docker container for the `microsoft/markitdown` project using the provided `Dockerfile`, follow these steps:\n\n#### Step 1: Understanding the Dockerfile\n\n1. **Base Image**: \n   - `FROM python:3.13-slim-bullseye`: This line specifies that the container will be built on a lightweight version of Python 3.13 based on Debian Bullseye.\n\n2. **Environment Variables**:\n   - `ENV DEBIAN_FRONTEND=noninteractive`: Sets the environment to avoid interactive prompts during package installation.\n   - `ENV EXIFTOOL_PATH` and `ENV FFMPEG_PATH`: Define paths for `exiftool` and `ffmpeg`, which are installed later.\n\n3. **Install Dependencies**:\n   - The `RUN apt-get update && apt-get install -y --no-install-recommends` command installs `ffmpeg` and `exiftool`, which are essential for processing multimedia files and metadata.\n\n4. **Conditional Git Installation**:\n   - The `ARG INSTALL_GIT=false` and subsequent `RUN` command allow for optional installation of Git based on the value of `INSTALL_GIT`.\n\n5. **Cleanup**:\n   - `RUN rm -rf /var/lib/apt/lists/*`: Cleans up the package list to reduce image size.\n\n6. **Working Directory**:\n   - `WORKDIR /app`: Sets the working directory inside the container to `/app`.\n\n7. **Copying Files**:\n   - `COPY . /app`: Copies the contents of the current directory on the host to the `/app` directory in the container.\n\n8. **Install Python Packages**:\n   - The `RUN pip --no-cache-dir install` command installs `markitdown` and its sample plugin from the copied files.\n\n9. **User Configuration**:\n   - `ARG USERID=nobody` and `ARG GROUPID=nogroup`: Set default user and group IDs for running the container.\n\n10. **Entrypoint**:\n    - `ENTRYPOINT [ \"markitdown\" ]`: Specifies that the container will run the `markitdown` command by default when started.\n\n#### Step 2: Build the Docker Image\n\nRun the following command in the terminal from the directory containing the `Dockerfile`:\n\n```bash\ndocker build -t markitdown:latest .\n```\n\nThis command builds the Docker image and tags it as `markitdown:latest`.\n\n#### Step 3: Run the Docker Container\n\nTo execute the `markitdown` command, use the following command, replacing `~/your-file.pdf` with the path to your PDF file:\n\n```bash\ndocker run --rm -i markitdown:latest < ~/your-file.pdf > output.md\n```\n\nThis command runs the container, processes the input PDF, and outputs the result to `output.md`. The `--rm` flag ensures that the container is removed after execution.\n\n### Summary\n\nBy following these steps, you will successfully build and run the Docker container for the `microsoft/markitdown` project, enabling you to convert PDF files to Markdown format efficiently.",
+    ".dockerignore": "### Building and Running Docker with `.dockerignore` in the `microsoft/markitdown` Repository\n\n#### Semantic Meaning of `.dockerignore`\n\nThe `.dockerignore` file is used to specify which files and directories should be excluded from the Docker build context. In the provided `.dockerignore` content:\n\n```\n*\n!packages/\n```\n\n- `*` indicates that all files and directories in the context should be ignored by default.\n- `!packages/` is an exception that allows the `packages` directory to be included in the build context.\n\nThis means that when you build the Docker image, only the contents of the `packages` directory will be sent to the Docker daemon, optimizing the build process by excluding unnecessary files.\n\n#### Steps to Build and Run Docker\n\n1. **Build the Docker Image:**\n   Open your terminal and navigate to the directory containing the Dockerfile and the `.dockerignore` file. Run the following command to build the Docker image:\n\n   ```bash\n   docker build -t markitdown:latest .\n   ```\n\n   This command builds the Docker image and tags it as `markitdown:latest`.\n\n2. **Run the Docker Container:**\n   After successfully building the image, you can run the container to convert a PDF file to Markdown. Use the following command, replacing `~/your-file.pdf` with the path to your PDF file:\n\n   ```bash\n   docker run --rm -i markitdown:latest < ~/your-file.pdf > output.md\n   ```\n\n   This command runs the `markitdown` container, takes input from your specified PDF file, and outputs the converted Markdown to `output.md`. The `--rm` flag ensures that the container is removed after it exits.\n\n### Summary\n- The `.dockerignore` file optimizes the build context by excluding all files except for the `packages` directory.\n- Use the provided Docker commands to build and run the application effectively."
+  },
+  "processed_at": "2025-10-30T20:36:03.772343"
 }

@@ -1,8 +1,8 @@
 {
   "repo": {
     "full_name": "Textualize/rich",
-    "stars": 54204,
-    "forks": 1925,
+    "stars": 54232,
+    "forks": 1930,
     "language": "Python",
     "description": "Rich is a Python library for rich text and beautiful formatting in the terminal.",
     "topics": [
@@ -25,7 +25,7 @@
     ],
     "url": "https://github.com/Textualize/rich",
     "created_at": "2019-11-10T15:28:09Z",
-    "updated_at": "2025-10-29T02:03:51Z"
+    "updated_at": "2025-10-30T19:43:55Z"
   },
   "readme_file": "dataset/readmes/rich_README.md",
   "task_file": "dataset/tasks/rich_tasks.json",
@@ -34,5 +34,6 @@
   "num_docker_commands": 0,
   "has_docker_files": false,
   "docker_files_list": [],
-  "processed_at": "2025-10-28T23:09:19.597569"
+  "docker_setup_descriptions": null,
+  "processed_at": "2025-10-30T20:46:59.680211"
 }

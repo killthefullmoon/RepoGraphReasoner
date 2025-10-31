@@ -560,6 +560,87 @@ README内容:
             logger.error(f"生成任务失败 {repo_name}: {e}")
             return None
     
+    def generate_docker_setup_descriptions(self, docker_files: Dict[str, str], docker_commands: List[str], repo_name: str) -> Optional[Dict[str, str]]:
+        """
+        基于每个 Docker 文件分别生成独立的自然语言说明，返回 {filename: description}。
+        若没有可用上下文则返回 None。
+        """
+        if not self.openai_api_key:
+            logger.warning("未提供OpenAI API密钥，跳过Docker描述生成")
+            return None
+        
+        if not docker_files and not docker_commands:
+            return None
+        
+        headers = {
+            "Authorization": f"Bearer {self.openai_api_key}",
+            "Content-Type": "application/json"
+        }
+        descriptions: Dict[str, str] = {}
+
+        # 针对每一个 Docker 文件分别生成描述
+        for filename, content in (docker_files or {}).items():
+            docker_cmds_text = "\n".join(docker_commands or [])
+            prompt = f"""
+Generate a concise, actionable English description for building and running Docker using the file "{filename}" from repo {repo_name}.
+
+Include:
+- Detailed description of semantic meaning of the file.
+
+Docker file content:
+{content}
+
+Related README docker commands (if any):
+{docker_cmds_text}
+"""
+            data = {
+                "model": "gpt-4o-mini",
+                "messages": [
+                    {"role": "system", "content": "You are a senior DevOps engineer. Produce accurate, concise, actionable guidance."},
+                    {"role": "user", "content": prompt}
+                ],
+                "max_tokens": 1000,
+                "temperature": 0.3
+            }
+            try:
+                response = requests.post(self.openai_api, headers=headers, json=data, timeout=60)
+                response.raise_for_status()
+                result = response.json()
+                text = result["choices"][0]["message"]["content"].strip()
+                descriptions[filename] = text
+            except Exception as e:
+                logger.warning(f"生成 {filename} 的Docker描述失败 {repo_name}: {e}")
+                continue
+
+        # 若没有 Docker 文件但存在命令，提供基于命令的说明
+        if not descriptions and docker_commands:
+            docker_cmds_text_only = "\n".join(docker_commands)
+            prompt = f"""
+Generate a concise, actionable English guide for building and running Docker using only the following README docker commands for repo {repo_name}:
+{docker_cmds_text_only}
+
+Only output plain text.
+"""
+            data = {
+                "model": "gpt-4o-mini",
+                "messages": [
+                    {"role": "system", "content": "You are a senior DevOps engineer. Produce accurate, concise, actionable guidance."},
+                    {"role": "user", "content": prompt}
+                ],
+                "max_tokens": 600,
+                "temperature": 0.3
+            }
+            try:
+                response = requests.post(self.openai_api, headers=headers, json=data, timeout=60)
+                response.raise_for_status()
+                result = response.json()
+                text = result["choices"][0]["message"]["content"].strip()
+                descriptions["README_commands"] = text
+            except Exception as e:
+                logger.warning(f"生成Docker命令描述失败 {repo_name}: {e}")
+
+        return descriptions or None
+    
     def process_repo(self, repo: RepoMetadata) -> ProcessResult:
         """
         处理单个仓库
@@ -632,6 +713,15 @@ README内容:
         if docker_files:
             logger.info(f"找到Docker文件: {list(docker_files.keys())}")
         
+        # 4.1 若存在 Docker 上下文，逐文件生成自然语言的 Docker 搭建说明
+        docker_setup_descriptions = None
+        if docker_files or code_blocks['docker_commands']:
+            docker_setup_descriptions = self.generate_docker_setup_descriptions(
+                docker_files=docker_files,
+                docker_commands=code_blocks['docker_commands'],
+                repo_name=repo.full_name
+            )
+        
         # 5. 【第二步】生成任务（只使用example_code）
         tasks_data = self.generate_tasks_openai(code_blocks['example_code'], repo.full_name)
         
@@ -693,7 +783,8 @@ README内容:
             "setup": {
                 "setup_commands": code_blocks['setup_commands'],
                 "docker_commands": code_blocks['docker_commands'],
-                "docker_files": docker_files
+                "docker_files": docker_files,
+                "docker_setup_descriptions": docker_setup_descriptions
             },
             "input_to_gpt": input_to_gpt  # 添加调试信息
         }
@@ -722,6 +813,7 @@ README内容:
             "num_docker_commands": len(code_blocks['docker_commands']),
             "has_docker_files": bool(docker_files),
             "docker_files_list": list(docker_files.keys()) if docker_files else [],
+            "docker_setup_descriptions": docker_setup_descriptions,
             "processed_at": datetime.now().isoformat()
         }
         
@@ -738,7 +830,8 @@ README内容:
             "setup": {
                 "setup_commands": code_blocks['setup_commands'],
                 "docker_commands": code_blocks['docker_commands'],
-                "has_docker_files": bool(docker_files)
+                "has_docker_files": bool(docker_files),
+                "docker_setup_descriptions": docker_setup_descriptions
             },
             "timestamp": datetime.now().isoformat()
         }

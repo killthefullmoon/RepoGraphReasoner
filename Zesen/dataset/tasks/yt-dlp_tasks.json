@@ -1,90 +1,99 @@
 {
   "tasks": [
     {
-      "task_title": "Download video with custom filename",
-      "task_description": "使用指定的输出模板下载视频，并打印文件名。",
+      "task_title": "Download video with specified filename",
+      "task_description": "This command downloads a video and specifies the output filename format.",
       "example_code": null,
-      "running_command": "yt-dlp --print filename -o \"test video.%(ext)s\" BaW_jenozKc",
+      "running_command": "yt-dlp --print filename -o 'test video.%(ext)s' BaW_jenozKc",
       "expected_input": "BaW_jenozKc",
       "expected_output": "test video.webm"
     },
     {
-      "task_title": "Download video with title as filename",
-      "task_description": "使用视频标题作为文件名下载视频，并打印文件名，处理特殊字符。",
+      "task_title": "Download video with title in filename",
+      "task_description": "This command downloads a video and names the file based on the video's title, including handling special characters.",
       "example_code": null,
-      "running_command": "yt-dlp --print filename -o \"%(title)s.%(ext)s\" BaW_jenozKc",
+      "running_command": "yt-dlp --print filename -o '%(title)s.%(ext)s' BaW_jenozKc",
       "expected_input": "BaW_jenozKc",
       "expected_output": "youtube-dl test video ''_ä↭𝕐.webm"
     },
     {
-      "task_title": "Download video with restricted filenames",
-      "task_description": "下载视频并限制文件名中的字符。",
+      "task_title": "Restrict filenames",
+      "task_description": "This command downloads a video and restricts the filename to avoid special characters.",
       "example_code": null,
-      "running_command": "yt-dlp --print filename -o \"%(title)s.%(ext)s\" BaW_jenozKc --restrict-filenames",
+      "running_command": "yt-dlp --print filename -o '%(title)s.%(ext)s' BaW_jenozKc --restrict-filenames",
       "expected_input": "BaW_jenozKc",
       "expected_output": "youtube-dl_test_video_.webm"
     },
     {
-      "task_title": "Download videos from YouTube playlist",
-      "task_description": "从YouTube播放列表中下载视频，并按照视频在播放列表中的顺序存储。",
+      "task_title": "Download YouTube playlist videos in separate directory",
+      "task_description": "This command downloads all videos from a YouTube playlist into a directory indexed by the video order in the playlist.",
       "example_code": null,
-      "running_command": "yt-dlp -o \"%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s\" \"https://www.youtube.com/playlist?list=PLwiyx1dc3P2JR9N8gQaQN_BCvlSlap7re\"",
+      "running_command": "yt-dlp -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' 'https://www.youtube.com/playlist?list=PLwiyx1dc3P2JR9N8gQaQN_BCvlSlap7re'",
       "expected_input": "https://www.youtube.com/playlist?list=PLwiyx1dc3P2JR9N8gQaQN_BCvlSlap7re",
-      "expected_output": "下载对应的播放列表视频"
+      "expected_output": "Videos downloaded in specified directory structure"
     },
     {
-      "task_title": "Download Udemy course videos",
-      "task_description": "从Udemy课程下载视频，并按照章节存储。",
+      "task_title": "Download Udemy course",
+      "task_description": "This command downloads an entire Udemy course, organizing chapters into separate directories.",
       "example_code": null,
-      "running_command": "yt-dlp -u user -p password -P \"~/MyVideos\" -o \"%(playlist)s/%(chapter_number)s - %(chapter)s/%(title)s.%(ext)s\" \"https://www.udemy.com/java-tutorial\"",
+      "running_command": "yt-dlp -u user -p password -P '~/MyVideos' -o '%(playlist)s/%(chapter_number)s - %(chapter)s/%(title)s.%(ext)s' 'https://www.udemy.com/java-tutorial'",
       "expected_input": "https://www.udemy.com/java-tutorial",
-      "expected_output": "下载对应的Udemy课程视频"
+      "expected_output": "Course chapters downloaded in specified directory structure"
     },
     {
       "task_title": "Download video and subtitles",
-      "task_description": "下载视频和字幕，并分别存储。",
+      "task_description": "This command downloads a video and its subtitles, saving them in specified directories.",
       "example_code": null,
-      "running_command": "yt-dlp -P \"C:/MyVideos\" -P \"subtitle:subs\" -o \"%(uploader)s/%(title)s.%(ext)s\" BaW_jenozKc --write-subs",
+      "running_command": "yt-dlp -P 'C:/MyVideos' -P 'temp:tmp' -P 'subtitle:subs' -o '%(uploader)s/%(title)s.%(ext)s' BaW_jenozKc --write-subs",
       "expected_input": "BaW_jenozKc",
-      "expected_output": "下载视频和对应的字幕"
+      "expected_output": "Video and subtitles downloaded in specified directories"
     },
     {
       "task_title": "Stream video to stdout",
-      "task_description": "将下载的视频流输出到标准输出。",
+      "task_description": "This command streams the video directly to standard output.",
       "example_code": null,
       "running_command": "yt-dlp -o - BaW_jenozKc",
       "expected_input": "BaW_jenozKc",
-      "expected_output": "视频流数据"
+      "expected_output": "Streaming video data"
     },
     {
       "task_title": "Download best video and audio formats",
-      "task_description": "下载最佳视频和音频格式，并合并它们。",
+      "task_description": "This command downloads the best video-only and audio-only formats and merges them.",
       "example_code": null,
-      "running_command": "yt-dlp -f \"bv+ba/b\"",
-      "expected_input": null,
-      "expected_output": "下载最佳视频和音频格式"
+      "running_command": "yt-dlp -f 'bv+ba/b'",
+      "expected_input": "https://www.youtube.com/watch?v=BaW_jenozKc",
+      "expected_output": "Best video and audio formats downloaded and merged"
     },
     {
       "task_title": "Download video with specific duration filter",
-      "task_description": "只下载时长超过一分钟的视频。",
-      "example_code": "def longer_than_a_minute(info, *, incomplete):\n    duration = info.get('duration')\n    if duration and duration < 60:\n        return 'The video is too short'\n\nydl_opts = {\n    'match_filter': longer_than_a_minute,\n}",
+      "task_description": "This command downloads only videos longer than a minute.",
+      "example_code": "def longer_than_a_minute(info, *, incomplete):\n    duration = info.get('duration')\n    if duration and duration < 60:\n        return 'The video is too short'\n\nydl_opts = {\n    'match_filter': longer_than_a_minute,\n}\n\nwith yt_dlp.YoutubeDL(ydl_opts) as ydl:\n    error_code = ydl.download(URLS)",
       "running_command": null,
       "expected_input": "https://www.youtube.com/watch?v=BaW_jenozKc",
-      "expected_output": "下载符合时长条件的视频"
+      "expected_output": "Video downloaded if longer than a minute"
     },
     {
-      "task_title": "Custom post-processor example",
-      "task_description": "创建自定义后处理器并在下载过程中执行。",
-      "example_code": "class MyCustomPP(yt_dlp.postprocessor.PostProcessor):\n    def run(self, info):\n        self.to_screen('Doing stuff')\n        return [], info\n\nydl_opts = {\n    'postprocessors': [MyCustomPP()],\n}",
+      "task_title": "Custom logger for download progress",
+      "task_description": "This command sets up a custom logger to handle download progress messages.",
+      "example_code": "class MyLogger:\n    def debug(self, msg):\n        pass\n\nydl_opts = {\n    'logger': MyLogger(),\n}\n\nwith yt_dlp.YoutubeDL(ydl_opts) as ydl:\n    ydl.download(URLS)",
       "running_command": null,
       "expected_input": "https://www.youtube.com/watch?v=BaW_jenozKc",
-      "expected_output": "Doing stuff"
+      "expected_output": "Download progress logged"
+    },
+    {
+      "task_title": "Custom post-processor for additional processing",
+      "task_description": "This command defines a custom post-processor for additional processing after download.",
+      "example_code": "class MyCustomPP(yt_dlp.postprocessor.PostProcessor):\n    def run(self, info):\n        return [], info\n\nwith yt_dlp.YoutubeDL() as ydl:\n    ydl.add_post_processor(MyCustomPP(), when='pre_process')\n    ydl.download(URLS)",
+      "running_command": null,
+      "expected_input": "https://www.youtube.com/watch?v=BaW_jenozKc",
+      "expected_output": "Video downloaded with custom processing"
     }
   ],
   "setup": {
     "setup_commands": [],
     "docker_commands": [],
-    "docker_files": {}
+    "docker_files": {},
+    "docker_setup_descriptions": null
   },
   "input_to_gpt": {
     "repo_name": "yt-dlp/yt-dlp",

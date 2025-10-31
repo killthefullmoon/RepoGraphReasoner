@@ -1,44 +1,52 @@
 {
   "tasks": [
     {
-      "task_title": "加载文档数据",
-      "task_description": "使用SimpleDirectoryReader从指定目录加载文档数据。",
-      "example_code": "from llama_index.core import SimpleDirectoryReader\n\ndocuments = SimpleDirectoryReader(\"YOUR_DATA_DIRECTORY\").load_data()",
+      "task_title": "使用OpenAI LLM构建向量存储索引",
+      "task_description": "从指定数据目录加载文档，并使用OpenAI LLM构建向量存储索引。",
+      "example_code": "import os\n\nos.environ[\"OPENAI_API_KEY\"] = \"YOUR_OPENAI_API_KEY\"\n\nfrom llama_index.core import VectorStoreIndex, SimpleDirectoryReader\ndocuments = SimpleDirectoryReader(\"YOUR_DATA_DIRECTORY\").load_data()\nindex = VectorStoreIndex.from_documents(documents)",
       "running_command": null,
       "expected_input": "YOUR_DATA_DIRECTORY",
-      "expected_output": "文档数据列表"
-    },
-    {
-      "task_title": "创建向量存储索引",
-      "task_description": "从加载的文档数据创建一个VectorStoreIndex。",
-      "example_code": "from llama_index.core import VectorStoreIndex\n\nindex = VectorStoreIndex.from_documents(documents)",
-      "running_command": null,
-      "expected_input": "documents",
       "expected_output": "VectorStoreIndex对象"
     },
     {
-      "task_title": "查询索引",
-      "task_description": "使用创建的索引作为查询引擎来查询问题。",
+      "task_title": "使用Replicate LLM和HuggingFace嵌入构建索引",
+      "task_description": "设置Replicate LLM和HuggingFace嵌入模型，加载数据并构建向量存储索引。",
+      "example_code": "import os\n\nos.environ[\"REPLICATE_API_TOKEN\"] = \"YOUR_REPLICATE_API_TOKEN\"\n\nfrom llama_index.core import Settings, VectorStoreIndex, SimpleDirectoryReader\nfrom llama_index.embeddings.huggingface import HuggingFaceEmbedding\nfrom llama_index.llms.replicate import Replicate\nfrom transformers import AutoTokenizer\n\nllama2_7b_chat = \"meta/llama-2-7b-chat:8e6975e5ed6174911a6ff3d60540dfd4844201974602551e10e9e87ab143d81e\"\nSettings.llm = Replicate(\n    model=llama2_7b_chat,\n    temperature=0.01,\n    additional_kwargs={\"top_p\": 1, \"max_new_tokens\": 300},\n)\n\nSettings.tokenizer = AutoTokenizer.from_pretrained(\n    \"NousResearch/Llama-2-7b-chat-hf\"\n)\n\nSettings.embed_model = HuggingFaceEmbedding(\n    model_name=\"BAAI/bge-small-en-v1.5\"\n)\ndocuments = SimpleDirectoryReader(\"YOUR_DATA_DIRECTORY\").load_data()\nindex = VectorStoreIndex.from_documents(documents)",
+      "running_command": null,
+      "expected_input": "YOUR_DATA_DIRECTORY",
+      "expected_output": "VectorStoreIndex对象"
+    },
+    {
+      "task_title": "查询向量存储索引",
+      "task_description": "使用构建的向量存储索引进行查询。",
       "example_code": "query_engine = index.as_query_engine()\nquery_engine.query(\"YOUR_QUESTION\")",
       "running_command": null,
       "expected_input": "YOUR_QUESTION",
       "expected_output": "查询结果"
     },
     {
-      "task_title": "持久化索引",
-      "task_description": "将当前索引的存储上下文持久化到磁盘。",
+      "task_title": "持久化索引存储上下文",
+      "task_description": "将索引的存储上下文持久化以便后续使用。",
       "example_code": "index.storage_context.persist()",
       "running_command": null,
       "expected_input": null,
-      "expected_output": "索引已持久化"
+      "expected_output": "持久化成功"
     },
     {
-      "task_title": "从存储加载索引",
-      "task_description": "从持久化存储中加载索引。",
+      "task_title": "从存储中加载索引",
+      "task_description": "重建存储上下文并从存储中加载索引。",
       "example_code": "from llama_index.core import StorageContext, load_index_from_storage\n\nstorage_context = StorageContext.from_defaults(persist_dir=\"./storage\")\nindex = load_index_from_storage(storage_context)",
       "running_command": null,
       "expected_input": "./storage",
-      "expected_output": "加载的VectorStoreIndex对象"
+      "expected_output": "VectorStoreIndex对象"
+    },
+    {
+      "task_title": "验证静态文件",
+      "task_description": "使用命令行工具验证静态文件的完整性。",
+      "example_code": null,
+      "running_command": "#!/bin/bash\nSTATIC_DIR=\"venv/lib/python3.13/site-packages/llama_index/core/_static\"\nREPO=\"run-llama/llama_index\"\n\nfind \"$STATIC_DIR\" -type f | while read -r file; do\n    echo \"Verifying: $file\"\n    gh attestation verify \"$file\" -R \"$REPO\" || echo \"Failed to verify: $file\"\ndone",
+      "expected_input": null,
+      "expected_output": "验证成功或失败信息"
     }
   ],
   "setup": {
@@ -47,7 +55,8 @@
       "cd <desired-package-folder>\npip install poetry\npoetry install --with dev"
     ],
     "docker_commands": [],
-    "docker_files": {}
+    "docker_files": {},
+    "docker_setup_descriptions": null
   },
   "input_to_gpt": {
     "repo_name": "run-llama/llama_index",

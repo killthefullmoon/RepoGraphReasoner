@@ -1,11 +1,11 @@
 {
   "tasks": [
     {
-      "task_title": "基本认证请求",
-      "task_description": "使用基本认证发送GET请求，并获取响应的状态码、头部、编码、文本和JSON数据。",
+      "task_title": "HTTP GET请求",
+      "task_description": "使用requests库发送HTTP GET请求，并进行基本的身份验证，获取响应状态码、头信息、编码和内容。",
       "example_code": "import requests\n\nr = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass'))\n\nr.status_code\nr.headers['content-type']\nr.encoding\nr.text\nr.json()",
       "running_command": null,
-      "expected_input": "https://httpbin.org/basic-auth/user/pass, ('user', 'pass')",
+      "expected_input": "https://httpbin.org/basic-auth/user/pass",
       "expected_output": "200, 'application/json; charset=utf8', 'utf-8', '{\"authenticated\": true, ...}', {'authenticated': True, ...}"
     }
   ],
@@ -15,7 +15,8 @@
       "git clone -c fetch.fsck.badTimezone=ignore https://github.com/psf/requests.git"
     ],
     "docker_commands": [],
-    "docker_files": {}
+    "docker_files": {},
+    "docker_setup_descriptions": null
   },
   "input_to_gpt": {
     "repo_name": "psf/requests",

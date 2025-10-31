@@ -1,8 +1,8 @@
 {
   "repo": {
     "full_name": "ultralytics/yolov5",
-    "stars": 55837,
-    "forks": 17261,
+    "stars": 55870,
+    "forks": 17270,
     "language": "Python",
     "description": "YOLOv5 🚀 in PyTorch > ONNX > CoreML > TFLite",
     "topics": [
@@ -22,16 +22,19 @@
     ],
     "url": "https://github.com/ultralytics/yolov5",
     "created_at": "2020-05-18T03:45:11Z",
-    "updated_at": "2025-10-29T01:44:53Z"
+    "updated_at": "2025-10-30T22:43:29Z"
   },
   "readme_file": "dataset/readmes/yolov5_README.md",
   "task_file": "dataset/tasks/yolov5_tasks.json",
-  "num_tasks": 9,
+  "num_tasks": 11,
   "num_setup_commands": 2,
   "num_docker_commands": 0,
   "has_docker_files": true,
   "docker_files_list": [
     ".dockerignore"
   ],
-  "processed_at": "2025-10-28T23:07:58.353507"
+  "docker_setup_descriptions": {
+    ".dockerignore": "### Building and Running Docker with `.dockerignore` for `ultralytics/yolov5`\n\n#### Overview of `.dockerignore`\nThe `.dockerignore` file is used to specify files and directories that should be excluded from the Docker build context. This helps in reducing the size of the Docker image and improving build performance by avoiding unnecessary files. The entries in this file are similar to those in a `.gitignore`, indicating which files should not be included when building the Docker image.\n\n#### Semantic Meaning of the Entries\n1. **Repo-specific Exclusions**: \n   - Directories like `.git`, `.cache`, and `runs` are excluded to prevent version control and temporary files from bloating the image.\n   - Specific data files and directories related to neural network weights (e.g., `*.pt`, `*.h5`) are excluded to avoid including large model files that may not be needed for the build.\n\n2. **General Python and Environment Exclusions**: \n   - Common Python artifacts (e.g., `__pycache__`, `*.pyc`) and virtual environment directories (e.g., `venv/`, `.venv*`) are excluded to keep the image clean and focused on necessary application code.\n\n3. **IDE and System Files**: \n   - Files and directories related to IDEs (e.g., `.idea/`, `.DS_Store`) and system-specific files are excluded to avoid including user-specific configurations and temporary files.\n\n#### Steps to Build and Run Docker\n\n1. **Clone the Repository**:\n   ```bash\n   git clone https://github.com/ultralytics/yolov5.git\n   cd yolov5\n   ```\n\n2. **Ensure Docker is Installed**:\n   Make sure you have Docker installed on your machine. You can check by running:\n   ```bash\n   docker --version\n   ```\n\n3. **Build the Docker Image**:\n   Run the following command in the root of the cloned repository:\n   ```bash\n   docker build -t yolov5 .\n   ```\n   This command builds a Docker image named `yolov5`, using the current directory as the build context while respecting the `.dockerignore` file.\n\n4. **Run the Docker Container**:\n   To run the container, use:\n   ```bash\n   docker run --rm -it yolov5\n   ```\n   This command runs the `yolov5` image in an interactive terminal, removing the container after it exits.\n\n5. **Check README for Additional Commands**:\n   Refer to the README file in the repository for any specific Docker commands or usage instructions related to the YOLOv5 model.\n\nBy following these steps, you can efficiently build and run the YOLOv5 Docker container while ensuring that unnecessary files are excluded from the build context."
+  },
+  "processed_at": "2025-10-30T20:44:10.416916"
 }

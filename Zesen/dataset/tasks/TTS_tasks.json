@@ -6,47 +6,59 @@
       "example_code": "print(TTS().list_models())",
       "running_command": null,
       "expected_input": null,
-      "expected_output": "可用模型的列表"
+      "expected_output": "可用模型列表"
     },
     {
       "task_title": "文本转语音",
-      "task_description": "将文本转换为语音并输出为音频数组，使用指定的说话者音频和语言。",
+      "task_description": "将文本转换为语音，并输出为音频波形数据。",
       "example_code": "wav = tts.tts(text=\"Hello world!\", speaker_wav=\"my/cloning/audio.wav\", language=\"en\")",
       "running_command": null,
       "expected_input": "Hello world!",
-      "expected_output": "音频数组（语音的幅度值）"
+      "expected_output": "音频波形数据"
     },
     {
       "task_title": "文本转语音并保存到文件",
-      "task_description": "将文本转换为语音并保存为指定的音频文件。",
+      "task_description": "将文本转换为语音，并将结果保存到指定的音频文件中。",
       "example_code": "tts.tts_to_file(text=\"Hello world!\", speaker_wav=\"my/cloning/audio.wav\", language=\"en\", file_path=\"output.wav\")",
       "running_command": null,
       "expected_input": "Hello world!",
-      "expected_output": "输出文件output.wav"
+      "expected_output": "保存到output.wav的音频文件"
     },
     {
-      "task_title": "多语言文本转语音",
-      "task_description": "使用多语言模型将文本转换为语音并保存为文件，支持多种语言。",
-      "example_code": "tts.tts_to_file(\"C'est le clonage de la voix.\", speaker_wav=\"my/cloning/audio.wav\", language=\"fr-fr\", file_path=\"output.wav\")",
+      "task_title": "使用特定模型进行文本转语音",
+      "task_description": "使用指定的TTS模型将文本转换为语音并保存到文件。",
+      "example_code": "tts = TTS(model_name=\"tts_models/de/thorsten/tacotron2-DDC\", progress_bar=False).to(device)\ntts.tts_to_file(text=\"Ich bin eine Testnachricht.\", file_path=OUTPUT_PATH)",
       "running_command": null,
-      "expected_input": "C'est le clonage de la voix.",
-      "expected_output": "输出文件output.wav"
+      "expected_input": "Ich bin eine Testnachricht.",
+      "expected_output": "保存到OUTPUT_PATH的音频文件"
+    },
+    {
+      "task_title": "多语言语音克隆",
+      "task_description": "使用多语言模型进行语音克隆，将不同语言的文本转换为语音并保存到文件。",
+      "example_code": "tts.tts_to_file(\"This is voice cloning.\", speaker_wav=\"my/cloning/audio.wav\", language=\"en\", file_path=\"output.wav\")\ntts.tts_to_file(\"C'est le clonage de la voix.\", speaker_wav=\"my/cloning/audio.wav\", language=\"fr-fr\", file_path=\"output.wav\")\ntts.tts_to_file(\"Isso é clonagem de voz.\", speaker_wav=\"my/cloning/audio.wav\", language=\"pt-br\", file_path=\"output.wav\")",
+      "running_command": null,
+      "expected_input": [
+        "This is voice cloning.",
+        "C'est le clonage de la voix.",
+        "Isso é clonagem de voz."
+      ],
+      "expected_output": "保存到output.wav的音频文件"
     },
     {
       "task_title": "语音转换",
-      "task_description": "使用指定的源和目标音频文件进行语音转换，并将结果保存为音频文件。",
+      "task_description": "将源音频转换为目标音频，并保存到指定的文件中。",
       "example_code": "tts.voice_conversion_to_file(source_wav=\"my/source.wav\", target_wav=\"my/target.wav\", file_path=\"output.wav\")",
       "running_command": null,
-      "expected_input": null,
-      "expected_output": "输出文件output.wav"
+      "expected_input": "my/source.wav, my/target.wav",
+      "expected_output": "保存到output.wav的音频文件"
     },
     {
       "task_title": "带有语音转换的文本转语音",
-      "task_description": "将文本转换为语音，同时进行语音转换，并保存为文件。",
+      "task_description": "将文本转换为语音，同时应用语音转换，并保存到指定文件。",
       "example_code": "tts.tts_with_vc_to_file(\"Wie sage ich auf Italienisch, dass ich dich liebe?\", speaker_wav=\"target/speaker.wav\", file_path=\"output.wav\")",
       "running_command": null,
       "expected_input": "Wie sage ich auf Italienisch, dass ich dich liebe?",
-      "expected_output": "输出文件output.wav"
+      "expected_output": "保存到output.wav的音频文件"
     }
   ],
   "setup": {
@@ -60,6 +72,10 @@
     "docker_files": {
       "Dockerfile": "ARG BASE=nvidia/cuda:11.8.0-base-ubuntu22.04\nFROM ${BASE}\n\nRUN apt-get update && apt-get upgrade -y\nRUN apt-get install -y --no-install-recommends gcc g++ make python3 python3-dev python3-pip python3-venv python3-wheel espeak-ng libsndfile1-dev && rm -rf /var/lib/apt/lists/*\nRUN pip3 install llvmlite --ignore-installed\n\n# Install Dependencies:\nRUN pip3 install torch torchaudio --extra-index-url https://download.pytorch.org/whl/cu118\nRUN rm -rf /root/.cache/pip\n\n# Copy TTS repository contents:\nWORKDIR /root\nCOPY . /root\n\nRUN make install\n\nENTRYPOINT [\"tts\"]\nCMD [\"--help\"]\n",
       ".dockerignore": ".git/\nDockerfile\nbuild/\ndist/\nTTS.egg-info/\ntests/outputs/*\ntests/train_outputs/*\n__pycache__/\n*.pyc"
+    },
+    "docker_setup_descriptions": {
+      "Dockerfile": "### Building and Running Docker for Coqui-AI TTS\n\nTo build and run the Docker container using the provided `Dockerfile` from the `coqui-ai/TTS` repository, follow these steps:\n\n#### 1. **Understanding the Dockerfile**\n\n- **Base Image**: The Dockerfile starts with an ARG directive that sets the base image to `nvidia/cuda:11.8.0-base-ubuntu22.04`, which is suitable for GPU-accelerated applications.\n  \n- **System Updates and Dependencies**: It updates the package lists and installs essential build tools (`gcc`, `g++`, `make`) and Python-related packages (`python3`, `python3-dev`, `python3-pip`, etc.) necessary for running the TTS application. It also installs `espeak-ng` and `libsndfile1-dev`, which are required for audio processing.\n\n- **Python Package Installation**: The Dockerfile installs `torch` and `torchaudio` from the PyTorch repository with CUDA support, followed by cleaning up the pip cache to reduce image size.\n\n- **Copying Application Code**: It sets the working directory to `/root` and copies the contents of the current directory into the container.\n\n- **Installation Command**: The `make install` command is executed to install the TTS application.\n\n- **Entrypoint and Command**: The container is configured to run the `tts` command by default, with `--help` as the default argument, allowing users to see available options when the container starts.\n\n#### 2. **Building the Docker Image**\n\nRun the following command in the terminal from the directory containing the `Dockerfile`:\n\n```bash\ndocker build -t coqui-tts .\n```\n\nThis command builds the Docker image and tags it as `coqui-tts`.\n\n#### 3. **Running the Docker Container**\n\nTo run the container interactively and access the TTS server, use:\n\n```bash\ndocker run --rm -it -p 5002:5002 coqui-tts\n```\n\nThis command starts the container, removes it after exit (`--rm`), and maps port 5002 from the container to the host, allowing access to the TTS server.\n\n#### 4. **Starting the TTS Server**\n\nOnce inside the container, you can list available models with:\n\n```bash\npython3 TTS/server/server.py --list_models\n```\n\nTo start the TTS server with a specific model, use:\n\n```bash\npython3 TTS/server/server.py --model_name tts_models/en/vctk/vits\n```\n\nThis command initializes the TTS server using the specified model.\n\n### Summary\n\nBy following these steps, you can successfully build and run the Coqui-AI TTS Docker container, allowing you to utilize the text-to-speech capabilities provided by the application.",
+      ".dockerignore": "### Building and Running Docker with `.dockerignore` in Coqui-AI/TTS\n\n#### Overview of `.dockerignore`\nThe `.dockerignore` file is used to specify which files and directories should be excluded from the Docker build context. This helps to reduce the size of the context sent to the Docker daemon, improving build performance and security by preventing unnecessary files from being included in the Docker image.\n\n#### Contents of `.dockerignore`\nThe provided `.dockerignore` file includes the following entries:\n\n- **`.git/`**: Excludes the entire Git repository, preventing version control files from being included.\n- **`Dockerfile`**: Excludes the Dockerfile itself from the build context.\n- **`build/`**: Excludes the build directory, which may contain compiled artifacts.\n- **`dist/`**: Excludes the distribution directory, typically used for packaged releases.\n- **`TTS.egg-info/`**: Excludes metadata files generated by Python package installations.\n- **`tests/outputs/*`**: Excludes all output files from the tests directory.\n- **`tests/train_outputs/*`**: Excludes all training output files from the tests directory.\n- **`__pycache__/`**: Excludes Python cache files, which are not needed for the build.\n- **`*.pyc`**: Excludes all compiled Python files.\n\n#### Actionable Steps to Build and Run Docker\n\n1. **Clone the Repository**:\n   ```bash\n   git clone https://github.com/coqui-ai/TTS.git\n   cd TTS\n   ```\n\n2. **Build the Docker Image**:\n   Use the following command to build the Docker image, ensuring you are in the root directory of the cloned repository:\n   ```bash\n   docker build -t coqui-tts .\n   ```\n\n3. **Run the Docker Container**:\n   Execute the following command to run the Docker container interactively, mapping port 5002:\n   ```bash\n   docker run --rm -it -p 5002:5002 --entrypoint /bin/bash ghcr.io/coqui-ai/tts-cpu\n   ```\n\n4. **List Available Models**:\n   Inside the running container, use the following command to list available models:\n   ```bash\n   python3 TTS/server/server.py --list_models\n   ```\n\n5. **Start the TTS Server**:\n   To start the TTS server with a specific model, run:\n   ```bash\n   python3 TTS/server/server.py --model_name tts_models/en/vctk/vits\n   ```\n\nBy following these steps, you will successfully build and run the Docker container for the Coqui-AI TTS project while adhering to the exclusions specified in the `.dockerignore` file."
     }
   },
   "input_to_gpt": {

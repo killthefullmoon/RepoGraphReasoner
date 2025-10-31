@@ -1,28 +1,28 @@
 {
   "tasks": [
     {
-      "task_title": "启动应用程序",
-      "task_description": "运行主应用程序以启动聊天机器人功能。",
+      "task_title": "启动应用",
+      "task_description": "运行主应用程序，启动聊天机器人服务。",
       "example_code": null,
       "running_command": "python3 app.py",
       "expected_input": null,
-      "expected_output": "应用程序启动并开始监听消息"
+      "expected_output": "应用启动日志，显示服务已启动"
     },
     {
-      "task_title": "后台运行应用程序",
-      "task_description": "在后台启动应用程序并跟踪输出日志。",
+      "task_title": "后台运行应用",
+      "task_description": "在后台启动应用程序，并实时查看日志输出。",
       "example_code": null,
       "running_command": "nohup python3 app.py & tail -f nohup.out",
       "expected_input": null,
-      "expected_output": "后台运行，输出日志实时更新"
+      "expected_output": "实时日志输出，显示应用运行状态"
     },
     {
       "task_title": "查看Docker日志",
-      "task_description": "查看chatgpt-on-wechat容器的实时日志。",
+      "task_description": "查看运行在Docker中的应用的日志，实时输出。",
       "example_code": null,
       "running_command": "sudo docker logs -f chatgpt-on-wechat",
       "expected_input": null,
-      "expected_output": "实时输出Docker容器的日志"
+      "expected_output": "实时日志输出，显示Docker容器状态"
     }
   ],
   "setup": {
@@ -37,6 +37,9 @@
     ],
     "docker_files": {
       "Dockerfile": "FROM ghcr.io/zhayujie/chatgpt-on-wechat:latest\n\nENTRYPOINT [\"/entrypoint.sh\"]"
+    },
+    "docker_setup_descriptions": {
+      "Dockerfile": "### Building and Running Docker for zhayujie/chatgpt-on-wechat\n\nTo build and run the Docker container using the provided `Dockerfile` from the `zhayujie/chatgpt-on-wechat` repository, follow these steps:\n\n1. **Understand the Dockerfile**:\n   - The `Dockerfile` specifies that the base image for the container is `ghcr.io/zhayujie/chatgpt-on-wechat:latest`. This means it will pull the latest version of the `chatgpt-on-wechat` image from the GitHub Container Registry.\n   - The `ENTRYPOINT` directive sets the command that will be executed when the container starts. In this case, it runs the script located at `/entrypoint.sh`, which likely initializes the application.\n\n2. **Download the Docker Compose File**:\n   Execute the following command to download the Docker Compose configuration:\n   ```bash\n   wget https://cdn.link-ai.tech/code/cow/docker-compose.yml\n   ```\n\n3. **Run the Docker Container**:\n   Use the following command to start the container in detached mode:\n   ```bash\n   sudo docker compose up -d\n   ```\n   - If you are using Docker Compose version 1.X, replace the command with:\n   ```bash\n   sudo docker-compose up -d\n   ```\n\n### Summary\n- The `Dockerfile` pulls a pre-built image and specifies the entry point for the application.\n- Download the Docker Compose file and use it to run the application in a containerized environment."
     }
   },
   "input_to_gpt": {

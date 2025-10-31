@@ -1,8 +1,8 @@
 {
   "repo": {
     "full_name": "deepspeedai/DeepSpeed",
-    "stars": 40536,
-    "forks": 4597,
+    "stars": 40560,
+    "forks": 4605,
     "language": "Python",
     "description": "DeepSpeed is a deep learning optimization library that makes distributed training and inference easy, efficient, and effective.",
     "topics": [
@@ -22,7 +22,7 @@
     ],
     "url": "https://github.com/deepspeedai/DeepSpeed",
     "created_at": "2020-01-23T18:35:18Z",
-    "updated_at": "2025-10-29T03:09:56Z"
+    "updated_at": "2025-10-30T20:16:02Z"
   },
   "readme_file": "dataset/readmes/DeepSpeed_README.md",
   "task_file": "dataset/tasks/DeepSpeed_tasks.json",
@@ -31,5 +31,6 @@
   "num_docker_commands": 0,
   "has_docker_files": false,
   "docker_files_list": [],
-  "processed_at": "2025-10-28T23:13:58.273384"
+  "docker_setup_descriptions": null,
+  "processed_at": "2025-10-30T20:55:58.007779"
 }

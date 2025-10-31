@@ -1,0 +1,1807 @@
+2025-10-30 00:30:29,219 - __main__ - INFO - 已加载配置文件: config.yaml
+2025-10-30 00:30:29,219 - __main__ - INFO - 使用搜索查询: stars:>1000 language:python
+2025-10-30 00:30:29,219 - __main__ - INFO - 处理器初始化完成 - 输出: dataset
+2025-10-30 00:30:29,219 - __main__ - INFO - 输出目录: ./dataset
+2025-10-30 00:30:29,219 - __main__ - INFO - 代码块语言过滤: python, sh, bash, console, shell, cmd, powershell
+2025-10-30 00:30:29,219 - __main__ - INFO - ============================================================
+2025-10-30 00:30:29,219 - __main__ - INFO - 批量处理开始
+2025-10-30 00:30:29,219 - __main__ - INFO - ============================================================
+2025-10-30 00:30:29,219 - __main__ - INFO - 
+正在搜索第 1 页候选仓库...
+2025-10-30 00:30:30,050 - __main__ - INFO - 获取到 30 个候选仓库
+2025-10-30 00:30:30,050 - __main__ - INFO - 
+候选进度: 1 | 有效仓库: 0/50
+2025-10-30 00:30:30,050 - __main__ - INFO - 当前仓库: EbookFoundation/free-programming-books (375498 stars)
+2025-10-30 00:30:30,050 - __main__ - INFO - 处理仓库: EbookFoundation/free-programming-books
+2025-10-30 00:30:30,280 - __main__ - INFO - 获取README成功: EbookFoundation/free-programming-books/README.md
+2025-10-30 00:30:30,282 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:30:30,282 - __main__ - WARNING - 未找到示例代码，跳过仓库: EbookFoundation/free-programming-books
+2025-10-30 00:30:30,283 - __main__ - WARNING - ✗ 跳过仓库 EbookFoundation/free-programming-books: README中未找到示例代码
+2025-10-30 00:30:32,283 - __main__ - INFO - 
+候选进度: 2 | 有效仓库: 0/50
+2025-10-30 00:30:32,284 - __main__ - INFO - 当前仓库: public-apis/public-apis (374549 stars)
+2025-10-30 00:30:32,284 - __main__ - INFO - 处理仓库: public-apis/public-apis
+2025-10-30 00:30:32,641 - __main__ - INFO - 获取README成功: public-apis/public-apis/README.md
+2025-10-30 00:30:32,643 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:30:32,643 - __main__ - WARNING - 未找到示例代码，跳过仓库: public-apis/public-apis
+2025-10-30 00:30:32,643 - __main__ - WARNING - ✗ 跳过仓库 public-apis/public-apis: README中未找到示例代码
+2025-10-30 00:30:34,649 - __main__ - INFO - 
+候选进度: 3 | 有效仓库: 0/50
+2025-10-30 00:30:34,649 - __main__ - INFO - 当前仓库: donnemartin/system-design-primer (324647 stars)
+2025-10-30 00:30:34,649 - __main__ - INFO - 处理仓库: donnemartin/system-design-primer
+2025-10-30 00:30:34,933 - __main__ - INFO - 获取README成功: donnemartin/system-design-primer/README.md
+2025-10-30 00:30:34,935 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=3
+2025-10-30 00:30:34,936 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:30:35,251 - __main__ - ERROR - 代码验证失败 donnemartin/system-design-primer: 401 Client Error: Unauthorized for url: https://api.openai.com/v1/chat/completions
+2025-10-30 00:30:36,240 - __main__ - ERROR - 生成任务失败 donnemartin/system-design-primer: 401 Client Error: Unauthorized for url: https://api.openai.com/v1/chat/completions
+2025-10-30 00:30:36,241 - __main__ - WARNING - ✗ 跳过仓库 donnemartin/system-design-primer: 任务生成失败
+2025-10-30 00:30:38,243 - __main__ - INFO - 
+候选进度: 4 | 有效仓库: 0/50
+2025-10-30 00:30:38,244 - __main__ - INFO - 当前仓库: vinta/awesome-python (266935 stars)
+2025-10-30 00:30:38,244 - __main__ - INFO - 处理仓库: vinta/awesome-python
+2025-10-30 00:30:38,531 - __main__ - INFO - 获取README成功: vinta/awesome-python/README.md
+2025-10-30 00:30:38,533 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:30:38,533 - __main__ - WARNING - 未找到示例代码，跳过仓库: vinta/awesome-python
+2025-10-30 00:30:38,533 - __main__ - WARNING - ✗ 跳过仓库 vinta/awesome-python: README中未找到示例代码
+2025-10-30 00:32:04,714 - __main__ - INFO - 已加载配置文件: config.yaml
+2025-10-30 00:32:04,714 - __main__ - INFO - 使用搜索查询: stars:>1000 language:python
+2025-10-30 00:32:04,714 - __main__ - INFO - 处理器初始化完成 - 输出: dataset
+2025-10-30 00:32:04,714 - __main__ - INFO - 输出目录: ./dataset
+2025-10-30 00:32:04,714 - __main__ - INFO - 代码块语言过滤: python, sh, bash, console, shell, cmd, powershell
+2025-10-30 00:32:04,714 - __main__ - INFO - ============================================================
+2025-10-30 00:32:04,714 - __main__ - INFO - 批量处理开始
+2025-10-30 00:32:04,714 - __main__ - INFO - ============================================================
+2025-10-30 00:32:04,714 - __main__ - INFO - 
+正在搜索第 1 页候选仓库...
+2025-10-30 00:32:06,315 - __main__ - INFO - 获取到 30 个候选仓库
+2025-10-30 00:32:06,316 - __main__ - INFO - 
+候选进度: 1 | 有效仓库: 0/50
+2025-10-30 00:32:06,316 - __main__ - INFO - 当前仓库: EbookFoundation/free-programming-books (375499 stars)
+2025-10-30 00:32:06,316 - __main__ - INFO - 处理仓库: EbookFoundation/free-programming-books
+2025-10-30 00:32:06,591 - __main__ - INFO - 获取README成功: EbookFoundation/free-programming-books/README.md
+2025-10-30 00:32:06,592 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:32:06,592 - __main__ - WARNING - 未找到示例代码，跳过仓库: EbookFoundation/free-programming-books
+2025-10-30 00:32:06,592 - __main__ - WARNING - ✗ 跳过仓库 EbookFoundation/free-programming-books: README中未找到示例代码
+2025-10-30 00:32:08,598 - __main__ - INFO - 
+候选进度: 2 | 有效仓库: 0/50
+2025-10-30 00:32:08,598 - __main__ - INFO - 当前仓库: public-apis/public-apis (374549 stars)
+2025-10-30 00:32:08,598 - __main__ - INFO - 处理仓库: public-apis/public-apis
+2025-10-30 00:32:09,032 - __main__ - INFO - 获取README成功: public-apis/public-apis/README.md
+2025-10-30 00:32:09,035 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:32:09,035 - __main__ - WARNING - 未找到示例代码，跳过仓库: public-apis/public-apis
+2025-10-30 00:32:09,035 - __main__ - WARNING - ✗ 跳过仓库 public-apis/public-apis: README中未找到示例代码
+2025-10-30 00:32:11,041 - __main__ - INFO - 
+候选进度: 3 | 有效仓库: 0/50
+2025-10-30 00:32:11,041 - __main__ - INFO - 当前仓库: donnemartin/system-design-primer (324647 stars)
+2025-10-30 00:32:11,041 - __main__ - INFO - 处理仓库: donnemartin/system-design-primer
+2025-10-30 00:32:11,405 - __main__ - INFO - 获取README成功: donnemartin/system-design-primer/README.md
+2025-10-30 00:32:11,407 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=3
+2025-10-30 00:32:11,407 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:32:14,896 - __main__ - INFO - 代码验证结果: ✗ 不通过 - 代码只是展示一个缓存和数据库查询的实现，仓库本身是系统设计教程，代码是教学内容而非工具使用
+2025-10-30 00:32:14,896 - __main__ - WARNING - 代码不是usage example，跳过仓库: donnemartin/system-design-primer
+2025-10-30 00:32:14,897 - __main__ - WARNING - ✗ 跳过仓库 donnemartin/system-design-primer: 代码块不是仓库的使用示例
+2025-10-30 00:32:16,902 - __main__ - INFO - 
+候选进度: 4 | 有效仓库: 0/50
+2025-10-30 00:32:16,903 - __main__ - INFO - 当前仓库: vinta/awesome-python (266935 stars)
+2025-10-30 00:32:16,903 - __main__ - INFO - 处理仓库: vinta/awesome-python
+2025-10-30 00:32:17,211 - __main__ - INFO - 获取README成功: vinta/awesome-python/README.md
+2025-10-30 00:32:17,213 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:32:17,213 - __main__ - WARNING - 未找到示例代码，跳过仓库: vinta/awesome-python
+2025-10-30 00:32:17,213 - __main__ - WARNING - ✗ 跳过仓库 vinta/awesome-python: README中未找到示例代码
+2025-10-30 00:32:19,219 - __main__ - INFO - 
+候选进度: 5 | 有效仓库: 0/50
+2025-10-30 00:32:19,219 - __main__ - INFO - 当前仓库: TheAlgorithms/Python (212180 stars)
+2025-10-30 00:32:19,219 - __main__ - INFO - 处理仓库: TheAlgorithms/Python
+2025-10-30 00:32:19,507 - __main__ - INFO - 获取README成功: TheAlgorithms/Python/README.md
+2025-10-30 00:32:19,508 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:32:19,508 - __main__ - WARNING - 未找到示例代码，跳过仓库: TheAlgorithms/Python
+2025-10-30 00:32:19,509 - __main__ - WARNING - ✗ 跳过仓库 TheAlgorithms/Python: README中未找到示例代码
+2025-10-30 00:32:21,514 - __main__ - INFO - 
+候选进度: 6 | 有效仓库: 0/50
+2025-10-30 00:32:21,514 - __main__ - INFO - 当前仓库: Significant-Gravitas/AutoGPT (179365 stars)
+2025-10-30 00:32:21,515 - __main__ - INFO - 处理仓库: Significant-Gravitas/AutoGPT
+2025-10-30 00:32:21,783 - __main__ - INFO - 获取README成功: Significant-Gravitas/AutoGPT/README.md
+2025-10-30 00:32:21,784 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=1
+2025-10-30 00:32:21,785 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:32:25,050 - __main__ - INFO - 代码验证结果: ✓ 通过 - The code block demonstrates how to use the AutoGPT tool by showing commands to create, start, and stop agents, which are functionalities provided by the AutoGPT repository.
+2025-10-30 00:32:26,102 - __main__ - INFO - 获取Docker文件成功: Significant-Gravitas/AutoGPT/.dockerignore
+2025-10-30 00:32:26,103 - __main__ - INFO - 找到Docker文件: ['.dockerignore']
+2025-10-30 00:32:37,511 - __main__ - INFO - 处理完成: Significant-Gravitas/AutoGPT - 3 个任务
+2025-10-30 00:32:37,512 - __main__ - INFO - ✓ 有效仓库累计: 1/50
+2025-10-30 00:32:39,514 - __main__ - INFO - 
+候选进度: 7 | 有效仓库: 1/50
+2025-10-30 00:32:39,514 - __main__ - INFO - 当前仓库: AUTOMATIC1111/stable-diffusion-webui (157684 stars)
+2025-10-30 00:32:39,514 - __main__ - INFO - 处理仓库: AUTOMATIC1111/stable-diffusion-webui
+2025-10-30 00:32:39,812 - __main__ - INFO - 获取README成功: AUTOMATIC1111/stable-diffusion-webui/README.md
+2025-10-30 00:32:39,813 - __main__ - INFO - 提取代码块: setup=3, docker=0, example=1
+2025-10-30 00:32:39,814 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:32:41,542 - __main__ - INFO - 代码验证结果: ✗ 不通过 - 代码块只是展示如何安装特定版本的Python，并没有涉及调用该仓库的功能或展示如何使用该工具。
+2025-10-30 00:32:41,542 - __main__ - WARNING - 代码不是usage example，跳过仓库: AUTOMATIC1111/stable-diffusion-webui
+2025-10-30 00:32:41,543 - __main__ - WARNING - ✗ 跳过仓库 AUTOMATIC1111/stable-diffusion-webui: 代码块不是仓库的使用示例
+2025-10-30 00:32:43,548 - __main__ - INFO - 
+候选进度: 8 | 有效仓库: 1/50
+2025-10-30 00:32:43,548 - __main__ - INFO - 当前仓库: huggingface/transformers (151825 stars)
+2025-10-30 00:32:43,548 - __main__ - INFO - 处理仓库: huggingface/transformers
+2025-10-30 00:32:43,790 - __main__ - INFO - 获取README成功: huggingface/transformers/README.md
+2025-10-30 00:32:43,791 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:32:43,791 - __main__ - WARNING - 未找到示例代码，跳过仓库: huggingface/transformers
+2025-10-30 00:32:43,791 - __main__ - WARNING - ✗ 跳过仓库 huggingface/transformers: README中未找到示例代码
+2025-10-30 00:32:45,794 - __main__ - INFO - 
+候选进度: 9 | 有效仓库: 1/50
+2025-10-30 00:32:45,794 - __main__ - INFO - 当前仓库: ytdl-org/youtube-dl (138610 stars)
+2025-10-30 00:32:45,794 - __main__ - INFO - 处理仓库: ytdl-org/youtube-dl
+2025-10-30 00:32:46,361 - __main__ - INFO - 获取README成功: ytdl-org/youtube-dl/README.md
+2025-10-30 00:32:46,363 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=14
+2025-10-30 00:32:46,363 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:32:48,771 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用youtube-dl工具下载视频，包括指定格式、输出模板和日期过滤等功能，是用户使用该工具的示例。
+2025-10-30 00:33:25,217 - __main__ - INFO - 处理完成: ytdl-org/youtube-dl - 15 个任务
+2025-10-30 00:33:25,218 - __main__ - INFO - ✓ 有效仓库累计: 2/50
+2025-10-30 00:33:27,221 - __main__ - INFO - 
+候选进度: 10 | 有效仓库: 2/50
+2025-10-30 00:33:27,221 - __main__ - INFO - 当前仓库: langflow-ai/langflow (136552 stars)
+2025-10-30 00:33:27,221 - __main__ - INFO - 处理仓库: langflow-ai/langflow
+2025-10-30 00:33:27,552 - __main__ - INFO - 获取README成功: langflow-ai/langflow/README.md
+2025-10-30 00:33:27,553 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=1
+2025-10-30 00:33:27,553 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:33:29,118 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码块展示了如何启动Langflow服务器，这是使用该工具的一个示例。
+2025-10-30 00:33:30,203 - __main__ - INFO - 获取Docker文件成功: langflow-ai/langflow/.dockerignore
+2025-10-30 00:33:30,204 - __main__ - INFO - 找到Docker文件: ['.dockerignore']
+2025-10-30 00:33:38,121 - __main__ - INFO - 处理完成: langflow-ai/langflow - 1 个任务
+2025-10-30 00:33:38,121 - __main__ - INFO - ✓ 有效仓库累计: 3/50
+2025-10-30 00:33:40,126 - __main__ - INFO - 
+候选进度: 11 | 有效仓库: 3/50
+2025-10-30 00:33:40,126 - __main__ - INFO - 当前仓库: yt-dlp/yt-dlp (133147 stars)
+2025-10-30 00:33:40,127 - __main__ - INFO - 处理仓库: yt-dlp/yt-dlp
+2025-10-30 00:33:40,520 - __main__ - INFO - 获取README成功: yt-dlp/yt-dlp/README.md
+2025-10-30 00:33:40,526 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=11
+2025-10-30 00:33:40,526 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:33:50,971 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用yt-dlp库的功能，包括下载视频、提取信息、设置格式选择器等，是用户使用该工具的示例。
+2025-10-30 00:34:23,193 - __main__ - INFO - 处理完成: yt-dlp/yt-dlp - 13 个任务
+2025-10-30 00:34:23,193 - __main__ - INFO - ✓ 有效仓库累计: 4/50
+2025-10-30 00:34:25,196 - __main__ - INFO - 
+候选进度: 12 | 有效仓库: 4/50
+2025-10-30 00:34:25,196 - __main__ - INFO - 当前仓库: 521xueweihan/HelloGitHub (132533 stars)
+2025-10-30 00:34:25,196 - __main__ - INFO - 处理仓库: 521xueweihan/HelloGitHub
+2025-10-30 00:34:25,476 - __main__ - INFO - 获取README成功: 521xueweihan/HelloGitHub/README.md
+2025-10-30 00:34:25,477 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:34:25,477 - __main__ - WARNING - 未找到示例代码，跳过仓库: 521xueweihan/HelloGitHub
+2025-10-30 00:34:25,477 - __main__ - WARNING - ✗ 跳过仓库 521xueweihan/HelloGitHub: README中未找到示例代码
+2025-10-30 00:34:27,479 - __main__ - INFO - 
+候选进度: 13 | 有效仓库: 4/50
+2025-10-30 00:34:27,480 - __main__ - INFO - 当前仓库: langchain-ai/langchain (118417 stars)
+2025-10-30 00:34:27,480 - __main__ - INFO - 处理仓库: langchain-ai/langchain
+2025-10-30 00:34:27,763 - __main__ - INFO - 获取README成功: langchain-ai/langchain/README.md
+2025-10-30 00:34:27,763 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=0
+2025-10-30 00:34:27,763 - __main__ - WARNING - 未找到示例代码，跳过仓库: langchain-ai/langchain
+2025-10-30 00:34:27,763 - __main__ - WARNING - ✗ 跳过仓库 langchain-ai/langchain: README中未找到示例代码
+2025-10-30 00:34:29,767 - __main__ - INFO - 
+候选进度: 14 | 有效仓库: 4/50
+2025-10-30 00:34:29,767 - __main__ - INFO - 当前仓库: deepseek-ai/DeepSeek-V3 (100058 stars)
+2025-10-30 00:34:29,767 - __main__ - INFO - 处理仓库: deepseek-ai/DeepSeek-V3
+2025-10-30 00:34:30,056 - __main__ - INFO - 获取README成功: deepseek-ai/DeepSeek-V3/README.md
+2025-10-30 00:34:30,057 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=1
+2025-10-30 00:34:30,057 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:34:36,496 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码块展示了如何使用DeepSeek-V3仓库中的脚本进行FP8到BF16的权重转换，属于用户使用该工具的示例。
+2025-10-30 00:34:44,591 - __main__ - INFO - 处理完成: deepseek-ai/DeepSeek-V3 - 1 个任务
+2025-10-30 00:34:44,591 - __main__ - INFO - ✓ 有效仓库累计: 5/50
+2025-10-30 00:34:46,596 - __main__ - INFO - 
+候选进度: 15 | 有效仓库: 5/50
+2025-10-30 00:34:46,596 - __main__ - INFO - 当前仓库: nvbn/thefuck (94513 stars)
+2025-10-30 00:34:46,596 - __main__ - INFO - 处理仓库: nvbn/thefuck
+2025-10-30 00:34:46,912 - __main__ - INFO - 获取README成功: nvbn/thefuck/README.md
+2025-10-30 00:34:46,913 - __main__ - INFO - 提取代码块: setup=4, docker=0, example=17
+2025-10-30 00:34:46,914 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:34:48,998 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用'thefuck'工具来纠正命令行错误，是用户使用该工具的示例。
+2025-10-30 00:35:05,488 - __main__ - INFO - 处理完成: nvbn/thefuck - 8 个任务
+2025-10-30 00:35:05,489 - __main__ - INFO - ✓ 有效仓库累计: 6/50
+2025-10-30 00:35:07,533 - __main__ - INFO - 
+候选进度: 16 | 有效仓库: 6/50
+2025-10-30 00:35:07,533 - __main__ - INFO - 当前仓库: pytorch/pytorch (94381 stars)
+2025-10-30 00:35:07,533 - __main__ - INFO - 处理仓库: pytorch/pytorch
+2025-10-30 00:35:07,843 - __main__ - INFO - 获取README成功: pytorch/pytorch/README.md
+2025-10-30 00:35:07,843 - __main__ - INFO - 提取代码块: setup=15, docker=1, example=3
+2025-10-30 00:35:07,843 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:35:10,287 - __main__ - INFO - 代码验证结果: ✗ 不通过 - 代码块展示了如何构建Docker镜像，而不是如何使用PyTorch库的API或功能。
+2025-10-30 00:35:10,288 - __main__ - WARNING - 代码不是usage example，跳过仓库: pytorch/pytorch
+2025-10-30 00:35:10,288 - __main__ - WARNING - ✗ 跳过仓库 pytorch/pytorch: 代码块不是仓库的使用示例
+2025-10-30 00:35:12,289 - __main__ - INFO - 
+候选进度: 17 | 有效仓库: 6/50
+2025-10-30 00:35:12,290 - __main__ - INFO - 当前仓库: comfyanonymous/ComfyUI (92280 stars)
+2025-10-30 00:35:12,290 - __main__ - INFO - 处理仓库: comfyanonymous/ComfyUI
+2025-10-30 00:35:12,553 - __main__ - INFO - 获取README成功: comfyanonymous/ComfyUI/README.md
+2025-10-30 00:35:12,554 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=1
+2025-10-30 00:35:12,554 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:35:14,265 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何在AMD显卡上运行ComfyUI，这是用户使用该工具的示例。
+2025-10-30 00:35:22,990 - __main__ - INFO - 处理完成: comfyanonymous/ComfyUI - 2 个任务
+2025-10-30 00:35:22,991 - __main__ - INFO - ✓ 有效仓库累计: 7/50
+2025-10-30 00:35:24,996 - __main__ - INFO - 
+候选进度: 18 | 有效仓库: 7/50
+2025-10-30 00:35:24,996 - __main__ - INFO - 当前仓库: fastapi/fastapi (91307 stars)
+2025-10-30 00:35:24,996 - __main__ - INFO - 处理仓库: fastapi/fastapi
+2025-10-30 00:35:25,300 - __main__ - INFO - 获取README成功: fastapi/fastapi/README.md
+2025-10-30 00:35:25,301 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=3
+2025-10-30 00:35:25,302 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:35:26,773 - __main__ - INFO - 代码验证结果: ✓ 通过 - The code demonstrates how to use the FastAPI library by creating a simple API with endpoints, which is a typical usage example of this tool.
+2025-10-30 00:35:39,476 - __main__ - INFO - 处理完成: fastapi/fastapi - 4 个任务
+2025-10-30 00:35:39,477 - __main__ - INFO - ✓ 有效仓库累计: 8/50
+2025-10-30 00:35:41,479 - __main__ - INFO - 
+候选进度: 19 | 有效仓库: 8/50
+2025-10-30 00:35:41,480 - __main__ - INFO - 当前仓库: openai/whisper (90115 stars)
+2025-10-30 00:35:41,480 - __main__ - INFO - 处理仓库: openai/whisper
+2025-10-30 00:35:41,747 - __main__ - INFO - 获取README成功: openai/whisper/README.md
+2025-10-30 00:35:41,748 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=6
+2025-10-30 00:35:41,748 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:35:43,364 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用Whisper库进行音频转录和翻译，调用了仓库提供的API和功能，是用户使用该工具的示例。
+2025-10-30 00:35:59,445 - __main__ - INFO - 处理完成: openai/whisper - 6 个任务
+2025-10-30 00:35:59,446 - __main__ - INFO - ✓ 有效仓库累计: 9/50
+2025-10-30 00:36:01,446 - __main__ - INFO - 
+候选进度: 20 | 有效仓库: 9/50
+2025-10-30 00:36:01,447 - __main__ - INFO - 当前仓库: django/django (85597 stars)
+2025-10-30 00:36:01,447 - __main__ - INFO - 处理仓库: django/django
+2025-10-30 00:36:01,716 - __main__ - INFO - 获取README成功: django/django/README.rst
+2025-10-30 00:36:01,717 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:36:01,717 - __main__ - WARNING - 未找到示例代码，跳过仓库: django/django
+2025-10-30 00:36:01,717 - __main__ - WARNING - ✗ 跳过仓库 django/django: README中未找到示例代码
+2025-10-30 00:36:03,722 - __main__ - INFO - 
+候选进度: 21 | 有效仓库: 9/50
+2025-10-30 00:36:03,722 - __main__ - INFO - 当前仓库: microsoft/markitdown (82252 stars)
+2025-10-30 00:36:03,722 - __main__ - INFO - 处理仓库: microsoft/markitdown
+2025-10-30 00:36:04,893 - __main__ - INFO - 获取README成功: microsoft/markitdown/README.md
+2025-10-30 00:36:04,894 - __main__ - INFO - 提取代码块: setup=6, docker=1, example=11
+2025-10-30 00:36:04,894 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:36:14,119 - __main__ - ERROR - 代码验证失败 microsoft/markitdown: Unterminated string starting at: line 20 column 19 (char 855)
+2025-10-30 00:36:14,386 - __main__ - INFO - 获取Docker文件成功: microsoft/markitdown/Dockerfile
+2025-10-30 00:36:15,245 - __main__ - INFO - 获取Docker文件成功: microsoft/markitdown/.dockerignore
+2025-10-30 00:36:15,246 - __main__ - INFO - 找到Docker文件: ['Dockerfile', '.dockerignore']
+2025-10-30 00:36:44,306 - __main__ - INFO - 处理完成: microsoft/markitdown - 9 个任务
+2025-10-30 00:36:44,306 - __main__ - INFO - ✓ 有效仓库累计: 10/50
+2025-10-30 00:36:46,311 - __main__ - INFO - 
+候选进度: 22 | 有效仓库: 10/50
+2025-10-30 00:36:46,312 - __main__ - INFO - 当前仓库: home-assistant/core (82250 stars)
+2025-10-30 00:36:46,312 - __main__ - INFO - 处理仓库: home-assistant/core
+2025-10-30 00:36:46,641 - __main__ - INFO - 获取README成功: home-assistant/core/README.rst
+2025-10-30 00:36:46,642 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:36:46,642 - __main__ - WARNING - 未找到示例代码，跳过仓库: home-assistant/core
+2025-10-30 00:36:46,642 - __main__ - WARNING - ✗ 跳过仓库 home-assistant/core: README中未找到示例代码
+2025-10-30 00:36:48,648 - __main__ - INFO - 
+候选进度: 23 | 有效仓库: 10/50
+2025-10-30 00:36:48,648 - __main__ - INFO - 当前仓库: 3b1b/manim (81521 stars)
+2025-10-30 00:36:48,648 - __main__ - INFO - 处理仓库: 3b1b/manim
+2025-10-30 00:36:48,897 - __main__ - INFO - 获取README成功: 3b1b/manim/README.md
+2025-10-30 00:36:48,898 - __main__ - INFO - 提取代码块: setup=6, docker=0, example=1
+2025-10-30 00:36:48,898 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:36:50,538 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示如何使用ManimGL库，通过调用manimgl命令来运行示例场景，属于用户使用该工具的示例。
+2025-10-30 00:36:54,633 - __main__ - INFO - 处理完成: 3b1b/manim - 1 个任务
+2025-10-30 00:36:54,633 - __main__ - INFO - ✓ 有效仓库累计: 11/50
+2025-10-30 00:36:56,637 - __main__ - INFO - 
+候选进度: 24 | 有效仓库: 11/50
+2025-10-30 00:36:56,638 - __main__ - INFO - 当前仓库: bregman-arie/devops-exercises (79610 stars)
+2025-10-30 00:36:56,638 - __main__ - INFO - 处理仓库: bregman-arie/devops-exercises
+2025-10-30 00:36:56,994 - __main__ - INFO - 获取README成功: bregman-arie/devops-exercises/README.md
+2025-10-30 00:36:56,999 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:36:56,999 - __main__ - WARNING - 未找到示例代码，跳过仓库: bregman-arie/devops-exercises
+2025-10-30 00:36:56,999 - __main__ - WARNING - ✗ 跳过仓库 bregman-arie/devops-exercises: README中未找到示例代码
+2025-10-30 00:36:59,004 - __main__ - INFO - 
+候选进度: 25 | 有效仓库: 11/50
+2025-10-30 00:36:59,005 - __main__ - INFO - 当前仓库: tensorflow/models (77667 stars)
+2025-10-30 00:36:59,005 - __main__ - INFO - 处理仓库: tensorflow/models
+2025-10-30 00:36:59,332 - __main__ - INFO - 获取README成功: tensorflow/models/README.md
+2025-10-30 00:36:59,333 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=6
+2025-10-30 00:36:59,333 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:37:01,433 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何安装和设置tensorflow/models库的环境，属于用户使用该工具的示例。
+2025-10-30 00:37:03,544 - __main__ - WARNING - 过滤后任务列表为空，跳过仓库: tensorflow/models
+2025-10-30 00:37:03,544 - __main__ - WARNING - ✗ 跳过仓库 tensorflow/models: 过滤后任务列表为空
+2025-10-30 00:37:05,549 - __main__ - INFO - 
+候选进度: 26 | 有效仓库: 11/50
+2025-10-30 00:37:05,550 - __main__ - INFO - 当前仓库: fighting41love/funNLP (76887 stars)
+2025-10-30 00:37:05,550 - __main__ - INFO - 处理仓库: fighting41love/funNLP
+2025-10-30 00:37:05,892 - __main__ - INFO - 获取README成功: fighting41love/funNLP/README.md
+2025-10-30 00:37:05,895 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:37:05,895 - __main__ - WARNING - 未找到示例代码，跳过仓库: fighting41love/funNLP
+2025-10-30 00:37:05,895 - __main__ - WARNING - ✗ 跳过仓库 fighting41love/funNLP: README中未找到示例代码
+2025-10-30 00:37:07,897 - __main__ - INFO - 
+候选进度: 27 | 有效仓库: 11/50
+2025-10-30 00:37:07,898 - __main__ - INFO - 当前仓库: hacksider/Deep-Live-Cam (74243 stars)
+2025-10-30 00:37:07,898 - __main__ - INFO - 处理仓库: hacksider/Deep-Live-Cam
+2025-10-30 00:37:08,144 - __main__ - INFO - 获取README成功: hacksider/Deep-Live-Cam/README.md
+2025-10-30 00:37:08,145 - __main__ - INFO - 提取代码块: setup=10, docker=0, example=6
+2025-10-30 00:37:08,145 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:37:09,944 - __main__ - INFO - 代码验证结果: ✓ 通过 - The code blocks demonstrate how to use the Deep-Live-Cam tool by executing the main script with different execution providers, which is a direct usage of the tool's functionality.
+2025-10-30 00:37:18,907 - __main__ - INFO - 处理完成: hacksider/Deep-Live-Cam - 4 个任务
+2025-10-30 00:37:18,907 - __main__ - INFO - ✓ 有效仓库累计: 12/50
+2025-10-30 00:37:20,910 - __main__ - INFO - 
+候选进度: 28 | 有效仓库: 12/50
+2025-10-30 00:37:20,910 - __main__ - INFO - 当前仓库: Shubhamsaboo/awesome-llm-apps (74141 stars)
+2025-10-30 00:37:20,911 - __main__ - INFO - 处理仓库: Shubhamsaboo/awesome-llm-apps
+2025-10-30 00:37:21,666 - __main__ - INFO - 获取README成功: Shubhamsaboo/awesome-llm-apps/README.md
+2025-10-30 00:37:21,667 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=1
+2025-10-30 00:37:21,667 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:37:22,733 - __main__ - INFO - 代码验证结果: ✓ 通过 - The code block demonstrates how to navigate to a specific project directory within the repository, which is a step in using the tools and applications provided by the repository.
+2025-10-30 00:37:24,964 - __main__ - WARNING - 过滤后任务列表为空，跳过仓库: Shubhamsaboo/awesome-llm-apps
+2025-10-30 00:37:24,965 - __main__ - WARNING - ✗ 跳过仓库 Shubhamsaboo/awesome-llm-apps: 过滤后任务列表为空
+2025-10-30 00:37:26,968 - __main__ - INFO - 
+候选进度: 29 | 有效仓库: 12/50
+2025-10-30 00:37:26,969 - __main__ - INFO - 当前仓库: d2l-ai/d2l-zh (73523 stars)
+2025-10-30 00:37:26,969 - __main__ - INFO - 处理仓库: d2l-ai/d2l-zh
+2025-10-30 00:37:27,250 - __main__ - INFO - 获取README成功: d2l-ai/d2l-zh/README.md
+2025-10-30 00:37:27,251 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:37:27,251 - __main__ - WARNING - 未找到示例代码，跳过仓库: d2l-ai/d2l-zh
+2025-10-30 00:37:27,251 - __main__ - WARNING - ✗ 跳过仓库 d2l-ai/d2l-zh: README中未找到示例代码
+2025-10-30 00:37:29,255 - __main__ - INFO - 
+候选进度: 30 | 有效仓库: 12/50
+2025-10-30 00:37:29,255 - __main__ - INFO - 当前仓库: browser-use/browser-use (71920 stars)
+2025-10-30 00:37:29,255 - __main__ - INFO - 处理仓库: browser-use/browser-use
+2025-10-30 00:37:29,539 - __main__ - INFO - 获取README成功: browser-use/browser-use/README.md
+2025-10-30 00:37:29,545 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=7
+2025-10-30 00:37:29,545 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:37:31,820 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用browser-use库中的功能，包括初始化环境、安装库、配置API密钥、安装浏览器以及运行一个示例代理任务。这些步骤和代码片段都是用户使用该工具的示例。
+2025-10-30 00:37:32,058 - __main__ - INFO - 获取Docker文件成功: browser-use/browser-use/Dockerfile
+2025-10-30 00:37:32,854 - __main__ - INFO - 获取Docker文件成功: browser-use/browser-use/.dockerignore
+2025-10-30 00:37:32,855 - __main__ - INFO - 找到Docker文件: ['Dockerfile', '.dockerignore']
+2025-10-30 00:38:00,015 - __main__ - INFO - 处理完成: browser-use/browser-use - 8 个任务
+2025-10-30 00:38:00,015 - __main__ - INFO - ✓ 有效仓库累计: 13/50
+2025-10-30 00:38:03,024 - __main__ - INFO - 
+正在搜索第 2 页候选仓库...
+2025-10-30 00:38:04,528 - __main__ - INFO - 获取到 30 个候选仓库
+2025-10-30 00:38:04,528 - __main__ - INFO - 
+候选进度: 31 | 有效仓库: 13/50
+2025-10-30 00:38:04,528 - __main__ - INFO - 当前仓库: swisskyrepo/PayloadsAllTheThings (71242 stars)
+2025-10-30 00:38:04,528 - __main__ - INFO - 处理仓库: swisskyrepo/PayloadsAllTheThings
+2025-10-30 00:38:04,762 - __main__ - INFO - 获取README成功: swisskyrepo/PayloadsAllTheThings/README.md
+2025-10-30 00:38:04,762 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:38:04,762 - __main__ - WARNING - 未找到示例代码，跳过仓库: swisskyrepo/PayloadsAllTheThings
+2025-10-30 00:38:04,762 - __main__ - WARNING - ✗ 跳过仓库 swisskyrepo/PayloadsAllTheThings: README中未找到示例代码
+2025-10-30 00:38:06,763 - __main__ - INFO - 
+候选进度: 32 | 有效仓库: 13/50
+2025-10-30 00:38:06,764 - __main__ - INFO - 当前仓库: abi/screenshot-to-code (71097 stars)
+2025-10-30 00:38:06,764 - __main__ - INFO - 处理仓库: abi/screenshot-to-code
+2025-10-30 00:38:07,020 - __main__ - INFO - 获取README成功: abi/screenshot-to-code/README.md
+2025-10-30 00:38:07,021 - __main__ - INFO - 提取代码块: setup=1, docker=1, example=2
+2025-10-30 00:38:07,021 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:38:08,151 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码块展示了如何使用该仓库的工具，通过运行后端服务来使用其功能，符合用户使用该工具的示例。
+2025-10-30 00:38:08,627 - __main__ - INFO - 获取Docker文件成功: abi/screenshot-to-code/docker-compose.yml
+2025-10-30 00:38:09,081 - __main__ - INFO - 找到Docker文件: ['docker-compose.yml']
+2025-10-30 00:38:18,297 - __main__ - WARNING - 过滤后任务列表为空，跳过仓库: abi/screenshot-to-code
+2025-10-30 00:38:18,298 - __main__ - WARNING - ✗ 跳过仓库 abi/screenshot-to-code: 过滤后任务列表为空
+2025-10-30 00:38:20,303 - __main__ - INFO - 
+候选进度: 33 | 有效仓库: 13/50
+2025-10-30 00:38:20,304 - __main__ - INFO - 当前仓库: pallets/flask (70681 stars)
+2025-10-30 00:38:20,304 - __main__ - INFO - 处理仓库: pallets/flask
+2025-10-30 00:38:20,631 - __main__ - INFO - 获取README成功: pallets/flask/README.md
+2025-10-30 00:38:20,632 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=1
+2025-10-30 00:38:20,632 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:38:21,519 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示如何使用Flask库创建一个简单的Web应用程序，并调用了Flask提供的API功能。
+2025-10-30 00:38:26,750 - __main__ - INFO - 处理完成: pallets/flask - 1 个任务
+2025-10-30 00:38:26,755 - __main__ - INFO - ✓ 有效仓库累计: 14/50
+2025-10-30 00:38:28,760 - __main__ - INFO - 
+候选进度: 34 | 有效仓库: 14/50
+2025-10-30 00:38:28,761 - __main__ - INFO - 当前仓库: josephmisiti/awesome-machine-learning (70418 stars)
+2025-10-30 00:38:28,761 - __main__ - INFO - 处理仓库: josephmisiti/awesome-machine-learning
+2025-10-30 00:38:29,131 - __main__ - INFO - 获取README成功: josephmisiti/awesome-machine-learning/README.md
+2025-10-30 00:38:29,133 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:38:29,133 - __main__ - WARNING - 未找到示例代码，跳过仓库: josephmisiti/awesome-machine-learning
+2025-10-30 00:38:29,133 - __main__ - WARNING - ✗ 跳过仓库 josephmisiti/awesome-machine-learning: README中未找到示例代码
+2025-10-30 00:38:31,138 - __main__ - INFO - 
+候选进度: 35 | 有效仓库: 14/50
+2025-10-30 00:38:31,138 - __main__ - INFO - 当前仓库: Alvin9999/new-pac (70219 stars)
+2025-10-30 00:38:31,138 - __main__ - INFO - 处理仓库: Alvin9999/new-pac
+2025-10-30 00:38:31,359 - __main__ - INFO - 获取README成功: Alvin9999/new-pac/README.md
+2025-10-30 00:38:31,360 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:38:31,360 - __main__ - WARNING - 未找到示例代码，跳过仓库: Alvin9999/new-pac
+2025-10-30 00:38:31,360 - __main__ - WARNING - ✗ 跳过仓库 Alvin9999/new-pac: README中未找到示例代码
+2025-10-30 00:38:33,363 - __main__ - INFO - 
+候选进度: 36 | 有效仓库: 14/50
+2025-10-30 00:38:33,363 - __main__ - INFO - 当前仓库: sherlock-project/sherlock (69949 stars)
+2025-10-30 00:38:33,363 - __main__ - INFO - 处理仓库: sherlock-project/sherlock
+2025-10-30 00:38:33,615 - __main__ - INFO - 获取README成功: sherlock-project/sherlock/README.md
+2025-10-30 00:38:33,615 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=4
+2025-10-30 00:38:33,615 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:38:35,603 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用sherlock工具进行用户名搜索，并调用了该工具的功能，是用户使用该工具的示例。
+2025-10-30 00:38:35,838 - __main__ - INFO - 获取Docker文件成功: sherlock-project/sherlock/Dockerfile
+2025-10-30 00:38:36,508 - __main__ - INFO - 获取Docker文件成功: sherlock-project/sherlock/.dockerignore
+2025-10-30 00:38:36,509 - __main__ - INFO - 找到Docker文件: ['Dockerfile', '.dockerignore']
+2025-10-30 00:48:50,872 - __main__ - INFO - 已加载配置文件: config.yaml
+2025-10-30 00:48:50,872 - __main__ - INFO - 使用搜索查询: stars:>1000 language:python
+2025-10-30 00:48:50,872 - __main__ - INFO - 处理器初始化完成 - 输出: dataset
+2025-10-30 00:48:50,872 - __main__ - INFO - 输出目录: ./dataset
+2025-10-30 00:48:50,872 - __main__ - INFO - 代码块语言过滤: python, sh, bash, console, shell, cmd, powershell
+2025-10-30 00:48:50,872 - __main__ - INFO - ============================================================
+2025-10-30 00:48:50,872 - __main__ - INFO - 批量处理开始
+2025-10-30 00:48:50,872 - __main__ - INFO - ============================================================
+2025-10-30 00:48:50,873 - __main__ - INFO - 
+正在搜索第 1 页候选仓库...
+2025-10-30 00:48:52,170 - __main__ - INFO - 获取到 30 个候选仓库
+2025-10-30 00:48:52,170 - __main__ - INFO - 
+候选进度: 1 | 有效仓库: 0/10
+2025-10-30 00:48:52,171 - __main__ - INFO - 当前仓库: EbookFoundation/free-programming-books (375499 stars)
+2025-10-30 00:48:52,171 - __main__ - INFO - 处理仓库: EbookFoundation/free-programming-books
+2025-10-30 00:48:52,461 - __main__ - INFO - 获取README成功: EbookFoundation/free-programming-books/README.md
+2025-10-30 00:48:52,462 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:48:52,462 - __main__ - WARNING - 未找到示例代码，跳过仓库: EbookFoundation/free-programming-books
+2025-10-30 00:48:52,462 - __main__ - WARNING - ✗ 跳过仓库 EbookFoundation/free-programming-books: README中未找到示例代码
+2025-10-30 00:48:54,464 - __main__ - INFO - 
+候选进度: 2 | 有效仓库: 0/10
+2025-10-30 00:48:54,464 - __main__ - INFO - 当前仓库: public-apis/public-apis (374552 stars)
+2025-10-30 00:48:54,464 - __main__ - INFO - 处理仓库: public-apis/public-apis
+2025-10-30 00:48:54,848 - __main__ - INFO - 获取README成功: public-apis/public-apis/README.md
+2025-10-30 00:48:54,850 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:48:54,850 - __main__ - WARNING - 未找到示例代码，跳过仓库: public-apis/public-apis
+2025-10-30 00:48:54,850 - __main__ - WARNING - ✗ 跳过仓库 public-apis/public-apis: README中未找到示例代码
+2025-10-30 00:48:56,851 - __main__ - INFO - 
+候选进度: 3 | 有效仓库: 0/10
+2025-10-30 00:48:56,851 - __main__ - INFO - 当前仓库: donnemartin/system-design-primer (324649 stars)
+2025-10-30 00:48:56,853 - __main__ - INFO - 处理仓库: donnemartin/system-design-primer
+2025-10-30 00:48:57,199 - __main__ - INFO - 获取README成功: donnemartin/system-design-primer/README.md
+2025-10-30 00:48:57,201 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=3
+2025-10-30 00:48:57,202 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:49:00,347 - __main__ - INFO - 代码验证结果: ✗ 不通过 - 代码块展示了缓存和数据库查询的实现，属于系统设计教程的内容，而非展示如何使用该仓库的API或工具。
+2025-10-30 00:49:00,348 - __main__ - WARNING - 代码不是usage example，跳过仓库: donnemartin/system-design-primer
+2025-10-30 00:49:00,348 - __main__ - WARNING - ✗ 跳过仓库 donnemartin/system-design-primer: 代码块不是仓库的使用示例
+2025-10-30 00:49:02,353 - __main__ - INFO - 
+候选进度: 4 | 有效仓库: 0/10
+2025-10-30 00:49:02,353 - __main__ - INFO - 当前仓库: vinta/awesome-python (266936 stars)
+2025-10-30 00:49:02,353 - __main__ - INFO - 处理仓库: vinta/awesome-python
+2025-10-30 00:49:02,688 - __main__ - INFO - 获取README成功: vinta/awesome-python/README.md
+2025-10-30 00:49:02,689 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:49:02,689 - __main__ - WARNING - 未找到示例代码，跳过仓库: vinta/awesome-python
+2025-10-30 00:49:02,689 - __main__ - WARNING - ✗ 跳过仓库 vinta/awesome-python: README中未找到示例代码
+2025-10-30 00:49:04,694 - __main__ - INFO - 
+候选进度: 5 | 有效仓库: 0/10
+2025-10-30 00:49:04,695 - __main__ - INFO - 当前仓库: TheAlgorithms/Python (212180 stars)
+2025-10-30 00:49:04,695 - __main__ - INFO - 处理仓库: TheAlgorithms/Python
+2025-10-30 00:49:04,979 - __main__ - INFO - 获取README成功: TheAlgorithms/Python/README.md
+2025-10-30 00:49:04,979 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:49:04,979 - __main__ - WARNING - 未找到示例代码，跳过仓库: TheAlgorithms/Python
+2025-10-30 00:49:04,979 - __main__ - WARNING - ✗ 跳过仓库 TheAlgorithms/Python: README中未找到示例代码
+2025-10-30 00:49:06,982 - __main__ - INFO - 
+候选进度: 6 | 有效仓库: 0/10
+2025-10-30 00:49:06,982 - __main__ - INFO - 当前仓库: Significant-Gravitas/AutoGPT (179365 stars)
+2025-10-30 00:49:06,983 - __main__ - INFO - 处理仓库: Significant-Gravitas/AutoGPT
+2025-10-30 00:49:07,270 - __main__ - INFO - 获取README成功: Significant-Gravitas/AutoGPT/README.md
+2025-10-30 00:49:07,270 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=1
+2025-10-30 00:49:07,270 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:50:13,431 - __main__ - INFO - 已加载配置文件: config.yaml
+2025-10-30 00:50:13,431 - __main__ - INFO - 使用搜索查询: stars:>1000 language:python
+2025-10-30 00:50:13,431 - __main__ - INFO - 处理器初始化完成 - 输出: dataset
+2025-10-30 00:50:13,431 - __main__ - INFO - 输出目录: ./dataset
+2025-10-30 00:50:13,431 - __main__ - INFO - 代码块语言过滤: python, sh, bash, console, shell, cmd, powershell
+2025-10-30 00:50:13,431 - __main__ - INFO - ============================================================
+2025-10-30 00:50:13,431 - __main__ - INFO - 批量处理开始
+2025-10-30 00:50:13,431 - __main__ - INFO - ============================================================
+2025-10-30 00:50:13,431 - __main__ - INFO - 
+正在搜索第 1 页候选仓库...
+2025-10-30 00:50:14,921 - __main__ - INFO - 获取到 30 个候选仓库
+2025-10-30 00:50:14,921 - __main__ - INFO - 
+候选进度: 1 | 有效仓库: 0/10
+2025-10-30 00:50:14,921 - __main__ - INFO - 当前仓库: EbookFoundation/free-programming-books (375499 stars)
+2025-10-30 00:50:14,921 - __main__ - INFO - 处理仓库: EbookFoundation/free-programming-books
+2025-10-30 00:50:15,206 - __main__ - INFO - 获取README成功: EbookFoundation/free-programming-books/README.md
+2025-10-30 00:50:15,207 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:50:15,207 - __main__ - WARNING - 未找到示例代码，跳过仓库: EbookFoundation/free-programming-books
+2025-10-30 00:50:15,207 - __main__ - WARNING - ✗ 跳过仓库 EbookFoundation/free-programming-books: README中未找到示例代码
+2025-10-30 00:50:17,213 - __main__ - INFO - 
+候选进度: 2 | 有效仓库: 0/10
+2025-10-30 00:50:17,213 - __main__ - INFO - 当前仓库: public-apis/public-apis (374552 stars)
+2025-10-30 00:50:17,213 - __main__ - INFO - 处理仓库: public-apis/public-apis
+2025-10-30 00:50:17,632 - __main__ - INFO - 获取README成功: public-apis/public-apis/README.md
+2025-10-30 00:50:17,634 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:50:17,634 - __main__ - WARNING - 未找到示例代码，跳过仓库: public-apis/public-apis
+2025-10-30 00:50:17,634 - __main__ - WARNING - ✗ 跳过仓库 public-apis/public-apis: README中未找到示例代码
+2025-10-30 00:50:19,639 - __main__ - INFO - 
+候选进度: 3 | 有效仓库: 0/10
+2025-10-30 00:50:19,640 - __main__ - INFO - 当前仓库: donnemartin/system-design-primer (324649 stars)
+2025-10-30 00:50:19,640 - __main__ - INFO - 处理仓库: donnemartin/system-design-primer
+2025-10-30 00:50:19,982 - __main__ - INFO - 获取README成功: donnemartin/system-design-primer/README.md
+2025-10-30 00:50:19,984 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=3
+2025-10-30 00:50:19,984 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:50:21,472 - __main__ - INFO - 代码验证结果: ✗ 不通过 - 代码块展示的是一个缓存和数据库查询的示例，与仓库内容相关，但仓库本身是系统设计教程，代码是教学内容而非工具使用示例。
+2025-10-30 00:50:21,473 - __main__ - WARNING - 代码不是usage example，跳过仓库: donnemartin/system-design-primer
+2025-10-30 00:50:21,473 - __main__ - WARNING - ✗ 跳过仓库 donnemartin/system-design-primer: 代码块不是仓库的使用示例
+2025-10-30 00:50:23,474 - __main__ - INFO - 
+候选进度: 4 | 有效仓库: 0/10
+2025-10-30 00:50:23,474 - __main__ - INFO - 当前仓库: vinta/awesome-python (266936 stars)
+2025-10-30 00:50:23,475 - __main__ - INFO - 处理仓库: vinta/awesome-python
+2025-10-30 00:50:23,795 - __main__ - INFO - 获取README成功: vinta/awesome-python/README.md
+2025-10-30 00:50:23,797 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:50:23,797 - __main__ - WARNING - 未找到示例代码，跳过仓库: vinta/awesome-python
+2025-10-30 00:50:23,798 - __main__ - WARNING - ✗ 跳过仓库 vinta/awesome-python: README中未找到示例代码
+2025-10-30 00:50:25,803 - __main__ - INFO - 
+候选进度: 5 | 有效仓库: 0/10
+2025-10-30 00:50:25,803 - __main__ - INFO - 当前仓库: TheAlgorithms/Python (212180 stars)
+2025-10-30 00:50:25,803 - __main__ - INFO - 处理仓库: TheAlgorithms/Python
+2025-10-30 00:50:26,072 - __main__ - INFO - 获取README成功: TheAlgorithms/Python/README.md
+2025-10-30 00:50:26,073 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:50:26,073 - __main__ - WARNING - 未找到示例代码，跳过仓库: TheAlgorithms/Python
+2025-10-30 00:50:26,073 - __main__ - WARNING - ✗ 跳过仓库 TheAlgorithms/Python: README中未找到示例代码
+2025-10-30 00:50:28,078 - __main__ - INFO - 
+候选进度: 6 | 有效仓库: 0/10
+2025-10-30 00:50:28,079 - __main__ - INFO - 当前仓库: Significant-Gravitas/AutoGPT (179365 stars)
+2025-10-30 00:50:28,079 - __main__ - INFO - 处理仓库: Significant-Gravitas/AutoGPT
+2025-10-30 00:50:28,343 - __main__ - INFO - 获取README成功: Significant-Gravitas/AutoGPT/README.md
+2025-10-30 00:50:28,344 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=1
+2025-10-30 00:50:28,344 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:50:30,245 - __main__ - INFO - 代码验证结果: ✓ 通过 - The code block demonstrates how to use the CLI provided by the AutoGPT repository to interact with its features, such as creating and managing agents, which is a direct usage of the tool's functionality.
+2025-10-30 00:50:31,226 - __main__ - INFO - 获取Docker文件成功: Significant-Gravitas/AutoGPT/.dockerignore
+2025-10-30 00:50:31,227 - __main__ - INFO - 找到Docker文件: ['.dockerignore']
+2025-10-30 00:50:49,714 - __main__ - INFO - 处理完成: Significant-Gravitas/AutoGPT - 3 个任务
+2025-10-30 00:50:49,714 - __main__ - INFO - ✓ 有效仓库累计: 1/10
+2025-10-30 00:50:51,717 - __main__ - INFO - 
+候选进度: 7 | 有效仓库: 1/10
+2025-10-30 00:50:51,718 - __main__ - INFO - 当前仓库: AUTOMATIC1111/stable-diffusion-webui (157684 stars)
+2025-10-30 00:50:51,718 - __main__ - INFO - 处理仓库: AUTOMATIC1111/stable-diffusion-webui
+2025-10-30 00:50:51,971 - __main__ - INFO - 获取README成功: AUTOMATIC1111/stable-diffusion-webui/README.md
+2025-10-30 00:50:51,972 - __main__ - INFO - 提取代码块: setup=3, docker=0, example=1
+2025-10-30 00:50:51,972 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:50:53,650 - __main__ - INFO - 代码验证结果: ✗ 不通过 - 代码块只是展示如何安装Python 3.11，并未涉及调用该仓库的功能或展示如何使用该工具。
+2025-10-30 00:50:53,652 - __main__ - WARNING - 代码不是usage example，跳过仓库: AUTOMATIC1111/stable-diffusion-webui
+2025-10-30 00:50:53,652 - __main__ - WARNING - ✗ 跳过仓库 AUTOMATIC1111/stable-diffusion-webui: 代码块不是仓库的使用示例
+2025-10-30 00:50:55,657 - __main__ - INFO - 
+候选进度: 8 | 有效仓库: 1/10
+2025-10-30 00:50:55,657 - __main__ - INFO - 当前仓库: huggingface/transformers (151825 stars)
+2025-10-30 00:50:55,657 - __main__ - INFO - 处理仓库: huggingface/transformers
+2025-10-30 00:50:55,928 - __main__ - INFO - 获取README成功: huggingface/transformers/README.md
+2025-10-30 00:50:55,929 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:50:55,929 - __main__ - WARNING - 未找到示例代码，跳过仓库: huggingface/transformers
+2025-10-30 00:50:55,929 - __main__ - WARNING - ✗ 跳过仓库 huggingface/transformers: README中未找到示例代码
+2025-10-30 00:50:57,934 - __main__ - INFO - 
+候选进度: 9 | 有效仓库: 1/10
+2025-10-30 00:50:57,935 - __main__ - INFO - 当前仓库: ytdl-org/youtube-dl (138610 stars)
+2025-10-30 00:50:57,936 - __main__ - INFO - 处理仓库: ytdl-org/youtube-dl
+2025-10-30 00:50:58,277 - __main__ - INFO - 获取README成功: ytdl-org/youtube-dl/README.md
+2025-10-30 00:50:58,280 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=14
+2025-10-30 00:50:58,280 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:51:00,645 - __main__ - INFO - 代码验证结果: ✓ 通过 - The code blocks demonstrate how to use the youtube-dl tool to download videos, specifying formats, output templates, and filtering by date, which are all functionalities provided by the youtube-dl library.
+2025-10-30 00:51:39,484 - __main__ - INFO - 处理完成: ytdl-org/youtube-dl - 15 个任务
+2025-10-30 00:51:39,484 - __main__ - INFO - ✓ 有效仓库累计: 2/10
+2025-10-30 00:51:41,489 - __main__ - INFO - 
+候选进度: 10 | 有效仓库: 2/10
+2025-10-30 00:51:41,490 - __main__ - INFO - 当前仓库: langflow-ai/langflow (136552 stars)
+2025-10-30 00:51:41,490 - __main__ - INFO - 处理仓库: langflow-ai/langflow
+2025-10-30 00:51:41,818 - __main__ - INFO - 获取README成功: langflow-ai/langflow/README.md
+2025-10-30 00:51:41,819 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=1
+2025-10-30 00:51:41,819 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:51:43,344 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示如何使用Langflow工具，通过运行命令启动Langflow服务器，符合正面例子的标准。
+2025-10-30 00:51:44,279 - __main__ - INFO - 获取Docker文件成功: langflow-ai/langflow/.dockerignore
+2025-10-30 00:51:44,280 - __main__ - INFO - 找到Docker文件: ['.dockerignore']
+2025-10-30 00:51:57,094 - __main__ - INFO - 处理完成: langflow-ai/langflow - 1 个任务
+2025-10-30 00:51:57,095 - __main__ - INFO - ✓ 有效仓库累计: 3/10
+2025-10-30 00:51:59,100 - __main__ - INFO - 
+候选进度: 11 | 有效仓库: 3/10
+2025-10-30 00:51:59,100 - __main__ - INFO - 当前仓库: yt-dlp/yt-dlp (133147 stars)
+2025-10-30 00:51:59,101 - __main__ - INFO - 处理仓库: yt-dlp/yt-dlp
+2025-10-30 00:51:59,450 - __main__ - INFO - 获取README成功: yt-dlp/yt-dlp/README.md
+2025-10-30 00:51:59,453 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=11
+2025-10-30 00:51:59,454 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:52:02,458 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用yt-dlp库进行视频下载和处理，调用了该仓库提供的API和功能，是用户使用该工具的示例。
+2025-10-30 00:53:11,511 - __main__ - INFO - 处理完成: yt-dlp/yt-dlp - 13 个任务
+2025-10-30 00:53:11,512 - __main__ - INFO - ✓ 有效仓库累计: 4/10
+2025-10-30 00:53:13,517 - __main__ - INFO - 
+候选进度: 12 | 有效仓库: 4/10
+2025-10-30 00:53:13,518 - __main__ - INFO - 当前仓库: 521xueweihan/HelloGitHub (132533 stars)
+2025-10-30 00:53:13,518 - __main__ - INFO - 处理仓库: 521xueweihan/HelloGitHub
+2025-10-30 00:53:13,809 - __main__ - INFO - 获取README成功: 521xueweihan/HelloGitHub/README.md
+2025-10-30 00:53:13,810 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:53:13,810 - __main__ - WARNING - 未找到示例代码，跳过仓库: 521xueweihan/HelloGitHub
+2025-10-30 00:53:13,810 - __main__ - WARNING - ✗ 跳过仓库 521xueweihan/HelloGitHub: README中未找到示例代码
+2025-10-30 00:53:15,814 - __main__ - INFO - 
+候选进度: 13 | 有效仓库: 4/10
+2025-10-30 00:53:15,814 - __main__ - INFO - 当前仓库: langchain-ai/langchain (118418 stars)
+2025-10-30 00:53:15,814 - __main__ - INFO - 处理仓库: langchain-ai/langchain
+2025-10-30 00:53:16,103 - __main__ - INFO - 获取README成功: langchain-ai/langchain/README.md
+2025-10-30 00:53:16,104 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=0
+2025-10-30 00:53:16,104 - __main__ - WARNING - 未找到示例代码，跳过仓库: langchain-ai/langchain
+2025-10-30 00:53:16,104 - __main__ - WARNING - ✗ 跳过仓库 langchain-ai/langchain: README中未找到示例代码
+2025-10-30 00:53:18,109 - __main__ - INFO - 
+候选进度: 14 | 有效仓库: 4/10
+2025-10-30 00:53:18,110 - __main__ - INFO - 当前仓库: deepseek-ai/DeepSeek-V3 (100058 stars)
+2025-10-30 00:53:18,110 - __main__ - INFO - 处理仓库: deepseek-ai/DeepSeek-V3
+2025-10-30 00:53:18,402 - __main__ - INFO - 获取README成功: deepseek-ai/DeepSeek-V3/README.md
+2025-10-30 00:53:18,403 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=1
+2025-10-30 00:53:18,403 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:53:20,645 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用DeepSeek-V3仓库中的fp8_cast_bf16.py脚本进行FP8权重到BF16权重的转换，是用户使用该工具的示例。
+2025-10-30 00:53:25,047 - __main__ - INFO - 处理完成: deepseek-ai/DeepSeek-V3 - 1 个任务
+2025-10-30 00:53:25,047 - __main__ - INFO - ✓ 有效仓库累计: 5/10
+2025-10-30 00:53:27,049 - __main__ - INFO - 
+候选进度: 15 | 有效仓库: 5/10
+2025-10-30 00:53:27,050 - __main__ - INFO - 当前仓库: nvbn/thefuck (94513 stars)
+2025-10-30 00:53:27,050 - __main__ - INFO - 处理仓库: nvbn/thefuck
+2025-10-30 00:53:27,314 - __main__ - INFO - 获取README成功: nvbn/thefuck/README.md
+2025-10-30 00:53:27,315 - __main__ - INFO - 提取代码块: setup=4, docker=0, example=17
+2025-10-30 00:53:27,315 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:53:28,651 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码块展示了如何使用'thefuck'工具来纠正命令行错误，是用户使用该工具的示例。
+2025-10-30 00:53:41,645 - __main__ - INFO - 处理完成: nvbn/thefuck - 7 个任务
+2025-10-30 00:53:41,645 - __main__ - INFO - ✓ 有效仓库累计: 6/10
+2025-10-30 00:53:43,651 - __main__ - INFO - 
+候选进度: 16 | 有效仓库: 6/10
+2025-10-30 00:53:43,651 - __main__ - INFO - 当前仓库: pytorch/pytorch (94382 stars)
+2025-10-30 00:53:43,651 - __main__ - INFO - 处理仓库: pytorch/pytorch
+2025-10-30 00:53:43,967 - __main__ - INFO - 获取README成功: pytorch/pytorch/README.md
+2025-10-30 00:53:43,969 - __main__ - INFO - 提取代码块: setup=15, docker=1, example=3
+2025-10-30 00:53:43,969 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:53:45,615 - __main__ - INFO - 代码验证结果: ✗ 不通过 - 代码块展示了如何构建Docker镜像，而不是如何使用PyTorch库的API或功能。
+2025-10-30 00:53:45,616 - __main__ - WARNING - 代码不是usage example，跳过仓库: pytorch/pytorch
+2025-10-30 00:53:45,616 - __main__ - WARNING - ✗ 跳过仓库 pytorch/pytorch: 代码块不是仓库的使用示例
+2025-10-30 00:53:47,620 - __main__ - INFO - 
+候选进度: 17 | 有效仓库: 6/10
+2025-10-30 00:53:47,621 - __main__ - INFO - 当前仓库: comfyanonymous/ComfyUI (92281 stars)
+2025-10-30 00:53:47,621 - __main__ - INFO - 处理仓库: comfyanonymous/ComfyUI
+2025-10-30 00:53:47,904 - __main__ - INFO - 获取README成功: comfyanonymous/ComfyUI/README.md
+2025-10-30 00:53:47,905 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=1
+2025-10-30 00:53:47,905 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:53:49,015 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何在AMD显卡上运行ComfyUI，这是用户使用该工具的示例。
+2025-10-30 00:53:55,571 - __main__ - INFO - 处理完成: comfyanonymous/ComfyUI - 2 个任务
+2025-10-30 00:53:55,571 - __main__ - INFO - ✓ 有效仓库累计: 7/10
+2025-10-30 00:53:57,577 - __main__ - INFO - 
+候选进度: 18 | 有效仓库: 7/10
+2025-10-30 00:53:57,577 - __main__ - INFO - 当前仓库: fastapi/fastapi (91307 stars)
+2025-10-30 00:53:57,577 - __main__ - INFO - 处理仓库: fastapi/fastapi
+2025-10-30 00:53:57,899 - __main__ - INFO - 获取README成功: fastapi/fastapi/README.md
+2025-10-30 00:53:57,900 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=3
+2025-10-30 00:53:57,900 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:53:59,458 - __main__ - INFO - 代码验证结果: ✓ 通过 - The code demonstrates how to use the FastAPI library by creating a simple API with endpoints, which is a typical usage example of the FastAPI framework.
+2025-10-30 00:54:09,725 - __main__ - INFO - 处理完成: fastapi/fastapi - 4 个任务
+2025-10-30 00:54:09,725 - __main__ - INFO - ✓ 有效仓库累计: 8/10
+2025-10-30 00:54:11,728 - __main__ - INFO - 
+候选进度: 19 | 有效仓库: 8/10
+2025-10-30 00:54:11,729 - __main__ - INFO - 当前仓库: openai/whisper (90115 stars)
+2025-10-30 00:54:11,729 - __main__ - INFO - 处理仓库: openai/whisper
+2025-10-30 00:54:11,981 - __main__ - INFO - 获取README成功: openai/whisper/README.md
+2025-10-30 00:54:11,981 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=6
+2025-10-30 00:54:11,981 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:54:15,946 - __main__ - ERROR - 代码验证失败 openai/whisper: Unterminated string starting at: line 19 column 9 (char 875)
+2025-10-30 00:54:25,945 - __main__ - INFO - 处理完成: openai/whisper - 5 个任务
+2025-10-30 00:54:25,945 - __main__ - INFO - ✓ 有效仓库累计: 9/10
+2025-10-30 00:54:27,947 - __main__ - INFO - 
+候选进度: 20 | 有效仓库: 9/10
+2025-10-30 00:54:27,947 - __main__ - INFO - 当前仓库: django/django (85597 stars)
+2025-10-30 00:54:27,948 - __main__ - INFO - 处理仓库: django/django
+2025-10-30 00:54:28,220 - __main__ - INFO - 获取README成功: django/django/README.rst
+2025-10-30 00:54:28,221 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 00:54:28,221 - __main__ - WARNING - 未找到示例代码，跳过仓库: django/django
+2025-10-30 00:54:28,221 - __main__ - WARNING - ✗ 跳过仓库 django/django: README中未找到示例代码
+2025-10-30 00:54:30,226 - __main__ - INFO - 
+候选进度: 21 | 有效仓库: 9/10
+2025-10-30 00:54:30,227 - __main__ - INFO - 当前仓库: microsoft/markitdown (82252 stars)
+2025-10-30 00:54:30,227 - __main__ - INFO - 处理仓库: microsoft/markitdown
+2025-10-30 00:54:30,649 - __main__ - INFO - 获取README成功: microsoft/markitdown/README.md
+2025-10-30 00:54:30,650 - __main__ - INFO - 提取代码块: setup=6, docker=1, example=11
+2025-10-30 00:54:30,650 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 00:54:33,471 - __main__ - ERROR - 代码验证失败 microsoft/markitdown: Unterminated string starting at: line 23 column 9 (char 893)
+2025-10-30 00:54:33,734 - __main__ - INFO - 获取Docker文件成功: microsoft/markitdown/Dockerfile
+2025-10-30 00:54:34,439 - __main__ - INFO - 获取Docker文件成功: microsoft/markitdown/.dockerignore
+2025-10-30 00:54:34,440 - __main__ - INFO - 找到Docker文件: ['Dockerfile', '.dockerignore']
+2025-10-30 00:55:12,340 - __main__ - INFO - 处理完成: microsoft/markitdown - 9 个任务
+2025-10-30 00:55:12,341 - __main__ - INFO - ✓ 有效仓库累计: 10/10
+2025-10-30 00:55:14,346 - __main__ - INFO - 
+✅ 已达到目标数量 10 个有效仓库
+2025-10-30 00:55:14,349 - __main__ - INFO - ============================================================
+2025-10-30 00:55:14,350 - __main__ - INFO - 批量处理完成
+2025-10-30 00:55:14,350 - __main__ - INFO - 有效仓库: 10/10
+2025-10-30 00:55:14,350 - __main__ - INFO - 总共尝试: 21 个候选
+2025-10-30 00:55:14,350 - __main__ - INFO - ============================================================
+2025-10-30 20:30:56,331 - __main__ - INFO - 已加载配置文件: config.yaml
+2025-10-30 20:30:56,332 - __main__ - INFO - 使用搜索查询: stars:>1000 language:python
+2025-10-30 20:30:56,332 - __main__ - INFO - 处理器初始化完成 - 输出: dataset
+2025-10-30 20:30:56,332 - __main__ - INFO - 输出目录: ./dataset
+2025-10-30 20:30:56,332 - __main__ - INFO - 代码块语言过滤: python, sh, bash, console, shell, cmd, powershell
+2025-10-30 20:30:56,332 - __main__ - INFO - ============================================================
+2025-10-30 20:30:56,332 - __main__ - INFO - 批量处理开始
+2025-10-30 20:30:56,332 - __main__ - INFO - ============================================================
+2025-10-30 20:30:56,332 - __main__ - INFO - 
+正在搜索第 1 页候选仓库...
+2025-10-30 20:30:57,713 - __main__ - INFO - 获取到 30 个候选仓库
+2025-10-30 20:30:57,714 - __main__ - INFO - 
+候选进度: 1 | 有效仓库: 0/50
+2025-10-30 20:30:57,714 - __main__ - INFO - 当前仓库: EbookFoundation/free-programming-books (375604 stars)
+2025-10-30 20:30:57,714 - __main__ - INFO - 处理仓库: EbookFoundation/free-programming-books
+2025-10-30 20:30:58,021 - __main__ - INFO - 获取README成功: EbookFoundation/free-programming-books/README.md
+2025-10-30 20:30:58,022 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:30:58,023 - __main__ - WARNING - 未找到示例代码，跳过仓库: EbookFoundation/free-programming-books
+2025-10-30 20:30:58,023 - __main__ - WARNING - ✗ 跳过仓库 EbookFoundation/free-programming-books: README中未找到示例代码
+2025-10-30 20:31:00,023 - __main__ - INFO - 
+候选进度: 2 | 有效仓库: 0/50
+2025-10-30 20:31:00,023 - __main__ - INFO - 当前仓库: public-apis/public-apis (374739 stars)
+2025-10-30 20:31:00,023 - __main__ - INFO - 处理仓库: public-apis/public-apis
+2025-10-30 20:31:00,687 - __main__ - INFO - 获取README成功: public-apis/public-apis/README.md
+2025-10-30 20:31:00,688 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:31:00,688 - __main__ - WARNING - 未找到示例代码，跳过仓库: public-apis/public-apis
+2025-10-30 20:31:00,689 - __main__ - WARNING - ✗ 跳过仓库 public-apis/public-apis: README中未找到示例代码
+2025-10-30 20:31:02,690 - __main__ - INFO - 
+候选进度: 3 | 有效仓库: 0/50
+2025-10-30 20:31:02,690 - __main__ - INFO - 当前仓库: donnemartin/system-design-primer (324742 stars)
+2025-10-30 20:31:02,690 - __main__ - INFO - 处理仓库: donnemartin/system-design-primer
+2025-10-30 20:31:03,134 - __main__ - INFO - 获取README成功: donnemartin/system-design-primer/README.md
+2025-10-30 20:31:03,136 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=3
+2025-10-30 20:31:03,136 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:31:21,438 - __main__ - INFO - 代码验证结果: ✗ 不通过 - 代码块展示了缓存和数据库查询的实现，属于系统设计教程的教学内容，而非展示如何使用该仓库的工具或API。
+2025-10-30 20:31:21,439 - __main__ - WARNING - 代码不是usage example，跳过仓库: donnemartin/system-design-primer
+2025-10-30 20:31:21,440 - __main__ - WARNING - ✗ 跳过仓库 donnemartin/system-design-primer: 代码块不是仓库的使用示例
+2025-10-30 20:31:23,445 - __main__ - INFO - 
+候选进度: 4 | 有效仓库: 0/50
+2025-10-30 20:31:23,446 - __main__ - INFO - 当前仓库: vinta/awesome-python (267067 stars)
+2025-10-30 20:31:23,446 - __main__ - INFO - 处理仓库: vinta/awesome-python
+2025-10-30 20:31:23,825 - __main__ - INFO - 获取README成功: vinta/awesome-python/README.md
+2025-10-30 20:31:23,827 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:31:23,827 - __main__ - WARNING - 未找到示例代码，跳过仓库: vinta/awesome-python
+2025-10-30 20:31:23,827 - __main__ - WARNING - ✗ 跳过仓库 vinta/awesome-python: README中未找到示例代码
+2025-10-30 20:31:25,833 - __main__ - INFO - 
+候选进度: 5 | 有效仓库: 0/50
+2025-10-30 20:31:25,833 - __main__ - INFO - 当前仓库: TheAlgorithms/Python (212226 stars)
+2025-10-30 20:31:25,833 - __main__ - INFO - 处理仓库: TheAlgorithms/Python
+2025-10-30 20:31:26,130 - __main__ - INFO - 获取README成功: TheAlgorithms/Python/README.md
+2025-10-30 20:31:26,132 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:31:26,133 - __main__ - WARNING - 未找到示例代码，跳过仓库: TheAlgorithms/Python
+2025-10-30 20:31:26,133 - __main__ - WARNING - ✗ 跳过仓库 TheAlgorithms/Python: README中未找到示例代码
+2025-10-30 20:31:28,137 - __main__ - INFO - 
+候选进度: 6 | 有效仓库: 0/50
+2025-10-30 20:31:28,138 - __main__ - INFO - 当前仓库: Significant-Gravitas/AutoGPT (179386 stars)
+2025-10-30 20:31:28,138 - __main__ - INFO - 处理仓库: Significant-Gravitas/AutoGPT
+2025-10-30 20:31:28,487 - __main__ - INFO - 获取README成功: Significant-Gravitas/AutoGPT/README.md
+2025-10-30 20:31:28,489 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=1
+2025-10-30 20:31:28,489 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:31:31,270 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码块展示了如何使用AutoGPT仓库的CLI工具来创建、启动和停止代理，以及进行基准测试和安装依赖，是用户使用该工具的示例。
+2025-10-30 20:31:32,427 - __main__ - INFO - 获取Docker文件成功: Significant-Gravitas/AutoGPT/.dockerignore
+2025-10-30 20:31:32,428 - __main__ - INFO - 找到Docker文件: ['.dockerignore']
+2025-10-30 20:31:49,206 - __main__ - INFO - 处理完成: Significant-Gravitas/AutoGPT - 3 个任务
+2025-10-30 20:31:49,207 - __main__ - INFO - ✓ 有效仓库累计: 1/50
+2025-10-30 20:31:51,212 - __main__ - INFO - 
+候选进度: 7 | 有效仓库: 1/50
+2025-10-30 20:31:51,212 - __main__ - INFO - 当前仓库: AUTOMATIC1111/stable-diffusion-webui (157714 stars)
+2025-10-30 20:31:51,212 - __main__ - INFO - 处理仓库: AUTOMATIC1111/stable-diffusion-webui
+2025-10-30 20:31:51,473 - __main__ - INFO - 获取README成功: AUTOMATIC1111/stable-diffusion-webui/README.md
+2025-10-30 20:31:51,475 - __main__ - INFO - 提取代码块: setup=3, docker=0, example=1
+2025-10-30 20:31:51,475 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:31:54,433 - __main__ - INFO - 代码验证结果: ✗ 不通过 - 代码块只是展示如何安装特定版本的 Python，并不涉及调用 stable-diffusion-webui 仓库的功能或展示其使用方法。
+2025-10-30 20:31:54,434 - __main__ - WARNING - 代码不是usage example，跳过仓库: AUTOMATIC1111/stable-diffusion-webui
+2025-10-30 20:31:54,434 - __main__ - WARNING - ✗ 跳过仓库 AUTOMATIC1111/stable-diffusion-webui: 代码块不是仓库的使用示例
+2025-10-30 20:31:56,437 - __main__ - INFO - 
+候选进度: 8 | 有效仓库: 1/50
+2025-10-30 20:31:56,438 - __main__ - INFO - 当前仓库: huggingface/transformers (151862 stars)
+2025-10-30 20:31:56,438 - __main__ - INFO - 处理仓库: huggingface/transformers
+2025-10-30 20:31:56,753 - __main__ - INFO - 获取README成功: huggingface/transformers/README.md
+2025-10-30 20:31:56,754 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:31:56,754 - __main__ - WARNING - 未找到示例代码，跳过仓库: huggingface/transformers
+2025-10-30 20:31:56,754 - __main__ - WARNING - ✗ 跳过仓库 huggingface/transformers: README中未找到示例代码
+2025-10-30 20:31:58,759 - __main__ - INFO - 
+候选进度: 9 | 有效仓库: 1/50
+2025-10-30 20:31:58,759 - __main__ - INFO - 当前仓库: ytdl-org/youtube-dl (138632 stars)
+2025-10-30 20:31:58,760 - __main__ - INFO - 处理仓库: ytdl-org/youtube-dl
+2025-10-30 20:31:59,235 - __main__ - INFO - 获取README成功: ytdl-org/youtube-dl/README.md
+2025-10-30 20:31:59,237 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=14
+2025-10-30 20:31:59,238 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:32:03,628 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用youtube-dl工具的命令行示例，调用了该仓库提供的功能来下载和处理视频。
+2025-10-30 20:32:39,526 - __main__ - INFO - 处理完成: ytdl-org/youtube-dl - 15 个任务
+2025-10-30 20:32:39,526 - __main__ - INFO - ✓ 有效仓库累计: 2/50
+2025-10-30 20:32:41,532 - __main__ - INFO - 
+候选进度: 10 | 有效仓库: 2/50
+2025-10-30 20:32:41,532 - __main__ - INFO - 当前仓库: langflow-ai/langflow (136681 stars)
+2025-10-30 20:32:41,532 - __main__ - INFO - 处理仓库: langflow-ai/langflow
+2025-10-30 20:32:41,887 - __main__ - INFO - 获取README成功: langflow-ai/langflow/README.md
+2025-10-30 20:32:41,888 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=1
+2025-10-30 20:32:41,889 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:32:43,114 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何启动Langflow服务器，这是使用该工具的一个示例。
+2025-10-30 20:32:44,324 - __main__ - INFO - 获取Docker文件成功: langflow-ai/langflow/.dockerignore
+2025-10-30 20:32:44,325 - __main__ - INFO - 找到Docker文件: ['.dockerignore']
+2025-10-30 20:32:58,750 - __main__ - INFO - 处理完成: langflow-ai/langflow - 1 个任务
+2025-10-30 20:32:58,751 - __main__ - INFO - ✓ 有效仓库累计: 3/50
+2025-10-30 20:33:00,754 - __main__ - INFO - 
+候选进度: 11 | 有效仓库: 3/50
+2025-10-30 20:33:00,754 - __main__ - INFO - 当前仓库: yt-dlp/yt-dlp (133286 stars)
+2025-10-30 20:33:00,754 - __main__ - INFO - 处理仓库: yt-dlp/yt-dlp
+2025-10-30 20:33:02,255 - __main__ - INFO - 获取README成功: yt-dlp/yt-dlp/README.md
+2025-10-30 20:33:02,260 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=11
+2025-10-30 20:33:02,260 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:33:06,085 - __main__ - INFO - 代码验证结果: ✓ 通过 - The code examples demonstrate how to use the yt-dlp tool by calling its API and functionalities, such as downloading videos, extracting information, and customizing download options. These are user examples of utilizing the yt-dlp library.
+2025-10-30 20:33:51,820 - __main__ - INFO - 处理完成: yt-dlp/yt-dlp - 11 个任务
+2025-10-30 20:33:51,820 - __main__ - INFO - ✓ 有效仓库累计: 4/50
+2025-10-30 20:33:53,824 - __main__ - INFO - 
+候选进度: 12 | 有效仓库: 4/50
+2025-10-30 20:33:53,824 - __main__ - INFO - 当前仓库: 521xueweihan/HelloGitHub (132623 stars)
+2025-10-30 20:33:53,824 - __main__ - INFO - 处理仓库: 521xueweihan/HelloGitHub
+2025-10-30 20:33:54,143 - __main__ - INFO - 获取README成功: 521xueweihan/HelloGitHub/README.md
+2025-10-30 20:33:54,144 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:33:54,144 - __main__ - WARNING - 未找到示例代码，跳过仓库: 521xueweihan/HelloGitHub
+2025-10-30 20:33:54,144 - __main__ - WARNING - ✗ 跳过仓库 521xueweihan/HelloGitHub: README中未找到示例代码
+2025-10-30 20:33:56,150 - __main__ - INFO - 
+候选进度: 13 | 有效仓库: 4/50
+2025-10-30 20:33:56,151 - __main__ - INFO - 当前仓库: langchain-ai/langchain (118479 stars)
+2025-10-30 20:33:56,151 - __main__ - INFO - 处理仓库: langchain-ai/langchain
+2025-10-30 20:33:56,465 - __main__ - INFO - 获取README成功: langchain-ai/langchain/README.md
+2025-10-30 20:33:56,466 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=0
+2025-10-30 20:33:56,466 - __main__ - WARNING - 未找到示例代码，跳过仓库: langchain-ai/langchain
+2025-10-30 20:33:56,466 - __main__ - WARNING - ✗ 跳过仓库 langchain-ai/langchain: README中未找到示例代码
+2025-10-30 20:33:58,469 - __main__ - INFO - 
+候选进度: 14 | 有效仓库: 4/50
+2025-10-30 20:33:58,470 - __main__ - INFO - 当前仓库: deepseek-ai/DeepSeek-V3 (100074 stars)
+2025-10-30 20:33:58,470 - __main__ - INFO - 处理仓库: deepseek-ai/DeepSeek-V3
+2025-10-30 20:33:58,828 - __main__ - INFO - 获取README成功: deepseek-ai/DeepSeek-V3/README.md
+2025-10-30 20:33:58,828 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=1
+2025-10-30 20:33:58,828 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:34:01,226 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用DeepSeek-V3仓库中的脚本进行FP8权重到BF16权重的转换，是用户使用该工具的示例。
+2025-10-30 20:34:07,807 - __main__ - INFO - 处理完成: deepseek-ai/DeepSeek-V3 - 1 个任务
+2025-10-30 20:34:07,808 - __main__ - INFO - ✓ 有效仓库累计: 5/50
+2025-10-30 20:34:09,813 - __main__ - INFO - 
+候选进度: 15 | 有效仓库: 5/50
+2025-10-30 20:34:09,813 - __main__ - INFO - 当前仓库: nvbn/thefuck (94518 stars)
+2025-10-30 20:34:09,814 - __main__ - INFO - 处理仓库: nvbn/thefuck
+2025-10-30 20:34:10,178 - __main__ - INFO - 获取README成功: nvbn/thefuck/README.md
+2025-10-30 20:34:10,180 - __main__ - INFO - 提取代码块: setup=4, docker=0, example=17
+2025-10-30 20:34:10,180 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:34:13,639 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示如何使用'thefuck'工具来纠正命令行错误，是用户使用该工具的示例。
+2025-10-30 20:34:25,498 - __main__ - INFO - 处理完成: nvbn/thefuck - 8 个任务
+2025-10-30 20:34:25,498 - __main__ - INFO - ✓ 有效仓库累计: 6/50
+2025-10-30 20:34:27,502 - __main__ - INFO - 
+候选进度: 16 | 有效仓库: 6/50
+2025-10-30 20:34:27,503 - __main__ - INFO - 当前仓库: pytorch/pytorch (94408 stars)
+2025-10-30 20:34:27,503 - __main__ - INFO - 处理仓库: pytorch/pytorch
+2025-10-30 20:34:27,881 - __main__ - INFO - 获取README成功: pytorch/pytorch/README.md
+2025-10-30 20:34:27,882 - __main__ - INFO - 提取代码块: setup=15, docker=1, example=3
+2025-10-30 20:34:27,882 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:34:29,515 - __main__ - INFO - 代码验证结果: ✗ 不通过 - 代码块展示了如何构建Docker镜像，而不是展示如何使用PyTorch库的API或功能。
+2025-10-30 20:34:29,516 - __main__ - WARNING - 代码不是usage example，跳过仓库: pytorch/pytorch
+2025-10-30 20:34:29,517 - __main__ - WARNING - ✗ 跳过仓库 pytorch/pytorch: 代码块不是仓库的使用示例
+2025-10-30 20:34:31,521 - __main__ - INFO - 
+候选进度: 17 | 有效仓库: 6/50
+2025-10-30 20:34:31,521 - __main__ - INFO - 当前仓库: comfyanonymous/ComfyUI (92341 stars)
+2025-10-30 20:34:31,521 - __main__ - INFO - 处理仓库: comfyanonymous/ComfyUI
+2025-10-30 20:34:31,839 - __main__ - INFO - 获取README成功: comfyanonymous/ComfyUI/README.md
+2025-10-30 20:34:31,840 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=1
+2025-10-30 20:34:31,841 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:34:33,845 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何在特定的AMD GPU上运行ComfyUI，这是用户使用该工具的示例。
+2025-10-30 20:34:40,852 - __main__ - INFO - 处理完成: comfyanonymous/ComfyUI - 3 个任务
+2025-10-30 20:34:40,853 - __main__ - INFO - ✓ 有效仓库累计: 7/50
+2025-10-30 20:34:42,858 - __main__ - INFO - 
+候选进度: 18 | 有效仓库: 7/50
+2025-10-30 20:34:42,858 - __main__ - INFO - 当前仓库: fastapi/fastapi (91345 stars)
+2025-10-30 20:34:42,858 - __main__ - INFO - 处理仓库: fastapi/fastapi
+2025-10-30 20:34:43,202 - __main__ - INFO - 获取README成功: fastapi/fastapi/README.md
+2025-10-30 20:34:43,204 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=3
+2025-10-30 20:34:43,204 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:34:45,547 - __main__ - INFO - 代码验证结果: ✓ 通过 - The code demonstrates how to use the FastAPI library by defining a simple API with endpoints, showcasing the library's functionality.
+2025-10-30 20:34:58,272 - __main__ - INFO - 处理完成: fastapi/fastapi - 4 个任务
+2025-10-30 20:34:58,272 - __main__ - INFO - ✓ 有效仓库累计: 8/50
+2025-10-30 20:35:00,275 - __main__ - INFO - 
+候选进度: 19 | 有效仓库: 8/50
+2025-10-30 20:35:00,275 - __main__ - INFO - 当前仓库: openai/whisper (90148 stars)
+2025-10-30 20:35:00,275 - __main__ - INFO - 处理仓库: openai/whisper
+2025-10-30 20:35:00,660 - __main__ - INFO - 获取README成功: openai/whisper/README.md
+2025-10-30 20:35:00,661 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=6
+2025-10-30 20:35:00,661 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:35:02,498 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用openai/whisper库进行音频转录和翻译，调用了该仓库提供的API和功能，是用户使用该工具的示例。
+2025-10-30 20:35:18,195 - __main__ - INFO - 处理完成: openai/whisper - 7 个任务
+2025-10-30 20:35:18,195 - __main__ - INFO - ✓ 有效仓库累计: 9/50
+2025-10-30 20:35:20,200 - __main__ - INFO - 
+候选进度: 20 | 有效仓库: 9/50
+2025-10-30 20:35:20,201 - __main__ - INFO - 当前仓库: django/django (85604 stars)
+2025-10-30 20:35:20,201 - __main__ - INFO - 处理仓库: django/django
+2025-10-30 20:35:20,476 - __main__ - INFO - 获取README成功: django/django/README.rst
+2025-10-30 20:35:20,477 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:35:20,477 - __main__ - WARNING - 未找到示例代码，跳过仓库: django/django
+2025-10-30 20:35:20,477 - __main__ - WARNING - ✗ 跳过仓库 django/django: README中未找到示例代码
+2025-10-30 20:35:22,482 - __main__ - INFO - 
+候选进度: 21 | 有效仓库: 9/50
+2025-10-30 20:35:22,482 - __main__ - INFO - 当前仓库: microsoft/markitdown (82287 stars)
+2025-10-30 20:35:22,482 - __main__ - INFO - 处理仓库: microsoft/markitdown
+2025-10-30 20:35:23,009 - __main__ - INFO - 获取README成功: microsoft/markitdown/README.md
+2025-10-30 20:35:23,011 - __main__ - INFO - 提取代码块: setup=6, docker=1, example=11
+2025-10-30 20:35:23,011 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:35:28,685 - __main__ - ERROR - 代码验证失败 microsoft/markitdown: Unterminated string starting at: line 20 column 19 (char 826)
+2025-10-30 20:35:29,013 - __main__ - INFO - 获取Docker文件成功: microsoft/markitdown/Dockerfile
+2025-10-30 20:35:30,050 - __main__ - INFO - 获取Docker文件成功: microsoft/markitdown/.dockerignore
+2025-10-30 20:35:30,051 - __main__ - INFO - 找到Docker文件: ['Dockerfile', '.dockerignore']
+2025-10-30 20:36:03,773 - __main__ - INFO - 处理完成: microsoft/markitdown - 9 个任务
+2025-10-30 20:36:03,774 - __main__ - INFO - ✓ 有效仓库累计: 10/50
+2025-10-30 20:36:05,777 - __main__ - INFO - 
+候选进度: 22 | 有效仓库: 10/50
+2025-10-30 20:36:05,778 - __main__ - INFO - 当前仓库: home-assistant/core (82265 stars)
+2025-10-30 20:36:05,778 - __main__ - INFO - 处理仓库: home-assistant/core
+2025-10-30 20:36:06,176 - __main__ - INFO - 获取README成功: home-assistant/core/README.rst
+2025-10-30 20:36:06,177 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:36:06,177 - __main__ - WARNING - 未找到示例代码，跳过仓库: home-assistant/core
+2025-10-30 20:36:06,177 - __main__ - WARNING - ✗ 跳过仓库 home-assistant/core: README中未找到示例代码
+2025-10-30 20:36:08,178 - __main__ - INFO - 
+候选进度: 23 | 有效仓库: 10/50
+2025-10-30 20:36:08,179 - __main__ - INFO - 当前仓库: 3b1b/manim (81542 stars)
+2025-10-30 20:36:08,179 - __main__ - INFO - 处理仓库: 3b1b/manim
+2025-10-30 20:36:08,454 - __main__ - INFO - 获取README成功: 3b1b/manim/README.md
+2025-10-30 20:36:08,455 - __main__ - INFO - 提取代码块: setup=6, docker=0, example=1
+2025-10-30 20:36:08,455 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:36:09,655 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用manim库，通过调用manimgl命令运行示例场景，属于用户使用该工具的示例。
+2025-10-30 20:36:14,354 - __main__ - INFO - 处理完成: 3b1b/manim - 1 个任务
+2025-10-30 20:36:14,355 - __main__ - INFO - ✓ 有效仓库累计: 11/50
+2025-10-30 20:36:16,357 - __main__ - INFO - 
+候选进度: 24 | 有效仓库: 11/50
+2025-10-30 20:36:16,357 - __main__ - INFO - 当前仓库: bregman-arie/devops-exercises (79622 stars)
+2025-10-30 20:36:16,357 - __main__ - INFO - 处理仓库: bregman-arie/devops-exercises
+2025-10-30 20:36:17,154 - __main__ - INFO - 获取README成功: bregman-arie/devops-exercises/README.md
+2025-10-30 20:36:17,158 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:36:17,158 - __main__ - WARNING - 未找到示例代码，跳过仓库: bregman-arie/devops-exercises
+2025-10-30 20:36:17,158 - __main__ - WARNING - ✗ 跳过仓库 bregman-arie/devops-exercises: README中未找到示例代码
+2025-10-30 20:36:19,163 - __main__ - INFO - 
+候选进度: 25 | 有效仓库: 11/50
+2025-10-30 20:36:19,164 - __main__ - INFO - 当前仓库: tensorflow/models (77668 stars)
+2025-10-30 20:36:19,164 - __main__ - INFO - 处理仓库: tensorflow/models
+2025-10-30 20:36:19,616 - __main__ - INFO - 获取README成功: tensorflow/models/README.md
+2025-10-30 20:36:19,617 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=6
+2025-10-30 20:36:19,617 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:36:20,806 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何安装和设置tensorflow/models库的环境，这是使用该库的前置步骤，因此是使用示例的一部分。
+2025-10-30 20:36:22,613 - __main__ - WARNING - 过滤后任务列表为空，跳过仓库: tensorflow/models
+2025-10-30 20:36:22,613 - __main__ - WARNING - ✗ 跳过仓库 tensorflow/models: 过滤后任务列表为空
+2025-10-30 20:36:24,618 - __main__ - INFO - 
+候选进度: 26 | 有效仓库: 11/50
+2025-10-30 20:36:24,619 - __main__ - INFO - 当前仓库: fighting41love/funNLP (76906 stars)
+2025-10-30 20:36:24,619 - __main__ - INFO - 处理仓库: fighting41love/funNLP
+2025-10-30 20:36:25,045 - __main__ - INFO - 获取README成功: fighting41love/funNLP/README.md
+2025-10-30 20:36:25,047 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:36:25,047 - __main__ - WARNING - 未找到示例代码，跳过仓库: fighting41love/funNLP
+2025-10-30 20:36:25,047 - __main__ - WARNING - ✗ 跳过仓库 fighting41love/funNLP: README中未找到示例代码
+2025-10-30 20:36:27,048 - __main__ - INFO - 
+候选进度: 27 | 有效仓库: 11/50
+2025-10-30 20:36:27,049 - __main__ - INFO - 当前仓库: hacksider/Deep-Live-Cam (74321 stars)
+2025-10-30 20:36:27,049 - __main__ - INFO - 处理仓库: hacksider/Deep-Live-Cam
+2025-10-30 20:36:27,342 - __main__ - INFO - 获取README成功: hacksider/Deep-Live-Cam/README.md
+2025-10-30 20:36:27,344 - __main__ - INFO - 提取代码块: setup=10, docker=0, example=6
+2025-10-30 20:36:27,344 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:36:28,568 - __main__ - INFO - 代码验证结果: ✓ 通过 - The code blocks demonstrate how to use the Deep-Live-Cam tool by executing the provided script with different execution providers, which are part of the tool's functionality.
+2025-10-30 20:36:36,459 - __main__ - INFO - 处理完成: hacksider/Deep-Live-Cam - 5 个任务
+2025-10-30 20:36:36,459 - __main__ - INFO - ✓ 有效仓库累计: 12/50
+2025-10-30 20:36:38,464 - __main__ - INFO - 
+候选进度: 28 | 有效仓库: 12/50
+2025-10-30 20:36:38,464 - __main__ - INFO - 当前仓库: Shubhamsaboo/awesome-llm-apps (74218 stars)
+2025-10-30 20:36:38,464 - __main__ - INFO - 处理仓库: Shubhamsaboo/awesome-llm-apps
+2025-10-30 20:36:38,747 - __main__ - INFO - 获取README成功: Shubhamsaboo/awesome-llm-apps/README.md
+2025-10-30 20:36:38,748 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=1
+2025-10-30 20:36:38,748 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:36:42,389 - __main__ - INFO - 代码验证结果: ✓ 通过 - The code block demonstrates how to navigate to a specific project directory within the repository, which is a step in using the tools and applications provided by the repository.
+2025-10-30 20:36:44,092 - __main__ - WARNING - 过滤后任务列表为空，跳过仓库: Shubhamsaboo/awesome-llm-apps
+2025-10-30 20:36:44,093 - __main__ - WARNING - ✗ 跳过仓库 Shubhamsaboo/awesome-llm-apps: 过滤后任务列表为空
+2025-10-30 20:36:46,098 - __main__ - INFO - 
+候选进度: 29 | 有效仓库: 12/50
+2025-10-30 20:36:46,099 - __main__ - INFO - 当前仓库: d2l-ai/d2l-zh (73546 stars)
+2025-10-30 20:36:46,099 - __main__ - INFO - 处理仓库: d2l-ai/d2l-zh
+2025-10-30 20:36:46,394 - __main__ - INFO - 获取README成功: d2l-ai/d2l-zh/README.md
+2025-10-30 20:36:46,396 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:36:46,396 - __main__ - WARNING - 未找到示例代码，跳过仓库: d2l-ai/d2l-zh
+2025-10-30 20:36:46,396 - __main__ - WARNING - ✗ 跳过仓库 d2l-ai/d2l-zh: README中未找到示例代码
+2025-10-30 20:36:48,398 - __main__ - INFO - 
+候选进度: 30 | 有效仓库: 12/50
+2025-10-30 20:36:48,399 - __main__ - INFO - 当前仓库: browser-use/browser-use (71948 stars)
+2025-10-30 20:36:48,399 - __main__ - INFO - 处理仓库: browser-use/browser-use
+2025-10-30 20:36:48,704 - __main__ - INFO - 获取README成功: browser-use/browser-use/README.md
+2025-10-30 20:36:48,705 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=7
+2025-10-30 20:36:48,705 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:36:50,943 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用browser-use库的API和功能，包括初始化环境、安装包、设置API密钥、安装浏览器以及运行一个示例代理任务，符合用户使用该工具的示例。
+2025-10-30 20:36:51,232 - __main__ - INFO - 获取Docker文件成功: browser-use/browser-use/Dockerfile
+2025-10-30 20:36:52,134 - __main__ - INFO - 获取Docker文件成功: browser-use/browser-use/.dockerignore
+2025-10-30 20:36:52,135 - __main__ - INFO - 找到Docker文件: ['Dockerfile', '.dockerignore']
+2025-10-30 20:37:26,964 - __main__ - INFO - 处理完成: browser-use/browser-use - 7 个任务
+2025-10-30 20:37:26,965 - __main__ - INFO - ✓ 有效仓库累计: 13/50
+2025-10-30 20:37:29,970 - __main__ - INFO - 
+正在搜索第 2 页候选仓库...
+2025-10-30 20:37:31,618 - __main__ - INFO - 获取到 30 个候选仓库
+2025-10-30 20:37:31,618 - __main__ - INFO - 
+候选进度: 31 | 有效仓库: 13/50
+2025-10-30 20:37:31,618 - __main__ - INFO - 当前仓库: swisskyrepo/PayloadsAllTheThings (71272 stars)
+2025-10-30 20:37:31,618 - __main__ - INFO - 处理仓库: swisskyrepo/PayloadsAllTheThings
+2025-10-30 20:37:31,968 - __main__ - INFO - 获取README成功: swisskyrepo/PayloadsAllTheThings/README.md
+2025-10-30 20:37:31,969 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:37:31,969 - __main__ - WARNING - 未找到示例代码，跳过仓库: swisskyrepo/PayloadsAllTheThings
+2025-10-30 20:37:31,969 - __main__ - WARNING - ✗ 跳过仓库 swisskyrepo/PayloadsAllTheThings: README中未找到示例代码
+2025-10-30 20:37:33,974 - __main__ - INFO - 
+候选进度: 32 | 有效仓库: 13/50
+2025-10-30 20:37:33,975 - __main__ - INFO - 当前仓库: abi/screenshot-to-code (71102 stars)
+2025-10-30 20:37:33,975 - __main__ - INFO - 处理仓库: abi/screenshot-to-code
+2025-10-30 20:37:34,311 - __main__ - INFO - 获取README成功: abi/screenshot-to-code/README.md
+2025-10-30 20:37:34,312 - __main__ - INFO - 提取代码块: setup=1, docker=1, example=2
+2025-10-30 20:37:34,313 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:37:36,013 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码块展示了如何使用仓库中的工具来运行后端服务，这是用户使用该工具的示例。
+2025-10-30 20:37:36,546 - __main__ - INFO - 获取Docker文件成功: abi/screenshot-to-code/docker-compose.yml
+2025-10-30 20:37:37,065 - __main__ - INFO - 找到Docker文件: ['docker-compose.yml']
+2025-10-30 20:37:46,151 - __main__ - WARNING - 过滤后任务列表为空，跳过仓库: abi/screenshot-to-code
+2025-10-30 20:37:46,151 - __main__ - WARNING - ✗ 跳过仓库 abi/screenshot-to-code: 过滤后任务列表为空
+2025-10-30 20:37:48,155 - __main__ - INFO - 
+候选进度: 33 | 有效仓库: 13/50
+2025-10-30 20:37:48,155 - __main__ - INFO - 当前仓库: pallets/flask (70688 stars)
+2025-10-30 20:37:48,155 - __main__ - INFO - 处理仓库: pallets/flask
+2025-10-30 20:37:48,479 - __main__ - INFO - 获取README成功: pallets/flask/README.md
+2025-10-30 20:37:48,480 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=1
+2025-10-30 20:37:48,480 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:37:49,471 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用Flask库创建一个简单的Web应用程序，并调用了Flask提供的API和功能，是用户使用该工具的示例。
+2025-10-30 20:37:54,347 - __main__ - INFO - 处理完成: pallets/flask - 1 个任务
+2025-10-30 20:37:54,347 - __main__ - INFO - ✓ 有效仓库累计: 14/50
+2025-10-30 20:37:56,348 - __main__ - INFO - 
+候选进度: 34 | 有效仓库: 14/50
+2025-10-30 20:37:56,349 - __main__ - INFO - 当前仓库: josephmisiti/awesome-machine-learning (70426 stars)
+2025-10-30 20:37:56,349 - __main__ - INFO - 处理仓库: josephmisiti/awesome-machine-learning
+2025-10-30 20:37:57,169 - __main__ - INFO - 获取README成功: josephmisiti/awesome-machine-learning/README.md
+2025-10-30 20:37:57,171 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:37:57,171 - __main__ - WARNING - 未找到示例代码，跳过仓库: josephmisiti/awesome-machine-learning
+2025-10-30 20:37:57,171 - __main__ - WARNING - ✗ 跳过仓库 josephmisiti/awesome-machine-learning: README中未找到示例代码
+2025-10-30 20:37:59,177 - __main__ - INFO - 
+候选进度: 35 | 有效仓库: 14/50
+2025-10-30 20:37:59,177 - __main__ - INFO - 当前仓库: Alvin9999/new-pac (70268 stars)
+2025-10-30 20:37:59,177 - __main__ - INFO - 处理仓库: Alvin9999/new-pac
+2025-10-30 20:37:59,472 - __main__ - INFO - 获取README成功: Alvin9999/new-pac/README.md
+2025-10-30 20:37:59,472 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:37:59,472 - __main__ - WARNING - 未找到示例代码，跳过仓库: Alvin9999/new-pac
+2025-10-30 20:37:59,473 - __main__ - WARNING - ✗ 跳过仓库 Alvin9999/new-pac: README中未找到示例代码
+2025-10-30 20:38:01,474 - __main__ - INFO - 
+候选进度: 36 | 有效仓库: 14/50
+2025-10-30 20:38:01,474 - __main__ - INFO - 当前仓库: sherlock-project/sherlock (69963 stars)
+2025-10-30 20:38:01,474 - __main__ - INFO - 处理仓库: sherlock-project/sherlock
+2025-10-30 20:38:01,750 - __main__ - INFO - 获取README成功: sherlock-project/sherlock/README.md
+2025-10-30 20:38:01,751 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=4
+2025-10-30 20:38:01,751 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:38:02,569 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用sherlock工具进行用户名搜索，并调用了该仓库提供的功能。
+2025-10-30 20:38:02,846 - __main__ - INFO - 获取Docker文件成功: sherlock-project/sherlock/Dockerfile
+2025-10-30 20:38:03,705 - __main__ - INFO - 获取Docker文件成功: sherlock-project/sherlock/.dockerignore
+2025-10-30 20:38:03,706 - __main__ - INFO - 找到Docker文件: ['Dockerfile', '.dockerignore']
+2025-10-30 20:38:33,599 - __main__ - INFO - 处理完成: sherlock-project/sherlock - 4 个任务
+2025-10-30 20:38:33,599 - __main__ - INFO - ✓ 有效仓库累计: 15/50
+2025-10-30 20:38:35,605 - __main__ - INFO - 
+候选进度: 37 | 有效仓库: 15/50
+2025-10-30 20:38:35,606 - __main__ - INFO - 当前仓库: python/cpython (69600 stars)
+2025-10-30 20:38:35,610 - __main__ - INFO - 处理仓库: python/cpython
+2025-10-30 20:38:35,973 - __main__ - INFO - 获取README成功: python/cpython/README.rst
+2025-10-30 20:38:35,974 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:38:35,974 - __main__ - WARNING - 未找到示例代码，跳过仓库: python/cpython
+2025-10-30 20:38:35,974 - __main__ - WARNING - ✗ 跳过仓库 python/cpython: README中未找到示例代码
+2025-10-30 20:38:37,975 - __main__ - INFO - 
+候选进度: 38 | 有效仓库: 15/50
+2025-10-30 20:38:37,975 - __main__ - INFO - 当前仓库: binary-husky/gpt_academic (69451 stars)
+2025-10-30 20:38:37,975 - __main__ - INFO - 处理仓库: binary-husky/gpt_academic
+2025-10-30 20:38:38,328 - __main__ - INFO - 获取README成功: binary-husky/gpt_academic/README.md
+2025-10-30 20:38:38,331 - __main__ - INFO - 提取代码块: setup=2, docker=3, example=0
+2025-10-30 20:38:38,331 - __main__ - WARNING - 未找到示例代码，跳过仓库: binary-husky/gpt_academic
+2025-10-30 20:38:38,331 - __main__ - WARNING - ✗ 跳过仓库 binary-husky/gpt_academic: README中未找到示例代码
+2025-10-30 20:38:40,337 - __main__ - INFO - 
+候选进度: 39 | 有效仓库: 15/50
+2025-10-30 20:38:40,337 - __main__ - INFO - 当前仓库: ansible/ansible (66879 stars)
+2025-10-30 20:38:40,337 - __main__ - INFO - 处理仓库: ansible/ansible
+2025-10-30 20:38:40,700 - __main__ - INFO - 获取README成功: ansible/ansible/README.md
+2025-10-30 20:38:40,701 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:38:40,701 - __main__ - WARNING - 未找到示例代码，跳过仓库: ansible/ansible
+2025-10-30 20:38:40,701 - __main__ - WARNING - ✗ 跳过仓库 ansible/ansible: README中未找到示例代码
+2025-10-30 20:38:42,706 - __main__ - INFO - 
+候选进度: 40 | 有效仓库: 15/50
+2025-10-30 20:38:42,707 - __main__ - INFO - 当前仓库: xtekky/gpt4free (65456 stars)
+2025-10-30 20:38:42,707 - __main__ - INFO - 处理仓库: xtekky/gpt4free
+2025-10-30 20:38:43,054 - __main__ - INFO - 获取README成功: xtekky/gpt4free/README.md
+2025-10-30 20:38:43,056 - __main__ - INFO - 提取代码块: setup=3, docker=3, example=8
+2025-10-30 20:38:43,056 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:38:45,065 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码块展示了如何使用g4f库中的API和功能，例如启动GUI和进行文本或图像生成，是用户使用该工具的示例。
+2025-10-30 20:38:45,577 - __main__ - INFO - 获取Docker文件成功: xtekky/gpt4free/docker-compose.yml
+2025-10-30 20:38:46,070 - __main__ - INFO - 找到Docker文件: ['docker-compose.yml']
+2025-10-30 20:39:07,895 - __main__ - INFO - 处理完成: xtekky/gpt4free - 6 个任务
+2025-10-30 20:39:07,895 - __main__ - INFO - ✓ 有效仓库累计: 16/50
+2025-10-30 20:39:09,895 - __main__ - INFO - 
+候选进度: 41 | 有效仓库: 16/50
+2025-10-30 20:39:09,896 - __main__ - INFO - 当前仓库: OpenHands/OpenHands (64582 stars)
+2025-10-30 20:39:09,896 - __main__ - INFO - 处理仓库: OpenHands/OpenHands
+2025-10-30 20:39:10,328 - __main__ - INFO - 获取README成功: OpenHands/OpenHands/README.md
+2025-10-30 20:39:10,330 - __main__ - INFO - 提取代码块: setup=0, docker=1, example=1
+2025-10-30 20:39:10,330 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:39:13,437 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用OpenHands工具，通过CLI命令启动GUI服务器或CLI，是用户使用该工具的示例。
+2025-10-30 20:39:13,983 - __main__ - INFO - 获取Docker文件成功: OpenHands/OpenHands/docker-compose.yml
+2025-10-30 20:39:14,545 - __main__ - INFO - 获取Docker文件成功: OpenHands/OpenHands/.dockerignore
+2025-10-30 20:39:14,545 - __main__ - INFO - 找到Docker文件: ['docker-compose.yml', '.dockerignore']
+2025-10-30 20:39:44,986 - __main__ - INFO - 处理完成: OpenHands/OpenHands - 2 个任务
+2025-10-30 20:39:44,986 - __main__ - INFO - ✓ 有效仓库累计: 17/50
+2025-10-30 20:39:46,991 - __main__ - INFO - 
+候选进度: 42 | 有效仓库: 17/50
+2025-10-30 20:39:46,992 - __main__ - INFO - 当前仓库: labmlai/annotated_deep_learning_paper_implementations (63980 stars)
+2025-10-30 20:39:46,992 - __main__ - INFO - 处理仓库: labmlai/annotated_deep_learning_paper_implementations
+2025-10-30 20:39:47,277 - __main__ - INFO - 获取README成功: labmlai/annotated_deep_learning_paper_implementations/readme.md
+2025-10-30 20:39:47,278 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=0
+2025-10-30 20:39:47,278 - __main__ - WARNING - 未找到示例代码，跳过仓库: labmlai/annotated_deep_learning_paper_implementations
+2025-10-30 20:39:47,278 - __main__ - WARNING - ✗ 跳过仓库 labmlai/annotated_deep_learning_paper_implementations: README中未找到示例代码
+2025-10-30 20:39:49,279 - __main__ - INFO - 
+候选进度: 43 | 有效仓库: 17/50
+2025-10-30 20:39:49,279 - __main__ - INFO - 当前仓库: scikit-learn/scikit-learn (63868 stars)
+2025-10-30 20:39:49,280 - __main__ - INFO - 处理仓库: scikit-learn/scikit-learn
+2025-10-30 20:39:49,622 - __main__ - INFO - 获取README成功: scikit-learn/scikit-learn/README.rst
+2025-10-30 20:39:49,623 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:39:49,623 - __main__ - WARNING - 未找到示例代码，跳过仓库: scikit-learn/scikit-learn
+2025-10-30 20:39:49,623 - __main__ - WARNING - ✗ 跳过仓库 scikit-learn/scikit-learn: README中未找到示例代码
+2025-10-30 20:39:51,624 - __main__ - INFO - 
+候选进度: 44 | 有效仓库: 17/50
+2025-10-30 20:39:51,625 - __main__ - INFO - 当前仓库: keras-team/keras (63519 stars)
+2025-10-30 20:39:51,625 - __main__ - INFO - 处理仓库: keras-team/keras
+2025-10-30 20:39:51,986 - __main__ - INFO - 获取README成功: keras-team/keras/README.md
+2025-10-30 20:39:51,988 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=1
+2025-10-30 20:39:51,988 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:39:54,060 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何配置和使用Keras库的一个特定功能，即设置后端为JAX，并导入Keras库，这是用户使用该工具的示例。
+2025-10-30 20:39:55,899 - __main__ - WARNING - 过滤后任务列表为空，跳过仓库: keras-team/keras
+2025-10-30 20:39:55,899 - __main__ - WARNING - ✗ 跳过仓库 keras-team/keras: 过滤后任务列表为空
+2025-10-30 20:39:57,905 - __main__ - INFO - 
+候选进度: 45 | 有效仓库: 17/50
+2025-10-30 20:39:57,905 - __main__ - INFO - 当前仓库: PaddlePaddle/PaddleOCR (62062 stars)
+2025-10-30 20:39:57,906 - __main__ - INFO - 处理仓库: PaddlePaddle/PaddleOCR
+2025-10-30 20:39:58,384 - __main__ - INFO - 获取README成功: PaddlePaddle/PaddleOCR/README.md
+2025-10-30 20:39:58,386 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=5
+2025-10-30 20:39:58,386 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:40:02,178 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用PaddleOCR库的多个功能，包括OCR推理、文档解析和智能信息提取，调用了该仓库提供的API和功能，是用户使用该工具的示例。
+2025-10-30 20:40:28,467 - __main__ - INFO - 处理完成: PaddlePaddle/PaddleOCR - 8 个任务
+2025-10-30 20:40:28,467 - __main__ - INFO - ✓ 有效仓库累计: 18/50
+2025-10-30 20:40:30,469 - __main__ - INFO - 
+候选进度: 46 | 有效仓库: 18/50
+2025-10-30 20:40:30,470 - __main__ - INFO - 当前仓库: vllm-project/vllm (61480 stars)
+2025-10-30 20:40:30,470 - __main__ - INFO - 处理仓库: vllm-project/vllm
+2025-10-30 20:40:30,822 - __main__ - INFO - 获取README成功: vllm-project/vllm/README.md
+2025-10-30 20:40:30,823 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=0
+2025-10-30 20:40:30,823 - __main__ - WARNING - 未找到示例代码，跳过仓库: vllm-project/vllm
+2025-10-30 20:40:30,823 - __main__ - WARNING - ✗ 跳过仓库 vllm-project/vllm: README中未找到示例代码
+2025-10-30 20:40:32,824 - __main__ - INFO - 
+候选进度: 47 | 有效仓库: 18/50
+2025-10-30 20:40:32,825 - __main__ - INFO - 当前仓库: hiyouga/LLaMA-Factory (61275 stars)
+2025-10-30 20:40:32,825 - __main__ - INFO - 处理仓库: hiyouga/LLaMA-Factory
+2025-10-30 20:40:33,872 - __main__ - INFO - 获取README成功: hiyouga/LLaMA-Factory/README.md
+2025-10-30 20:40:33,874 - __main__ - INFO - 提取代码块: setup=7, docker=4, example=10
+2025-10-30 20:40:33,874 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:40:36,587 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码块展示了如何使用LLaMA-Factory库进行训练、推理、导出和启动Web UI等功能，是用户使用该工具的示例。
+2025-10-30 20:40:39,060 - __main__ - INFO - 获取Docker文件成功: hiyouga/LLaMA-Factory/.dockerignore
+2025-10-30 20:40:39,061 - __main__ - INFO - 找到Docker文件: ['.dockerignore']
+2025-10-30 20:41:17,852 - __main__ - INFO - 处理完成: hiyouga/LLaMA-Factory - 12 个任务
+2025-10-30 20:41:17,853 - __main__ - INFO - ✓ 有效仓库累计: 19/50
+2025-10-30 20:41:19,858 - __main__ - INFO - 
+候选进度: 48 | 有效仓库: 19/50
+2025-10-30 20:41:19,858 - __main__ - INFO - 当前仓库: localstack/localstack (61022 stars)
+2025-10-30 20:41:19,859 - __main__ - INFO - 处理仓库: localstack/localstack
+2025-10-30 20:41:20,256 - __main__ - INFO - 获取README成功: localstack/localstack/README.md
+2025-10-30 20:41:20,257 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=3
+2025-10-30 20:41:20,257 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:41:22,261 - __main__ - INFO - 代码验证结果: ✓ 通过 - The code demonstrates how to use the LocalStack tool by starting it, checking the status of services, and creating an SQS queue using the awslocal CLI, which are all functionalities provided by the LocalStack repository.
+2025-10-30 20:41:22,582 - __main__ - INFO - 获取Docker文件成功: localstack/localstack/Dockerfile
+2025-10-30 20:41:22,850 - __main__ - INFO - 获取Docker文件成功: localstack/localstack/docker-compose.yml
+2025-10-30 20:41:23,454 - __main__ - INFO - 获取Docker文件成功: localstack/localstack/.dockerignore
+2025-10-30 20:41:23,455 - __main__ - INFO - 找到Docker文件: ['Dockerfile', 'docker-compose.yml', '.dockerignore']
+2025-10-30 20:42:09,570 - __main__ - INFO - 处理完成: localstack/localstack - 3 个任务
+2025-10-30 20:42:09,571 - __main__ - INFO - ✓ 有效仓库累计: 20/50
+2025-10-30 20:42:11,576 - __main__ - INFO - 
+候选进度: 49 | 有效仓库: 20/50
+2025-10-30 20:42:11,577 - __main__ - INFO - 当前仓库: openinterpreter/open-interpreter (60742 stars)
+2025-10-30 20:42:11,577 - __main__ - INFO - 处理仓库: openinterpreter/open-interpreter
+2025-10-30 20:42:11,929 - __main__ - INFO - 获取README成功: openinterpreter/open-interpreter/README.md
+2025-10-30 20:42:11,931 - __main__ - INFO - 提取代码块: setup=3, docker=0, example=21
+2025-10-30 20:42:11,931 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:42:13,058 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用open-interpreter库的功能，例如通过interpreter.chat()进行交互，这符合用户使用该工具的示例。
+2025-10-30 20:42:13,337 - __main__ - INFO - 获取Docker文件成功: openinterpreter/open-interpreter/Dockerfile
+2025-10-30 20:42:14,172 - __main__ - INFO - 找到Docker文件: ['Dockerfile']
+2025-10-30 20:42:37,826 - __main__ - INFO - 处理完成: openinterpreter/open-interpreter - 8 个任务
+2025-10-30 20:42:37,827 - __main__ - INFO - ✓ 有效仓库累计: 21/50
+2025-10-30 20:42:39,830 - __main__ - INFO - 
+候选进度: 50 | 有效仓库: 21/50
+2025-10-30 20:42:39,831 - __main__ - INFO - 当前仓库: FoundationAgents/MetaGPT (59149 stars)
+2025-10-30 20:42:39,831 - __main__ - INFO - 处理仓库: FoundationAgents/MetaGPT
+2025-10-30 20:42:40,296 - __main__ - INFO - 获取README成功: FoundationAgents/MetaGPT/README.md
+2025-10-30 20:42:40,298 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=1
+2025-10-30 20:42:40,298 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:42:42,045 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用MetaGPT工具进行配置初始化，调用了该仓库提供的功能，是用户使用该工具的示例。
+2025-10-30 20:42:42,316 - __main__ - INFO - 获取Docker文件成功: FoundationAgents/MetaGPT/Dockerfile
+2025-10-30 20:42:43,112 - __main__ - INFO - 获取Docker文件成功: FoundationAgents/MetaGPT/.dockerignore
+2025-10-30 20:42:43,113 - __main__ - INFO - 找到Docker文件: ['Dockerfile', '.dockerignore']
+2025-10-30 20:43:06,274 - __main__ - INFO - 处理完成: FoundationAgents/MetaGPT - 1 个任务
+2025-10-30 20:43:06,275 - __main__ - INFO - ✓ 有效仓库累计: 22/50
+2025-10-30 20:43:08,278 - __main__ - INFO - 
+候选进度: 51 | 有效仓库: 22/50
+2025-10-30 20:43:08,279 - __main__ - INFO - 当前仓库: meta-llama/llama (58883 stars)
+2025-10-30 20:43:08,279 - __main__ - INFO - 处理仓库: meta-llama/llama
+2025-10-30 20:43:08,755 - __main__ - INFO - 获取README成功: meta-llama/llama/README.md
+2025-10-30 20:43:08,756 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=1
+2025-10-30 20:43:08,756 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:43:10,124 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用该仓库提供的功能进行模型推理，是用户使用该工具的示例。
+2025-10-30 20:43:15,430 - __main__ - INFO - 处理完成: meta-llama/llama - 1 个任务
+2025-10-30 20:43:15,430 - __main__ - INFO - ✓ 有效仓库累计: 23/50
+2025-10-30 20:43:17,435 - __main__ - INFO - 
+候选进度: 52 | 有效仓库: 23/50
+2025-10-30 20:43:17,435 - __main__ - INFO - 当前仓库: scrapy/scrapy (58802 stars)
+2025-10-30 20:43:17,435 - __main__ - INFO - 处理仓库: scrapy/scrapy
+2025-10-30 20:43:17,974 - __main__ - INFO - 获取README成功: scrapy/scrapy/README.rst
+2025-10-30 20:43:17,975 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:43:17,975 - __main__ - WARNING - 未找到示例代码，跳过仓库: scrapy/scrapy
+2025-10-30 20:43:17,975 - __main__ - WARNING - ✗ 跳过仓库 scrapy/scrapy: README中未找到示例代码
+2025-10-30 20:43:19,979 - __main__ - INFO - 
+候选进度: 53 | 有效仓库: 23/50
+2025-10-30 20:43:19,979 - __main__ - INFO - 当前仓库: CorentinJ/Real-Time-Voice-Cloning (58707 stars)
+2025-10-30 20:43:19,980 - __main__ - INFO - 处理仓库: CorentinJ/Real-Time-Voice-Cloning
+2025-10-30 20:43:20,388 - __main__ - INFO - 获取README成功: CorentinJ/Real-Time-Voice-Cloning/README.md
+2025-10-30 20:43:20,389 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=0
+2025-10-30 20:43:20,389 - __main__ - WARNING - 未找到示例代码，跳过仓库: CorentinJ/Real-Time-Voice-Cloning
+2025-10-30 20:43:20,389 - __main__ - WARNING - ✗ 跳过仓库 CorentinJ/Real-Time-Voice-Cloning: README中未找到示例代码
+2025-10-30 20:43:22,391 - __main__ - INFO - 
+候选进度: 54 | 有效仓库: 23/50
+2025-10-30 20:43:22,391 - __main__ - INFO - 当前仓库: commaai/openpilot (58672 stars)
+2025-10-30 20:43:22,391 - __main__ - INFO - 处理仓库: commaai/openpilot
+2025-10-30 20:43:22,949 - __main__ - INFO - 获取README成功: commaai/openpilot/README.md
+2025-10-30 20:43:22,950 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:43:22,950 - __main__ - WARNING - 未找到示例代码，跳过仓库: commaai/openpilot
+2025-10-30 20:43:22,950 - __main__ - WARNING - ✗ 跳过仓库 commaai/openpilot: README中未找到示例代码
+2025-10-30 20:43:24,954 - __main__ - INFO - 
+候选进度: 55 | 有效仓库: 23/50
+2025-10-30 20:43:24,955 - __main__ - INFO - 当前仓库: zylon-ai/private-gpt (56705 stars)
+2025-10-30 20:43:24,955 - __main__ - INFO - 处理仓库: zylon-ai/private-gpt
+2025-10-30 20:43:25,353 - __main__ - INFO - 获取README成功: zylon-ai/private-gpt/README.md
+2025-10-30 20:43:25,355 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:43:25,355 - __main__ - WARNING - 未找到示例代码，跳过仓库: zylon-ai/private-gpt
+2025-10-30 20:43:25,355 - __main__ - WARNING - ✗ 跳过仓库 zylon-ai/private-gpt: README中未找到示例代码
+2025-10-30 20:43:27,356 - __main__ - INFO - 
+候选进度: 56 | 有效仓库: 23/50
+2025-10-30 20:43:27,356 - __main__ - INFO - 当前仓库: soimort/you-get (56522 stars)
+2025-10-30 20:43:27,357 - __main__ - INFO - 处理仓库: soimort/you-get
+2025-10-30 20:43:27,753 - __main__ - INFO - 获取README成功: soimort/you-get/README.md
+2025-10-30 20:43:27,756 - __main__ - INFO - 提取代码块: setup=7, docker=0, example=1
+2025-10-30 20:43:27,756 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:43:29,711 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示如何使用you-get工具下载YouTube视频，调用了该仓库提供的功能，是用户使用该工具的示例。
+2025-10-30 20:43:33,958 - __main__ - INFO - 处理完成: soimort/you-get - 1 个任务
+2025-10-30 20:43:33,958 - __main__ - INFO - ✓ 有效仓库累计: 24/50
+2025-10-30 20:43:35,970 - __main__ - INFO - 
+候选进度: 57 | 有效仓库: 24/50
+2025-10-30 20:43:35,971 - __main__ - INFO - 当前仓库: ultralytics/yolov5 (55870 stars)
+2025-10-30 20:43:35,971 - __main__ - INFO - 处理仓库: ultralytics/yolov5
+2025-10-30 20:43:36,442 - __main__ - INFO - 获取README成功: ultralytics/yolov5/README.md
+2025-10-30 20:43:36,443 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=13
+2025-10-30 20:43:36,444 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:43:38,693 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码块展示了如何使用ultralytics/yolov5库进行模型加载、推理、训练和导出等操作，是用户使用该工具的示例。
+2025-10-30 20:43:39,819 - __main__ - INFO - 获取Docker文件成功: ultralytics/yolov5/.dockerignore
+2025-10-30 20:43:39,820 - __main__ - INFO - 找到Docker文件: ['.dockerignore']
+2025-10-30 20:44:10,417 - __main__ - INFO - 处理完成: ultralytics/yolov5 - 11 个任务
+2025-10-30 20:44:10,418 - __main__ - INFO - ✓ 有效仓库累计: 25/50
+2025-10-30 20:44:12,422 - __main__ - INFO - 
+候选进度: 58 | 有效仓库: 25/50
+2025-10-30 20:44:12,423 - __main__ - INFO - 当前仓库: ageitgey/face_recognition (55658 stars)
+2025-10-30 20:44:12,423 - __main__ - INFO - 处理仓库: ageitgey/face_recognition
+2025-10-30 20:44:12,818 - __main__ - INFO - 获取README成功: ageitgey/face_recognition/README.md
+2025-10-30 20:44:12,819 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=15
+2025-10-30 20:44:12,819 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:44:15,082 - __main__ - INFO - 代码验证结果: ✓ 通过 - The code blocks demonstrate how to use the face_recognition library by calling its API to perform tasks such as loading images, finding face locations, and comparing face encodings, which are typical usage examples of the library.
+2025-10-30 20:44:15,394 - __main__ - INFO - 获取Docker文件成功: ageitgey/face_recognition/Dockerfile
+2025-10-30 20:44:15,684 - __main__ - INFO - 获取Docker文件成功: ageitgey/face_recognition/docker-compose.yml
+2025-10-30 20:44:16,277 - __main__ - INFO - 找到Docker文件: ['Dockerfile', 'docker-compose.yml']
+2025-10-30 20:45:02,139 - __main__ - INFO - 处理完成: ageitgey/face_recognition - 9 个任务
+2025-10-30 20:45:02,139 - __main__ - INFO - ✓ 有效仓库累计: 26/50
+2025-10-30 20:45:04,141 - __main__ - INFO - 
+候选进度: 59 | 有效仓库: 26/50
+2025-10-30 20:45:04,142 - __main__ - INFO - 当前仓库: unclecode/crawl4ai (55240 stars)
+2025-10-30 20:45:04,142 - __main__ - INFO - 处理仓库: unclecode/crawl4ai
+2025-10-30 20:45:04,935 - __main__ - INFO - 获取README成功: unclecode/crawl4ai/README.md
+2025-10-30 20:45:04,938 - __main__ - INFO - 提取代码块: setup=9, docker=1, example=19
+2025-10-30 20:45:04,938 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:45:07,811 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用crawl4ai库进行网页抓取和数据提取，调用了该库提供的API和功能，是用户使用该工具的示例。
+2025-10-30 20:45:08,394 - __main__ - INFO - 获取Docker文件成功: unclecode/crawl4ai/Dockerfile
+2025-10-30 20:45:08,675 - __main__ - INFO - 获取Docker文件成功: unclecode/crawl4ai/docker-compose.yml
+2025-10-30 20:45:09,252 - __main__ - INFO - 找到Docker文件: ['Dockerfile', 'docker-compose.yml']
+2025-10-30 20:46:21,443 - __main__ - ERROR - 生成任务失败 unclecode/crawl4ai: Unterminated string starting at: line 56 column 31 (char 8045)
+2025-10-30 20:46:21,445 - __main__ - WARNING - ✗ 跳过仓库 unclecode/crawl4ai: 任务生成失败
+2025-10-30 20:46:23,450 - __main__ - INFO - 
+候选进度: 60 | 有效仓库: 26/50
+2025-10-30 20:46:23,451 - __main__ - INFO - 当前仓库: AntonOsika/gpt-engineer (54986 stars)
+2025-10-30 20:46:23,451 - __main__ - INFO - 处理仓库: AntonOsika/gpt-engineer
+2025-10-30 20:46:23,771 - __main__ - INFO - 获取README成功: AntonOsika/gpt-engineer/README.md
+2025-10-30 20:46:23,772 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:46:23,772 - __main__ - WARNING - 未找到示例代码，跳过仓库: AntonOsika/gpt-engineer
+2025-10-30 20:46:23,772 - __main__ - WARNING - ✗ 跳过仓库 AntonOsika/gpt-engineer: README中未找到示例代码
+2025-10-30 20:46:26,782 - __main__ - INFO - 
+正在搜索第 3 页候选仓库...
+2025-10-30 20:46:28,517 - __main__ - INFO - 获取到 30 个候选仓库
+2025-10-30 20:46:28,518 - __main__ - INFO - 
+候选进度: 61 | 有效仓库: 26/50
+2025-10-30 20:46:28,518 - __main__ - INFO - 当前仓库: deepfakes/faceswap (54637 stars)
+2025-10-30 20:46:28,518 - __main__ - INFO - 处理仓库: deepfakes/faceswap
+2025-10-30 20:46:28,894 - __main__ - INFO - 获取README成功: deepfakes/faceswap/README.md
+2025-10-30 20:46:28,896 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:46:28,896 - __main__ - WARNING - 未找到示例代码，跳过仓库: deepfakes/faceswap
+2025-10-30 20:46:28,896 - __main__ - WARNING - ✗ 跳过仓库 deepfakes/faceswap: README中未找到示例代码
+2025-10-30 20:46:30,902 - __main__ - INFO - 
+候选进度: 62 | 有效仓库: 26/50
+2025-10-30 20:46:30,902 - __main__ - INFO - 当前仓库: Textualize/rich (54232 stars)
+2025-10-30 20:46:30,903 - __main__ - INFO - 处理仓库: Textualize/rich
+2025-10-30 20:46:31,263 - __main__ - INFO - 获取README成功: Textualize/rich/README.md
+2025-10-30 20:46:31,264 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=16
+2025-10-30 20:46:31,264 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:46:33,928 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码块展示了如何使用Rich库的功能，如打印带有样式的文本、创建控制台对象、使用表格和进度条等，是用户使用该工具的示例。
+2025-10-30 20:46:59,681 - __main__ - INFO - 处理完成: Textualize/rich - 14 个任务
+2025-10-30 20:46:59,681 - __main__ - INFO - ✓ 有效仓库累计: 27/50
+2025-10-30 20:47:01,685 - __main__ - INFO - 
+候选进度: 63 | 有效仓库: 27/50
+2025-10-30 20:47:01,685 - __main__ - INFO - 当前仓库: OpenBB-finance/OpenBB (54058 stars)
+2025-10-30 20:47:01,685 - __main__ - INFO - 处理仓库: OpenBB-finance/OpenBB
+2025-10-30 20:47:02,162 - __main__ - INFO - 获取README成功: OpenBB-finance/OpenBB/README.md
+2025-10-30 20:47:02,163 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=2
+2025-10-30 20:47:02,163 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:47:03,451 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用OpenBB库来获取股票历史价格数据，是用户使用该工具的示例。
+2025-10-30 20:47:07,800 - __main__ - INFO - 处理完成: OpenBB-finance/OpenBB - 1 个任务
+2025-10-30 20:47:07,800 - __main__ - INFO - ✓ 有效仓库累计: 28/50
+2025-10-30 20:47:09,803 - __main__ - INFO - 
+候选进度: 64 | 有效仓库: 28/50
+2025-10-30 20:47:09,803 - __main__ - INFO - 当前仓库: Z4nzu/hackingtool (53903 stars)
+2025-10-30 20:47:09,803 - __main__ - INFO - 处理仓库: Z4nzu/hackingtool
+2025-10-30 20:47:10,160 - __main__ - INFO - 获取README成功: Z4nzu/hackingtool/README.md
+2025-10-30 20:47:10,162 - __main__ - INFO - 提取代码块: setup=0, docker=2, example=2
+2025-10-30 20:47:10,162 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:47:11,203 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码块展示了如何使用该仓库/工具的功能，用户可以通过选择不同的选项来使用该工具的不同功能。
+2025-10-30 20:47:11,500 - __main__ - INFO - 获取Docker文件成功: Z4nzu/hackingtool/Dockerfile
+2025-10-30 20:47:11,759 - __main__ - INFO - 获取Docker文件成功: Z4nzu/hackingtool/docker-compose.yml
+2025-10-30 20:47:12,266 - __main__ - INFO - 找到Docker文件: ['Dockerfile', 'docker-compose.yml']
+2025-10-30 20:47:42,221 - __main__ - WARNING - 过滤后任务列表为空，跳过仓库: Z4nzu/hackingtool
+2025-10-30 20:47:42,223 - __main__ - WARNING - ✗ 跳过仓库 Z4nzu/hackingtool: 过滤后任务列表为空
+2025-10-30 20:47:44,228 - __main__ - INFO - 
+候选进度: 65 | 有效仓库: 28/50
+2025-10-30 20:47:44,228 - __main__ - INFO - 当前仓库: psf/requests (53426 stars)
+2025-10-30 20:47:44,228 - __main__ - INFO - 处理仓库: psf/requests
+2025-10-30 20:47:44,523 - __main__ - INFO - 获取README成功: psf/requests/README.md
+2025-10-30 20:47:44,523 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=2
+2025-10-30 20:47:44,524 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:47:45,479 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用requests库进行HTTP请求，并调用了该库的API功能，是用户使用该工具的示例。
+2025-10-30 20:47:52,064 - __main__ - INFO - 处理完成: psf/requests - 1 个任务
+2025-10-30 20:47:52,065 - __main__ - INFO - ✓ 有效仓库累计: 29/50
+2025-10-30 20:47:54,070 - __main__ - INFO - 
+候选进度: 66 | 有效仓库: 29/50
+2025-10-30 20:47:54,070 - __main__ - INFO - 当前仓库: RVC-Boss/GPT-SoVITS (51939 stars)
+2025-10-30 20:47:54,071 - __main__ - INFO - 处理仓库: RVC-Boss/GPT-SoVITS
+2025-10-30 20:47:54,425 - __main__ - INFO - 获取README成功: RVC-Boss/GPT-SoVITS/README.md
+2025-10-30 20:47:54,427 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=3
+2025-10-30 20:47:54,428 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:47:56,168 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用GPT-SoVITS工具中的功能，调用了仓库提供的音频切片和ASR处理API，是用户使用该工具的示例。
+2025-10-30 20:47:56,598 - __main__ - INFO - 获取Docker文件成功: RVC-Boss/GPT-SoVITS/Dockerfile
+2025-10-30 20:47:57,213 - __main__ - INFO - 获取Docker文件成功: RVC-Boss/GPT-SoVITS/docker-compose.yaml
+2025-10-30 20:47:57,484 - __main__ - INFO - 获取Docker文件成功: RVC-Boss/GPT-SoVITS/.dockerignore
+2025-10-30 20:47:57,484 - __main__ - INFO - 找到Docker文件: ['Dockerfile', 'docker-compose.yaml', '.dockerignore']
+2025-10-30 20:48:45,255 - __main__ - INFO - 处理完成: RVC-Boss/GPT-SoVITS - 3 个任务
+2025-10-30 20:48:45,256 - __main__ - INFO - ✓ 有效仓库累计: 30/50
+2025-10-30 20:48:47,259 - __main__ - INFO - 
+候选进度: 67 | 有效仓库: 30/50
+2025-10-30 20:48:47,259 - __main__ - INFO - 当前仓库: Asabeneh/30-Days-Of-Python (51757 stars)
+2025-10-30 20:48:47,259 - __main__ - INFO - 处理仓库: Asabeneh/30-Days-Of-Python
+2025-10-30 20:48:47,598 - __main__ - INFO - 获取README成功: Asabeneh/30-Days-Of-Python/readme.md
+2025-10-30 20:48:47,600 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=5
+2025-10-30 20:48:47,600 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:48:49,956 - __main__ - INFO - 代码验证结果: ✗ 不通过 - 该仓库是一个教程项目，代码块展示的是Python基础语法和操作，而不是使用该仓库提供的特定功能或API。
+2025-10-30 20:48:49,957 - __main__ - WARNING - 代码不是usage example，跳过仓库: Asabeneh/30-Days-Of-Python
+2025-10-30 20:48:49,957 - __main__ - WARNING - ✗ 跳过仓库 Asabeneh/30-Days-Of-Python: 代码块不是仓库的使用示例
+2025-10-30 20:48:51,964 - __main__ - INFO - 
+候选进度: 68 | 有效仓库: 30/50
+2025-10-30 20:48:51,964 - __main__ - INFO - 当前仓库: microsoft/autogen (51248 stars)
+2025-10-30 20:48:51,965 - __main__ - INFO - 处理仓库: microsoft/autogen
+2025-10-30 20:48:52,572 - __main__ - INFO - 获取README成功: microsoft/autogen/README.md
+2025-10-30 20:48:52,574 - __main__ - INFO - 提取代码块: setup=3, docker=0, example=3
+2025-10-30 20:48:52,574 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:48:55,318 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用microsoft/autogen库中的API和功能，具体包括创建和运行AssistantAgent实例，这符合用户使用该工具的示例。
+2025-10-30 20:49:17,296 - __main__ - INFO - 处理完成: microsoft/autogen - 4 个任务
+2025-10-30 20:49:17,297 - __main__ - INFO - ✓ 有效仓库累计: 31/50
+2025-10-30 20:49:19,301 - __main__ - INFO - 
+候选进度: 69 | 有效仓库: 31/50
+2025-10-30 20:49:19,301 - __main__ - INFO - 当前仓库: FoundationAgents/OpenManus (50574 stars)
+2025-10-30 20:49:19,301 - __main__ - INFO - 处理仓库: FoundationAgents/OpenManus
+2025-10-30 20:49:19,601 - __main__ - INFO - 获取README成功: FoundationAgents/OpenManus/README.md
+2025-10-30 20:49:19,604 - __main__ - INFO - 提取代码块: setup=6, docker=0, example=3
+2025-10-30 20:49:19,604 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:49:21,486 - __main__ - INFO - 代码验证结果: ✗ 不通过 - 代码块只是展示了如何安装一个可选的浏览器自动化工具，并不涉及调用OpenManus仓库的功能或展示如何使用该工具。
+2025-10-30 20:49:21,487 - __main__ - WARNING - 代码不是usage example，跳过仓库: FoundationAgents/OpenManus
+2025-10-30 20:49:21,487 - __main__ - WARNING - ✗ 跳过仓库 FoundationAgents/OpenManus: 代码块不是仓库的使用示例
+2025-10-30 20:49:23,489 - __main__ - INFO - 
+候选进度: 70 | 有效仓库: 31/50
+2025-10-30 20:49:23,489 - __main__ - INFO - 当前仓库: xai-org/grok-1 (50542 stars)
+2025-10-30 20:49:23,489 - __main__ - INFO - 处理仓库: xai-org/grok-1
+2025-10-30 20:49:23,877 - __main__ - INFO - 获取README成功: xai-org/grok-1/README.md
+2025-10-30 20:49:23,878 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=0
+2025-10-30 20:49:23,878 - __main__ - WARNING - 未找到示例代码，跳过仓库: xai-org/grok-1
+2025-10-30 20:49:23,878 - __main__ - WARNING - ✗ 跳过仓库 xai-org/grok-1: README中未找到示例代码
+2025-10-30 20:49:25,879 - __main__ - INFO - 
+候选进度: 71 | 有效仓库: 31/50
+2025-10-30 20:49:25,879 - __main__ - INFO - 当前仓库: charlax/professional-programming (49670 stars)
+2025-10-30 20:49:25,880 - __main__ - INFO - 处理仓库: charlax/professional-programming
+2025-10-30 20:49:26,330 - __main__ - INFO - 获取README成功: charlax/professional-programming/README.md
+2025-10-30 20:49:26,333 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:49:26,333 - __main__ - WARNING - 未找到示例代码，跳过仓库: charlax/professional-programming
+2025-10-30 20:49:26,333 - __main__ - WARNING - ✗ 跳过仓库 charlax/professional-programming: README中未找到示例代码
+2025-10-30 20:49:28,338 - __main__ - INFO - 
+候选进度: 72 | 有效仓库: 31/50
+2025-10-30 20:49:28,339 - __main__ - INFO - 当前仓库: pathwaycom/pathway (48952 stars)
+2025-10-30 20:49:28,339 - __main__ - INFO - 处理仓库: pathwaycom/pathway
+2025-10-30 20:49:28,714 - __main__ - INFO - 获取README成功: pathwaycom/pathway/README.md
+2025-10-30 20:49:28,716 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=3
+2025-10-30 20:49:28,716 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:49:31,132 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用Pathway库进行数据处理，包括定义数据模式、连接数据源、执行数据操作和运行计算，是用户使用该工具的示例。
+2025-10-30 20:49:32,534 - __main__ - INFO - 获取Docker文件成功: pathwaycom/pathway/.dockerignore
+2025-10-30 20:49:32,534 - __main__ - INFO - 找到Docker文件: ['.dockerignore']
+2025-10-30 20:49:51,415 - __main__ - INFO - 处理完成: pathwaycom/pathway - 5 个任务
+2025-10-30 20:49:51,415 - __main__ - INFO - ✓ 有效仓库累计: 32/50
+2025-10-30 20:49:53,419 - __main__ - INFO - 
+候选进度: 73 | 有效仓库: 32/50
+2025-10-30 20:49:53,420 - __main__ - INFO - 当前仓库: karpathy/nanoGPT (48528 stars)
+2025-10-30 20:49:53,420 - __main__ - INFO - 处理仓库: karpathy/nanoGPT
+2025-10-30 20:49:53,851 - __main__ - INFO - 获取README成功: karpathy/nanoGPT/README.md
+2025-10-30 20:49:53,852 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=11
+2025-10-30 20:49:53,853 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:49:55,779 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用nanoGPT库进行训练、采样和微调，调用了仓库提供的功能，是用户使用该工具的示例。
+2025-10-30 20:50:23,043 - __main__ - INFO - 处理完成: karpathy/nanoGPT - 12 个任务
+2025-10-30 20:50:23,044 - __main__ - INFO - ✓ 有效仓库累计: 33/50
+2025-10-30 20:50:25,049 - __main__ - INFO - 
+候选进度: 74 | 有效仓库: 33/50
+2025-10-30 20:50:25,049 - __main__ - INFO - 当前仓库: ultralytics/ultralytics (48069 stars)
+2025-10-30 20:50:25,049 - __main__ - INFO - 处理仓库: ultralytics/ultralytics
+2025-10-30 20:50:25,394 - __main__ - INFO - 获取README成功: ultralytics/ultralytics/README.md
+2025-10-30 20:50:25,395 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=2
+2025-10-30 20:50:25,395 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:50:28,213 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示如何使用ultralytics库进行模型加载、训练、验证、预测和导出，是用户使用该工具的示例。
+2025-10-30 20:50:29,316 - __main__ - INFO - 获取Docker文件成功: ultralytics/ultralytics/.dockerignore
+2025-10-30 20:50:29,317 - __main__ - INFO - 找到Docker文件: ['.dockerignore']
+2025-10-30 20:50:53,624 - __main__ - INFO - 处理完成: ultralytics/ultralytics - 6 个任务
+2025-10-30 20:50:53,625 - __main__ - INFO - ✓ 有效仓库累计: 34/50
+2025-10-30 20:50:55,626 - __main__ - INFO - 
+候选进度: 75 | 有效仓库: 34/50
+2025-10-30 20:50:55,627 - __main__ - INFO - 当前仓库: opendatalab/MinerU (47753 stars)
+2025-10-30 20:50:55,627 - __main__ - INFO - 处理仓库: opendatalab/MinerU
+2025-10-30 20:50:56,074 - __main__ - INFO - 获取README成功: opendatalab/MinerU/README.md
+2025-10-30 20:50:56,076 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=1
+2025-10-30 20:50:56,076 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:51:00,290 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码块展示了如何使用MinerU工具进行PDF解析，调用了该仓库提供的功能，是用户使用该工具的示例。
+2025-10-30 20:51:03,979 - __main__ - INFO - 处理完成: opendatalab/MinerU - 1 个任务
+2025-10-30 20:51:03,979 - __main__ - INFO - ✓ 有效仓库累计: 35/50
+2025-10-30 20:51:05,984 - __main__ - INFO - 
+候选进度: 76 | 有效仓库: 35/50
+2025-10-30 20:51:05,985 - __main__ - INFO - 当前仓库: unslothai/unsloth (47662 stars)
+2025-10-30 20:51:05,985 - __main__ - INFO - 处理仓库: unslothai/unsloth
+2025-10-30 20:51:06,354 - __main__ - INFO - 获取README成功: unslothai/unsloth/README.md
+2025-10-30 20:51:06,356 - __main__ - INFO - 提取代码块: setup=11, docker=1, example=2
+2025-10-30 20:51:06,356 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:51:08,688 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用Unsloth库进行模型的加载和训练，调用了该仓库提供的API和功能，是用户使用该工具的示例。
+2025-10-30 20:51:33,376 - __main__ - INFO - 处理完成: unslothai/unsloth - 4 个任务
+2025-10-30 20:51:33,376 - __main__ - INFO - ✓ 有效仓库累计: 36/50
+2025-10-30 20:51:35,381 - __main__ - INFO - 
+候选进度: 77 | 有效仓库: 36/50
+2025-10-30 20:51:35,382 - __main__ - INFO - 当前仓库: minimaxir/big-list-of-naughty-strings (47468 stars)
+2025-10-30 20:51:35,382 - __main__ - INFO - 处理仓库: minimaxir/big-list-of-naughty-strings
+2025-10-30 20:51:35,697 - __main__ - INFO - 获取README成功: minimaxir/big-list-of-naughty-strings/README.md
+2025-10-30 20:51:35,698 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:51:35,698 - __main__ - WARNING - 未找到示例代码，跳过仓库: minimaxir/big-list-of-naughty-strings
+2025-10-30 20:51:35,698 - __main__ - WARNING - ✗ 跳过仓库 minimaxir/big-list-of-naughty-strings: README中未找到示例代码
+2025-10-30 20:51:37,700 - __main__ - INFO - 
+候选进度: 78 | 有效仓库: 36/50
+2025-10-30 20:51:37,701 - __main__ - INFO - 当前仓库: harry0703/MoneyPrinterTurbo (47405 stars)
+2025-10-30 20:51:37,701 - __main__ - INFO - 处理仓库: harry0703/MoneyPrinterTurbo
+2025-10-30 20:51:38,017 - __main__ - INFO - 获取README成功: harry0703/MoneyPrinterTurbo/README.md
+2025-10-30 20:51:38,019 - __main__ - INFO - 提取代码块: setup=4, docker=1, example=1
+2025-10-30 20:51:38,019 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:51:39,440 - __main__ - INFO - 代码验证结果: ✗ 不通过 - 代码块只是展示如何安装 ImageMagick，与仓库的使用示例无关。
+2025-10-30 20:51:39,441 - __main__ - WARNING - 代码不是usage example，跳过仓库: harry0703/MoneyPrinterTurbo
+2025-10-30 20:51:39,441 - __main__ - WARNING - ✗ 跳过仓库 harry0703/MoneyPrinterTurbo: 代码块不是仓库的使用示例
+2025-10-30 20:51:41,446 - __main__ - INFO - 
+候选进度: 79 | 有效仓库: 36/50
+2025-10-30 20:51:41,447 - __main__ - INFO - 当前仓库: pandas-dev/pandas (46980 stars)
+2025-10-30 20:51:41,447 - __main__ - INFO - 处理仓库: pandas-dev/pandas
+2025-10-30 20:51:41,759 - __main__ - INFO - 获取README成功: pandas-dev/pandas/README.md
+2025-10-30 20:51:41,760 - __main__ - INFO - 提取代码块: setup=5, docker=0, example=0
+2025-10-30 20:51:41,760 - __main__ - WARNING - 未找到示例代码，跳过仓库: pandas-dev/pandas
+2025-10-30 20:51:41,761 - __main__ - WARNING - ✗ 跳过仓库 pandas-dev/pandas: README中未找到示例代码
+2025-10-30 20:51:43,762 - __main__ - INFO - 
+候选进度: 80 | 有效仓库: 36/50
+2025-10-30 20:51:43,763 - __main__ - INFO - 当前仓库: odoo/odoo (46966 stars)
+2025-10-30 20:51:43,763 - __main__ - INFO - 处理仓库: odoo/odoo
+2025-10-30 20:51:44,034 - __main__ - INFO - 获取README成功: odoo/odoo/README.md
+2025-10-30 20:51:44,035 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:51:44,035 - __main__ - WARNING - 未找到示例代码，跳过仓库: odoo/odoo
+2025-10-30 20:51:44,035 - __main__ - WARNING - ✗ 跳过仓库 odoo/odoo: README中未找到示例代码
+2025-10-30 20:51:46,037 - __main__ - INFO - 
+候选进度: 81 | 有效仓库: 36/50
+2025-10-30 20:51:46,038 - __main__ - INFO - 当前仓库: lllyasviel/Fooocus (46904 stars)
+2025-10-30 20:51:46,038 - __main__ - INFO - 处理仓库: lllyasviel/Fooocus
+2025-10-30 20:51:46,509 - __main__ - INFO - 获取README成功: lllyasviel/Fooocus/readme.md
+2025-10-30 20:51:46,510 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:51:46,511 - __main__ - WARNING - 未找到示例代码，跳过仓库: lllyasviel/Fooocus
+2025-10-30 20:51:46,511 - __main__ - WARNING - ✗ 跳过仓库 lllyasviel/Fooocus: README中未找到示例代码
+2025-10-30 20:51:48,516 - __main__ - INFO - 
+候选进度: 82 | 有效仓库: 36/50
+2025-10-30 20:51:48,516 - __main__ - INFO - 当前仓库: oobabooga/text-generation-webui (45273 stars)
+2025-10-30 20:51:48,517 - __main__ - INFO - 处理仓库: oobabooga/text-generation-webui
+2025-10-30 20:51:48,887 - __main__ - INFO - 获取README成功: oobabooga/text-generation-webui/README.md
+2025-10-30 20:51:48,888 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=0
+2025-10-30 20:51:48,888 - __main__ - WARNING - 未找到示例代码，跳过仓库: oobabooga/text-generation-webui
+2025-10-30 20:51:48,889 - __main__ - WARNING - ✗ 跳过仓库 oobabooga/text-generation-webui: README中未找到示例代码
+2025-10-30 20:51:50,889 - __main__ - INFO - 
+候选进度: 83 | 有效仓库: 36/50
+2025-10-30 20:51:50,890 - __main__ - INFO - 当前仓库: run-llama/llama_index (44984 stars)
+2025-10-30 20:51:50,890 - __main__ - INFO - 处理仓库: run-llama/llama_index
+2025-10-30 20:51:51,172 - __main__ - INFO - 获取README成功: run-llama/llama_index/README.md
+2025-10-30 20:51:51,173 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=7
+2025-10-30 20:51:51,173 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:51:54,057 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用llama_index库提供的API和功能，包括如何设置环境变量、导入库中的模块、加载数据、创建索引以及查询。这些代码块是用户使用该工具的示例。
+2025-10-30 20:52:12,225 - __main__ - INFO - 处理完成: run-llama/llama_index - 6 个任务
+2025-10-30 20:52:12,226 - __main__ - INFO - ✓ 有效仓库累计: 37/50
+2025-10-30 20:52:14,231 - __main__ - INFO - 
+候选进度: 84 | 有效仓库: 37/50
+2025-10-30 20:52:14,232 - __main__ - INFO - 当前仓库: freqtrade/freqtrade (44133 stars)
+2025-10-30 20:52:14,232 - __main__ - INFO - 处理仓库: freqtrade/freqtrade
+2025-10-30 20:52:14,563 - __main__ - INFO - 获取README成功: freqtrade/freqtrade/README.md
+2025-10-30 20:52:14,564 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:52:14,565 - __main__ - WARNING - 未找到示例代码，跳过仓库: freqtrade/freqtrade
+2025-10-30 20:52:14,565 - __main__ - WARNING - ✗ 跳过仓库 freqtrade/freqtrade: README中未找到示例代码
+2025-10-30 20:52:16,569 - __main__ - INFO - 
+候选进度: 85 | 有效仓库: 37/50
+2025-10-30 20:52:16,569 - __main__ - INFO - 当前仓库: coqui-ai/TTS (43225 stars)
+2025-10-30 20:52:16,569 - __main__ - INFO - 处理仓库: coqui-ai/TTS
+2025-10-30 20:52:16,926 - __main__ - INFO - 获取README成功: coqui-ai/TTS/README.md
+2025-10-30 20:52:16,927 - __main__ - INFO - 提取代码块: setup=2, docker=1, example=6
+2025-10-30 20:52:16,928 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:52:19,590 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用coqui-ai/TTS库的API进行文本到语音合成，调用了库中提供的TTS功能，是用户使用该工具的示例。
+2025-10-30 20:52:19,878 - __main__ - INFO - 获取Docker文件成功: coqui-ai/TTS/Dockerfile
+2025-10-30 20:52:21,188 - __main__ - INFO - 获取Docker文件成功: coqui-ai/TTS/.dockerignore
+2025-10-30 20:52:21,189 - __main__ - INFO - 找到Docker文件: ['Dockerfile', '.dockerignore']
+2025-10-30 20:53:13,164 - __main__ - INFO - 处理完成: coqui-ai/TTS - 7 个任务
+2025-10-30 20:53:13,165 - __main__ - INFO - ✓ 有效仓库累计: 38/50
+2025-10-30 20:53:15,170 - __main__ - INFO - 
+候选进度: 86 | 有效仓库: 38/50
+2025-10-30 20:53:15,170 - __main__ - INFO - 当前仓库: apache/airflow (42998 stars)
+2025-10-30 20:53:15,170 - __main__ - INFO - 处理仓库: apache/airflow
+2025-10-30 20:53:15,598 - __main__ - INFO - 获取README成功: apache/airflow/README.md
+2025-10-30 20:53:15,601 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=0
+2025-10-30 20:53:15,601 - __main__ - WARNING - 未找到示例代码，跳过仓库: apache/airflow
+2025-10-30 20:53:15,601 - __main__ - WARNING - ✗ 跳过仓库 apache/airflow: README中未找到示例代码
+2025-10-30 20:53:17,605 - __main__ - INFO - 
+候选进度: 87 | 有效仓库: 38/50
+2025-10-30 20:53:17,606 - __main__ - INFO - 当前仓库: docling-project/docling (42677 stars)
+2025-10-30 20:53:17,607 - __main__ - INFO - 处理仓库: docling-project/docling
+2025-10-30 20:53:18,211 - __main__ - INFO - 获取README成功: docling-project/docling/README.md
+2025-10-30 20:53:18,213 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=3
+2025-10-30 20:53:18,213 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:53:19,951 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用Docling库进行文档转换，调用了仓库提供的DocumentConverter功能，是用户使用该工具的示例。
+2025-10-30 20:53:20,263 - __main__ - INFO - 获取Docker文件成功: docling-project/docling/Dockerfile
+2025-10-30 20:53:21,130 - __main__ - INFO - 找到Docker文件: ['Dockerfile']
+2025-10-30 20:53:42,891 - __main__ - ERROR - 生成任务失败 docling-project/docling: Expecting value: line 9 column 32 (char 583)
+2025-10-30 20:53:42,892 - __main__ - WARNING - ✗ 跳过仓库 docling-project/docling: 任务生成失败
+2025-10-30 20:53:44,898 - __main__ - INFO - 
+候选进度: 88 | 有效仓库: 38/50
+2025-10-30 20:53:44,898 - __main__ - INFO - 当前仓库: faif/python-patterns (42338 stars)
+2025-10-30 20:53:44,898 - __main__ - INFO - 处理仓库: faif/python-patterns
+2025-10-30 20:53:45,454 - __main__ - INFO - 获取README成功: faif/python-patterns/README.md
+2025-10-30 20:53:45,455 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:53:45,456 - __main__ - WARNING - 未找到示例代码，跳过仓库: faif/python-patterns
+2025-10-30 20:53:45,456 - __main__ - WARNING - ✗ 跳过仓库 faif/python-patterns: README中未找到示例代码
+2025-10-30 20:53:47,460 - __main__ - INFO - 
+候选进度: 89 | 有效仓库: 38/50
+2025-10-30 20:53:47,460 - __main__ - INFO - 当前仓库: getsentry/sentry (42329 stars)
+2025-10-30 20:53:47,461 - __main__ - INFO - 处理仓库: getsentry/sentry
+2025-10-30 20:53:47,801 - __main__ - INFO - 获取README成功: getsentry/sentry/README.md
+2025-10-30 20:53:47,802 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:53:47,802 - __main__ - WARNING - 未找到示例代码，跳过仓库: getsentry/sentry
+2025-10-30 20:53:47,802 - __main__ - WARNING - ✗ 跳过仓库 getsentry/sentry: README中未找到示例代码
+2025-10-30 20:53:49,807 - __main__ - INFO - 
+候选进度: 90 | 有效仓库: 38/50
+2025-10-30 20:53:49,808 - __main__ - INFO - 当前仓库: mem0ai/mem0 (42262 stars)
+2025-10-30 20:53:49,808 - __main__ - INFO - 处理仓库: mem0ai/mem0
+2025-10-30 20:53:50,188 - __main__ - INFO - 获取README成功: mem0ai/mem0/README.md
+2025-10-30 20:53:50,190 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=1
+2025-10-30 20:53:50,190 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:53:52,509 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用mem0库的Memory类和OpenAI接口进行对话管理，调用了该仓库提供的API/功能，是用户使用该工具的示例。
+2025-10-30 20:54:02,665 - __main__ - INFO - 处理完成: mem0ai/mem0 - 1 个任务
+2025-10-30 20:54:02,665 - __main__ - INFO - ✓ 有效仓库累计: 39/50
+2025-10-30 20:54:05,673 - __main__ - INFO - 
+正在搜索第 4 页候选仓库...
+2025-10-30 20:54:07,418 - __main__ - INFO - 获取到 30 个候选仓库
+2025-10-30 20:54:07,418 - __main__ - INFO - 
+候选进度: 91 | 有效仓库: 39/50
+2025-10-30 20:54:07,418 - __main__ - INFO - 当前仓库: virattt/ai-hedge-fund (42138 stars)
+2025-10-30 20:54:07,418 - __main__ - INFO - 处理仓库: virattt/ai-hedge-fund
+2025-10-30 20:54:07,742 - __main__ - INFO - 获取README成功: virattt/ai-hedge-fund/README.md
+2025-10-30 20:54:07,743 - __main__ - INFO - 提取代码块: setup=3, docker=0, example=6
+2025-10-30 20:54:07,743 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:54:10,463 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用AI Hedge Fund工具，包括如何设置API密钥和运行命令行接口来调用仓库提供的功能。
+2025-10-30 20:54:11,702 - __main__ - INFO - 获取Docker文件成功: virattt/ai-hedge-fund/.dockerignore
+2025-10-30 20:54:11,703 - __main__ - INFO - 找到Docker文件: ['.dockerignore']
+2025-10-30 20:54:31,449 - __main__ - INFO - 处理完成: virattt/ai-hedge-fund - 4 个任务
+2025-10-30 20:54:31,449 - __main__ - INFO - ✓ 有效仓库累计: 40/50
+2025-10-30 20:54:33,450 - __main__ - INFO - 
+候选进度: 92 | 有效仓库: 40/50
+2025-10-30 20:54:33,451 - __main__ - INFO - 当前仓库: streamlit/streamlit (42011 stars)
+2025-10-30 20:54:33,451 - __main__ - INFO - 处理仓库: streamlit/streamlit
+2025-10-30 20:54:33,849 - __main__ - INFO - 获取README成功: streamlit/streamlit/README.md
+2025-10-30 20:54:33,850 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=1
+2025-10-30 20:54:33,850 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:54:36,460 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示如何使用Streamlit库，通过调用Streamlit提供的API功能（如st.slider和st.write）来创建一个交互式应用，是用户使用该工具的示例。
+2025-10-30 20:54:40,579 - __main__ - INFO - 处理完成: streamlit/streamlit - 1 个任务
+2025-10-30 20:54:40,579 - __main__ - INFO - ✓ 有效仓库累计: 41/50
+2025-10-30 20:54:42,581 - __main__ - INFO - 
+候选进度: 93 | 有效仓库: 41/50
+2025-10-30 20:54:42,581 - __main__ - INFO - 当前仓库: Stability-AI/stablediffusion (41912 stars)
+2025-10-30 20:54:42,581 - __main__ - INFO - 处理仓库: Stability-AI/stablediffusion
+2025-10-30 20:54:43,096 - __main__ - INFO - 获取README成功: Stability-AI/stablediffusion/README.md
+2025-10-30 20:54:43,098 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:54:43,098 - __main__ - WARNING - 未找到示例代码，跳过仓库: Stability-AI/stablediffusion
+2025-10-30 20:54:43,098 - __main__ - WARNING - ✗ 跳过仓库 Stability-AI/stablediffusion: README中未找到示例代码
+2025-10-30 20:54:45,103 - __main__ - INFO - 
+候选进度: 94 | 有效仓库: 41/50
+2025-10-30 20:54:45,104 - __main__ - INFO - 当前仓库: mingrammer/diagrams (41680 stars)
+2025-10-30 20:54:45,104 - __main__ - INFO - 处理仓库: mingrammer/diagrams
+2025-10-30 20:54:45,456 - __main__ - INFO - 获取README成功: mingrammer/diagrams/README.md
+2025-10-30 20:54:45,458 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=0
+2025-10-30 20:54:45,458 - __main__ - WARNING - 未找到示例代码，跳过仓库: mingrammer/diagrams
+2025-10-30 20:54:45,458 - __main__ - WARNING - ✗ 跳过仓库 mingrammer/diagrams: README中未找到示例代码
+2025-10-30 20:54:47,463 - __main__ - INFO - 
+候选进度: 95 | 有效仓库: 41/50
+2025-10-30 20:54:47,464 - __main__ - INFO - 当前仓库: apachecn/ailearning (41638 stars)
+2025-10-30 20:54:47,464 - __main__ - INFO - 处理仓库: apachecn/ailearning
+2025-10-30 20:54:47,858 - __main__ - INFO - 获取README成功: apachecn/ailearning/README.md
+2025-10-30 20:54:47,860 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=1
+2025-10-30 20:54:47,860 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:54:49,761 - __main__ - INFO - 代码验证结果: ✗ 不通过 - 代码块只是对国内外NLP资源态度的评论，并未展示如何使用该仓库的功能或调用其API。
+2025-10-30 20:54:49,762 - __main__ - WARNING - 代码不是usage example，跳过仓库: apachecn/ailearning
+2025-10-30 20:54:49,762 - __main__ - WARNING - ✗ 跳过仓库 apachecn/ailearning: 代码块不是仓库的使用示例
+2025-10-30 20:54:51,768 - __main__ - INFO - 
+候选进度: 96 | 有效仓库: 41/50
+2025-10-30 20:54:51,768 - __main__ - INFO - 当前仓库: hpcaitech/ColossalAI (41219 stars)
+2025-10-30 20:54:51,768 - __main__ - INFO - 处理仓库: hpcaitech/ColossalAI
+2025-10-30 20:54:52,213 - __main__ - INFO - 获取README成功: hpcaitech/ColossalAI/README.md
+2025-10-30 20:54:52,214 - __main__ - INFO - 提取代码块: setup=6, docker=2, example=0
+2025-10-30 20:54:52,214 - __main__ - WARNING - 未找到示例代码，跳过仓库: hpcaitech/ColossalAI
+2025-10-30 20:54:52,215 - __main__ - WARNING - ✗ 跳过仓库 hpcaitech/ColossalAI: README中未找到示例代码
+2025-10-30 20:54:54,220 - __main__ - INFO - 
+候选进度: 97 | 有效仓库: 41/50
+2025-10-30 20:54:54,220 - __main__ - INFO - 当前仓库: zai-org/ChatGLM-6B (41149 stars)
+2025-10-30 20:54:54,220 - __main__ - INFO - 处理仓库: zai-org/ChatGLM-6B
+2025-10-30 20:54:54,604 - __main__ - INFO - 获取README成功: zai-org/ChatGLM-6B/README.md
+2025-10-30 20:54:54,606 - __main__ - INFO - 提取代码块: setup=4, docker=0, example=13
+2025-10-30 20:54:54,606 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:54:56,275 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用ChatGLM-6B模型进行对话生成，调用了仓库提供的API和功能，是用户使用该工具的示例。
+2025-10-30 20:55:20,981 - __main__ - INFO - 处理完成: zai-org/ChatGLM-6B - 7 个任务
+2025-10-30 20:55:20,983 - __main__ - INFO - ✓ 有效仓库累计: 42/50
+2025-10-30 20:55:22,988 - __main__ - INFO - 
+候选进度: 98 | 有效仓库: 42/50
+2025-10-30 20:55:22,989 - __main__ - INFO - 当前仓库: psf/black (41105 stars)
+2025-10-30 20:55:22,989 - __main__ - INFO - 处理仓库: psf/black
+2025-10-30 20:55:23,316 - __main__ - INFO - 获取README成功: psf/black/README.md
+2025-10-30 20:55:23,317 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=2
+2025-10-30 20:55:23,317 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:55:25,495 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码块展示了如何使用Black工具格式化Python代码，是用户使用该工具的示例。
+2025-10-30 20:55:25,759 - __main__ - INFO - 获取Docker文件成功: psf/black/Dockerfile
+2025-10-30 20:55:26,582 - __main__ - INFO - 找到Docker文件: ['Dockerfile']
+2025-10-30 20:55:45,152 - __main__ - INFO - 处理完成: psf/black - 2 个任务
+2025-10-30 20:55:45,153 - __main__ - INFO - ✓ 有效仓库累计: 43/50
+2025-10-30 20:55:47,158 - __main__ - INFO - 
+候选进度: 99 | 有效仓库: 43/50
+2025-10-30 20:55:47,159 - __main__ - INFO - 当前仓库: mitmproxy/mitmproxy (41031 stars)
+2025-10-30 20:55:47,159 - __main__ - INFO - 处理仓库: mitmproxy/mitmproxy
+2025-10-30 20:55:47,460 - __main__ - INFO - 获取README成功: mitmproxy/mitmproxy/README.md
+2025-10-30 20:55:47,462 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:55:47,462 - __main__ - WARNING - 未找到示例代码，跳过仓库: mitmproxy/mitmproxy
+2025-10-30 20:55:47,462 - __main__ - WARNING - ✗ 跳过仓库 mitmproxy/mitmproxy: README中未找到示例代码
+2025-10-30 20:55:49,465 - __main__ - INFO - 
+候选进度: 100 | 有效仓库: 43/50
+2025-10-30 20:55:49,466 - __main__ - INFO - 当前仓库: deepspeedai/DeepSpeed (40560 stars)
+2025-10-30 20:55:49,466 - __main__ - INFO - 处理仓库: deepspeedai/DeepSpeed
+2025-10-30 20:55:49,864 - __main__ - INFO - 获取README成功: deepspeedai/DeepSpeed/README.md
+2025-10-30 20:55:49,865 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=1
+2025-10-30 20:55:49,865 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:55:54,327 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码块示例 'ds_report' 是 DeepSpeed 提供的功能，用于验证安装并查看机器兼容的扩展/操作，展示了如何使用该库的一个具体功能。
+2025-10-30 20:55:58,008 - __main__ - INFO - 处理完成: deepspeedai/DeepSpeed - 1 个任务
+2025-10-30 20:55:58,008 - __main__ - INFO - ✓ 有效仓库累计: 44/50
+2025-10-30 20:56:00,014 - __main__ - INFO - 
+候选进度: 101 | 有效仓库: 44/50
+2025-10-30 20:56:00,014 - __main__ - INFO - 当前仓库: chubin/cheat.sh (40388 stars)
+2025-10-30 20:56:00,014 - __main__ - INFO - 处理仓库: chubin/cheat.sh
+2025-10-30 20:56:00,348 - __main__ - INFO - 获取README成功: chubin/cheat.sh/README.md
+2025-10-30 20:56:00,350 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=0
+2025-10-30 20:56:00,351 - __main__ - WARNING - 未找到示例代码，跳过仓库: chubin/cheat.sh
+2025-10-30 20:56:00,351 - __main__ - WARNING - ✗ 跳过仓库 chubin/cheat.sh: README中未找到示例代码
+2025-10-30 20:56:02,356 - __main__ - INFO - 
+候选进度: 102 | 有效仓库: 44/50
+2025-10-30 20:56:02,356 - __main__ - INFO - 当前仓库: gradio-app/gradio (40365 stars)
+2025-10-30 20:56:02,357 - __main__ - INFO - 处理仓库: gradio-app/gradio
+2025-10-30 20:56:02,620 - __main__ - INFO - 获取README成功: gradio-app/gradio/README.md
+2025-10-30 20:56:02,622 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=2
+2025-10-30 20:56:02,622 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:56:05,285 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示如何使用Gradio库，通过调用Gradio的API来创建和分享一个简单的web应用示例，符合用户使用该工具的示例标准。
+2025-10-30 20:56:06,470 - __main__ - INFO - 获取Docker文件成功: gradio-app/gradio/.dockerignore
+2025-10-30 20:56:06,471 - __main__ - INFO - 找到Docker文件: ['.dockerignore']
+2025-10-30 20:56:25,915 - __main__ - INFO - 处理完成: gradio-app/gradio - 2 个任务
+2025-10-30 20:56:25,915 - __main__ - INFO - ✓ 有效仓库累计: 45/50
+2025-10-30 20:56:27,920 - __main__ - INFO - 
+候选进度: 103 | 有效仓库: 45/50
+2025-10-30 20:56:27,921 - __main__ - INFO - 当前仓库: crewAIInc/crewAI (39884 stars)
+2025-10-30 20:56:27,921 - __main__ - INFO - 处理仓库: crewAIInc/crewAI
+2025-10-30 20:56:28,503 - __main__ - INFO - 获取README成功: crewAIInc/crewAI/README.md
+2025-10-30 20:56:28,505 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=2
+2025-10-30 20:56:28,505 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:56:30,791 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用CrewAI库创建一个新的项目，是用户使用该工具的示例。
+2025-10-30 20:56:35,508 - __main__ - INFO - 处理完成: crewAIInc/crewAI - 1 个任务
+2025-10-30 20:56:35,509 - __main__ - INFO - ✓ 有效仓库累计: 46/50
+2025-10-30 20:56:37,514 - __main__ - INFO - 
+候选进度: 104 | 有效仓库: 46/50
+2025-10-30 20:56:37,514 - __main__ - INFO - 当前仓库: google-research/bert (39616 stars)
+2025-10-30 20:56:37,515 - __main__ - INFO - 处理仓库: google-research/bert
+2025-10-30 20:56:37,890 - __main__ - INFO - 获取README成功: google-research/bert/README.md
+2025-10-30 20:56:37,891 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=13
+2025-10-30 20:56:37,892 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:56:41,331 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码块展示了如何使用google-research/bert仓库中的功能进行模型的训练和预测，是用户使用该工具的示例。
+2025-10-30 20:57:27,936 - __main__ - INFO - 处理完成: google-research/bert - 10 个任务
+2025-10-30 20:57:27,937 - __main__ - INFO - ✓ 有效仓库累计: 47/50
+2025-10-30 20:57:29,942 - __main__ - INFO - 
+候选进度: 105 | 有效仓库: 47/50
+2025-10-30 20:57:29,942 - __main__ - INFO - 当前仓库: ray-project/ray (39607 stars)
+2025-10-30 20:57:29,943 - __main__ - INFO - 处理仓库: ray-project/ray
+2025-10-30 20:57:30,273 - __main__ - INFO - 获取README成功: ray-project/ray/README.rst
+2025-10-30 20:57:30,275 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:57:30,275 - __main__ - WARNING - 未找到示例代码，跳过仓库: ray-project/ray
+2025-10-30 20:57:30,275 - __main__ - WARNING - ✗ 跳过仓库 ray-project/ray: README中未找到示例代码
+2025-10-30 20:57:32,279 - __main__ - INFO - 
+候选进度: 106 | 有效仓库: 47/50
+2025-10-30 20:57:32,280 - __main__ - INFO - 当前仓库: ccxt/ccxt (39602 stars)
+2025-10-30 20:57:32,280 - __main__ - INFO - 处理仓库: ccxt/ccxt
+2025-10-30 20:57:32,683 - __main__ - INFO - 获取README成功: ccxt/ccxt/README.md
+2025-10-30 20:57:32,685 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=0
+2025-10-30 20:57:32,685 - __main__ - WARNING - 未找到示例代码，跳过仓库: ccxt/ccxt
+2025-10-30 20:57:32,685 - __main__ - WARNING - ✗ 跳过仓库 ccxt/ccxt: README中未找到示例代码
+2025-10-30 20:57:34,687 - __main__ - INFO - 
+候选进度: 107 | 有效仓库: 47/50
+2025-10-30 20:57:34,689 - __main__ - INFO - 当前仓库: yeongpin/cursor-free-vip (39558 stars)
+2025-10-30 20:57:34,689 - __main__ - INFO - 处理仓库: yeongpin/cursor-free-vip
+2025-10-30 20:57:34,951 - __main__ - INFO - 获取README成功: yeongpin/cursor-free-vip/README.md
+2025-10-30 20:57:34,952 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=2
+2025-10-30 20:57:34,952 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:57:37,626 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何在Windows上使用该工具进行安装，是用户使用该工具的示例。
+2025-10-30 20:57:39,510 - __main__ - WARNING - 过滤后任务列表为空，跳过仓库: yeongpin/cursor-free-vip
+2025-10-30 20:57:39,511 - __main__ - WARNING - ✗ 跳过仓库 yeongpin/cursor-free-vip: 过滤后任务列表为空
+2025-10-30 20:57:41,516 - __main__ - INFO - 
+候选进度: 108 | 有效仓库: 47/50
+2025-10-30 20:57:41,517 - __main__ - INFO - 当前仓库: zhayujie/chatgpt-on-wechat (39530 stars)
+2025-10-30 20:57:41,517 - __main__ - INFO - 处理仓库: zhayujie/chatgpt-on-wechat
+2025-10-30 20:57:41,844 - __main__ - INFO - 获取README成功: zhayujie/chatgpt-on-wechat/README.md
+2025-10-30 20:57:41,847 - __main__ - INFO - 提取代码块: setup=3, docker=2, example=6
+2025-10-30 20:57:41,847 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:57:44,651 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码块展示了如何配置和运行该仓库的工具，是用户使用该工具的示例。
+2025-10-30 20:57:44,927 - __main__ - INFO - 获取Docker文件成功: zhayujie/chatgpt-on-wechat/Dockerfile
+2025-10-30 20:57:45,752 - __main__ - INFO - 找到Docker文件: ['Dockerfile']
+2025-10-30 20:57:58,617 - __main__ - INFO - 处理完成: zhayujie/chatgpt-on-wechat - 3 个任务
+2025-10-30 20:57:58,618 - __main__ - INFO - ✓ 有效仓库累计: 48/50
+2025-10-30 20:58:00,619 - __main__ - INFO - 
+候选进度: 109 | 有效仓库: 48/50
+2025-10-30 20:58:00,619 - __main__ - INFO - 当前仓库: floodsung/Deep-Learning-Papers-Reading-Roadmap (39361 stars)
+2025-10-30 20:58:00,619 - __main__ - INFO - 处理仓库: floodsung/Deep-Learning-Papers-Reading-Roadmap
+2025-10-30 20:58:00,993 - __main__ - INFO - 获取README成功: floodsung/Deep-Learning-Papers-Reading-Roadmap/README.md
+2025-10-30 20:58:00,994 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:58:00,995 - __main__ - WARNING - 未找到示例代码，跳过仓库: floodsung/Deep-Learning-Papers-Reading-Roadmap
+2025-10-30 20:58:00,995 - __main__ - WARNING - ✗ 跳过仓库 floodsung/Deep-Learning-Papers-Reading-Roadmap: README中未找到示例代码
+2025-10-30 20:58:03,000 - __main__ - INFO - 
+候选进度: 110 | 有效仓库: 48/50
+2025-10-30 20:58:03,001 - __main__ - INFO - 当前仓库: hiroi-sora/Umi-OCR (39316 stars)
+2025-10-30 20:58:03,001 - __main__ - INFO - 处理仓库: hiroi-sora/Umi-OCR
+2025-10-30 20:58:03,266 - __main__ - INFO - 获取README成功: hiroi-sora/Umi-OCR/README.md
+2025-10-30 20:58:03,267 - __main__ - INFO - 提取代码块: setup=0, docker=0, example=0
+2025-10-30 20:58:03,267 - __main__ - WARNING - 未找到示例代码，跳过仓库: hiroi-sora/Umi-OCR
+2025-10-30 20:58:03,267 - __main__ - WARNING - ✗ 跳过仓库 hiroi-sora/Umi-OCR: README中未找到示例代码
+2025-10-30 20:58:05,269 - __main__ - INFO - 
+候选进度: 111 | 有效仓库: 48/50
+2025-10-30 20:58:05,270 - __main__ - INFO - 当前仓库: lm-sys/FastChat (39198 stars)
+2025-10-30 20:58:05,270 - __main__ - INFO - 处理仓库: lm-sys/FastChat
+2025-10-30 20:58:05,643 - __main__ - INFO - 获取README成功: lm-sys/FastChat/README.md
+2025-10-30 20:58:05,643 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=10
+2025-10-30 20:58:05,643 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:58:08,284 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码块展示了如何安装和使用FastChat库的功能，包括安装包、启动服务和进行模型推理，属于用户使用该工具的示例。
+2025-10-30 20:58:29,537 - __main__ - INFO - 处理完成: lm-sys/FastChat - 6 个任务
+2025-10-30 20:58:29,537 - __main__ - INFO - ✓ 有效仓库累计: 49/50
+2025-10-30 20:58:31,537 - __main__ - INFO - 
+候选进度: 112 | 有效仓库: 49/50
+2025-10-30 20:58:31,538 - __main__ - INFO - 当前仓库: QuivrHQ/quivr (38564 stars)
+2025-10-30 20:58:31,538 - __main__ - INFO - 处理仓库: QuivrHQ/quivr
+2025-10-30 20:58:31,833 - __main__ - INFO - 获取README成功: QuivrHQ/quivr/README.md
+2025-10-30 20:58:31,835 - __main__ - INFO - 提取代码块: setup=1, docker=0, example=2
+2025-10-30 20:58:31,835 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:58:33,208 - __main__ - INFO - 代码验证结果: ✗ 不通过 - 代码块只是设置环境变量，并未展示如何使用Quivr库的功能或API。
+2025-10-30 20:58:33,209 - __main__ - WARNING - 代码不是usage example，跳过仓库: QuivrHQ/quivr
+2025-10-30 20:58:33,210 - __main__ - WARNING - ✗ 跳过仓库 QuivrHQ/quivr: 代码块不是仓库的使用示例
+2025-10-30 20:58:35,215 - __main__ - INFO - 
+候选进度: 113 | 有效仓库: 49/50
+2025-10-30 20:58:35,216 - __main__ - INFO - 当前仓库: NanmiCoder/MediaCrawler (38413 stars)
+2025-10-30 20:58:35,216 - __main__ - INFO - 处理仓库: NanmiCoder/MediaCrawler
+2025-10-30 20:58:35,505 - __main__ - INFO - 获取README成功: NanmiCoder/MediaCrawler/README.md
+2025-10-30 20:58:35,507 - __main__ - INFO - 提取代码块: setup=2, docker=0, example=7
+2025-10-30 20:58:35,507 - __main__ - INFO - 开始验证代码是否为usage example...
+2025-10-30 20:58:37,597 - __main__ - INFO - 代码验证结果: ✓ 通过 - 代码展示了如何使用MediaCrawler工具进行数据爬取，包括初始化数据库、安装依赖、运行爬虫程序等步骤，是用户使用该工具的示例。
+2025-10-30 20:58:53,628 - __main__ - INFO - 处理完成: NanmiCoder/MediaCrawler - 6 个任务
+2025-10-30 20:58:53,629 - __main__ - INFO - ✓ 有效仓库累计: 50/50
+2025-10-30 20:58:55,633 - __main__ - INFO - 
+✅ 已达到目标数量 50 个有效仓库
+2025-10-30 20:58:55,636 - __main__ - INFO - ============================================================
+2025-10-30 20:58:55,636 - __main__ - INFO - 批量处理完成
+2025-10-30 20:58:55,636 - __main__ - INFO - 有效仓库: 50/50
+2025-10-30 20:58:55,636 - __main__ - INFO - 总共尝试: 113 个候选
+2025-10-30 20:58:55,636 - __main__ - INFO - ============================================================

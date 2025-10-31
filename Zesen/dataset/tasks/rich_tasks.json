@@ -1,32 +1,32 @@
 {
   "tasks": [
     {
-      "task_title": "打印带样式的文本",
-      "task_description": "使用Rich库的print功能打印带有样式的文本。",
+      "task_title": "使用Rich库打印文本",
+      "task_description": "使用Rich库的print功能打印带样式的文本。",
       "example_code": "from rich import print\n\nprint(\"Hello, [bold magenta]World[/bold magenta]!\")",
       "running_command": null,
       "expected_input": null,
-      "expected_output": "Hello, World! (with 'World' in bold magenta)"
+      "expected_output": "Hello, World! (with magenta bold styling)"
     },
     {
       "task_title": "安装Pretty打印",
-      "task_description": "使用Pretty模块安装Rich的Pretty打印功能。",
+      "task_description": "使用Pretty模块安装Rich库的Pretty打印功能。",
       "example_code": "from rich import pretty\npretty.install()",
       "running_command": null,
       "expected_input": null,
       "expected_output": null
     },
     {
-      "task_title": "创建控制台对象",
-      "task_description": "创建一个Rich控制台对象以用于打印。",
+      "task_title": "创建Console对象",
+      "task_description": "创建一个Console对象以进行后续的打印操作。",
       "example_code": "from rich.console import Console\n\nconsole = Console()",
       "running_command": null,
       "expected_input": null,
       "expected_output": null
     },
     {
-      "task_title": "打印多个文本",
-      "task_description": "使用控制台对象打印多个文本。",
+      "task_title": "打印文本",
+      "task_description": "使用Console对象打印简单文本。",
       "example_code": "console.print(\"Hello\", \"World!\")",
       "running_command": null,
       "expected_input": null,
@@ -34,83 +34,83 @@
     },
     {
       "task_title": "打印带样式的文本",
-      "task_description": "使用控制台对象打印带样式的文本。",
+      "task_description": "使用Console对象打印带样式的文本。",
       "example_code": "console.print(\"Hello\", \"World!\", style=\"bold red\")",
       "running_command": null,
       "expected_input": null,
-      "expected_output": "Hello World! (with 'Hello' in bold red)"
+      "expected_output": "Hello World! (with bold red styling)"
     },
     {
-      "task_title": "打印带格式的文本",
-      "task_description": "使用控制台对象打印带有多种样式的文本。",
+      "task_title": "打印带样式的句子",
+      "task_description": "使用Console对象打印一个包含多种文本样式的句子。",
       "example_code": "console.print(\"Where there is a [bold cyan]Will[/bold cyan] there [u]is[/u] a [i]way[/i].\")",
       "running_command": null,
       "expected_input": null,
-      "expected_output": "Where there is a Will there is a way. (with styles applied)"
+      "expected_output": "Where there is a Will there is a way. (with various styles)"
     },
     {
       "task_title": "检查对象的属性和方法",
-      "task_description": "使用inspect功能检查列表对象的属性和方法。",
+      "task_description": "使用inspect模块检查一个列表的属性和方法。",
       "example_code": "my_list = [\"foo\", \"bar\"]\nfrom rich import inspect\ninspect(my_list, methods=True)",
       "running_command": null,
       "expected_input": null,
-      "expected_output": "Display of the 'my_list' object's attributes and methods."
+      "expected_output": "Output showing methods and properties of list."
     },
     {
-      "task_title": "记录信息",
-      "task_description": "使用控制台对象记录信息和本地变量。",
+      "task_title": "记录日志",
+      "task_description": "使用Console对象记录日志信息。",
       "example_code": "console.log(test_data, log_locals=True)",
       "running_command": null,
-      "expected_input": null,
-      "expected_output": "Log output of test_data with local variables."
+      "expected_input": "[{\"jsonrpc\": \"2.0\", \"method\": \"sum\", \"params\": [None, 1, 2, 4, False, True], \"id\": \"1\"}, ...]",
+      "expected_output": "Log output with local variables."
     },
     {
       "task_title": "打印表格",
-      "task_description": "使用Rich库打印格式化的表格。",
-      "example_code": "from rich.table import Table\n\n...\ntable.add_row(...)\nconsole.print(table)",
+      "task_description": "使用Table对象创建并打印一个表格。",
+      "example_code": "from rich.table import Table\n\nconsole = Console()\ntable = Table(show_header=True, header_style=\"bold magenta\")\n...console.print(table)",
       "running_command": null,
       "expected_input": null,
-      "expected_output": "Formatted table displaying movie data."
+      "expected_output": "A formatted table printed in the console."
     },
     {
-      "task_title": "跟踪进度",
-      "task_description": "使用track功能显示进度条。",
+      "task_title": "显示进度条",
+      "task_description": "使用track函数显示一个简单的进度条。",
       "example_code": "from rich.progress import track\n\nfor step in track(range(100)):\n    do_step(step)",
       "running_command": null,
       "expected_input": null,
-      "expected_output": "Progress bar indicating completion of steps."
+      "expected_output": "A progress bar showing completion percentage."
     },
     {
       "task_title": "显示任务状态",
-      "task_description": "使用状态上下文显示任务进展。",
-      "example_code": "with console.status(\"[bold green]Working on tasks...\") as status:\n    ...\n    console.log(f\"{task} complete\")",
+      "task_description": "使用Console对象显示任务的状态。",
+      "example_code": "with console.status(\"[bold green]Working on tasks...\") as status:\n    while tasks:\n        task = tasks.pop(0)\n        sleep(1)\n        console.log(f\"{task} complete\")",
       "running_command": null,
       "expected_input": null,
-      "expected_output": "Log messages indicating task completion."
+      "expected_output": "Status updates for each task completion."
     },
     {
       "task_title": "打印目录内容",
-      "task_description": "打印指定目录的文件列表。",
+      "task_description": "打印指定目录下的文件和文件夹名。",
       "example_code": "directory = os.listdir(sys.argv[1])\nprint(Columns(directory))",
       "running_command": null,
-      "expected_input": "Directory path",
-      "expected_output": "Formatted list of files in the specified directory."
+      "expected_input": "Path to directory",
+      "expected_output": "Formatted list of directory contents."
     },
     {
-      "task_title": "打印Markdown内容",
-      "task_description": "读取并打印Markdown文件内容。",
+      "task_title": "打印Markdown文本",
+      "task_description": "使用Console对象打印Markdown格式的文本。",
       "example_code": "with open(\"README.md\") as readme:\n    markdown = Markdown(readme.read())\nconsole.print(markdown)",
       "running_command": null,
-      "expected_input": "README.md file",
-      "expected_output": "Formatted Markdown content from the README file."
+      "expected_input": "Contents of README.md",
+      "expected_output": "Formatted output of Markdown content."
     },
     {
-      "task_title": "打印代码语法高亮",
-      "task_description": "使用Syntax功能打印带语法高亮的代码片段。",
+      "task_title": "打印带语法高亮的代码",
+      "task_description": "使用Syntax对象打印带语法高亮的代码片段。",
       "example_code": "syntax = Syntax(my_code, \"python\", theme=\"monokai\", line_numbers=True)\nconsole.print(syntax)",
       "running_command": null,
       "expected_input": "Python code string",
-      "expected_output": "Formatted code with syntax highlighting."
+      "expected_output": "Formatted output of the code with syntax highlighting."
     }
   ],
   "setup": {
@@ -118,7 +118,8 @@
       "python -m pip install rich"
     ],
     "docker_commands": [],
-    "docker_files": {}
+    "docker_files": {},
+    "docker_setup_descriptions": null
   },
   "input_to_gpt": {
     "repo_name": "Textualize/rich",

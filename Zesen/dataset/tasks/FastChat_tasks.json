@@ -1,0 +1,78 @@
+{
+  "tasks": [
+    {
+      "task_title": "启动控制器",
+      "task_description": "启动FastChat的控制器服务，用于管理模型和请求。",
+      "example_code": null,
+      "running_command": "python3 -m fastchat.serve.controller",
+      "expected_input": null,
+      "expected_output": "控制器服务正在运行"
+    },
+    {
+      "task_title": "启动模型工作者",
+      "task_description": "启动FastChat的模型工作者，指定要加载的模型路径。",
+      "example_code": null,
+      "running_command": "python3 -m fastchat.serve.model_worker --model-path lmsys/vicuna-7b-v1.5",
+      "expected_input": null,
+      "expected_output": "模型工作者已加载模型 lmsys/vicuna-7b-v1.5"
+    },
+    {
+      "task_title": "测试消息",
+      "task_description": "使用指定模型名称测试消息传递功能。",
+      "example_code": null,
+      "running_command": "python3 -m fastchat.serve.test_message --model-name vicuna-7b-v1.5",
+      "expected_input": null,
+      "expected_output": "测试消息成功，返回响应"
+    },
+    {
+      "task_title": "启动Gradio Web服务器",
+      "task_description": "启动Gradio Web服务器以提供用户界面。",
+      "example_code": null,
+      "running_command": "python3 -m fastchat.serve.gradio_web_server",
+      "expected_input": null,
+      "expected_output": "Gradio Web服务器正在运行"
+    },
+    {
+      "task_title": "启动多实例Gradio Web服务器",
+      "task_description": "启动多个Gradio Web服务器实例以处理并发请求。",
+      "example_code": null,
+      "running_command": "python3 -m fastchat.serve.gradio_web_server_multi",
+      "expected_input": null,
+      "expected_output": "多个Gradio Web服务器正在运行"
+    },
+    {
+      "task_title": "训练模型",
+      "task_description": "使用指定参数训练模型，包括数据路径、训练周期和批量大小等。",
+      "example_code": null,
+      "running_command": "torchrun --nproc_per_node=4 --master_port=20001 fastchat/train/train_mem.py --model_name_or_path meta-llama/Llama-2-7b-hf --data_path data/dummy_conversation.json --bf16 True --output_dir output_vicuna --num_train_epochs 3 --per_device_train_batch_size 2 --per_device_eval_batch_size 2 --gradient_accumulation_steps 16 --evaluation_strategy \"no\" --save_strategy \"steps\" --save_steps 1200 --save_total_limit 10 --learning_rate 2e-5 --weight_decay 0. --warmup_ratio 0.03 --lr_scheduler_type \"cosine\" --logging_steps 1 --fsdp \"full_shard auto_wrap\" --fsdp_transformer_layer_cls_to_wrap 'LlamaDecoderLayer' --tf32 True --model_max_length 2048 --gradient_checkpointing True --lazy_preprocess True",
+      "expected_input": null,
+      "expected_output": "模型训练完成，输出结果保存在 output_vicuna 目录"
+    }
+  ],
+  "setup": {
+    "setup_commands": [
+      "git clone https://github.com/lm-sys/FastChat.git\ncd FastChat",
+      "brew install rust cmake"
+    ],
+    "docker_commands": [],
+    "docker_files": {},
+    "docker_setup_descriptions": null
+  },
+  "input_to_gpt": {
+    "repo_name": "lm-sys/FastChat",
+    "num_code_blocks": 10,
+    "total_length": 1352,
+    "code_blocks": [
+      "pip3 install \"fschat[model_worker,webui]\"",
+      "pip3 install --upgrade pip  # enable PEP 660 support\npip3 install -e \".[model_worker,webui]\"",
+      "export FASTCHAT_USE_MODELSCOPE=True",
+      "python3 -m fastchat.serve.controller",
+      "python3 -m fastchat.serve.model_worker --model-path lmsys/vicuna-7b-v1.5",
+      "python3 -m fastchat.serve.test_message --model-name vicuna-7b-v1.5",
+      "python3 -m fastchat.serve.gradio_web_server",
+      "python3 -m fastchat.serve.gradio_web_server_multi",
+      "pip3 install -e \".[train]\"",
+      "torchrun --nproc_per_node=4 --master_port=20001 fastchat/train/train_mem.py \\\n    --model_name_or_path meta-llama/Llama-2-7b-hf \\\n    --data_path data/dummy_conversation.json \\\n    --bf16 True \\\n    --output_dir output_vicuna \\\n    --num_train_epochs 3 \\\n    --per_device_train_batch_size 2 \\\n    --per_device_eval_batch_size 2 \\\n    --gradient_accumulation_steps 16 \\\n    --evaluation_strategy \"no\" \\\n    --save_strategy \"steps\" \\\n    --save_steps 1200 \\\n    --save_total_limit 10 \\\n    --learning_rate 2e-5 \\\n    --weight_decay 0. \\\n    --warmup_ratio 0.03 \\\n    --lr_scheduler_type \"cosine\" \\\n    --logging_steps 1 \\\n    --fsdp \"full_shard auto_wrap\" \\\n    --fsdp_transformer_layer_cls_to_wrap 'LlamaDecoderLayer' \\\n    --tf32 True \\\n    --model_max_length 2048 \\\n    --gradient_checkpointing True \\\n    --lazy_preprocess True"
+    ]
+  }
+}

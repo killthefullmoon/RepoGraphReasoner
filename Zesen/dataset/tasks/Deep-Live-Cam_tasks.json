@@ -2,7 +2,7 @@
   "tasks": [
     {
       "task_title": "使用CUDA执行",
-      "task_description": "通过CUDA执行模型推理。",
+      "task_description": "该任务使用CUDA作为执行提供者运行程序。",
       "example_code": null,
       "running_command": "python run.py --execution-provider cuda",
       "expected_input": null,
@@ -10,15 +10,23 @@
     },
     {
       "task_title": "使用CoreML执行",
-      "task_description": "通过CoreML执行模型推理。",
+      "task_description": "该任务使用CoreML作为执行提供者运行程序。",
       "example_code": null,
       "running_command": "python3.10 run.py --execution-provider coreml",
       "expected_input": null,
       "expected_output": null
     },
     {
+      "task_title": "使用CoreML执行",
+      "task_description": "该任务再次使用CoreML作为执行提供者运行程序。",
+      "example_code": null,
+      "running_command": "python run.py --execution-provider coreml",
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
       "task_title": "使用DirectML执行",
-      "task_description": "通过DirectML执行模型推理。",
+      "task_description": "该任务使用DirectML作为执行提供者运行程序。",
       "example_code": null,
       "running_command": "python run.py --execution-provider directml",
       "expected_input": null,
@@ -26,7 +34,7 @@
     },
     {
       "task_title": "使用OpenVINO执行",
-      "task_description": "通过OpenVINO执行模型推理。",
+      "task_description": "该任务使用OpenVINO作为执行提供者运行程序。",
       "example_code": null,
       "running_command": "python run.py --execution-provider openvino",
       "expected_input": null,
@@ -47,7 +55,8 @@
       "pip uninstall onnxruntime onnxruntime-openvino\npip install onnxruntime-openvino==1.21.0"
     ],
     "docker_commands": [],
-    "docker_files": {}
+    "docker_files": {},
+    "docker_setup_descriptions": null
   },
   "input_to_gpt": {
     "repo_name": "hacksider/Deep-Live-Cam",

@@ -1,21 +1,22 @@
 {
   "repo": {
     "full_name": "zai-org/ChatGLM-6B",
-    "stars": 41152,
+    "stars": 41149,
     "forks": 5212,
     "language": "Python",
     "description": "ChatGLM-6B: An Open Bilingual Dialogue Language Model | 开源双语对话语言模型",
     "topics": [],
     "url": "https://github.com/zai-org/ChatGLM-6B",
     "created_at": "2023-03-13T12:00:18Z",
-    "updated_at": "2025-10-29T02:33:22Z"
+    "updated_at": "2025-10-30T06:49:22Z"
   },
   "readme_file": "dataset/readmes/ChatGLM-6B_README.md",
   "task_file": "dataset/tasks/ChatGLM-6B_tasks.json",
-  "num_tasks": 6,
+  "num_tasks": 7,
   "num_setup_commands": 4,
   "num_docker_commands": 0,
   "has_docker_files": false,
   "docker_files_list": [],
-  "processed_at": "2025-10-28T23:13:37.637030"
+  "docker_setup_descriptions": null,
+  "processed_at": "2025-10-30T20:55:20.980487"
 }

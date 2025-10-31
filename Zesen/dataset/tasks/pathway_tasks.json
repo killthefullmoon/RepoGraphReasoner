@@ -2,43 +2,43 @@
   "tasks": [
     {
       "task_title": "读取CSV数据",
-      "task_description": "使用Pathway库读取CSV文件，并定义数据的模式。",
+      "task_description": "连接到CSV格式的数据文件，并定义数据的模式。",
       "example_code": "import pathway as pw\n\nclass InputSchema(pw.Schema):\n  value: int\n\ninput_table = pw.io.csv.read(\n  \"./input/\",\n  schema=InputSchema\n)",
       "running_command": null,
       "expected_input": "./input/",
-      "expected_output": "数据表格对象，包含CSV文件中的数据"
+      "expected_output": "表格数据以InputSchema定义的结构加载"
     },
     {
       "task_title": "过滤数据",
-      "task_description": "对读取的数据进行过滤，只保留值大于或等于0的记录。",
+      "task_description": "过滤出值大于等于0的数据行。",
       "example_code": "filtered_table = input_table.filter(input_table.value>=0)",
       "running_command": null,
       "expected_input": "input_table",
-      "expected_output": "过滤后的数据表格对象，包含值大于或等于0的记录"
+      "expected_output": "仅包含value >= 0的行"
     },
     {
-      "task_title": "计算总和",
-      "task_description": "对过滤后的数据进行聚合计算，计算'value'列的总和。",
+      "task_title": "聚合数据",
+      "task_description": "对过滤后的数据进行求和操作，计算value的总和。",
       "example_code": "result_table = filtered_table.reduce(\n  sum_value = pw.reducers.sum(filtered_table.value)\n)",
       "running_command": null,
       "expected_input": "filtered_table",
-      "expected_output": "结果表格对象，包含'value'列的总和"
+      "expected_output": "包含sum_value字段的聚合结果"
     },
     {
-      "task_title": "写入JSONL文件",
-      "task_description": "将计算结果写入到JSON Lines格式的文件中。",
+      "task_title": "将结果写入JSON Lines格式",
+      "task_description": "将计算结果写入到指定的JSON Lines文件中。",
       "example_code": "pw.io.jsonlines.write(result_table, \"output.jsonl\")",
       "running_command": null,
       "expected_input": "result_table",
-      "expected_output": "output.jsonl文件，包含聚合结果"
+      "expected_output": "输出到output.jsonl文件"
     },
     {
       "task_title": "运行计算",
-      "task_description": "执行Pathway的计算流程。",
+      "task_description": "执行所有定义的计算操作。",
       "example_code": "pw.run()",
       "running_command": null,
       "expected_input": null,
-      "expected_output": "执行计算流程的结果"
+      "expected_output": "执行所有数据处理任务"
     }
   ],
   "setup": {
@@ -48,6 +48,9 @@
     "docker_commands": [],
     "docker_files": {
       ".dockerignore": "target/debug/\n!target/**/*.whl\n"
+    },
+    "docker_setup_descriptions": {
+      ".dockerignore": "### Building and Running Docker with `.dockerignore` in `pathwaycom/pathway`\n\n#### Overview of `.dockerignore`\n\nThe `.dockerignore` file is used to specify which files and directories should be excluded from the Docker build context. This helps optimize the build process by reducing the size of the context sent to the Docker daemon, speeding up builds, and preventing unnecessary files from being included in the image.\n\n#### Semantic Meaning of the Provided `.dockerignore` Content\n\n- `target/debug/`: This line excludes the entire `target/debug/` directory from the Docker build context. This is typically where build artifacts are stored during development, and excluding it helps keep the image lightweight.\n  \n- `!target/**/*.whl`: This line is an exception rule that includes all `.whl` (wheel) files located anywhere within the `target` directory and its subdirectories. This is useful for ensuring that any built Python packages are included in the Docker image, even though the rest of the `target/debug/` directory is excluded.\n\n#### Steps to Build and Run Docker\n\n1. **Navigate to the Repository Directory**:\n   ```bash\n   cd pathwaycom/pathway\n   ```\n\n2. **Build the Docker Image**:\n   Use the following command to build the Docker image. Replace `your-image-name` with your desired image name.\n   ```bash\n   docker build -t your-image-name .\n   ```\n\n3. **Run the Docker Container**:\n   After building the image, run a container using the following command. Replace `your-image-name` with the name you used in the build step.\n   ```bash\n   docker run -d your-image-name\n   ```\n\n#### Additional Notes\n\n- Ensure that Docker is installed and running on your machine before executing the commands.\n- You may refer to the repository's README for any specific Docker commands or configurations that may be necessary for your application."
     }
   },
   "input_to_gpt": {

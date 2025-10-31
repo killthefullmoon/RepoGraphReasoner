@@ -1,36 +1,36 @@
 {
   "tasks": [
     {
-      "task_title": "Run main script with tickers",
-      "task_description": "运行主脚本以获取指定股票（AAPL, MSFT, NVDA）的数据。",
+      "task_title": "运行主程序获取股票数据",
+      "task_description": "使用指定的股票代码（如AAPL, MSFT, NVDA）运行主程序以获取相关的金融数据。",
       "example_code": null,
       "running_command": "poetry run python src/main.py --ticker AAPL,MSFT,NVDA",
       "expected_input": "AAPL, MSFT, NVDA",
-      "expected_output": "Financial data for AAPL, MSFT, NVDA"
+      "expected_output": "获取到的股票数据"
     },
     {
-      "task_title": "Run main script with tickers and Ollama",
-      "task_description": "运行主脚本以获取指定股票（AAPL, MSFT, NVDA）的数据，并启用Ollama功能。",
+      "task_title": "使用Ollama运行主程序",
+      "task_description": "在获取股票数据时启用Ollama功能，使用指定的股票代码。",
       "example_code": null,
       "running_command": "poetry run python src/main.py --ticker AAPL,MSFT,NVDA --ollama",
       "expected_input": "AAPL, MSFT, NVDA",
-      "expected_output": "Financial data for AAPL, MSFT, NVDA with Ollama"
+      "expected_output": "获取到的股票数据与Ollama相关的输出"
     },
     {
-      "task_title": "Run main script with date range",
-      "task_description": "运行主脚本以获取指定股票（AAPL, MSFT, NVDA）在特定日期范围内的数据。",
+      "task_title": "指定时间范围获取股票数据",
+      "task_description": "运行主程序以获取指定时间范围内的股票数据，使用股票代码和开始、结束日期。",
       "example_code": null,
       "running_command": "poetry run python src/main.py --ticker AAPL,MSFT,NVDA --start-date 2024-01-01 --end-date 2024-03-01",
       "expected_input": "AAPL, MSFT, NVDA, 2024-01-01, 2024-03-01",
-      "expected_output": "Financial data for AAPL, MSFT, NVDA from 2024-01-01 to 2024-03-01"
+      "expected_output": "2024年1月1日至2024年3月1日的股票数据"
     },
     {
-      "task_title": "Run backtester script with tickers",
-      "task_description": "运行回测脚本以测试指定股票（AAPL, MSFT, NVDA）的投资策略。",
+      "task_title": "运行回测程序",
+      "task_description": "使用指定的股票代码运行回测程序以测试交易策略的有效性。",
       "example_code": null,
       "running_command": "poetry run python src/backtester.py --ticker AAPL,MSFT,NVDA",
       "expected_input": "AAPL, MSFT, NVDA",
-      "expected_output": "Backtest results for AAPL, MSFT, NVDA"
+      "expected_output": "回测结果和策略表现"
     }
   ],
   "setup": {
@@ -42,6 +42,9 @@
     "docker_commands": [],
     "docker_files": {
       ".dockerignore": "# Git\n.git\n.gitignore\n\n# Poetry\n.venv\n__pycache__/\n*.py[cod]\n*$py.class\n.pytest_cache/\n\n# Environment\n.env\n\n# IDEs and editors\n.idea/\n.vscode/\n*.swp\n*.swo\n\n# Logs and data\nlogs/\ndata/\n*.log\n\n# OS specific\n.DS_Store\nThumbs.db \n"
+    },
+    "docker_setup_descriptions": {
+      ".dockerignore": "### Building and Running Docker with `.dockerignore` from `virattt/ai-hedge-fund`\n\n#### Overview of `.dockerignore`\n\nThe `.dockerignore` file is used to specify files and directories that should be excluded from the Docker build context. This helps to reduce the size of the Docker image and speeds up the build process by preventing unnecessary files from being sent to the Docker daemon. The semantic meaning of each entry in the provided `.dockerignore` file is as follows:\n\n1. **Git-related files**:\n   - `.git` and `.gitignore`: Exclude version control metadata to keep the image clean and avoid unnecessary bloat.\n\n2. **Python environment and cache**:\n   - `.venv`: Exclude virtual environment directories to avoid including local dependencies.\n   - `__pycache__/`, `*.py[cod]`, `*$py.class`, `.pytest_cache/`: Exclude compiled Python files and cache directories that are not needed for deployment.\n\n3. **Environment variables**:\n   - `.env`: Exclude environment variable files to prevent sensitive information from being included in the image.\n\n4. **IDE and editor files**:\n   - `.idea/`, `.vscode/`, `*.swp`, `*.swo`: Exclude configuration files and temporary files created by IDEs and text editors.\n\n5. **Logs and data**:\n   - `logs/`, `data/`, `*.log`: Exclude log files and data directories that are not necessary for the application to run.\n\n6. **Operating System specific files**:\n   - `.DS_Store`, `Thumbs.db`: Exclude OS-specific metadata files that do not contribute to the application.\n\n#### Building and Running Docker\n\n1. **Clone the Repository**:\n   ```bash\n   git clone https://github.com/virattt/ai-hedge-fund.git\n   cd ai-hedge-fund\n   ```\n\n2. **Build the Docker Image**:\n   Use the following command to build the Docker image. Replace `your-image-name` with your desired image name.\n   ```bash\n   docker build -t your-image-name .\n   ```\n\n3. **Run the Docker Container**:\n   After building the image, run the container using:\n   ```bash\n   docker run -d --name your-container-name your-image-name\n   ```\n\n4. **Check Running Containers**:\n   To verify that your container is running, use:\n   ```bash\n   docker ps\n   ```\n\n5. **Stop and Remove the Container** (if needed):\n   To stop and remove the container, use:\n   ```bash\n   docker stop your-container-name\n   docker rm your-container-name\n   ```\n\n#### Note:\n- Ensure that Docker is installed and running on your machine before executing these commands.\n- Review the repository's README for any specific Docker commands or configurations that may be required for your application."
     }
   },
   "input_to_gpt": {

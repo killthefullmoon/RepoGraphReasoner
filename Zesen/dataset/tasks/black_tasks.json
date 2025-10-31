@@ -1,20 +1,20 @@
 {
   "tasks": [
     {
-      "task_title": "格式化Python源文件或目录",
-      "task_description": "使用Black工具对指定的Python源文件或目录进行代码格式化，确保代码符合PEP 8风格指南。",
+      "task_title": "格式化Python代码",
+      "task_description": "使用black库格式化指定的Python源文件或目录。",
       "example_code": null,
       "running_command": "black {source_file_or_directory}",
-      "expected_input": "source_file_or_directory",
-      "expected_output": "格式化后的Python代码"
+      "expected_input": "path/to/your/python_file.py",
+      "expected_output": "Formatted code in the specified file."
     },
     {
-      "task_title": "使用Python模块格式化代码",
-      "task_description": "通过Python模块方式调用Black工具，对指定的Python源文件或目录进行代码格式化。",
+      "task_title": "格式化Python代码（模块方式）",
+      "task_description": "通过Python模块的方式使用black库格式化指定的Python源文件或目录。",
       "example_code": null,
       "running_command": "python -m black {source_file_or_directory}",
-      "expected_input": "source_file_or_directory",
-      "expected_output": "格式化后的Python代码"
+      "expected_input": "path/to/your/python_file.py",
+      "expected_output": "Formatted code in the specified file."
     }
   ],
   "setup": {
@@ -22,6 +22,9 @@
     "docker_commands": [],
     "docker_files": {
       "Dockerfile": "FROM python:3.12-slim AS builder\n\nRUN mkdir /src\nCOPY . /src/\nENV VIRTUAL_ENV=/opt/venv\nENV HATCH_BUILD_HOOKS_ENABLE=1\n# Install build tools to compile black + dependencies\nRUN apt update && apt install -y build-essential git python3-dev\nRUN python -m venv $VIRTUAL_ENV\nRUN python -m pip install --no-cache-dir hatch hatch-fancy-pypi-readme hatch-vcs\nRUN . /opt/venv/bin/activate && pip install --no-cache-dir --upgrade pip setuptools \\\n    && cd /src && hatch build -t wheel \\\n    && pip install --no-cache-dir dist/*-cp* \\\n    && pip install black[colorama,d,uvloop]\n\nFROM python:3.12-slim\n\n# copy only Python packages to limit the image size\nCOPY --from=builder /opt/venv /opt/venv\nENV PATH=\"/opt/venv/bin:$PATH\"\n\nCMD [\"/opt/venv/bin/black\"]\n"
+    },
+    "docker_setup_descriptions": {
+      "Dockerfile": "### Building and Running Docker for the `psf/black` Repository\n\n#### Overview of the Dockerfile\n\nThe provided Dockerfile is designed to create a Docker image for the `psf/black` project, a code formatter for Python. It employs a multi-stage build process to optimize the final image size by separating the build environment from the runtime environment.\n\n#### Semantic Breakdown of the Dockerfile\n\n1. **Base Image**: \n   - `FROM python:3.12-slim AS builder`: This line specifies the base image as a lightweight version of Python 3.12, setting up an environment for building the application.\n\n2. **Directory Creation**:\n   - `RUN mkdir /src`: Creates a directory `/src` in the container where the application code will reside.\n\n3. **Code Copying**:\n   - `COPY . /src/`: Copies the entire content of the current directory (the application code) into the `/src` directory in the container.\n\n4. **Environment Variables**:\n   - `ENV VIRTUAL_ENV=/opt/venv`: Sets the virtual environment path.\n   - `ENV HATCH_BUILD_HOOKS_ENABLE=1`: Enables build hooks for the Hatch tool, which is used for building Python packages.\n\n5. **Build Tools Installation**:\n   - `RUN apt update && apt install -y build-essential git python3-dev`: Installs necessary build tools and dependencies required to compile the application.\n\n6. **Virtual Environment Setup**:\n   - `RUN python -m venv $VIRTUAL_ENV`: Creates a virtual environment in the specified path.\n\n7. **Dependency Installation**:\n   - `RUN python -m pip install --no-cache-dir hatch hatch-fancy-pypi-readme hatch-vcs`: Installs Hatch and its related tools without caching to reduce image size.\n   - `RUN . /opt/venv/bin/activate && pip install --no-cache-dir --upgrade pip setuptools`: Activates the virtual environment and upgrades pip and setuptools.\n   - `&& cd /src && hatch build -t wheel`: Navigates to the source directory and builds the package into a wheel format.\n   - `&& pip install --no-cache-dir dist/*-cp*`: Installs the built package from the dist directory.\n   - `&& pip install black[colorama,d,uvloop]`: Installs the `black` formatter with additional optional dependencies.\n\n8. **Final Image Setup**:\n   - `FROM python:3.12-slim`: Starts a new stage with a clean, slim Python image for the final runtime environment.\n   - `COPY --from=builder /opt/venv /opt/venv`: Copies the virtual environment from the builder stage to the final image.\n   - `ENV PATH=\"/opt/venv/bin:$PATH\"`: Updates the PATH environment variable to include the virtual environment's binaries.\n\n9. **Command Execution**:\n   - `CMD [\"/opt/venv/bin/black\"]`: Specifies the default command to run when the container starts, which is the `black` formatter.\n\n#### Instructions to Build and Run\n\n1. **Build the Docker Image**:\n   Open a terminal and navigate to the directory containing the Dockerfile. Run the following command to build the Docker image:\n   ```bash\n   docker build -t black-formatter .\n   ```\n\n2. **Run the Docker Container**:\n   After the image is built, you can run the container with the following command:\n   ```bash\n   docker run --rm -v $(pwd):/workspace black-formatter /workspace\n   ```\n   This command mounts the current directory to `/workspace` in the container, allowing `black` to format the Python files in your project.\n\n#### Note\nEnsure that Docker is installed and running on your machine before executing these commands."
     }
   },
   "input_to_gpt": {

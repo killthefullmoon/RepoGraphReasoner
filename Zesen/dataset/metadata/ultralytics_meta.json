@@ -1,8 +1,8 @@
 {
   "repo": {
     "full_name": "ultralytics/ultralytics",
-    "stars": 47987,
-    "forks": 9257,
+    "stars": 48069,
+    "forks": 9281,
     "language": "Python",
     "description": "Ultralytics YOLO 🚀",
     "topics": [
@@ -29,7 +29,7 @@
     ],
     "url": "https://github.com/ultralytics/ultralytics",
     "created_at": "2022-09-11T16:39:45Z",
-    "updated_at": "2025-10-29T03:06:09Z"
+    "updated_at": "2025-10-31T00:14:43Z"
   },
   "readme_file": "dataset/readmes/ultralytics_README.md",
   "task_file": "dataset/tasks/ultralytics_tasks.json",
@@ -40,5 +40,8 @@
   "docker_files_list": [
     ".dockerignore"
   ],
-  "processed_at": "2025-10-28T23:11:11.401704"
+  "docker_setup_descriptions": {
+    ".dockerignore": "### Building and Running Docker with `.dockerignore` from `ultralytics/ultralytics`\n\n#### Semantic Meaning of `.dockerignore`\n\nThe `.dockerignore` file is used to specify files and directories that should be excluded from the Docker build context. This helps to reduce the size of the context sent to the Docker daemon, speeding up the build process and preventing unnecessary files from being included in the Docker image. The entries in the `.dockerignore` file are patterns that match files and directories, ensuring that only relevant files are included in the image.\n\n#### Contents of `.dockerignore`\n\n1. **Python Artifacts**: \n   - Excludes compiled Python files (`*.pyc`, `*.pyo`, `*.pyd`, etc.), cache directories (`__pycache__`, `.pytest_cache`, etc.), and build artifacts (`dist`, `build`, etc.) to keep the image clean and lightweight.\n\n2. **Development Files**: \n   - Ignores environment files (`.env`, `.venv`, `env/`, `venv/`, `ENV/`), IDE configuration files (`.idea`, `.vscode`), and temporary files (e.g., `.DS_Store`, `*.swp`, `*.swo`) that are not needed in production.\n\n3. **Project-Specific Logs**: \n   - Excludes log files (`*.log`, `benchmarks.log`, `runs/`) that are generated during development or testing, which are not necessary for the final image.\n\n4. **Dependencies**: \n   - Ignores `node_modules/` to prevent including unnecessary Node.js dependencies if they are not required for the Docker image.\n\n#### Actionable Steps to Build and Run Docker\n\n1. **Clone the Repository**:\n   ```bash\n   git clone https://github.com/ultralytics/ultralytics.git\n   cd ultralytics\n   ```\n\n2. **Build the Docker Image**:\n   Ensure you are in the root directory of the cloned repository and run:\n   ```bash\n   docker build -t ultralytics .\n   ```\n\n3. **Run the Docker Container**:\n   After successfully building the image, run the container:\n   ```bash\n   docker run -it --rm ultralytics\n   ```\n\n4. **Verify the Build**:\n   Check that the container is running and that the application behaves as expected.\n\n#### Related README Docker Commands\n\nRefer to the repository's README for any specific Docker commands or configurations that may be necessary for your use case. These might include environment variable settings or volume mounts that are essential for the application to function correctly within the Docker container."
+  },
+  "processed_at": "2025-10-30T20:50:53.623587"
 }
