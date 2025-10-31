@@ -1,96 +1,96 @@
 {
   "tasks": [
     {
-      "task_title": "同步依赖",
-      "task_description": "同步额外的torch和metrics依赖，允许预发布版本。",
+      "task_title": "Sync extra components",
+      "task_description": "Synchronizes additional components like torch and metrics with a pre-release option.",
       "example_code": null,
       "running_command": "uv sync --extra torch --extra metrics --prerelease=allow",
       "expected_input": null,
       "expected_output": null
     },
     {
-      "task_title": "训练模型（预训练）",
-      "task_description": "使用指定的YAML配置文件进行模型的预训练。",
+      "task_title": "Train model with LoRA pretraining",
+      "task_description": "Runs the training process using a configuration file for LoRA pretraining.",
       "example_code": null,
       "running_command": "uv run --prerelease=allow llamafactory-cli train examples/train_lora/llama3_lora_pretrain.yaml",
       "expected_input": null,
       "expected_output": null
     },
     {
-      "task_title": "训练模型（微调）",
-      "task_description": "使用指定的YAML配置文件进行模型的微调（SFT）。",
+      "task_title": "Train model with LoRA SFT",
+      "task_description": "Runs the training process using a configuration file for LoRA SFT.",
       "example_code": null,
       "running_command": "llamafactory-cli train examples/train_lora/llama3_lora_sft.yaml",
       "expected_input": null,
       "expected_output": null
     },
     {
-      "task_title": "聊天推理",
-      "task_description": "使用指定的YAML配置文件进行聊天推理。",
+      "task_title": "Chat with the trained model",
+      "task_description": "Starts a chat session using the trained model with the specified configuration.",
       "example_code": null,
       "running_command": "llamafactory-cli chat examples/inference/llama3_lora_sft.yaml",
       "expected_input": null,
       "expected_output": null
     },
     {
-      "task_title": "导出模型",
-      "task_description": "导出经过微调的模型，使用指定的YAML配置文件。",
+      "task_title": "Export trained model",
+      "task_description": "Exports the trained model using the specified configuration.",
       "example_code": null,
       "running_command": "llamafactory-cli export examples/merge_lora/llama3_lora_sft.yaml",
       "expected_input": null,
       "expected_output": null
     },
     {
-      "task_title": "启动Web UI",
-      "task_description": "启动LLaMA Factory的Web用户界面。",
+      "task_title": "Start web UI",
+      "task_description": "Launches the web user interface for interacting with the model.",
       "example_code": null,
       "running_command": "llamafactory-cli webui",
       "expected_input": null,
       "expected_output": null
     },
     {
-      "task_title": "启动CUDA Docker容器",
-      "task_description": "在CUDA环境中启动Docker容器并进入bash。",
+      "task_title": "Run Docker for CUDA",
+      "task_description": "Starts the Docker container for CUDA support.",
       "example_code": null,
-      "running_command": "cd docker/docker-cuda/\ndocker compose up -d\ndocker compose exec llamafactory bash",
+      "running_command": "cd docker/docker-cuda/ && docker compose up -d && docker compose exec llamafactory bash",
       "expected_input": null,
       "expected_output": null
     },
     {
-      "task_title": "启动NPU Docker容器",
-      "task_description": "在NPU环境中启动Docker容器并进入bash。",
+      "task_title": "Run Docker for NPU",
+      "task_description": "Starts the Docker container for NPU support.",
       "example_code": null,
-      "running_command": "cd docker/docker-npu/\ndocker compose up -d\ndocker compose exec llamafactory bash",
+      "running_command": "cd docker/docker-npu/ && docker compose up -d && docker compose exec llamafactory bash",
       "expected_input": null,
       "expected_output": null
     },
     {
-      "task_title": "启动ROCM Docker容器",
-      "task_description": "在ROCM环境中启动Docker容器并进入bash。",
+      "task_title": "Run Docker for ROCm",
+      "task_description": "Starts the Docker container for ROCm support.",
       "example_code": null,
-      "running_command": "cd docker/docker-rocm/\ndocker compose up -d\ndocker compose exec llamafactory bash",
+      "running_command": "cd docker/docker-rocm/ && docker compose up -d && docker compose exec llamafactory bash",
       "expected_input": null,
       "expected_output": null
     },
     {
-      "task_title": "API推理",
-      "task_description": "启动API服务进行推理，使用指定的YAML配置文件。",
+      "task_title": "Run inference API",
+      "task_description": "Starts an inference API with specified configuration and options.",
       "example_code": null,
       "running_command": "API_PORT=8000 llamafactory-cli api examples/inference/llama3.yaml infer_backend=vllm vllm_enforce_eager=true",
       "expected_input": null,
       "expected_output": null
     },
     {
-      "task_title": "使用ModelScope Hub",
-      "task_description": "设置环境变量以使用ModelScope Hub。",
+      "task_title": "Set ModelScope Hub environment variable",
+      "task_description": "Sets an environment variable to use the ModelScope Hub.",
       "example_code": null,
       "running_command": "export USE_MODELSCOPE_HUB=1",
       "expected_input": null,
       "expected_output": null
     },
     {
-      "task_title": "使用OpenMind Hub",
-      "task_description": "设置环境变量以使用OpenMind Hub。",
+      "task_title": "Set OpenMind Hub environment variable",
+      "task_description": "Sets an environment variable to use the OpenMind Hub.",
       "example_code": null,
       "running_command": "export USE_OPENMIND_HUB=1",
       "expected_input": null,
@@ -117,7 +117,7 @@
       ".dockerignore": ".vscode\n.git\n.github\n.venv\ncache\ndocker\nsaves\nhf_cache\nms_cache\nom_cache\nshared_data\noutput\n.dockerignore\n.gitattributes\n.gitignore\n"
     },
     "docker_setup_descriptions": {
-      ".dockerignore": "### Building and Running Docker for hiyouga/LLaMA-Factory\n\n#### Overview of `.dockerignore`\nThe `.dockerignore` file is used to specify files and directories that should be excluded from the Docker build context. This helps to reduce the size of the context sent to the Docker daemon, speeding up the build process and preventing unnecessary files from being included in the final image. In the provided `.dockerignore`, the following entries are excluded:\n\n- **Development and configuration files**: `.vscode`, `.git`, `.github`, `.venv`, `.dockerignore`, `.gitattributes`, `.gitignore`\n- **Cache and output directories**: `cache`, `docker`, `saves`, `hf_cache`, `ms_cache`, `om_cache`, `shared_data`, `output`\n\nThese exclusions ensure that only relevant files are included in the Docker image, maintaining a clean and efficient build.\n\n#### Step-by-Step Instructions\n\n1. **Clone the Repository**:\n   ```bash\n   git clone https://github.com/hiyouga/LLaMA-Factory.git\n   cd LLaMA-Factory\n   ```\n\n2. **Build the Docker Image**:\n   You can build the Docker image using one of the provided Dockerfiles. For example, to build with CUDA support:\n   ```bash\n   docker build -f ./docker/docker-cuda/Dockerfile \\\n       --build-arg PIP_INDEX=https://pypi.org/simple \\\n       --build-arg EXTRAS=metrics \\\n       -t llamafactory:latest .\n   ```\n\n3. **Run the Docker Container**:\n   After building the image, you can run it with GPU support:\n   ```bash\n   docker run -dit --ipc=host --gpus=all \\\n       -p 7860:7860 \\\n       -p 8000:8000 \\\n       --name llamafactory \\\n       llamafactory:latest\n   ```\n\n4. **Access the Running Container**:\n   To execute commands inside the running container:\n   ```bash\n   docker exec -it llamafactory bash\n   ```\n\n5. **Alternative Builds**:\n   If you need to build for NPU or ROCm, use the respective Dockerfiles:\n   ```bash\n   docker build -f ./docker/docker-npu/Dockerfile \\\n       --build-arg PIP_INDEX=https://pypi.org/simple \\\n       --build-arg EXTRAS=torch-npu,metrics \\\n       -t llamafactory:latest .\n\n   docker build -f ./docker/docker-rocm/Dockerfile \\\n       --build-arg PIP_INDEX=https://pypi.org/simple \\\n       --build-arg EXTRAS=metrics \\\n       -t llamafactory:latest .\n   ```\n\n6. **Run with NPU or ROCm**:\n   For running with NPU:\n   ```bash\n   docker run -dit --ipc=host \\\n       -v /usr/local/dcmi:/usr/local/dcmi \\\n       -v /usr/local/bin/npu-smi:/usr/local/bin/npu-smi \\\n       -v /usr/local/Ascend/driver:/usr/local/Ascend/driver \\\n       -v /etc/ascend_install.info:/etc/ascend_install.info \\\n       -p 7860:7860 \\\n       -p 8000:8000 \\\n       --device /dev/davinci0 \\\n       --device /dev/davinci_manager \\\n       --device /dev/devmm_svm \\\n       --device /dev/hisi_hdc \\\n       --name llamafactory \\\n       llamafactory:latest\n   ```\n\n   For running with ROCm:\n   ```bash\n   docker run -dit --ipc=host \\\n       -p 7860:7860 \\\n       -p 8000:8000 \\\n       --device /dev/kfd \\\n       --device /dev/dri \\\n       --name llamafactory \\\n       llamafactory:latest\n   ```\n\nBy following these steps, you can efficiently build and run the Docker container for the LLaMA-Factory project while ensuring that unnecessary files are excluded from the build context."
+      ".dockerignore": "To build and run the Docker image for the `hiyouga/LLaMA-Factory` repository, follow these steps:\n\n### Purpose of the Image\nThe Docker image created from this repository is designed to facilitate the development and deployment of the LLaMA-Factory project, which is likely focused on machine learning or natural language processing tasks. The image includes necessary dependencies for running the application efficiently, particularly leveraging GPU resources for enhanced performance.\n\n### Building the Image\n1. **Prepare Your Environment**: Ensure you have Docker installed on your machine. You should also have access to a terminal or command prompt.\n\n2. **Clone the Repository**: Clone the `hiyouga/LLaMA-Factory` repository to your local machine. This will provide you with the necessary files, including the Dockerfile and the `.dockerignore` file.\n\n3. **Understand the `.dockerignore` File**: The `.dockerignore` file specifies which files and directories should be excluded from the Docker build context. This helps keep the image lightweight and avoids unnecessary files being included. The entries in this file include common development artifacts like `.git`, `.venv`, and cache directories.\n\n4. **Build the Docker Image**: Navigate to the directory containing the Dockerfile. Use the Docker build command to create the image. The build process will utilize the specified Dockerfile and any build arguments necessary for your environment (e.g., package index or additional metrics).\n\n5. **Tag the Image**: During the build process, tag the image appropriately (e.g., `llamafactory:latest`) to easily reference it later.\n\n### Running the Image\n1. **Run the Container**: Once the image is built, you can run it using Docker. Use the `docker run` command to start a new container from the image. Ensure to allocate the necessary resources, such as GPU access and specific ports for application interaction (e.g., 7860 and 8000).\n\n2. **Interactive Shell Access**: If you need to interact with the container, you can execute a bash shell within the running container using the `docker exec` command. This allows you to run commands directly in the container environment.\n\n3. **Manage Resources**: Depending on your hardware and application requirements, you may need to adjust device mappings or volume mounts to ensure the container has access to necessary resources.\n\n### Conclusion\nBy following these steps, you will successfully build and run the Docker image for the LLaMA-Factory project. This setup allows for efficient development and testing of machine learning models, leveraging Docker's capabilities to manage dependencies and resources effectively."
     }
   },
   "input_to_gpt": {

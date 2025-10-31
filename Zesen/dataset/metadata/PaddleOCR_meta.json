@@ -1,8 +1,8 @@
 {
   "repo": {
     "full_name": "PaddlePaddle/PaddleOCR",
-    "stars": 62062,
-    "forks": 9191,
+    "stars": 62084,
+    "forks": 9192,
     "language": "Python",
     "description": "Turn any PDF or image document into structured data for your AI. A powerful, lightweight OCR toolkit that bridges the gap between images/PDFs and LLMs. Supports 100+ languages.",
     "topics": [
@@ -22,7 +22,7 @@
     ],
     "url": "https://github.com/PaddlePaddle/PaddleOCR",
     "created_at": "2020-05-08T10:38:16Z",
-    "updated_at": "2025-10-31T00:16:25Z"
+    "updated_at": "2025-10-31T03:29:28Z"
   },
   "readme_file": "dataset/readmes/PaddleOCR_README.md",
   "task_file": "dataset/tasks/PaddleOCR_tasks.json",
@@ -32,5 +32,5 @@
   "has_docker_files": false,
   "docker_files_list": [],
   "docker_setup_descriptions": null,
-  "processed_at": "2025-10-30T20:40:28.465931"
+  "processed_at": "2025-10-30T23:36:37.409283"
 }

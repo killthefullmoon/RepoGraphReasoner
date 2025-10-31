@@ -2,43 +2,43 @@
   "tasks": [
     {
       "task_title": "读取CSV数据",
-      "task_description": "连接到CSV格式的数据文件，并定义数据的模式。",
+      "task_description": "使用Pathway库从CSV文件读取数据，并定义数据的模式。",
       "example_code": "import pathway as pw\n\nclass InputSchema(pw.Schema):\n  value: int\n\ninput_table = pw.io.csv.read(\n  \"./input/\",\n  schema=InputSchema\n)",
       "running_command": null,
       "expected_input": "./input/",
-      "expected_output": "表格数据以InputSchema定义的结构加载"
+      "expected_output": "读取的表格数据"
     },
     {
       "task_title": "过滤数据",
-      "task_description": "过滤出值大于等于0的数据行。",
+      "task_description": "对读取的数据进行过滤，保留value字段大于等于0的行。",
       "example_code": "filtered_table = input_table.filter(input_table.value>=0)",
       "running_command": null,
       "expected_input": "input_table",
-      "expected_output": "仅包含value >= 0的行"
+      "expected_output": "过滤后的表格数据"
     },
     {
       "task_title": "聚合数据",
-      "task_description": "对过滤后的数据进行求和操作，计算value的总和。",
+      "task_description": "对过滤后的数据进行聚合，计算value字段的总和。",
       "example_code": "result_table = filtered_table.reduce(\n  sum_value = pw.reducers.sum(filtered_table.value)\n)",
       "running_command": null,
       "expected_input": "filtered_table",
-      "expected_output": "包含sum_value字段的聚合结果"
+      "expected_output": "聚合后的结果表，包含sum_value字段"
     },
     {
-      "task_title": "将结果写入JSON Lines格式",
-      "task_description": "将计算结果写入到指定的JSON Lines文件中。",
+      "task_title": "写入JSONL文件",
+      "task_description": "将聚合结果写入JSONL格式的文件。",
       "example_code": "pw.io.jsonlines.write(result_table, \"output.jsonl\")",
       "running_command": null,
       "expected_input": "result_table",
-      "expected_output": "输出到output.jsonl文件"
+      "expected_output": "output.jsonl文件"
     },
     {
       "task_title": "运行计算",
-      "task_description": "执行所有定义的计算操作。",
+      "task_description": "执行Pathway计算以处理数据流。",
       "example_code": "pw.run()",
       "running_command": null,
       "expected_input": null,
-      "expected_output": "执行所有数据处理任务"
+      "expected_output": "计算执行的结果"
     }
   ],
   "setup": {
@@ -50,7 +50,7 @@
       ".dockerignore": "target/debug/\n!target/**/*.whl\n"
     },
     "docker_setup_descriptions": {
-      ".dockerignore": "### Building and Running Docker with `.dockerignore` in `pathwaycom/pathway`\n\n#### Overview of `.dockerignore`\n\nThe `.dockerignore` file is used to specify which files and directories should be excluded from the Docker build context. This helps optimize the build process by reducing the size of the context sent to the Docker daemon, speeding up builds, and preventing unnecessary files from being included in the image.\n\n#### Semantic Meaning of the Provided `.dockerignore` Content\n\n- `target/debug/`: This line excludes the entire `target/debug/` directory from the Docker build context. This is typically where build artifacts are stored during development, and excluding it helps keep the image lightweight.\n  \n- `!target/**/*.whl`: This line is an exception rule that includes all `.whl` (wheel) files located anywhere within the `target` directory and its subdirectories. This is useful for ensuring that any built Python packages are included in the Docker image, even though the rest of the `target/debug/` directory is excluded.\n\n#### Steps to Build and Run Docker\n\n1. **Navigate to the Repository Directory**:\n   ```bash\n   cd pathwaycom/pathway\n   ```\n\n2. **Build the Docker Image**:\n   Use the following command to build the Docker image. Replace `your-image-name` with your desired image name.\n   ```bash\n   docker build -t your-image-name .\n   ```\n\n3. **Run the Docker Container**:\n   After building the image, run a container using the following command. Replace `your-image-name` with the name you used in the build step.\n   ```bash\n   docker run -d your-image-name\n   ```\n\n#### Additional Notes\n\n- Ensure that Docker is installed and running on your machine before executing the commands.\n- You may refer to the repository's README for any specific Docker commands or configurations that may be necessary for your application."
+      ".dockerignore": "To build and run a Docker image using the `.dockerignore` file from the repository `pathwaycom/pathway`, follow these steps:\n\n### Purpose of the Image\nThe Docker image is designed to encapsulate a development environment for a specific application, likely a Rust-based project given the presence of the `target/debug/` directory. The image will contain all necessary dependencies and tools required to compile and run the application efficiently.\n\n### Building Steps\n\n1. **Set Up Your Environment**: Ensure you have Docker installed on your machine. You can verify this by running `docker --version` in your terminal.\n\n2. **Clone the Repository**: Clone the repository to your local machine using Git:\n   ```\n   git clone https://github.com/pathwaycom/pathway.git\n   cd pathway\n   ```\n\n3. **Review the `.dockerignore` File**: The `.dockerignore` file specifies which files and directories should be excluded from the Docker build context. In this case, it ignores everything in the `target/debug/` directory, except for any `.whl` files within that directory. This helps to reduce the image size by excluding unnecessary build artifacts.\n\n4. **Build the Docker Image**: Use the Docker build command to create the image. This process will read the Dockerfile in the repository and use the context defined by the `.dockerignore` file to include only the necessary files. The build process will install dependencies specified in the Dockerfile, which may include Rust toolchains, libraries, and any other required packages.\n\n5. **Tag the Image**: Optionally, tag the image with a meaningful name for easier identification. This can be done during the build process.\n\n6. **Run the Docker Container**: Once the image is built, you can run a container from the image. This container will have all the dependencies installed and will allow you to execute the application in an isolated environment.\n\n### Dependencies\nThe built image will likely include:\n- The Rust programming language and its toolchain for compiling the application.\n- Any additional libraries or tools specified in the Dockerfile that are necessary for the application to run correctly.\n- The `.whl` files from the `target/debug/` directory, which may include Python packages if the application has Python components.\n\n### Conclusion\nBy following these steps, you will successfully build and run a Docker image for the application in the `pathwaycom/pathway` repository, ensuring that you have a consistent and isolated environment for development and testing."
     }
   },
   "input_to_gpt": {

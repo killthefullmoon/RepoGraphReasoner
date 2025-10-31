@@ -1,12 +1,52 @@
 {
   "tasks": [
     {
-      "task_title": "HTTP GET请求",
-      "task_description": "使用requests库发送HTTP GET请求，并进行基本的身份验证，获取响应状态码、头信息、编码和内容。",
-      "example_code": "import requests\n\nr = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass'))\n\nr.status_code\nr.headers['content-type']\nr.encoding\nr.text\nr.json()",
+      "task_title": "发送GET请求并进行基本认证",
+      "task_description": "使用requests库发送一个GET请求到指定URL，并使用基本认证进行身份验证。",
+      "example_code": "import requests\n\nr = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass'))",
       "running_command": null,
-      "expected_input": "https://httpbin.org/basic-auth/user/pass",
-      "expected_output": "200, 'application/json; charset=utf8', 'utf-8', '{\"authenticated\": true, ...}', {'authenticated': True, ...}"
+      "expected_input": "https://httpbin.org/basic-auth/user/pass, ('user', 'pass')",
+      "expected_output": "200"
+    },
+    {
+      "task_title": "获取响应状态码",
+      "task_description": "从HTTP响应中提取状态码以确认请求是否成功。",
+      "example_code": "r.status_code",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "200"
+    },
+    {
+      "task_title": "获取响应头部信息",
+      "task_description": "从HTTP响应中获取特定的头部信息，例如内容类型。",
+      "example_code": "r.headers['content-type']",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "'application/json; charset=utf8'"
+    },
+    {
+      "task_title": "获取响应编码",
+      "task_description": "获取HTTP响应的编码格式。",
+      "example_code": "r.encoding",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "'utf-8'"
+    },
+    {
+      "task_title": "获取响应文本",
+      "task_description": "获取HTTP响应的文本内容。",
+      "example_code": "r.text",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "'{\"authenticated\": true, ...'"
+    },
+    {
+      "task_title": "解析JSON响应",
+      "task_description": "将HTTP响应的文本内容解析为JSON格式的Python字典。",
+      "example_code": "r.json()",
+      "running_command": null,
+      "expected_input": null,
+      "expected_output": "{'authenticated': True, ...}"
     }
   ],
   "setup": {

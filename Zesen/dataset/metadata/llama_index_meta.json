@@ -19,15 +19,15 @@
     ],
     "url": "https://github.com/run-llama/llama_index",
     "created_at": "2022-11-02T04:24:54Z",
-    "updated_at": "2025-10-31T00:29:58Z"
+    "updated_at": "2025-10-31T03:23:09Z"
   },
   "readme_file": "dataset/readmes/llama_index_README.md",
   "task_file": "dataset/tasks/llama_index_tasks.json",
-  "num_tasks": 6,
+  "num_tasks": 5,
   "num_setup_commands": 2,
   "num_docker_commands": 0,
   "has_docker_files": false,
   "docker_files_list": [],
   "docker_setup_descriptions": null,
-  "processed_at": "2025-10-30T20:52:12.224899"
+  "processed_at": "2025-10-30T23:47:59.748105"
 }

@@ -1,68 +1,68 @@
 {
   "tasks": [
     {
-      "task_title": "PP-OCRv5 Inference",
-      "task_description": "使用PP-OCRv5进行OCR推理，处理图像并提取文本信息。",
+      "task_title": "Run PP-OCRv5 inference",
+      "task_description": "使用PP-OCRv5模型进行OCR推断，处理图像并提取文本。",
       "example_code": null,
       "running_command": "paddleocr ocr -i https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/general_ocr_002.png --use_doc_orientation_classify False --use_doc_unwarping False --use_textline_orientation False",
       "expected_input": "https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/general_ocr_002.png",
-      "expected_output": "提取的文本信息"
+      "expected_output": "提取的文本结果"
     },
     {
-      "task_title": "PP-StructureV3 Inference",
-      "task_description": "使用PP-StructureV3进行文档结构分析，提取结构化信息。",
+      "task_title": "Run PP-StructureV3 inference",
+      "task_description": "使用PP-StructureV3模型进行结构化文档推断，处理图像并提取结构信息。",
       "example_code": null,
       "running_command": "paddleocr pp_structurev3 -i https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/pp_structure_v3_demo.png --use_doc_orientation_classify False --use_doc_unwarping False",
       "expected_input": "https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/pp_structure_v3_demo.png",
-      "expected_output": "结构化的文档信息"
+      "expected_output": "提取的结构化信息"
     },
     {
-      "task_title": "PP-ChatOCRv4 Inference",
-      "task_description": "使用PP-ChatOCRv4进行OCR推理，并利用Qianfan API进行文本分析。",
+      "task_title": "Run PP-ChatOCRv4 inference",
+      "task_description": "使用PP-ChatOCRv4模型进行文档OCR推断，支持特定信息的提取。",
       "example_code": null,
       "running_command": "paddleocr pp_chatocrv4_doc -i https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/vehicle_certificate-1.png -k 驾驶室准乘人数 --qianfan_api_key your_api_key --use_doc_orientation_classify False --use_doc_unwarping False",
       "expected_input": "https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/vehicle_certificate-1.png",
-      "expected_output": "基于驾驶室准乘人数的分析结果"
+      "expected_output": "提取的特定信息"
     },
     {
-      "task_title": "PaddleOCR-VL Inference",
-      "task_description": "使用PaddleOCR-VL进行文档解析，处理图像并提取信息。",
+      "task_title": "Run PaddleOCR-VL inference",
+      "task_description": "使用PaddleOCR-VL模型进行文档解析，处理图像并提取信息。",
       "example_code": null,
       "running_command": "paddleocr doc_parser -i https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/paddleocr_vl_demo.png",
       "expected_input": "https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/paddleocr_vl_demo.png",
-      "expected_output": "文档解析结果"
+      "expected_output": "解析结果"
     },
     {
-      "task_title": "Initialize PaddleOCR Instance",
-      "task_description": "初始化PaddleOCR实例，设置参数并进行OCR推理。",
-      "example_code": "from paddleocr import PaddleOCR\nocr = PaddleOCR(\n    use_doc_orientation_classify=False,\n    use_doc_unwarping=False,\n    use_textline_orientation=False)\nresult = ocr.predict(\n    input=\"https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/general_ocr_002.png\")",
+      "task_title": "Initialize PaddleOCR instance and run inference",
+      "task_description": "初始化PaddleOCR实例并在样本图像上运行OCR推断，输出结果并保存。",
+      "example_code": "from paddleocr import PaddleOCR\nocr = PaddleOCR(\n    use_doc_orientation_classify=False,\n    use_doc_unwarping=False,\n    use_textline_orientation=False)\nresult = ocr.predict(\n    input=\"https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/general_ocr_002.png\")\nfor res in result:\n    res.print()\n    res.save_to_img(\"output\")\n    res.save_to_json(\"output\")",
       "running_command": null,
       "expected_input": "https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/general_ocr_002.png",
-      "expected_output": "提取的文本信息"
+      "expected_output": "提取的文本结果，保存为图像和JSON文件"
     },
     {
-      "task_title": "PPStructureV3 Prediction",
-      "task_description": "使用PPStructureV3进行图像分析，提取结构化信息并保存。",
-      "example_code": "from paddleocr import PPStructureV3\npipeline = PPStructureV3(\n    use_doc_orientation_classify=False,\n    use_doc_unwarping=False\n)\noutput = pipeline.predict(\n    input=\"https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/pp_structure_v3_demo.png\",\n)\nfor res in output:\n    res.print() \n    res.save_to_json(save_path=\"output\")",
+      "task_title": "Run PPStructureV3 inference and save results",
+      "task_description": "初始化PPStructureV3实例并进行推断，输出结果并保存为JSON和Markdown格式。",
+      "example_code": "from paddleocr import PPStructureV3\npipeline = PPStructureV3(\n    use_doc_orientation_classify=False,\n    use_doc_unwarping=False\n)\noutput = pipeline.predict(\n    input=\"https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/pp_structure_v3_demo.png\",\n)\nfor res in output:\n    res.print()\n    res.save_to_json(save_path=\"output\")\n    res.save_to_markdown(save_path=\"output\")",
       "running_command": null,
       "expected_input": "https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/pp_structure_v3_demo.png",
-      "expected_output": "结构化的文档信息"
+      "expected_output": "结构化信息，保存为JSON和Markdown文件"
     },
     {
-      "task_title": "PPChatOCRv4 Visual Prediction",
-      "task_description": "使用PPChatOCRv4进行视觉预测，提取信息并进行聊天交互。",
-      "example_code": "from paddleocr import PPChatOCRv4Doc\npipeline = PPChatOCRv4Doc(\n    use_doc_orientation_classify=False,\n    use_doc_unwarping=False\n)\nvisual_predict_res = pipeline.visual_predict(\n    input=\"https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/vehicle_certificate-1.png\",\n    use_common_ocr=True,\n    use_seal_recognition=True,\n    use_table_recognition=True,\n)",
+      "task_title": "Run PPChatOCRv4Doc for visual prediction",
+      "task_description": "使用PPChatOCRv4Doc进行视觉预测，支持多模态大型模型的推断和聊天功能。",
+      "example_code": "from paddleocr import PPChatOCRv4Doc\npipeline = PPChatOCRv4Doc(\n    use_doc_orientation_classify=False,\n    use_doc_unwarping=False\n)\nvisual_predict_res = pipeline.visual_predict(\n    input=\"https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/vehicle_certificate-1.png\",\n    use_common_ocr=True,\n    use_seal_recognition=True,\n    use_table_recognition=True,\n)\nfor res in visual_predict_res:\n    visual_info_list.append(res[\"visual_info\"])\n    layout_parsing_result = res[\"layout_parsing_result\"]",
       "running_command": null,
       "expected_input": "https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/vehicle_certificate-1.png",
-      "expected_output": "视觉预测结果"
+      "expected_output": "视觉预测结果和布局解析结果"
     },
     {
-      "task_title": "PaddleOCRVL Prediction",
-      "task_description": "使用PaddleOCRVL进行视觉推理，提取信息并保存。",
+      "task_title": "Run PaddleOCRVL inference",
+      "task_description": "使用PaddleOCRVL模型进行推断，处理图像并提取信息，输出结果并保存。",
       "example_code": "from paddleocr import PaddleOCRVL\npipeline = PaddleOCRVL()\noutput = pipeline.predict(\"https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/paddleocr_vl_demo.png\")\nfor res in output:\n    res.print()\n    res.save_to_json(save_path=\"output\")\n    res.save_to_markdown(save_path=\"output\")",
       "running_command": null,
       "expected_input": "https://paddle-model-ecology.bj.bcebos.com/paddlex/imgs/demo_image/paddleocr_vl_demo.png",
-      "expected_output": "视觉推理结果"
+      "expected_output": "提取的信息，保存为JSON和Markdown文件"
     }
   ],
   "setup": {

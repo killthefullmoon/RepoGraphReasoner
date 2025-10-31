@@ -1,8 +1,8 @@
 {
   "tasks": [
     {
-      "task_title": "创建一个简单的Flask应用",
-      "task_description": "这个任务展示了如何创建一个基本的Flask应用，并定义一个路由来返回一个简单的文本响应。",
+      "task_title": "创建基本的Flask应用",
+      "task_description": "创建一个Flask应用并定义一个路由，该路由返回一个简单的问候消息。",
       "example_code": "from flask import Flask\n\napp = Flask(__name__)\n\n@app.route(\"/\")\ndef hello():\n    return \"Hello, World!\"",
       "running_command": null,
       "expected_input": null,

@@ -1,12 +1,12 @@
 {
   "tasks": [
     {
-      "task_title": "FP8权重转换为BF16",
-      "task_description": "此任务将FP8格式的权重转换为BF16格式，使用了fp8_cast_bf16.py脚本。",
+      "task_title": "FP8权重转换为BF16格式",
+      "task_description": "该任务将FP8格式的权重文件转换为BF16格式，以便于在深度学习模型中使用。",
       "example_code": null,
       "running_command": "python fp8_cast_bf16.py --input-fp8-hf-path /path/to/fp8_weights --output-bf16-hf-path /path/to/bf16_weights",
       "expected_input": "/path/to/fp8_weights, /path/to/bf16_weights",
-      "expected_output": "转换完成，生成的BF16权重文件"
+      "expected_output": "转换完成，生成的BF16权重文件位于指定路径"
     }
   ],
   "setup": {

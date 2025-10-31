@@ -2,15 +2,15 @@
   "tasks": [
     {
       "task_title": "获取视频文件名",
-      "task_description": "获取指定视频的文件名，支持特殊字符",
+      "task_description": "使用youtube-dl获取指定视频的文件名，支持特殊字符。",
       "example_code": null,
       "running_command": "youtube-dl --get-filename -o '%(title)s.%(ext)s' BaW_jenozKc",
       "expected_input": "BaW_jenozKc",
       "expected_output": "youtube-dl test video ''_ä↭𝕐.mp4"
     },
     {
-      "task_title": "获取简单文件名",
-      "task_description": "获取指定视频的文件名，限制文件名中的特殊字符",
+      "task_title": "获取简化文件名",
+      "task_description": "使用youtube-dl获取指定视频的简化文件名，去除特殊字符。",
       "example_code": null,
       "running_command": "youtube-dl --get-filename -o '%(title)s.%(ext)s' BaW_jenozKc --restrict-filenames",
       "expected_input": "BaW_jenozKc",
@@ -18,107 +18,91 @@
     },
     {
       "task_title": "下载YouTube播放列表",
-      "task_description": "下载指定YouTube播放列表中的视频，并按顺序存放在不同目录中",
+      "task_description": "下载YouTube播放列表中的视频，每个视频保存在独立目录中，并按播放顺序索引。",
       "example_code": null,
       "running_command": "youtube-dl -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' https://www.youtube.com/playlist?list=PLwiyx1dc3P2JR9N8gQaQN_BCvlSlap7re",
       "expected_input": "https://www.youtube.com/playlist?list=PLwiyx1dc3P2JR9N8gQaQN_BCvlSlap7re",
-      "expected_output": "下载的播放列表视频"
-    },
-    {
-      "task_title": "下载YouTube频道所有播放列表",
-      "task_description": "下载指定YouTube频道中的所有播放列表，并按播放列表存放在不同目录中",
-      "example_code": null,
-      "running_command": "youtube-dl -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' https://www.youtube.com/user/TheLinuxFoundation/playlists",
-      "expected_input": "https://www.youtube.com/user/TheLinuxFoundation/playlists",
-      "expected_output": "下载的频道所有播放列表视频"
+      "expected_output": "下载的播放列表视频文件"
     },
     {
       "task_title": "下载Udemy课程",
-      "task_description": "下载指定Udemy课程，并按章节存放在不同目录中",
+      "task_description": "下载Udemy课程，保持每个章节在独立目录下。",
       "example_code": null,
       "running_command": "youtube-dl -u user -p password -o '~/MyVideos/%(playlist)s/%(chapter_number)s - %(chapter)s/%(title)s.%(ext)s' https://www.udemy.com/java-tutorial/",
       "expected_input": "https://www.udemy.com/java-tutorial/",
-      "expected_output": "下载的Udemy课程视频"
+      "expected_output": "下载的课程视频文件"
     },
     {
-      "task_title": "下载整个系列季",
-      "task_description": "下载指定视频系列的所有季，并按系列和季存放在不同目录中",
+      "task_title": "下载系列视频",
+      "task_description": "下载整个系列的季，保持每个系列和每个季的独立目录。",
       "example_code": null,
       "running_command": "youtube-dl -o 'C:/MyVideos/%(series)s/%(season_number)s - %(season)s/%(episode_number)s - %(episode)s.%(ext)s' https://videomore.ru/kino_v_detalayah/5_sezon/367617",
       "expected_input": "https://videomore.ru/kino_v_detalayah/5_sezon/367617",
-      "expected_output": "下载的系列季视频"
+      "expected_output": "下载的系列视频文件"
     },
     {
       "task_title": "流式下载视频",
-      "task_description": "将下载的视频流输出到标准输出",
+      "task_description": "将下载的视频流式输出到标准输出。",
       "example_code": null,
       "running_command": "youtube-dl -o - BaW_jenozKc",
       "expected_input": "BaW_jenozKc",
-      "expected_output": "视频流"
+      "expected_output": "视频流数据"
     },
     {
-      "task_title": "下载最佳视频格式",
-      "task_description": "下载可用的最佳mp4格式或其他格式",
+      "task_title": "下载最佳mp4格式",
+      "task_description": "下载可用的最佳mp4格式或其他格式，如果没有可用的mp4。",
       "example_code": null,
       "running_command": "youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'",
       "expected_input": null,
-      "expected_output": "下载的最佳视频格式"
+      "expected_output": "下载的最佳mp4视频文件"
     },
     {
-      "task_title": "下载不超过480p的视频",
-      "task_description": "下载最佳格式，但不超过480p",
+      "task_title": "限制下载480p",
+      "task_description": "下载最佳格式，但不超过480p。",
       "example_code": null,
       "running_command": "youtube-dl -f 'bestvideo[height<=480]+bestaudio/best[height<=480]'",
       "expected_input": null,
-      "expected_output": "下载的480p视频"
+      "expected_output": "下载的480p视频文件"
     },
     {
-      "task_title": "下载不超过50MB的视频",
-      "task_description": "下载最佳视频格式，但不超过50MB",
+      "task_title": "限制文件大小下载",
+      "task_description": "下载最佳视频格式，但不超过50 MB。",
       "example_code": null,
       "running_command": "youtube-dl -f 'best[filesize<50M]'",
       "expected_input": null,
-      "expected_output": "下载的不超过50MB的视频"
+      "expected_output": "下载的最佳视频文件，大小小于50MB"
     },
     {
-      "task_title": "通过HTTP/HTTPS协议下载最佳格式",
-      "task_description": "下载最佳格式，但仅通过HTTP/HTTPS协议",
+      "task_title": "通过HTTP/HTTPS协议下载",
+      "task_description": "下载最佳格式，但只通过HTTP/HTTPS协议。",
       "example_code": null,
       "running_command": "youtube-dl -f '(bestvideo+bestaudio/best)[protocol^=http]'",
       "expected_input": null,
-      "expected_output": "下载的最佳格式视频"
+      "expected_output": "下载的最佳视频文件"
     },
     {
-      "task_title": "下载最佳视频和音频格式",
-      "task_description": "下载最佳视频格式和最佳音频格式，不进行合并",
-      "example_code": null,
-      "running_command": "youtube-dl -f 'bestvideo,bestaudio' -o '%(title)s.f%(format_id)s.%(ext)s'",
-      "expected_input": null,
-      "expected_output": "下载的最佳视频和音频格式"
-    },
-    {
-      "task_title": "下载最近6个月上传的视频",
-      "task_description": "下载在过去6个月内上传的视频",
+      "task_title": "下载特定日期之后的视频",
+      "task_description": "下载在过去6个月内上传的视频。",
       "example_code": null,
       "running_command": "youtube-dl --dateafter now-6months",
       "expected_input": null,
-      "expected_output": "下载的最近6个月的视频"
+      "expected_output": "下载的符合条件的视频"
     },
     {
-      "task_title": "下载特定日期上传的视频",
-      "task_description": "下载在1970年1月1日上传的视频",
+      "task_title": "下载特定日期的视频",
+      "task_description": "下载在1970年1月1日上传的视频。",
       "example_code": null,
       "running_command": "youtube-dl --date 19700101",
       "expected_input": null,
-      "expected_output": "下载的特定日期的视频"
+      "expected_output": "下载的符合条件的视频"
     },
     {
-      "task_title": "下载2000年代上传的视频",
-      "task_description": "下载在2000年代上传的视频",
+      "task_title": "下载特定十年的视频",
+      "task_description": "下载在2000年代上传的视频。",
       "example_code": null,
       "running_command": "youtube-dl --dateafter 20000101 --datebefore 20091231",
       "expected_input": null,
-      "expected_output": "下载的2000年代的视频"
+      "expected_output": "下载的符合条件的视频"
     }
   ],
   "setup": {

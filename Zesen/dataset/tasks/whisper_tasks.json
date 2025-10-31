@@ -1,60 +1,36 @@
 {
   "tasks": [
     {
-      "task_title": "Transcribe Audio",
-      "task_description": "使用预训练模型将音频文件转录为文本。",
+      "task_title": "Transcribe audio files",
+      "task_description": "This task transcribes audio files into text using the specified model.",
       "example_code": "import whisper\n\nmodel = whisper.load_model(\"turbo\")\nresult = model.transcribe(\"audio.mp3\")\nprint(result[\"text\"])",
       "running_command": null,
       "expected_input": "audio.mp3",
-      "expected_output": "转录后的文本"
+      "expected_output": "Transcribed text from audio.mp3"
     },
     {
-      "task_title": "Detect Language",
-      "task_description": "加载音频文件并检测其语言。",
-      "example_code": "import whisper\n\nmodel = whisper.load_model(\"turbo\")\naudio = whisper.load_audio(\"audio.mp3\")\naudio = whisper.pad_or_trim(audio)\nmel = whisper.log_mel_spectrogram(audio, n_mels=model.dims.n_mels).to(model.device)\n_, probs = model.detect_language(mel)\nprint(f\"Detected language: {max(probs, key=probs.get)}\")",
-      "running_command": null,
-      "expected_input": "audio.mp3",
-      "expected_output": "Detected language: 语言名称"
-    },
-    {
-      "task_title": "Translate Audio",
-      "task_description": "将音频文件中的语言翻译成目标语言。",
-      "example_code": "import whisper\n\nmodel = whisper.load_model(\"turbo\")\naudio = whisper.load_audio(\"japanese.wav\")\naudio = whisper.pad_or_trim(audio)\nmel = whisper.log_mel_spectrogram(audio, n_mels=model.dims.n_mels).to(model.device)\noptions = whisper.DecodingOptions()\nresult = whisper.decode(model, mel, options)\nprint(result.text)",
-      "running_command": null,
-      "expected_input": "japanese.wav",
-      "expected_output": "翻译后的文本"
-    },
-    {
-      "task_title": "Use CLI for Transcription",
-      "task_description": "通过命令行接口使用模型进行音频转录。",
-      "example_code": null,
-      "running_command": "whisper audio.flac audio.mp3 audio.wav --model turbo",
-      "expected_input": "audio.flac, audio.mp3, audio.wav",
-      "expected_output": "转录后的文本"
-    },
-    {
-      "task_title": "Specify Language in CLI",
-      "task_description": "在命令行中指定音频文件的语言。",
+      "task_title": "Specify language for transcription",
+      "task_description": "This task transcribes an audio file with a specified language.",
       "example_code": null,
       "running_command": "whisper japanese.wav --language Japanese",
       "expected_input": "japanese.wav",
-      "expected_output": "转录后的文本"
+      "expected_output": "Transcribed text from japanese.wav in Japanese"
     },
     {
-      "task_title": "Translate with CLI",
-      "task_description": "在命令行中将音频文件翻译成目标语言。",
+      "task_title": "Translate audio content",
+      "task_description": "This task translates the spoken content of an audio file into another language.",
       "example_code": null,
       "running_command": "whisper japanese.wav --model medium --language Japanese --task translate",
       "expected_input": "japanese.wav",
-      "expected_output": "翻译后的文本"
+      "expected_output": "Translated text from japanese.wav"
     },
     {
-      "task_title": "Help Command",
-      "task_description": "显示命令行工具的帮助信息。",
-      "example_code": null,
-      "running_command": "whisper --help",
-      "expected_input": null,
-      "expected_output": "帮助信息"
+      "task_title": "Detect spoken language",
+      "task_description": "This task detects the language spoken in an audio file.",
+      "example_code": "import whisper\n\nmodel = whisper.load_model(\"turbo\")\naudio = whisper.load_audio(\"audio.mp3\")\naudio = whisper.pad_or_trim(audio)\nmel = whisper.log_mel_spectrogram(audio, n_mels=model.dims.n_mels).to(model.device)\n_, probs = model.detect_language(mel)\nprint(f\"Detected language: {max(probs, key=probs.get)}\")",
+      "running_command": null,
+      "expected_input": "audio.mp3",
+      "expected_output": "Detected language: [language]"
     }
   ],
   "setup": {

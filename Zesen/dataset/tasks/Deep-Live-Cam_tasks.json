@@ -2,7 +2,7 @@
   "tasks": [
     {
       "task_title": "使用CUDA执行",
-      "task_description": "该任务使用CUDA作为执行提供者运行程序。",
+      "task_description": "使用CUDA作为执行提供者运行程序。",
       "example_code": null,
       "running_command": "python run.py --execution-provider cuda",
       "expected_input": null,
@@ -10,7 +10,7 @@
     },
     {
       "task_title": "使用CoreML执行",
-      "task_description": "该任务使用CoreML作为执行提供者运行程序。",
+      "task_description": "使用CoreML作为执行提供者运行程序。",
       "example_code": null,
       "running_command": "python3.10 run.py --execution-provider coreml",
       "expected_input": null,
@@ -18,7 +18,7 @@
     },
     {
       "task_title": "使用CoreML执行",
-      "task_description": "该任务再次使用CoreML作为执行提供者运行程序。",
+      "task_description": "使用CoreML作为执行提供者运行程序。",
       "example_code": null,
       "running_command": "python run.py --execution-provider coreml",
       "expected_input": null,
@@ -26,7 +26,7 @@
     },
     {
       "task_title": "使用DirectML执行",
-      "task_description": "该任务使用DirectML作为执行提供者运行程序。",
+      "task_description": "使用DirectML作为执行提供者运行程序。",
       "example_code": null,
       "running_command": "python run.py --execution-provider directml",
       "expected_input": null,
@@ -34,7 +34,7 @@
     },
     {
       "task_title": "使用OpenVINO执行",
-      "task_description": "该任务使用OpenVINO作为执行提供者运行程序。",
+      "task_description": "使用OpenVINO作为执行提供者运行程序。",
       "example_code": null,
       "running_command": "python run.py --execution-provider openvino",
       "expected_input": null,

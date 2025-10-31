@@ -4,7 +4,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 3,
+    "num_tasks": 2,
     "error": null
   },
   {
@@ -12,7 +12,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 15,
+    "num_tasks": 13,
     "error": null
   },
   {
@@ -28,7 +28,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 11,
+    "num_tasks": 10,
     "error": null
   },
   {
@@ -68,7 +68,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 7,
+    "num_tasks": 4,
     "error": null
   },
   {
@@ -96,11 +96,19 @@
     "error": null
   },
   {
+    "repo_name": "Shubhamsaboo/awesome-llm-apps",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 1,
+    "error": null
+  },
+  {
     "repo_name": "browser-use/browser-use",
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 7,
+    "num_tasks": 8,
     "error": null
   },
   {
@@ -164,7 +172,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 8,
+    "num_tasks": 11,
     "error": null
   },
   {
@@ -208,11 +216,19 @@
     "error": null
   },
   {
+    "repo_name": "unclecode/crawl4ai",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 13,
+    "error": null
+  },
+  {
     "repo_name": "Textualize/rich",
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 14,
+    "num_tasks": 15,
     "error": null
   },
   {
@@ -224,11 +240,19 @@
     "error": null
   },
   {
+    "repo_name": "Z4nzu/hackingtool",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 2,
+    "error": null
+  },
+  {
     "repo_name": "psf/requests",
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 1,
+    "num_tasks": 6,
     "error": null
   },
   {
@@ -244,7 +268,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 4,
+    "num_tasks": 3,
     "error": null
   },
   {
@@ -260,7 +284,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 12,
+    "num_tasks": 11,
     "error": null
   },
   {
@@ -292,7 +316,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 6,
+    "num_tasks": 5,
     "error": null
   },
   {
@@ -300,7 +324,15 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 7,
+    "num_tasks": 6,
+    "error": null
+  },
+  {
+    "repo_name": "docling-project/docling",
+    "success": true,
+    "readme_found": true,
+    "tasks_generated": true,
+    "num_tasks": 3,
     "error": null
   },
   {
@@ -332,7 +364,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 7,
+    "num_tasks": 6,
     "error": null
   },
   {
@@ -364,39 +396,7 @@
     "success": true,
     "readme_found": true,
     "tasks_generated": true,
-    "num_tasks": 1,
-    "error": null
-  },
-  {
-    "repo_name": "google-research/bert",
-    "success": true,
-    "readme_found": true,
-    "tasks_generated": true,
-    "num_tasks": 10,
-    "error": null
-  },
-  {
-    "repo_name": "zhayujie/chatgpt-on-wechat",
-    "success": true,
-    "readme_found": true,
-    "tasks_generated": true,
-    "num_tasks": 3,
-    "error": null
-  },
-  {
-    "repo_name": "lm-sys/FastChat",
-    "success": true,
-    "readme_found": true,
-    "tasks_generated": true,
-    "num_tasks": 6,
-    "error": null
-  },
-  {
-    "repo_name": "NanmiCoder/MediaCrawler",
-    "success": true,
-    "readme_found": true,
-    "tasks_generated": true,
-    "num_tasks": 6,
+    "num_tasks": 2,
     "error": null
   }
 ]

@@ -1,28 +1,28 @@
 {
   "tasks": [
     {
-      "task_title": "运行ComfyUI以支持AMD卡",
-      "task_description": "通过设置HSA_OVERRIDE_GFX_VERSION环境变量来运行ComfyUI，支持特定的AMD显卡。",
+      "task_title": "Run ComfyUI with AMD cards",
+      "task_description": "This task demonstrates how to run ComfyUI with AMD cards by setting the appropriate graphics version for different RDNA architectures.",
       "example_code": null,
       "running_command": "HSA_OVERRIDE_GFX_VERSION=10.3.0 python main.py",
       "expected_input": null,
-      "expected_output": "运行ComfyUI应用程序"
+      "expected_output": "ComfyUI application running with AMD card support"
     },
     {
-      "task_title": "运行ComfyUI以支持AMD RDNA3卡",
-      "task_description": "通过设置HSA_OVERRIDE_GFX_VERSION环境变量来运行ComfyUI，支持AMD RDNA3显卡。",
+      "task_title": "Run ComfyUI for RDNA3 cards",
+      "task_description": "This task shows how to run ComfyUI specifically for AMD RDNA3 cards by setting the correct graphics version.",
       "example_code": null,
       "running_command": "HSA_OVERRIDE_GFX_VERSION=11.0.0 python main.py",
       "expected_input": null,
-      "expected_output": "运行ComfyUI应用程序"
+      "expected_output": "ComfyUI application running with RDNA3 card support"
     },
     {
-      "task_title": "启用实验性内存高效注意力",
-      "task_description": "在某些AMD GPU上启用实验性内存高效注意力，这在最新的PyTorch中可以提高速度。",
+      "task_title": "Enable experimental memory efficient attention",
+      "task_description": "This task explains how to enable experimental memory efficient attention on recent PyTorch in ComfyUI for certain AMD GPUs.",
       "example_code": null,
       "running_command": null,
       "expected_input": null,
-      "expected_output": "内存高效注意力已启用"
+      "expected_output": "Memory efficient attention enabled"
     }
   ],
   "setup": {

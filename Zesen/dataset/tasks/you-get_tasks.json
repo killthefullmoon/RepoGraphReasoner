@@ -1,8 +1,8 @@
 {
   "tasks": [
     {
-      "task_title": "下载YouTube视频",
-      "task_description": "使用you-get从YouTube下载视频，指定视频的URL。",
+      "task_title": "下载视频",
+      "task_description": "使用you-get库从YouTube下载视频，指定视频URL。",
       "example_code": null,
       "running_command": "you-get",
       "expected_input": "https://www.youtube.com/watch?v=jNQXAC9IVRw",

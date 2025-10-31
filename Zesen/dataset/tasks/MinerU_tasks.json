@@ -2,10 +2,10 @@
   "tasks": [
     {
       "task_title": "数据处理",
-      "task_description": "该任务通过指定输入路径和输出路径来处理数据，使用了MinerU工具。",
+      "task_description": "使用MinerU库处理输入路径下的数据，并将结果输出到指定的输出路径。",
       "example_code": null,
       "running_command": "mineru -p <input_path> -o <output_path>",
-      "expected_input": "<input_path>, <output_path>",
+      "expected_input": "<input_path>",
       "expected_output": "处理后的数据文件"
     }
   ],

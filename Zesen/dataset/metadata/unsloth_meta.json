@@ -1,7 +1,7 @@
 {
   "repo": {
     "full_name": "unslothai/unsloth",
-    "stars": 47662,
+    "stars": 47668,
     "forks": 3896,
     "language": "Python",
     "description": "Fine-tuning & Reinforcement Learning for LLMs. 🦥 Train OpenAI gpt-oss, DeepSeek-R1, Qwen3, Gemma 3, TTS 2x faster with 70% less VRAM.",
@@ -29,7 +29,7 @@
     ],
     "url": "https://github.com/unslothai/unsloth",
     "created_at": "2023-11-29T16:50:09Z",
-    "updated_at": "2025-10-30T22:06:03Z"
+    "updated_at": "2025-10-31T03:27:08Z"
   },
   "readme_file": "dataset/readmes/unsloth_README.md",
   "task_file": "dataset/tasks/unsloth_tasks.json",
@@ -39,7 +39,7 @@
   "has_docker_files": false,
   "docker_files_list": [],
   "docker_setup_descriptions": {
-    "README_commands": "# Guide to Build and Run Docker for unslothai/unsloth\n\n1. **Install Docker**: Ensure Docker is installed on your machine. Follow the installation guide for your operating system from the [Docker website](https://docs.docker.com/get-docker/).\n\n2. **Install NVIDIA Container Toolkit** (if using GPUs): Follow the instructions on the [NVIDIA website](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) to set up the NVIDIA Container Toolkit.\n\n3. **Clone the Repository**: Open your terminal and clone the repository:\n   ```bash\n   git clone https://github.com/unslothai/unsloth.git\n   cd unsloth\n   ```\n\n4. **Create a Work Directory**: Ensure you have a `work` directory in the current path:\n   ```bash\n   mkdir work\n   ```\n\n5. **Run the Docker Container**: Execute the following command to start the Docker container:\n   ```bash\n   docker run -d -e JUPYTER_PASSWORD=\"mypassword\" \\\n     -p 8888:8888 -p 2222:22 \\\n     -v $(pwd)/work:/workspace/work \\\n     --gpus all \\\n     unsloth/unsloth\n   ```\n\n6. **Access Jupyter Notebook**: Open your web browser and navigate to `http://localhost:8888`. Enter the password `mypassword` when prompted.\n\n7. **SSH Access (Optional)**: If you need SSH access, connect using:\n   ```bash\n   ssh -p 2222 user@localhost\n   ```\n\nReplace `user` with the appropriate username for the container.\n\n8. **Stop the Container**: To stop the running container, find its ID with:\n   ```bash\n   docker ps\n   ```\n   Then stop it using:\n   ```bash\n   docker stop <container_id>\n   ```\n\n9. **Remove the Container** (Optional): If you want to remove the container after stopping it:\n   ```bash\n   docker rm <container_id>\n   ```\n\nYou are now set up to use the unslothai/unsloth Docker container!"
+    "README_commands": "# Guide to Build and Run Docker for unslothai/unsloth\n\n1. **Install Docker**: Ensure Docker is installed on your machine. Follow the official [Docker installation guide](https://docs.docker.com/get-docker/) for your operating system.\n\n2. **Install NVIDIA Container Toolkit** (if using GPUs): Follow the instructions on the [NVIDIA website](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) to set up the NVIDIA Container Toolkit.\n\n3. **Clone the Repository**: Open your terminal and clone the repository:\n   ```bash\n   git clone https://github.com/unslothai/unsloth.git\n   cd unsloth\n   ```\n\n4. **Create a Work Directory**: Ensure you have a local directory for your work:\n   ```bash\n   mkdir work\n   ```\n\n5. **Run the Docker Container**: Execute the following command to start the Docker container:\n   ```bash\n   docker run -d -e JUPYTER_PASSWORD=\"mypassword\" \\\n     -p 8888:8888 -p 2222:22 \\\n     -v $(pwd)/work:/workspace/work \\\n     --gpus all \\\n     unsloth/unsloth\n   ```\n\n6. **Access Jupyter Notebook**: Open your web browser and go to `http://localhost:8888`. Enter the password you set (`mypassword`) to access Jupyter Notebook.\n\n7. **Connect via SSH** (optional): If you need to connect via SSH, use:\n   ```bash\n   ssh -p 2222 user@localhost\n   ```\n   Replace `user` with the appropriate username for the container.\n\n8. **Stop the Container**: To stop the running container, find its ID with:\n   ```bash\n   docker ps\n   ```\n   Then stop it using:\n   ```bash\n   docker stop <container_id>\n   ```\n\n9. **Remove the Container** (optional): If you want to remove the container after stopping it:\n   ```bash\n   docker rm <container_id>\n   ```\n\nNow you are set up to use the unsloth Docker container!"
   },
-  "processed_at": "2025-10-30T20:51:33.375140"
+  "processed_at": "2025-10-30T23:47:20.101866"
 }

@@ -4,8 +4,8 @@
   "failed": 0,
   "readme_found": 50,
   "tasks_generated": 50,
-  "total_tasks": 250,
-  "average_tasks_per_repo": 5.0,
+  "total_tasks": 243,
+  "average_tasks_per_repo": 4.86,
   "language_distribution": {
     "Python": 50
   },
@@ -13,54 +13,54 @@
   "top_repos": [
     {
       "name": "Significant-Gravitas/AutoGPT",
-      "stars": 179386,
+      "stars": 179385,
       "description": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters."
     },
     {
       "name": "ytdl-org/youtube-dl",
-      "stars": 138632,
+      "stars": 138633,
       "description": "Command-line program to download videos from YouTube.com and other video sites"
     },
     {
       "name": "langflow-ai/langflow",
-      "stars": 136681,
+      "stars": 136694,
       "description": "Langflow is a powerful tool for building and deploying AI-powered agents and workflows."
     },
     {
       "name": "yt-dlp/yt-dlp",
-      "stars": 133286,
+      "stars": 133305,
       "description": "A feature-rich command-line audio/video downloader"
     },
     {
       "name": "deepseek-ai/DeepSeek-V3",
-      "stars": 100074,
+      "stars": 100075,
       "description": null
     },
     {
       "name": "nvbn/thefuck",
-      "stars": 94518,
+      "stars": 94519,
       "description": "Magnificent app which corrects your previous console command."
     },
     {
       "name": "comfyanonymous/ComfyUI",
-      "stars": 92341,
+      "stars": 92351,
       "description": "The most powerful and modular diffusion model GUI, api and backend with a graph/nodes interface."
     },
     {
       "name": "fastapi/fastapi",
-      "stars": 91345,
+      "stars": 91348,
       "description": "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
     },
     {
       "name": "openai/whisper",
-      "stars": 90148,
+      "stars": 90159,
       "description": "Robust Speech Recognition via Large-Scale Weak Supervision"
     },
     {
       "name": "microsoft/markitdown",
-      "stars": 82287,
+      "stars": 82292,
       "description": "Python tool for converting files and office documents to Markdown."
     }
   ],
-  "generated_at": "2025-10-30T20:58:55.634141"
+  "generated_at": "2025-10-30T23:51:40.813750"
 }

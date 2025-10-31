@@ -1,14 +1,14 @@
 {
   "repo": {
     "full_name": "deepseek-ai/DeepSeek-V3",
-    "stars": 100074,
-    "forks": 16321,
+    "stars": 100075,
+    "forks": 16323,
     "language": "Python",
     "description": null,
     "topics": [],
     "url": "https://github.com/deepseek-ai/DeepSeek-V3",
     "created_at": "2024-12-26T09:52:40Z",
-    "updated_at": "2025-10-30T20:18:29Z"
+    "updated_at": "2025-10-31T03:24:03Z"
   },
   "readme_file": "dataset/readmes/DeepSeek-V3_README.md",
   "task_file": "dataset/tasks/DeepSeek-V3_tasks.json",
@@ -18,5 +18,5 @@
   "has_docker_files": false,
   "docker_files_list": [],
   "docker_setup_descriptions": null,
-  "processed_at": "2025-10-30T20:34:07.807089"
+  "processed_at": "2025-10-30T23:30:06.053807"
 }

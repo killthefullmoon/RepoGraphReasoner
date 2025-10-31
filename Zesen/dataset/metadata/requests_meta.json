@@ -21,11 +21,11 @@
   },
   "readme_file": "dataset/readmes/requests_README.md",
   "task_file": "dataset/tasks/requests_tasks.json",
-  "num_tasks": 1,
+  "num_tasks": 6,
   "num_setup_commands": 2,
   "num_docker_commands": 0,
   "has_docker_files": false,
   "docker_files_list": [],
   "docker_setup_descriptions": null,
-  "processed_at": "2025-10-30T20:47:52.064079"
+  "processed_at": "2025-10-30T23:43:37.372863"
 }

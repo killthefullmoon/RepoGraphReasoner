@@ -1,12 +1,12 @@
 {
   "tasks": [
     {
-      "task_title": "Generate DeepSpeed Report",
-      "task_description": "使用DeepSpeed生成模型训练的详细报告，包括性能指标和配置参数。",
-      "example_code": "import deepspeed\n\ndsr = deepspeed.utils.DSReport()\ndsr.generate()",
+      "task_title": "DeepSpeed Report",
+      "task_description": "生成DeepSpeed的性能报告，提供模型训练的详细信息和性能分析。",
+      "example_code": "import deepspeed\n\ndeepspeed.report()",
       "running_command": null,
       "expected_input": null,
-      "expected_output": "DeepSpeed Report: ... (包含模型性能和配置的详细信息)"
+      "expected_output": "DeepSpeed Performance Report: ... (包含训练参数、性能指标等)"
     }
   ],
   "setup": {

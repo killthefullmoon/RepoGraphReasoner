@@ -1,12 +1,12 @@
 {
   "tasks": [
     {
-      "task_title": "聊天完成",
-      "task_description": "该任务使用Llama模型进行聊天完成，加载指定的检查点和分词器，并设置序列长度和批处理大小。",
+      "task_title": "聊天完成任务",
+      "task_description": "该任务使用预训练的Llama模型进行聊天完成。通过指定检查点目录、分词器路径、最大序列长度和批量大小来进行配置。",
       "example_code": null,
       "running_command": "torchrun --nproc_per_node 1 example_chat_completion.py --ckpt_dir llama-2-7b-chat/ --tokenizer_path tokenizer.model --max_seq_len 512 --max_batch_size 6",
-      "expected_input": null,
-      "expected_output": null
+      "expected_input": "用户输入的聊天文本",
+      "expected_output": "模型生成的聊天回复"
     }
   ],
   "setup": {

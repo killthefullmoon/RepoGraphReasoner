@@ -1,8 +1,8 @@
 {
   "repo": {
     "full_name": "pallets/flask",
-    "stars": 70688,
-    "forks": 16601,
+    "stars": 70689,
+    "forks": 16600,
     "language": "Python",
     "description": "The Python micro framework for building web applications.",
     "topics": [
@@ -16,7 +16,7 @@
     ],
     "url": "https://github.com/pallets/flask",
     "created_at": "2010-04-06T11:11:59Z",
-    "updated_at": "2025-10-30T19:42:26Z"
+    "updated_at": "2025-10-31T01:14:50Z"
   },
   "readme_file": "dataset/readmes/flask_README.md",
   "task_file": "dataset/tasks/flask_tasks.json",
@@ -26,5 +26,5 @@
   "has_docker_files": false,
   "docker_files_list": [],
   "docker_setup_descriptions": null,
-  "processed_at": "2025-10-30T20:37:54.346743"
+  "processed_at": "2025-10-30T23:33:53.210995"
 }

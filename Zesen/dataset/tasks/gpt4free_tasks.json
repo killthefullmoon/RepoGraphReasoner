@@ -1,52 +1,52 @@
 {
   "tasks": [
     {
-      "task_title": "运行图形用户界面",
-      "task_description": "启动g4f库的图形用户界面。",
+      "task_title": "Run GUI",
+      "task_description": "启动GUI界面，允许用户与程序进行交互。",
       "example_code": "from g4f.gui import run_gui\nrun_gui()",
       "running_command": null,
       "expected_input": null,
-      "expected_output": null
+      "expected_output": "启动图形用户界面"
     },
     {
-      "task_title": "启动CLI工具图形界面",
-      "task_description": "通过CLI启动g4f库的图形用户界面，指定端口和调试模式。",
+      "task_title": "Run CLI with GUI",
+      "task_description": "通过命令行接口启动GUI，指定端口和调试模式。",
       "example_code": null,
       "running_command": "python -m g4f.cli gui --port 8080 --debug",
       "expected_input": null,
-      "expected_output": null
+      "expected_output": "启动图形用户界面，监听8080端口，调试模式开启"
     },
     {
-      "task_title": "启动CLI工具",
-      "task_description": "通过CLI启动g4f库，指定端口和调试模式。",
+      "task_title": "Run CLI",
+      "task_description": "通过命令行接口启动程序，指定端口和调试模式。",
       "example_code": null,
       "running_command": "python -m g4f --port 8080 --debug",
       "expected_input": null,
-      "expected_output": null
+      "expected_output": "程序启动，监听8080端口，调试模式开启"
     },
     {
-      "task_title": "聊天生成",
-      "task_description": "使用g4f库的客户端生成聊天回复，指定模型和用户消息。",
+      "task_title": "Chat Completion",
+      "task_description": "使用客户端与模型进行对话，获取模型的回复。",
       "example_code": "from g4f.client import Client\n\nclient = Client()\nresponse = client.chat.completions.create(\n    model=\"gpt-4o-mini\",\n    messages=[{\"role\": \"user\", \"content\": \"Hello, how are you?\"}],\n    web_search=False\n)\nprint(response.choices[0].message.content)",
       "running_command": null,
       "expected_input": "Hello, how are you?",
-      "expected_output": "..."
+      "expected_output": "模型的回复内容"
     },
     {
-      "task_title": "图像生成",
-      "task_description": "使用g4f库的客户端生成图像，指定模型和提示内容。",
+      "task_title": "Image Generation",
+      "task_description": "使用客户端生成图像，并返回生成的图像URL。",
       "example_code": "from g4f.client import Client\n\nclient = Client()\nresponse = client.images.generate(\n    model=\"flux\",\n    prompt=\"a white siamese cat\",\n    response_format=\"url\"\n)\nprint(f\"Generated image URL: {response.data[0].url}\")",
       "running_command": null,
       "expected_input": "a white siamese cat",
-      "expected_output": "Generated image URL: ..."
+      "expected_output": "生成的图像URL"
     },
     {
-      "task_title": "异步聊天生成",
-      "task_description": "使用g4f库的异步客户端生成聊天回复，指定模型和用户消息。",
+      "task_title": "Asynchronous Chat Completion",
+      "task_description": "使用异步客户端与模型进行对话，获取模型的回复。",
       "example_code": "from g4f.client import AsyncClient\nimport asyncio\n\nasync def main():\n    client = AsyncClient()\n    response = await client.chat.completions.create(\n        model=\"gpt-4o-mini\",\n        messages=[{\"role\": \"user\", \"content\": \"Explain quantum computing briefly\"}],\n    )\n    print(response.choices[0].message.content)\n\nasyncio.run(main())",
       "running_command": null,
       "expected_input": "Explain quantum computing briefly",
-      "expected_output": "..."
+      "expected_output": "模型的回复内容"
     }
   ],
   "setup": {
@@ -64,7 +64,7 @@
       "docker-compose.yml": "version: '3'\n\nservices:\n  gpt4free:\n    image: hlohaus789/g4f:latest\n    shm_size: 2gb\n    build:\n      context: .\n      dockerfile: docker/Dockerfile\n    volumes:\n      - .:/app\n    ports:\n      - '8080:8080'\n      - '1337:8080'\n      - '7900:7900'\n    environment:\n      - OLLAMA_HOST=host.docker.internal\n"
     },
     "docker_setup_descriptions": {
-      "docker-compose.yml": "### Building and Running Docker with `docker-compose.yml` for `xtekky/gpt4free`\n\nTo build and run the Docker container for the `gpt4free` service using the provided `docker-compose.yml` file, follow these steps:\n\n1. **Understanding the `docker-compose.yml` File:**\n   - **Version:** Specifies the Docker Compose file format version (3 in this case).\n   - **Services:** Defines the services that will be run. Here, we have a single service named `gpt4free`.\n     - **Image:** Specifies the Docker image to use (`hlohaus789/g4f:latest`).\n     - **shm_size:** Allocates shared memory size (2GB) for the container, which is important for applications that require significant memory.\n     - **Build:** Indicates that the service should be built from a Dockerfile located in the `docker` directory of the current context.\n     - **Volumes:** Mounts the current directory (`.`) to `/app` in the container, allowing for persistent data storage and access to local files.\n     - **Ports:** Maps host ports to container ports:\n       - `8080` on the host to `8080` in the container (main service).\n       - `1337` on the host to `8080` in the container (alternative access).\n       - `7900` on the host to `7900` in the container (additional service).\n     - **Environment:** Sets the environment variable `OLLAMA_HOST` to `host.docker.internal`, enabling the container to access the host machine.\n\n2. **Building and Running the Docker Container:**\n   - **Prerequisites:** Ensure you have Docker and Docker Compose installed on your machine.\n   - **Clone the Repository:**\n     ```bash\n     git clone https://github.com/xtekky/gpt4free.git\n     cd gpt4free\n     ```\n   - **Create Required Directories:**\n     ```bash\n     mkdir -p ${PWD}/har_and_cookies ${PWD}/generated_media\n     chown -R 1000:1000 ${PWD}/har_and_cookies ${PWD}/generated_media\n     ```\n   - **Build and Start the Service:**\n     ```bash\n     docker-compose up --build\n     ```\n\n3. **Accessing the Application:**\n   - Once the container is running, you can access the application via:\n     - `http://localhost:8080` for the main service.\n     - `http://localhost:1337` for the alternative access.\n     - `http://localhost:7900` for the additional service.\n\nBy following these steps, you will successfully build and run the `gpt4free` service using Docker Compose, allowing you to leverage the functionalities provided by the application."
+      "docker-compose.yml": "To build and run the Docker container for the `gpt4free` service from the `xtekky/gpt4free` repository, follow these steps:\n\n### Purpose of the Image\nThe Docker image `hlohaus789/g4f:latest` is designed to provide a lightweight environment for running the `gpt4free` application, which is likely a service that interfaces with the GPT-4 model. This image encapsulates all necessary dependencies and configurations needed to operate the application efficiently.\n\n### Building the Image\n1. **Set Up Your Environment**: Ensure you have Docker and Docker Compose installed on your machine. You can verify this by running `docker --version` and `docker-compose --version`.\n\n2. **Clone the Repository**: Clone the `xtekky/gpt4free` repository to your local machine using Git:\n   ```bash\n   git clone https://github.com/xtekky/gpt4free.git\n   cd gpt4free\n   ```\n\n3. **Prepare Directories**: Create the necessary directories for storing HAR files and generated media. This can be done with the following commands:\n   ```bash\n   mkdir -p har_and_cookies generated_media\n   ```\n\n4. **Set Permissions**: Ensure that the created directories have the correct permissions:\n   ```bash\n   chown -R 1000:1000 har_and_cookies generated_media\n   ```\n\n5. **Build the Docker Image**: Use Docker Compose to build the image defined in the `docker-compose.yml` file. This will compile the application and its dependencies as specified in the Dockerfile referenced in the compose file:\n   ```bash\n   docker-compose build\n   ```\n\n### Running the Container\n1. **Start the Service**: After the build completes successfully, you can start the service using Docker Compose. This will launch the container with the specified configurations, including memory allocation and port mappings:\n   ```bash\n   docker-compose up\n   ```\n\n2. **Access the Application**: Once the container is running, you can access the `gpt4free` service through your web browser or API client at `http://localhost:8080`. The application will also be available at `http://localhost:1337` and `http://localhost:7900` for additional functionalities.\n\n### Environment Configuration\nThe container is configured to use shared memory size of 2GB, which is essential for handling large data processes efficiently. The environment variable `OLLAMA_HOST` is set to `host.docker.internal`, allowing the container to communicate with services running on the host machine.\n\nThis setup provides a robust environment for running the `gpt4free` application, ensuring that all dependencies are managed within the Docker ecosystem, facilitating easier deployment and scalability."
     }
   },
   "input_to_gpt": {

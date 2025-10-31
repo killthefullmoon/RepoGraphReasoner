@@ -1,92 +1,84 @@
 {
   "tasks": [
     {
-      "task_title": "Download video with specified filename",
-      "task_description": "This command downloads a video and specifies the output filename format.",
+      "task_title": "Download video with specified filename format",
+      "task_description": "This command downloads a video and saves it with a specified filename format, including the correct extension.",
       "example_code": null,
-      "running_command": "yt-dlp --print filename -o 'test video.%(ext)s' BaW_jenozKc",
+      "running_command": "yt-dlp --print filename -o \"test video.%(ext)s\" BaW_jenozKc",
       "expected_input": "BaW_jenozKc",
       "expected_output": "test video.webm"
     },
     {
-      "task_title": "Download video with title in filename",
-      "task_description": "This command downloads a video and names the file based on the video's title, including handling special characters.",
+      "task_title": "Download video with title as filename",
+      "task_description": "This command downloads a video and saves it using the title of the video as the filename.",
       "example_code": null,
-      "running_command": "yt-dlp --print filename -o '%(title)s.%(ext)s' BaW_jenozKc",
+      "running_command": "yt-dlp --print filename -o \"%(title)s.%(ext)s\" BaW_jenozKc",
       "expected_input": "BaW_jenozKc",
       "expected_output": "youtube-dl test video ''_ä↭𝕐.webm"
     },
     {
-      "task_title": "Restrict filenames",
-      "task_description": "This command downloads a video and restricts the filename to avoid special characters.",
+      "task_title": "Download video with restricted filenames",
+      "task_description": "This command downloads a video and saves it with a restricted filename format, removing any weird characters.",
       "example_code": null,
-      "running_command": "yt-dlp --print filename -o '%(title)s.%(ext)s' BaW_jenozKc --restrict-filenames",
+      "running_command": "yt-dlp --print filename -o \"%(title)s.%(ext)s\" BaW_jenozKc --restrict-filenames",
       "expected_input": "BaW_jenozKc",
       "expected_output": "youtube-dl_test_video_.webm"
     },
     {
-      "task_title": "Download YouTube playlist videos in separate directory",
-      "task_description": "This command downloads all videos from a YouTube playlist into a directory indexed by the video order in the playlist.",
+      "task_title": "Download YouTube playlist videos in separate directories by order",
+      "task_description": "This command downloads all videos from a YouTube playlist, saving them in a directory structure indexed by their order in the playlist.",
       "example_code": null,
-      "running_command": "yt-dlp -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' 'https://www.youtube.com/playlist?list=PLwiyx1dc3P2JR9N8gQaQN_BCvlSlap7re'",
+      "running_command": "yt-dlp -o \"%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s\" \"https://www.youtube.com/playlist?list=PLwiyx1dc3P2JR9N8gQaQN_BCvlSlap7re\"",
       "expected_input": "https://www.youtube.com/playlist?list=PLwiyx1dc3P2JR9N8gQaQN_BCvlSlap7re",
-      "expected_output": "Videos downloaded in specified directory structure"
+      "expected_output": "Downloaded videos saved in a directory structure."
     },
     {
-      "task_title": "Download Udemy course",
-      "task_description": "This command downloads an entire Udemy course, organizing chapters into separate directories.",
+      "task_title": "Download Udemy course videos by chapter",
+      "task_description": "This command downloads videos from a Udemy course, organizing them by chapter in a specified directory.",
       "example_code": null,
-      "running_command": "yt-dlp -u user -p password -P '~/MyVideos' -o '%(playlist)s/%(chapter_number)s - %(chapter)s/%(title)s.%(ext)s' 'https://www.udemy.com/java-tutorial'",
+      "running_command": "yt-dlp -u user -p password -P \"~/MyVideos\" -o \"%(playlist)s/%(chapter_number)s - %(chapter)s/%(title)s.%(ext)s\" \"https://www.udemy.com/java-tutorial\"",
       "expected_input": "https://www.udemy.com/java-tutorial",
-      "expected_output": "Course chapters downloaded in specified directory structure"
+      "expected_output": "Downloaded Udemy course videos organized by chapter."
     },
     {
-      "task_title": "Download video and subtitles",
-      "task_description": "This command downloads a video and its subtitles, saving them in specified directories.",
+      "task_title": "Download video and subtitles to specified directories",
+      "task_description": "This command downloads a video and its subtitles, saving them to specified directories.",
       "example_code": null,
-      "running_command": "yt-dlp -P 'C:/MyVideos' -P 'temp:tmp' -P 'subtitle:subs' -o '%(uploader)s/%(title)s.%(ext)s' BaW_jenozKc --write-subs",
+      "running_command": "yt-dlp -P \"C:/MyVideos\" -P \"temp:tmp\" -P \"subtitle:subs\" -o \"%(uploader)s/%(title)s.%(ext)s\" BaW_jenozKc --write-subs",
       "expected_input": "BaW_jenozKc",
-      "expected_output": "Video and subtitles downloaded in specified directories"
+      "expected_output": "Video and subtitles downloaded to specified directories."
     },
     {
-      "task_title": "Stream video to stdout",
-      "task_description": "This command streams the video directly to standard output.",
+      "task_title": "Download best audio and video formats",
+      "task_description": "This command downloads the best available video and audio formats, merging them if necessary.",
       "example_code": null,
-      "running_command": "yt-dlp -o - BaW_jenozKc",
+      "running_command": "yt-dlp -f \"bv+ba/b\"",
       "expected_input": "BaW_jenozKc",
-      "expected_output": "Streaming video data"
+      "expected_output": "Best video and audio formats downloaded and merged."
     },
     {
-      "task_title": "Download best video and audio formats",
-      "task_description": "This command downloads the best video-only and audio-only formats and merges them.",
+      "task_title": "Download video with specific codec preference",
+      "task_description": "This command downloads the best video available with a specified codec, preferring h264 or h265.",
       "example_code": null,
-      "running_command": "yt-dlp -f 'bv+ba/b'",
-      "expected_input": "https://www.youtube.com/watch?v=BaW_jenozKc",
-      "expected_output": "Best video and audio formats downloaded and merged"
+      "running_command": "yt-dlp -f \"(bv*[vcodec~='^((he|a)vc|h26[45])']+ba) / (bv*+ba/b)\"",
+      "expected_input": "BaW_jenozKc",
+      "expected_output": "Best video with specified codec downloaded."
     },
     {
-      "task_title": "Download video with specific duration filter",
-      "task_description": "This command downloads only videos longer than a minute.",
-      "example_code": "def longer_than_a_minute(info, *, incomplete):\n    duration = info.get('duration')\n    if duration and duration < 60:\n        return 'The video is too short'\n\nydl_opts = {\n    'match_filter': longer_than_a_minute,\n}\n\nwith yt_dlp.YoutubeDL(ydl_opts) as ydl:\n    error_code = ydl.download(URLS)",
-      "running_command": null,
-      "expected_input": "https://www.youtube.com/watch?v=BaW_jenozKc",
-      "expected_output": "Video downloaded if longer than a minute"
+      "task_title": "Extract audio from video",
+      "task_description": "This command downloads a video and extracts the audio, saving it in a specified format.",
+      "example_code": null,
+      "running_command": "yt-dlp -x --audio-format mp3 BaW_jenozKc",
+      "expected_input": "BaW_jenozKc",
+      "expected_output": "Audio extracted and saved in mp3 format."
     },
     {
-      "task_title": "Custom logger for download progress",
-      "task_description": "This command sets up a custom logger to handle download progress messages.",
-      "example_code": "class MyLogger:\n    def debug(self, msg):\n        pass\n\nydl_opts = {\n    'logger': MyLogger(),\n}\n\nwith yt_dlp.YoutubeDL(ydl_opts) as ydl:\n    ydl.download(URLS)",
-      "running_command": null,
-      "expected_input": "https://www.youtube.com/watch?v=BaW_jenozKc",
-      "expected_output": "Download progress logged"
-    },
-    {
-      "task_title": "Custom post-processor for additional processing",
-      "task_description": "This command defines a custom post-processor for additional processing after download.",
-      "example_code": "class MyCustomPP(yt_dlp.postprocessor.PostProcessor):\n    def run(self, info):\n        return [], info\n\nwith yt_dlp.YoutubeDL() as ydl:\n    ydl.add_post_processor(MyCustomPP(), when='pre_process')\n    ydl.download(URLS)",
-      "running_command": null,
-      "expected_input": "https://www.youtube.com/watch?v=BaW_jenozKc",
-      "expected_output": "Video downloaded with custom processing"
+      "task_title": "Download video using a custom logger",
+      "task_description": "This command demonstrates using a custom logger to track download progress.",
+      "example_code": null,
+      "running_command": "yt-dlp -o \"%(title)s.%(ext)s\" --logger MyLogger() BaW_jenozKc",
+      "expected_input": "BaW_jenozKc",
+      "expected_output": "Download progress logged using custom logger."
     }
   ],
   "setup": {

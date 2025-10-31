@@ -585,7 +585,8 @@ README内容:
 Generate a concise, actionable English description for building and running Docker using the file "{filename}" from repo {repo_name}.
 
 Include:
-- Detailed description of semantic meaning of the file.
+- Detailed natural language description of the building steps and built image (What is the purpose of the image, what are the dependencies.)
+- You are not allowed to disclose original dockerfile content and any command or code, please use the best of your knowledge to describe with natural language.
 
 Docker file content:
 {content}

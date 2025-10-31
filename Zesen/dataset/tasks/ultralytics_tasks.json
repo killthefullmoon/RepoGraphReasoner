@@ -1,15 +1,15 @@
 {
   "tasks": [
     {
-      "task_title": "使用预训练YOLO模型进行预测",
-      "task_description": "使用预训练的YOLO模型（例如YOLO11n）对给定图像进行预测。",
+      "task_title": "使用预训练的YOLO模型进行预测",
+      "task_description": "使用预训练的YOLO模型（例如YOLO11n）对图像进行预测。",
       "example_code": null,
       "running_command": "yolo predict model=yolo11n.pt source='https://ultralytics.com/images/bus.jpg'",
       "expected_input": "https://ultralytics.com/images/bus.jpg",
-      "expected_output": "预测结果，包括检测到的对象及其位置信息"
+      "expected_output": "预测结果，包括检测到的对象及其位置"
     },
     {
-      "task_title": "加载预训练YOLO模型",
+      "task_title": "加载预训练的YOLO模型",
       "task_description": "加载一个预训练的YOLO11n模型以进行后续操作。",
       "example_code": "from ultralytics import YOLO\n\nmodel = YOLO(\"yolo11n.pt\")",
       "running_command": null,
@@ -17,36 +17,41 @@
       "expected_output": "模型对象"
     },
     {
-      "task_title": "训练YOLO模型",
-      "task_description": "在COCO8数据集上训练YOLO模型，设置训练的轮数和图像大小。",
+      "task_title": "在COCO8数据集上训练模型",
+      "task_description": "在COCO8数据集上训练YOLO模型，指定训练的轮数和图像大小。",
       "example_code": "train_results = model.train(\n    data=\"coco8.yaml\",\n    epochs=100,\n    imgsz=640,\n    device=\"cpu\",\n)",
       "running_command": null,
-      "expected_input": "coco8.yaml, 100, 640, cpu",
-      "expected_output": "训练结果，包括训练损失和其他指标"
+      "expected_input": {
+        "data": "coco8.yaml",
+        "epochs": 100,
+        "imgsz": 640,
+        "device": "cpu"
+      },
+      "expected_output": "训练结果，包括损失和精度等指标"
     },
     {
       "task_title": "评估模型性能",
-      "task_description": "评估模型在验证集上的性能，获取相关指标。",
+      "task_description": "在验证集上评估模型的性能并获取指标。",
       "example_code": "metrics = model.val()",
       "running_command": null,
       "expected_input": null,
-      "expected_output": "评估指标，如mAP等"
+      "expected_output": "模型评估指标"
     },
     {
-      "task_title": "在图像上进行对象检测",
-      "task_description": "对给定的图像进行对象检测，并显示结果。",
+      "task_title": "对图像进行对象检测",
+      "task_description": "对指定路径的图像进行对象检测并显示结果。",
       "example_code": "results = model(\"path/to/image.jpg\")\nresults[0].show()",
       "running_command": null,
       "expected_input": "path/to/image.jpg",
-      "expected_output": "检测到的对象在图像上的可视化结果"
+      "expected_output": "检测结果的可视化图像"
     },
     {
-      "task_title": "导出模型为ONNX格式",
-      "task_description": "将训练好的模型导出为ONNX格式，以便于部署。",
+      "task_title": "将模型导出为ONNX格式",
+      "task_description": "将训练好的YOLO模型导出为ONNX格式以便于部署。",
       "example_code": "path = model.export(format=\"onnx\")",
       "running_command": null,
-      "expected_input": "onnx",
-      "expected_output": "导出模型的文件路径"
+      "expected_input": null,
+      "expected_output": "导出模型的路径"
     }
   ],
   "setup": {
@@ -58,7 +63,7 @@
       ".dockerignore": "# Python\n__pycache__\n*.pyc\n*.pyo\n*.pyd\n.Python\n*.py[cod]\n*$py.class\n.pytest_cache\n.coverage\ncoverage.xml\n.ruff_cache\n*.egg-info\ndist\nbuild\n\n# Development\n.env\n.venv\nenv/\nvenv/\nENV/\n.idea\n.vscode\n*.swp\n*.swo\n.DS_Store\n\n# Project specific\n*.log\nbenchmarks.log\nruns/\n\n# Dependencies\nnode_modules/\n"
     },
     "docker_setup_descriptions": {
-      ".dockerignore": "### Building and Running Docker with `.dockerignore` from `ultralytics/ultralytics`\n\n#### Semantic Meaning of `.dockerignore`\n\nThe `.dockerignore` file is used to specify files and directories that should be excluded from the Docker build context. This helps to reduce the size of the context sent to the Docker daemon, speeding up the build process and preventing unnecessary files from being included in the Docker image. The entries in the `.dockerignore` file are patterns that match files and directories, ensuring that only relevant files are included in the image.\n\n#### Contents of `.dockerignore`\n\n1. **Python Artifacts**: \n   - Excludes compiled Python files (`*.pyc`, `*.pyo`, `*.pyd`, etc.), cache directories (`__pycache__`, `.pytest_cache`, etc.), and build artifacts (`dist`, `build`, etc.) to keep the image clean and lightweight.\n\n2. **Development Files**: \n   - Ignores environment files (`.env`, `.venv`, `env/`, `venv/`, `ENV/`), IDE configuration files (`.idea`, `.vscode`), and temporary files (e.g., `.DS_Store`, `*.swp`, `*.swo`) that are not needed in production.\n\n3. **Project-Specific Logs**: \n   - Excludes log files (`*.log`, `benchmarks.log`, `runs/`) that are generated during development or testing, which are not necessary for the final image.\n\n4. **Dependencies**: \n   - Ignores `node_modules/` to prevent including unnecessary Node.js dependencies if they are not required for the Docker image.\n\n#### Actionable Steps to Build and Run Docker\n\n1. **Clone the Repository**:\n   ```bash\n   git clone https://github.com/ultralytics/ultralytics.git\n   cd ultralytics\n   ```\n\n2. **Build the Docker Image**:\n   Ensure you are in the root directory of the cloned repository and run:\n   ```bash\n   docker build -t ultralytics .\n   ```\n\n3. **Run the Docker Container**:\n   After successfully building the image, run the container:\n   ```bash\n   docker run -it --rm ultralytics\n   ```\n\n4. **Verify the Build**:\n   Check that the container is running and that the application behaves as expected.\n\n#### Related README Docker Commands\n\nRefer to the repository's README for any specific Docker commands or configurations that may be necessary for your use case. These might include environment variable settings or volume mounts that are essential for the application to function correctly within the Docker container."
+      ".dockerignore": "To build and run a Docker image using the `.dockerignore` file from the `ultralytics/ultralytics` repository, follow these steps:\n\n### Purpose of the Image\nThe Docker image is designed to facilitate the development and deployment of machine learning models using the Ultralytics framework. It encapsulates the necessary environment and dependencies to ensure consistent performance across different systems.\n\n### Building Steps\n1. **Prepare Your Environment**: Ensure that Docker is installed and running on your machine. You should also have access to the `ultralytics/ultralytics` repository.\n\n2. **Clone the Repository**: Download the repository to your local machine using Git. This will give you access to the necessary files, including the `.dockerignore`.\n\n3. **Understand the .dockerignore File**: The `.dockerignore` file specifies which files and directories should be excluded from the Docker build context. This is crucial for optimizing the build process and reducing the image size. It typically excludes:\n   - Python cache files and compiled bytecode.\n   - Development environment files (like virtual environments and IDE configurations).\n   - Project-specific logs and temporary files.\n   - Node.js dependencies, if applicable.\n\n4. **Build the Docker Image**: Navigate to the root directory of the cloned repository. Use the Docker build command to create the image. The build process will read the Dockerfile (not disclosed here) and the `.dockerignore` file to determine what to include in the image. The resulting image will contain:\n   - The Ultralytics framework and its dependencies (like Python libraries for machine learning).\n   - Any additional tools or libraries specified in the Dockerfile that are essential for running the Ultralytics models.\n\n5. **Run the Docker Container**: Once the image is built, you can run a container from the image. This container will have all the necessary dependencies and configurations to execute Ultralytics tasks, such as training models or making predictions.\n\n### Dependencies\nThe image will include essential dependencies such as:\n- Python and relevant libraries for machine learning (e.g., NumPy, PyTorch).\n- Any additional tools required for the specific functionalities of the Ultralytics framework.\n\nBy following these steps, you will successfully build and run a Docker image tailored for the Ultralytics framework, ensuring a smooth development and deployment experience."
     }
   },
   "input_to_gpt": {

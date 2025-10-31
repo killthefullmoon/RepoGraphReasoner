@@ -1,100 +1,92 @@
 {
   "tasks": [
     {
-      "task_title": "准备莎士比亚字符数据",
-      "task_description": "执行数据准备脚本以处理莎士比亚字符数据集。",
+      "task_title": "Prepare Shakespeare Character Dataset",
+      "task_description": "准备莎士比亚字符数据集以供训练使用。",
       "example_code": null,
       "running_command": "python data/shakespeare_char/prepare.py",
       "expected_input": null,
-      "expected_output": "数据准备完成的消息"
+      "expected_output": "Dataset prepared successfully."
     },
     {
-      "task_title": "训练莎士比亚字符模型",
-      "task_description": "使用配置文件训练莎士比亚字符模型。",
+      "task_title": "Train on Shakespeare Character Dataset",
+      "task_description": "使用莎士比亚字符数据集进行模型训练。",
       "example_code": null,
       "running_command": "python train.py config/train_shakespeare_char.py",
       "expected_input": null,
-      "expected_output": "训练过程的日志信息"
+      "expected_output": "Training completed."
     },
     {
-      "task_title": "生成莎士比亚字符样本",
-      "task_description": "生成基于莎士比亚字符模型的文本样本。",
+      "task_title": "Sample from Trained Model",
+      "task_description": "从训练好的模型中生成样本。",
       "example_code": null,
       "running_command": "python sample.py --out_dir=out-shakespeare-char",
       "expected_input": null,
-      "expected_output": "生成的文本样本"
+      "expected_output": "Generated samples saved to out-shakespeare-char."
     },
     {
-      "task_title": "训练莎士比亚字符模型（带参数）",
-      "task_description": "使用多种参数训练莎士比亚字符模型。",
+      "task_title": "Train with Custom Parameters",
+      "task_description": "使用自定义参数进行莎士比亚字符数据集的训练。",
       "example_code": null,
       "running_command": "python train.py config/train_shakespeare_char.py --device=cpu --compile=False --eval_iters=20 --log_interval=1 --block_size=64 --batch_size=12 --n_layer=4 --n_head=4 --n_embd=128 --max_iters=2000 --lr_decay_iters=2000 --dropout=0.0",
       "expected_input": null,
-      "expected_output": "训练过程的详细日志信息"
+      "expected_output": "Training completed with custom parameters."
     },
     {
-      "task_title": "生成莎士比亚字符样本（带设备参数）",
-      "task_description": "生成基于莎士比亚字符模型的文本样本，并指定设备。",
+      "task_title": "Sample from Model on CPU",
+      "task_description": "在CPU上从训练好的模型中生成样本。",
       "example_code": null,
       "running_command": "python sample.py --out_dir=out-shakespeare-char --device=cpu",
       "expected_input": null,
-      "expected_output": "生成的文本样本"
+      "expected_output": "Generated samples saved to out-shakespeare-char."
     },
     {
-      "task_title": "准备OpenWebText数据",
-      "task_description": "执行数据准备脚本以处理OpenWebText数据集。",
+      "task_title": "Prepare OpenWebText Dataset",
+      "task_description": "准备OpenWebText数据集以供训练使用。",
       "example_code": null,
       "running_command": "python data/openwebtext/prepare.py",
       "expected_input": null,
-      "expected_output": "数据准备完成的消息"
+      "expected_output": "Dataset prepared successfully."
     },
     {
-      "task_title": "分布式训练GPT-2模型",
-      "task_description": "在多个节点上分布式训练GPT-2模型。",
+      "task_title": "Distributed Training with Torchrun",
+      "task_description": "在分布式环境下使用Torchrun进行训练。",
       "example_code": null,
       "running_command": "torchrun --standalone --nproc_per_node=8 train.py config/train_gpt2.py",
       "expected_input": null,
-      "expected_output": "训练过程的日志信息"
+      "expected_output": "Distributed training started."
     },
     {
-      "task_title": "分布式训练GPT-2模型（主节点）",
-      "task_description": "在主节点上启动分布式训练GPT-2模型。",
+      "task_title": "Distributed Training on Multiple Nodes",
+      "task_description": "在多个节点上进行分布式训练。",
       "example_code": null,
       "running_command": "torchrun --nproc_per_node=8 --nnodes=2 --node_rank=0 --master_addr=123.456.123.456 --master_port=1234 train.py",
       "expected_input": null,
-      "expected_output": "训练过程的日志信息"
+      "expected_output": "Distributed training started on master node."
     },
     {
-      "task_title": "分布式训练GPT-2模型（工作节点）",
-      "task_description": "在工作节点上启动分布式训练GPT-2模型。",
-      "example_code": null,
-      "running_command": "torchrun --nproc_per_node=8 --nnodes=2 --node_rank=1 --master_addr=123.456.123.456 --master_port=1234 train.py",
-      "expected_input": null,
-      "expected_output": "训练过程的日志信息"
-    },
-    {
-      "task_title": "评估GPT-2模型",
-      "task_description": "使用不同配置文件评估GPT-2模型。",
+      "task_title": "Evaluate GPT-2 Models",
+      "task_description": "评估不同大小的GPT-2模型。",
       "example_code": null,
       "running_command": "$ python train.py config/eval_gpt2.py\n$ python train.py config/eval_gpt2_medium.py\n$ python train.py config/eval_gpt2_large.py\n$ python train.py config/eval_gpt2_xl.py",
       "expected_input": null,
-      "expected_output": "评估结果的日志信息"
+      "expected_output": "Evaluation completed for all specified models."
     },
     {
-      "task_title": "微调莎士比亚模型",
-      "task_description": "使用配置文件微调莎士比亚模型。",
+      "task_title": "Fine-tune on Shakespeare Dataset",
+      "task_description": "对莎士比亚数据集进行微调训练。",
       "example_code": null,
       "running_command": "python train.py config/finetune_shakespeare.py",
       "expected_input": null,
-      "expected_output": "微调过程的日志信息"
+      "expected_output": "Fine-tuning completed."
     },
     {
-      "task_title": "生成文本样本（指定初始文本）",
-      "task_description": "从指定的初始文本生成多个新文本样本。",
+      "task_title": "Sample from Fine-tuned Model",
+      "task_description": "从微调后的模型中生成样本。",
       "example_code": null,
       "running_command": "python sample.py --init_from=gpt2-xl --start=\"What is the answer to life, the universe, and everything?\" --num_samples=5 --max_new_tokens=100",
       "expected_input": "What is the answer to life, the universe, and everything?",
-      "expected_output": "生成的文本样本"
+      "expected_output": "Generated text based on the prompt."
     }
   ],
   "setup": {

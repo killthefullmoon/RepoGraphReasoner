@@ -1,15 +1,15 @@
 {
   "tasks": [
     {
-      "task_title": "Fix Git Push Command",
-      "task_description": "Automatically corrects the git push command by setting the upstream branch.",
+      "task_title": "Fixing git push error",
+      "task_description": "Automatically suggests the correct command to set the upstream branch for git push.",
       "example_code": null,
       "running_command": "fuck",
       "expected_input": "git push",
       "expected_output": "git push --set-upstream origin master"
     },
     {
-      "task_title": "Fix Misspelled Command",
+      "task_title": "Correcting command not found error",
       "task_description": "Suggests the correct command when a misspelled command is entered.",
       "example_code": null,
       "running_command": "fuck",
@@ -17,50 +17,50 @@
       "expected_output": "python"
     },
     {
-      "task_title": "Fix Git Branch Command",
-      "task_description": "Automatically corrects the git branch command when a typo is detected.",
+      "task_title": "Fixing misspelled git command",
+      "task_description": "Suggests the correct git command when a misspelled command is entered.",
       "example_code": null,
       "running_command": "fuck",
       "expected_input": "git brnch",
       "expected_output": "git branch"
     },
     {
-      "task_title": "Fix Lein Command",
-      "task_description": "Suggests the correct Lein command when an invalid task is entered.",
+      "task_title": "Fixing Leiningen task error",
+      "task_description": "Suggests the correct Leiningen task when an invalid task is entered.",
       "example_code": null,
       "running_command": "fuck",
       "expected_input": "lein rpl",
       "expected_output": "lein repl"
     },
     {
-      "task_title": "Run thefuck with Confirmation",
-      "task_description": "Executes thefuck with confirmation required.",
+      "task_title": "Using custom alias for The Fuck",
+      "task_description": "Sets a custom alias for using The Fuck in the shell.",
+      "example_code": null,
+      "running_command": "eval $(thefuck --alias)",
+      "expected_input": null,
+      "expected_output": null
+    },
+    {
+      "task_title": "Using The Fuck with confirmation",
+      "task_description": "Runs The Fuck with confirmation for the suggested command.",
       "example_code": null,
       "running_command": "fuck --yeah",
       "expected_input": null,
       "expected_output": null
     },
     {
-      "task_title": "Re-run Last Command",
-      "task_description": "Re-runs the last fixed command.",
+      "task_title": "Re-running last command with The Fuck",
+      "task_description": "Re-runs the last command that failed with The Fuck.",
       "example_code": null,
       "running_command": "fuck -r",
       "expected_input": null,
       "expected_output": null
     },
     {
-      "task_title": "Match Command Example",
-      "task_description": "Defines a function to match commands based on output.",
-      "example_code": "def match(command):\n    return ('permission denied' in command.output.lower() or 'EACCES' in command.output)",
-      "running_command": null,
-      "expected_input": null,
-      "expected_output": null
-    },
-    {
-      "task_title": "Get New Command Example",
-      "task_description": "Defines a function to get a new command based on the old one.",
-      "example_code": "def get_new_command(command):\n    return 'sudo {}'.format(command.script)",
-      "running_command": null,
+      "task_title": "Upgrading The Fuck",
+      "task_description": "Upgrades The Fuck to the latest version using pip.",
+      "example_code": null,
+      "running_command": "pip3 install thefuck --upgrade",
       "expected_input": null,
       "expected_output": null
     }

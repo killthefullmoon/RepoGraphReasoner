@@ -1,12 +1,20 @@
 {
   "tasks": [
     {
-      "task_title": "创建团队",
-      "task_description": "使用crewAI命令行工具创建一个新团队，指定项目名称。",
+      "task_title": "创建新的团队",
+      "task_description": "使用CLI命令创建一个新的团队，指定项目名称。",
+      "example_code": null,
+      "running_command": "crewai create crew",
+      "expected_input": "project_name",
+      "expected_output": "团队创建成功"
+    },
+    {
+      "task_title": "创建最新的AI开发团队",
+      "task_description": "通过CLI命令创建一个名为'latest-ai-development'的团队。",
       "example_code": null,
       "running_command": "crewai create crew latest-ai-development",
       "expected_input": "latest-ai-development",
-      "expected_output": "团队 'latest-ai-development' 创建成功"
+      "expected_output": "团队'latest-ai-development'创建成功"
     }
   ],
   "setup": {

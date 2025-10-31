@@ -1,8 +1,8 @@
 {
   "tasks": [
     {
-      "task_title": "与AI聊天并使用记忆",
-      "task_description": "该任务允许用户与AI进行对话，AI会根据用户的历史记忆生成回答，并在对话后将新信息添加到记忆中。",
+      "task_title": "与AI进行对话并利用记忆",
+      "task_description": "此任务展示了如何与AI进行对话，同时利用记忆系统来增强回应的相关性。通过搜索用户的记忆并生成基于这些记忆的AI回答。",
       "example_code": "from openai import OpenAI\nfrom mem0 import Memory\n\nopenai_client = OpenAI()\nmemory = Memory()\n\ndef chat_with_memories(message: str, user_id: str = \"default_user\") -> str:\n    relevant_memories = memory.search(query=message, user_id=user_id, limit=3)\n    memories_str = \"\\n\".join(f\"- {entry['memory']}\" for entry in relevant_memories[\"results\"])\n    system_prompt = f\"You are a helpful AI. Answer the question based on query and memories.\\nUser Memories:\\n{memories_str}\"\n    messages = [{\"role\": \"system\", \"content\": system_prompt}, {\"role\": \"user\", \"content\": message}]\n    response = openai_client.chat.completions.create(model=\"gpt-4.1-nano-2025-04-14\", messages=messages)\n    assistant_response = response.choices[0].message.content\n    messages.append({\"role\": \"assistant\", \"content\": assistant_response})\n    memory.add(messages, user_id=user_id)\n    return assistant_response\n\ndef main():\n    print(\"Chat with AI (type 'exit' to quit)\")\n    while True:\n        user_input = input(\"You: \").strip()\n        if user_input.lower() == 'exit':\n            print(\"Goodbye!\")\n            break\n        print(f\"AI: {chat_with_memories(user_input)}\")\n\nif __name__ == \"__main__\":\n    main()",
       "running_command": null,
       "expected_input": "Hello, how are you?",

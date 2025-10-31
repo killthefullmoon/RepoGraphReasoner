@@ -2,7 +2,7 @@
   "repo": {
     "full_name": "soimort/you-get",
     "stars": 56522,
-    "forks": 9801,
+    "forks": 9800,
     "language": "Python",
     "description": ":arrow_double_down: Dumb downloader that scrapes the web",
     "topics": [],
@@ -18,5 +18,5 @@
   "has_docker_files": false,
   "docker_files_list": [],
   "docker_setup_descriptions": null,
-  "processed_at": "2025-10-30T20:43:33.957909"
+  "processed_at": "2025-10-30T23:39:21.796154"
 }

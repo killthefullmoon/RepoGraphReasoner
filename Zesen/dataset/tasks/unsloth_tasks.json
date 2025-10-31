@@ -2,35 +2,35 @@
   "tasks": [
     {
       "task_title": "加载数据集",
-      "task_description": "从指定的URL加载LAION数据集，支持JSON格式。",
-      "example_code": "from datasets import load_dataset\nurl = \"https://huggingface.co/datasets/laion/OIG/resolve/main/unified_chip2.jsonl\"\ndataset = load_dataset(\"json\", data_files = {\"train\" : url}, split = \"train\")",
+      "task_description": "从指定的URL加载LAION数据集，使用datasets库的load_dataset函数。",
+      "example_code": "url = \"https://huggingface.co/datasets/laion/OIG/resolve/main/unified_chip2.jsonl\"\ndataset = load_dataset(\"json\", data_files = {\"train\" : url}, split = \"train\")",
       "running_command": null,
       "expected_input": "https://huggingface.co/datasets/laion/OIG/resolve/main/unified_chip2.jsonl",
-      "expected_output": "加载的训练数据集"
+      "expected_output": "加载的训练数据集对象"
     },
     {
       "task_title": "加载预训练模型",
-      "task_description": "从预训练模型中加载模型和分词器，支持4位量化。",
+      "task_description": "使用FastModel类从预训练模型中加载模型和tokenizer，并设置相关参数。",
       "example_code": "model, tokenizer = FastModel.from_pretrained(\n    model_name = \"unsloth/gpt-oss-20b\",\n    max_seq_length = 2048,\n    load_in_4bit = True,\n    load_in_8bit = False,\n    load_in_16bit = False,\n    full_finetuning = False,\n)",
       "running_command": null,
-      "expected_input": "模型名称: unsloth/gpt-oss-20b",
-      "expected_output": "加载的模型和分词器实例"
+      "expected_input": "unsloth/gpt-oss-20b",
+      "expected_output": "加载的模型和tokenizer对象"
     },
     {
-      "task_title": "模型补丁与LoRA权重添加",
-      "task_description": "对模型进行补丁处理，并添加快速LoRA权重以优化模型性能。",
+      "task_title": "模型加速与LoRA权重添加",
+      "task_description": "对模型进行补丁处理，添加快速LoRA权重以优化性能。",
       "example_code": "model = FastLanguageModel.get_peft_model(\n    model,\n    r = 16,\n    target_modules = [\"q_proj\", \"k_proj\", \"v_proj\", \"o_proj\",\n                      \"gate_proj\", \"up_proj\", \"down_proj\",],\n    lora_alpha = 16,\n    lora_dropout = 0,\n    bias = \"none\",\n    use_gradient_checkpointing = \"unsloth\",\n    random_state = 3407,\n    max_seq_length = max_seq_length,\n    use_rslora = False,\n    loftq_config = None,\n)",
       "running_command": null,
       "expected_input": "模型对象",
-      "expected_output": "优化后的模型实例"
+      "expected_output": "优化后的模型对象"
     },
     {
       "task_title": "训练模型",
-      "task_description": "使用SFTTrainer对模型进行训练，配置训练参数。",
+      "task_description": "使用SFTTrainer类对模型进行训练，指定训练数据集和相关参数。",
       "example_code": "trainer = SFTTrainer(\n    model = model,\n    train_dataset = dataset,\n    tokenizer = tokenizer,\n    args = SFTConfig(\n        max_seq_length = max_seq_length,\n        per_device_train_batch_size = 2,\n        gradient_accumulation_steps = 4,\n        warmup_steps = 10,\n        max_steps = 60,\n        logging_steps = 1,\n        output_dir = \"outputs\",\n        optim = \"adamw_8bit\",\n        seed = 3407,\n    ),\n)\ntrainer.train()",
       "running_command": null,
-      "expected_input": "训练数据集、模型、分词器及训练参数",
-      "expected_output": "模型训练过程的日志信息"
+      "expected_input": "训练数据集和模型对象",
+      "expected_output": "训练过程的输出日志"
     }
   ],
   "setup": {
@@ -52,7 +52,7 @@
     ],
     "docker_files": {},
     "docker_setup_descriptions": {
-      "README_commands": "# Guide to Build and Run Docker for unslothai/unsloth\n\n1. **Install Docker**: Ensure Docker is installed on your machine. Follow the installation guide for your operating system from the [Docker website](https://docs.docker.com/get-docker/).\n\n2. **Install NVIDIA Container Toolkit** (if using GPUs): Follow the instructions on the [NVIDIA website](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) to set up the NVIDIA Container Toolkit.\n\n3. **Clone the Repository**: Open your terminal and clone the repository:\n   ```bash\n   git clone https://github.com/unslothai/unsloth.git\n   cd unsloth\n   ```\n\n4. **Create a Work Directory**: Ensure you have a `work` directory in the current path:\n   ```bash\n   mkdir work\n   ```\n\n5. **Run the Docker Container**: Execute the following command to start the Docker container:\n   ```bash\n   docker run -d -e JUPYTER_PASSWORD=\"mypassword\" \\\n     -p 8888:8888 -p 2222:22 \\\n     -v $(pwd)/work:/workspace/work \\\n     --gpus all \\\n     unsloth/unsloth\n   ```\n\n6. **Access Jupyter Notebook**: Open your web browser and navigate to `http://localhost:8888`. Enter the password `mypassword` when prompted.\n\n7. **SSH Access (Optional)**: If you need SSH access, connect using:\n   ```bash\n   ssh -p 2222 user@localhost\n   ```\n\nReplace `user` with the appropriate username for the container.\n\n8. **Stop the Container**: To stop the running container, find its ID with:\n   ```bash\n   docker ps\n   ```\n   Then stop it using:\n   ```bash\n   docker stop <container_id>\n   ```\n\n9. **Remove the Container** (Optional): If you want to remove the container after stopping it:\n   ```bash\n   docker rm <container_id>\n   ```\n\nYou are now set up to use the unslothai/unsloth Docker container!"
+      "README_commands": "# Guide to Build and Run Docker for unslothai/unsloth\n\n1. **Install Docker**: Ensure Docker is installed on your machine. Follow the official [Docker installation guide](https://docs.docker.com/get-docker/) for your operating system.\n\n2. **Install NVIDIA Container Toolkit** (if using GPUs): Follow the instructions on the [NVIDIA website](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html) to set up the NVIDIA Container Toolkit.\n\n3. **Clone the Repository**: Open your terminal and clone the repository:\n   ```bash\n   git clone https://github.com/unslothai/unsloth.git\n   cd unsloth\n   ```\n\n4. **Create a Work Directory**: Ensure you have a local directory for your work:\n   ```bash\n   mkdir work\n   ```\n\n5. **Run the Docker Container**: Execute the following command to start the Docker container:\n   ```bash\n   docker run -d -e JUPYTER_PASSWORD=\"mypassword\" \\\n     -p 8888:8888 -p 2222:22 \\\n     -v $(pwd)/work:/workspace/work \\\n     --gpus all \\\n     unsloth/unsloth\n   ```\n\n6. **Access Jupyter Notebook**: Open your web browser and go to `http://localhost:8888`. Enter the password you set (`mypassword`) to access Jupyter Notebook.\n\n7. **Connect via SSH** (optional): If you need to connect via SSH, use:\n   ```bash\n   ssh -p 2222 user@localhost\n   ```\n   Replace `user` with the appropriate username for the container.\n\n8. **Stop the Container**: To stop the running container, find its ID with:\n   ```bash\n   docker ps\n   ```\n   Then stop it using:\n   ```bash\n   docker stop <container_id>\n   ```\n\n9. **Remove the Container** (optional): If you want to remove the container after stopping it:\n   ```bash\n   docker rm <container_id>\n   ```\n\nNow you are set up to use the unsloth Docker container!"
     }
   },
   "input_to_gpt": {

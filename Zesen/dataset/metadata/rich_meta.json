@@ -29,11 +29,11 @@
   },
   "readme_file": "dataset/readmes/rich_README.md",
   "task_file": "dataset/tasks/rich_tasks.json",
-  "num_tasks": 14,
+  "num_tasks": 15,
   "num_setup_commands": 1,
   "num_docker_commands": 0,
   "has_docker_files": false,
   "docker_files_list": [],
   "docker_setup_descriptions": null,
-  "processed_at": "2025-10-30T20:46:59.680211"
+  "processed_at": "2025-10-30T23:42:45.776144"
 }

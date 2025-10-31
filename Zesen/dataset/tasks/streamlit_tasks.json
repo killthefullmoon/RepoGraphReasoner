@@ -1,12 +1,12 @@
 {
   "tasks": [
     {
-      "task_title": "Slider for value selection",
-      "task_description": "创建一个滑块供用户选择一个值，并计算该值的平方。",
+      "task_title": "使用滑块选择值",
+      "task_description": "该任务展示了如何使用Streamlit的滑块组件来选择一个值，并计算该值的平方。",
       "example_code": "import streamlit as st\nx = st.slider(\"Select a value\")\nst.write(x, \"squared is\", x * x)",
       "running_command": null,
-      "expected_input": "任意数值（通过滑块选择）",
-      "expected_output": "x squared is x * x"
+      "expected_input": "任意数字（通过滑块选择）",
+      "expected_output": "x的平方值，例如：\"3 squared is 9\""
     }
   ],
   "setup": {

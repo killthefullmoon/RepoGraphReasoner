@@ -3,10 +3,10 @@
     {
       "task_title": "Opening Manim Example",
       "task_description": "展示了如何使用Manim库创建一个简单的动画示例。",
-      "example_code": "from manim import *\n\nclass OpeningManimExample(Scene):\n    def construct(self):\n        title = Text(\"Welcome to Manim!\")\n        self.play(Write(title))\n        self.wait(2)",
+      "example_code": "from manim import *\n\nclass OpeningManimExample(Scene):\n    def construct(self):\n        square = Square()\n        self.play(Create(square))\n        self.wait(1)",
       "running_command": null,
       "expected_input": null,
-      "expected_output": "A scene displaying the text 'Welcome to Manim!'"
+      "expected_output": "一个包含方形的动画"
     }
   ],
   "setup": {
