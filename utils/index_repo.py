@@ -135,4 +135,4 @@ def build_index(repo_root):
     return symbols_out, imports_out
 
 if __name__ == "__main__":
-    build_index("../data/repos/flask")
+    build_index("../dataset/repos/flask")
