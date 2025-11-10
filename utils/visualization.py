@@ -3,11 +3,15 @@ import pickle
 import networkx as nx
 import os
 import pyvis
+from pathlib import Path
 
 template_path = os.path.join(os.path.dirname(pyvis.__file__), "templates")
+repo_base = Path(__file__).resolve().parents[1]
+graph_path = repo_base / "processed_data" / "flask" / "graph.pkl"
+out_html = repo_base / "processed_data" / "flask" / "graph_visualization.html"
 
 # Load graph
-with open("/home/killt/workspace/RepoIO/processed_data/graph.pkl", "rb") as f:
+with open(graph_path, "rb") as f:
     G = pickle.load(f)
 
 H = G
@@ -36,5 +40,5 @@ for s, t, data in H.edges(data=True):
 
 
 # Export to HTML
-net.write_html("graph_visualization.html", open_browser=False)
-print("✅ Visualization saved to graph_visualization.html")
+net.write_html(str(out_html), open_browser=False)
+print(f"✅ Visualization saved to {out_html}")

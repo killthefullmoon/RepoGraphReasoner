@@ -7,11 +7,13 @@ Recommended model: Llama-3-8B-Instruct or Mistral-7B-Instruct
 """
 
 import json
+from pathlib import Path
 from tqdm import tqdm
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 
-INPUT_FILE = "multi_hop_qas_en_unique.jsonl"
-OUTPUT_FILE = "multi_hop_qas_en_fuzzy.jsonl"
+_REPO_BASE = Path(__file__).resolve().parents[1]
+INPUT_FILE = _REPO_BASE / "processed_data" / "flask" / "multi_hop_qas_en_unique.jsonl"
+OUTPUT_FILE = _REPO_BASE / "processed_data" / "flask" / "multi_hop_qas_en_fuzzy.jsonl"
 MODEL_NAME = "meta-llama/Meta-Llama-3-8B-Instruct"   # or "mistralai/Mistral-7B-Instruct-v0.3"
 
 # ---------------------------

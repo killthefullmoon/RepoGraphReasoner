@@ -23,8 +23,10 @@ import os, json, re, time, argparse, requests
 from typing import Dict, Any, List
 from dataclasses import dataclass
 from tqdm import tqdm
+from pathlib import Path
 
-INPUT_QA = "multi_hop_qas_en_unique.jsonl"
+_REPO_BASE = Path(__file__).resolve().parents[1]
+INPUT_QA = str(_REPO_BASE / "processed_data" / "flask" / "multi_hop_qas_en_unique.jsonl")
 OUT_GOOD = "cot_dataset.jsonl"
 OUT_BAD  = "cot_rejected.jsonl"
 OUT_STATS = "cot_stats.json"

@@ -8,11 +8,132 @@ from a code knowledge graph built with build_code_kg.py.
 
 import json
 import pickle
+import argparse
+from pathlib import Path
 import networkx as nx
 from collections import defaultdict
 
-INPUT_GRAPH = "graph.pkl"
-OUTPUT_QA = "multi_hop_qas_en_unique.jsonl"
+_REPO_BASE = Path(__file__).resolve().parents[1]
+INPUT_GRAPH = str(_REPO_BASE / "processed_data" / "flask" / "graph.pkl")
+OUTPUT_QA = str(_REPO_BASE / "processed_data" / "flask" / "multi_hop_qas_en_unique.jsonl")
+
+def build_node_file_map(G):
+    """
+    Map graph nodes to the file paths that define or contain them.
+    """
+    node_to_files = defaultdict(set)
+
+    for node, data in G.nodes(data=True):
+        if data.get("node_type") != "File":
+            continue
+        path = data.get("path")
+        if not path:
+            continue
+
+        module_name = data.get("module")
+        if module_name:
+            node_to_files[f"module:{module_name}"].add(path)
+
+        for succ in G.successors(node):
+            if "DEFINES" in G.edges[node, succ]["etype"]:
+                node_to_files[succ].add(path)
+
+    for node in G.nodes:
+        for succ in G.successors(node):
+            if (
+                "IN_FILE" in G.edges[node, succ]["etype"]
+                and G.nodes[succ].get("node_type") == "File"
+            ):
+                path = G.nodes[succ].get("path")
+                if path:
+                    node_to_files[node].add(path)
+
+    return node_to_files
+
+
+def gather_relevant_files(node_to_files, nodes):
+    files = set()
+    for node in nodes:
+        files.update(node_to_files.get(node, ()))
+    return sorted(files)
+
+
+def longest_common_prefix_len(a_parts, b_parts):
+    count = 0
+    for a, b in zip(a_parts, b_parts):
+        if a != b:
+            break
+        count += 1
+    return count
+
+
+def build_module_indexes(G, modules):
+    module_names = {m: get_name(G, m) for m in modules}
+    suffix_map = defaultdict(set)
+
+    for m in modules:
+        name = module_names[m]
+        parts = name.split(".")
+        for i in range(len(parts)):
+            suffix = ".".join(parts[i:])
+            suffix_map[suffix].add(m)
+
+        if name.endswith(".__init__"):
+            trimmed = name[: -len(".__init__")]
+            trimmed_parts = trimmed.split(".")
+            for i in range(len(trimmed_parts)):
+                suffix = ".".join(trimmed_parts[i:])
+                suffix_map[suffix].add(m)
+
+    return module_names, suffix_map
+
+
+def resolve_library_files(G, node_to_files, module_names, modules_by_suffix,
+                          importer_module, library_node):
+    lib_name = get_name(G, library_node)
+    importer_name = module_names.get(importer_module)
+    if not importer_name:
+        return []
+
+    candidates = set(modules_by_suffix.get(lib_name, set()))
+
+    if not candidates and "." not in lib_name and "." in importer_name:
+        parent = importer_name.rsplit(".", 1)[0]
+        rel_suffix = f"{parent}.{lib_name}"
+        candidates = set(modules_by_suffix.get(rel_suffix, set()))
+
+    if not candidates:
+        return []
+
+    importer_parts = importer_name.split(".")
+    best_score = -1
+    best_ids = []
+    for mid in candidates:
+        cand_name = module_names[mid]
+        score = longest_common_prefix_len(importer_parts, cand_name.split("."))
+        if score > best_score:
+            best_score = score
+            best_ids = [mid]
+        elif score == best_score:
+            best_ids.append(mid)
+
+    if best_score <= 0:
+        return []
+
+    expanded_ids = set(best_ids)
+    for mid in best_ids:
+        base_name = module_names[mid]
+        if base_name.endswith(".__init__"):
+            base_prefix = base_name[: -len(".__init__")]
+            prefix = f"{base_prefix}."
+            for cand_id, cand_name in module_names.items():
+                if cand_name.startswith(prefix):
+                    expanded_ids.add(cand_id)
+
+    files = set()
+    for mid in expanded_ids:
+        files.update(node_to_files.get(mid, ()))
+    return sorted(files)
 
 
 def load_graph(path=INPUT_GRAPH):
@@ -39,6 +160,8 @@ def generate_unique_qas(G):
 
     modules = [n for n in G.nodes if is_mod(G, n)]
     functions = [n for n in G.nodes if is_func(G, n)]
+    node_to_files = build_node_file_map(G)
+    module_names, modules_by_suffix = build_module_indexes(G, modules)
 
     # -------------------------------
     # Pattern 1: Module IMPORTS Library -> Function IN_MODULE -> Function CALLS ExternalAPI
@@ -60,6 +183,12 @@ def generate_unique_qas(G):
         if len(paths) != 1:
             continue  # only unique answers allowed
         m, lib, f, ext = paths[0]
+        path_nodes = [m, lib, f, ext]
+        lib_files = resolve_library_files(
+            G, node_to_files, module_names, modules_by_suffix, m, lib
+        )
+        relevant_files = set(gather_relevant_files(node_to_files, path_nodes))
+        relevant_files.update(lib_files)
         qid += 1
         qas.append({
             "id": f"qa_{qid:05d}",
@@ -70,7 +199,7 @@ def generate_unique_qas(G):
             "answer": [f],
             "answer_type": ntype(G, f),
             "graph_support": {
-                "path": [m, lib, f, ext],
+                "path": path_nodes,
                 "edges": [
                     [m, lib, "IMPORTS"],
                     [f, m, "IN_MODULE"],
@@ -78,7 +207,8 @@ def generate_unique_qas(G):
                 ]
             },
             "num_hops": 3,
-            "verified": True
+            "verified": True,
+            "relavant_files": sorted(relevant_files)
         })
 
     # -------------------------------
@@ -102,6 +232,8 @@ def generate_unique_qas(G):
         if len(paths) != 1:
             continue
         test, fn, ext = paths[0]
+        path_nodes = [test, fn, ext]
+        relevant_files = gather_relevant_files(node_to_files, path_nodes)
         qid += 1
         qas.append({
             "id": f"qa_{qid:05d}",
@@ -111,14 +243,15 @@ def generate_unique_qas(G):
             "answer": [test],
             "answer_type": "Test",
             "graph_support": {
-                "path": [test, fn, ext],
+                "path": path_nodes,
                 "edges": [
                     [test, fn, "CALLS"],
                     [fn, ext, "CALLS"]
                 ]
             },
             "num_hops": 2,
-            "verified": True
+            "verified": True,
+            "relavant_files": relevant_files
         })
 
     # -------------------------------
@@ -141,6 +274,12 @@ def generate_unique_qas(G):
         if len(paths) != 1:
             continue
         m, lib, f, callee = paths[0]
+        path_nodes = [m, lib, f, callee]
+        lib_files = resolve_library_files(
+            G, node_to_files, module_names, modules_by_suffix, m, lib
+        )
+        relevant_files = set(gather_relevant_files(node_to_files, path_nodes))
+        relevant_files.update(lib_files)
         qid += 1
         qas.append({
             "id": f"qa_{qid:05d}",
@@ -151,7 +290,7 @@ def generate_unique_qas(G):
             "answer": [f],
             "answer_type": ntype(G, f),
             "graph_support": {
-                "path": [m, lib, f, callee],
+                "path": path_nodes,
                 "edges": [
                     [m, lib, "IMPORTS"],
                     [f, m, "IN_MODULE"],
@@ -159,17 +298,23 @@ def generate_unique_qas(G):
                 ]
             },
             "num_hops": 3,
-            "verified": True
+            "verified": True,
+            "relavant_files": sorted(relevant_files)
         })
 
     return qas
 
 
 if __name__ == "__main__":
-    G = load_graph()
+    parser = argparse.ArgumentParser(description="Generate multi-hop QA pairs from a code KG.")
+    parser.add_argument("--graph", default=INPUT_GRAPH, help="Path to graph.pkl")
+    parser.add_argument("--output", default=OUTPUT_QA, help="Destination JSONL file")
+    args = parser.parse_args()
+
+    G = load_graph(args.graph)
     qas = generate_unique_qas(G)
-    with open(OUTPUT_QA, "w", encoding="utf-8") as f:
+    with open(args.output, "w", encoding="utf-8") as f:
         for q in qas:
             f.write(json.dumps(q, ensure_ascii=False) + "\n")
 
-    print(f"[OK] Generated {len(qas)} unique multi-hop QA pairs → {OUTPUT_QA}")
+    print(f"[OK] Generated {len(qas)} unique multi-hop QA pairs → {args.output}")

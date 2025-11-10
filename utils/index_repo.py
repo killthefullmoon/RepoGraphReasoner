@@ -2,6 +2,8 @@
 import os
 import ast
 import json
+import argparse
+from pathlib import Path
 
 def safe_read(path):
     try:
@@ -107,7 +109,7 @@ def extract_symbols(file_path, repo_root):
 
     return symbols, file_meta
 
-def build_index(repo_root):
+def build_index(repo_root, output_dir):
     symbols_out = []
     imports_out = []
     for root, _, files in os.walk(repo_root):
@@ -123,16 +125,40 @@ def build_index(repo_root):
                 })
             symbols_out.extend(symbols)
 
-    os.makedirs(os.path.join(repo_root, "_index"), exist_ok=True)
-    with open(os.path.join(repo_root, "_index/symbols.jsonl"), "w", encoding="utf-8") as f:
+    os.makedirs(output_dir, exist_ok=True)
+    symbols_path = os.path.join(output_dir, "symbols.jsonl")
+    imports_path = os.path.join(output_dir, "imports.jsonl")
+
+    with open(symbols_path, "w", encoding="utf-8") as f:
         for s in symbols_out:
             f.write(json.dumps(s, ensure_ascii=False) + "\n")
-    with open(os.path.join(repo_root, "_index/imports.jsonl"), "w", encoding="utf-8") as f:
+    with open(imports_path, "w", encoding="utf-8") as f:
         for i in imports_out:
             f.write(json.dumps(i, ensure_ascii=False) + "\n")
 
     print(f"✅ Indexed {len(symbols_out)} symbols across {len(imports_out)} files.")
+    print(f"   symbols → {symbols_path}")
+    print(f"   imports → {imports_path}")
     return symbols_out, imports_out
 
 if __name__ == "__main__":
-    build_index("../dataset/repos/flask")
+    repo_base = Path(__file__).resolve().parents[1]
+    default_repo = repo_base / "dataset" / "repos" / "flask"
+    default_output = repo_base / "processed_data" / "flask" / "index"
+
+    parser = argparse.ArgumentParser(description="Index a repository into JSONL artifacts.")
+    parser.add_argument(
+        "--repo-root",
+        default=str(default_repo),
+        help="Path to the repository to index (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--output-dir",
+        default=str(default_output),
+        help="Directory to store imports.jsonl and symbols.jsonl (default: %(default)s)",
+    )
+    args = parser.parse_args()
+
+    repo_root = os.path.abspath(args.repo_root)
+    output_dir = os.path.abspath(args.output_dir)
+    build_index(repo_root, output_dir)

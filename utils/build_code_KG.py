@@ -45,6 +45,7 @@ Usage:
 import argparse
 import json
 import os
+from pathlib import Path
 from typing import Dict, Any, Tuple
 import networkx as nx
 
@@ -317,10 +318,14 @@ def export_graph(G: nx.DiGraph, out_prefix: str) -> None:
 
 
 def main():
+    repo_base = Path(__file__).resolve().parents[1]
+    default_index = repo_base / "processed_data" / "flask" / "index"
+    default_out = repo_base / "processed_data" / "flask" / "graph"
+
     ap = argparse.ArgumentParser()
-    ap.add_argument("--imports", default="/home/killt/workspace/RepoIO/dataset/repos/flask/_index/imports.jsonl", help="Path to imports.jsonl")
-    ap.add_argument("--symbols", default="/home/killt/workspace/RepoIO/dataset/repos/flask/_index/symbols.jsonl", help="Path to symbols.jsonl")
-    ap.add_argument("--out-prefix", default="graph", help="Output file prefix")
+    ap.add_argument("--imports", default=str(default_index / "imports.jsonl"), help="Path to imports.jsonl")
+    ap.add_argument("--symbols", default=str(default_index / "symbols.jsonl"), help="Path to symbols.jsonl")
+    ap.add_argument("--out-prefix", default=str(default_out), help="Output file prefix (without extension)")
     args = ap.parse_args()
 
     G = build_graph(args.imports, args.symbols)
