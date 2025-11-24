@@ -14,8 +14,7 @@ import networkx as nx
 from collections import defaultdict
 
 _REPO_BASE = Path(__file__).resolve().parents[1]
-INPUT_GRAPH = str(_REPO_BASE / "processed_data" / "flask" / "graph.pkl")
-OUTPUT_QA = str(_REPO_BASE / "processed_data" / "flask" / "multi_hop_qas_en_unique.jsonl")
+DEFAULT_DATASET_DIR = Path("/scratch/zmao_root/zmao98/boyuann/dataset/processed_data")
 
 def build_node_file_map(G):
     """
@@ -136,7 +135,7 @@ def resolve_library_files(G, node_to_files, module_names, modules_by_suffix,
     return sorted(files)
 
 
-def load_graph(path=INPUT_GRAPH):
+def load_graph(path):
     with open(path, "rb") as f:
         return pickle.load(f)
 
@@ -305,16 +304,57 @@ def generate_unique_qas(G):
     return qas
 
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate multi-hop QA pairs from a code KG.")
-    parser.add_argument("--graph", default=INPUT_GRAPH, help="Path to graph.pkl")
-    parser.add_argument("--output", default=OUTPUT_QA, help="Destination JSONL file")
-    args = parser.parse_args()
-
-    G = load_graph(args.graph)
+def write_qas(graph_path, output_path):
+    G = load_graph(graph_path)
     qas = generate_unique_qas(G)
-    with open(args.output, "w", encoding="utf-8") as f:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w", encoding="utf-8") as f:
         for q in qas:
             f.write(json.dumps(q, ensure_ascii=False) + "\n")
+    return len(qas)
 
-    print(f"[OK] Generated {len(qas)} unique multi-hop QA pairs → {args.output}")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Generate multi-hop QA pairs from a code KG.")
+    parser.add_argument("--graph", help="Path to a specific graph.pkl file")
+    parser.add_argument("--output", help="Destination JSONL file when --graph is used")
+    parser.add_argument(
+        "--dataset-dir",
+        default=str(DEFAULT_DATASET_DIR),
+        help="Root directory containing processed repositories with graph.pkl files",
+    )
+    parser.add_argument(
+        "--graph-name",
+        default="graph.pkl",
+        help="Graph filename to look for inside each processed repository",
+    )
+    parser.add_argument(
+        "--qa-name",
+        default="multi_hop_qas_en_unique.jsonl",
+        help="QA filename to write inside each processed repository",
+    )
+    args = parser.parse_args()
+
+    if args.graph:
+        output_path = Path(args.output) if args.output else Path(args.graph).with_name(args.qa_name)
+        count = write_qas(Path(args.graph), output_path)
+        print(f"[OK] Generated {count} unique multi-hop QA pairs → {output_path}")
+    else:
+        dataset_dir = Path(args.dataset_dir)
+        if not dataset_dir.is_dir():
+            raise FileNotFoundError(f"Dataset directory not found: {dataset_dir}")
+
+        processed = 0
+        for repo_dir in sorted(p for p in dataset_dir.iterdir() if p.is_dir()):
+            graph_path = repo_dir / args.graph_name
+            if not graph_path.is_file():
+                continue
+            output_path = repo_dir / args.qa_name
+            count = write_qas(graph_path, output_path)
+            processed += 1
+            print(f"[OK] {repo_dir.name}: {count} QA pairs")
+
+        if processed == 0:
+            print(f"[WARN] No repositories with {args.graph_name} found in {dataset_dir}")
+        else:
+            print(f"Processed {processed} repositories under {dataset_dir}")

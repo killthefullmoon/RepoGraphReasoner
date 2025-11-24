@@ -49,6 +49,8 @@ from pathlib import Path
 from typing import Dict, Any, Tuple
 import networkx as nx
 
+from index_repo import build_index
+
 
 # ----------------------------
 # Helpers
@@ -272,8 +274,79 @@ def build_graph(imports_path: str, symbols_path: str) -> nx.DiGraph:
     return G
 
 
+def log_graph_stats(G: nx.DiGraph) -> None:
+    """Prints node/edge summary for quick sanity checks."""
+    print(f"Nodes: {G.number_of_nodes()}  Edges: {G.number_of_edges()}")
+    ntype_count: Dict[str, int] = {}
+    for _, d in G.nodes(data=True):
+        ntype = d.get("node_type", "UNK")
+        ntype_count[ntype] = ntype_count.get(ntype, 0) + 1
+    print("Node type counts:", ntype_count)
+
+    etype_count: Dict[str, int] = {}
+    for _, _, d in G.edges(data=True):
+        etypes = d.get("etype")
+        if isinstance(etypes, set):
+            for e in etypes:
+                etype_count[e] = etype_count.get(e, 0) + 1
+        else:
+            etype_count[etypes] = etype_count.get(etypes, 0) + 1
+    print("Edge type counts:", etype_count)
+
+
+def ensure_index_artifacts(repo_path: Path, out_dir: Path, force_reindex: bool = False) -> Tuple[Path, Path]:
+    """Ensure imports.jsonl and symbols.jsonl exist for a repo, re-indexing if needed."""
+    index_dir = out_dir / "index"
+    index_dir.mkdir(parents=True, exist_ok=True)
+    imports_path = index_dir / "imports.jsonl"
+    symbols_path = index_dir / "symbols.jsonl"
+
+    if force_reindex or not (imports_path.exists() and symbols_path.exists()):
+        print(f"==> Indexing {repo_path.name}")
+        build_index(str(repo_path), str(index_dir))
+
+    return imports_path, symbols_path
+
+
+def process_repo_directory(repo_path: Path, processed_root: Path, force_reindex: bool = False) -> None:
+    """Run indexing + KG build for a single repository directory."""
+    if not repo_path.is_dir():
+        print(f"[WARN] Skipping {repo_path} (not a directory)")
+        return
+
+    repo_name = repo_path.name
+    out_dir = processed_root / repo_name
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    imports_path, symbols_path = ensure_index_artifacts(repo_path, out_dir, force_reindex)
+    if not imports_path.exists() or not symbols_path.exists():
+        print(f"[WARN] Missing index artifacts for {repo_name}, skipping.")
+        return
+
+    print(f"==> Building knowledge graph for {repo_name}")
+    G = build_graph(str(imports_path), str(symbols_path))
+    log_graph_stats(G)
+
+    export_graph(G, str(out_dir / "graph"))
+
+
 def export_graph(G: nx.DiGraph, out_prefix: str) -> None:
     import pickle
+
+    def _strip_none(d: Dict[str, Any]) -> None:
+        for k in list(d.keys()):
+            if d[k] is None:
+                del d[k]
+
+    def _graphml_safe_copy(graph: nx.DiGraph) -> nx.DiGraph:
+        """Return a copy of the graph without None attributes (GraphML can't handle None)."""
+        H = graph.copy()
+        _strip_none(H.graph)
+        for _, attrs in H.nodes(data=True):
+            _strip_none(attrs)
+        for _, _, attrs in H.edges(data=True):
+            _strip_none(attrs)
+        return H
 
     # Pickle
     pkl_path = f"{out_prefix}.pkl"
@@ -284,7 +357,8 @@ def export_graph(G: nx.DiGraph, out_prefix: str) -> None:
     # GraphML
     graphml_path = f"{out_prefix}.graphml"
     try:
-        nx.write_graphml(G, graphml_path)
+        safe_graph = _graphml_safe_copy(G)
+        nx.write_graphml(safe_graph, graphml_path)
         print(f"[OK] Saved {graphml_path}")
     except Exception as e:
         print(f"[WARN] GraphML export failed: {e}")
@@ -321,31 +395,48 @@ def main():
     repo_base = Path(__file__).resolve().parents[1]
     default_index = repo_base / "processed_data" / "flask" / "index"
     default_out = repo_base / "processed_data" / "flask" / "graph"
+    default_repos_root = Path("/scratch/zmao_root/zmao98/boyuann/dataset/repos")
 
     ap = argparse.ArgumentParser()
     ap.add_argument("--imports", default=str(default_index / "imports.jsonl"), help="Path to imports.jsonl")
     ap.add_argument("--symbols", default=str(default_index / "symbols.jsonl"), help="Path to symbols.jsonl")
     ap.add_argument("--out-prefix", default=str(default_out), help="Output file prefix (without extension)")
+    ap.add_argument("--repos-root", default=str(default_repos_root),
+                    help="Directory that contains the raw repositories for bulk processing")
+    ap.add_argument("--processed-root", default=str(repo_base / "processed_data"),
+                    help="Directory to store processed outputs")
+    ap.add_argument("--repo-name", help="Process a single repository located under --repos-root")
+    ap.add_argument("--process-all", action="store_true", help="Process every repository under --repos-root")
+    ap.add_argument("--force-reindex", action="store_true",
+                    help="Rebuild imports/symbols artifacts even if they exist")
     args = ap.parse_args()
 
-    G = build_graph(args.imports, args.symbols)
-    # Basic stats
-    print(f"Nodes: {G.number_of_nodes()}  Edges: {G.number_of_edges()}")
-    # Optional: quick sanity prints
-    ntype_count = {}
-    for n, d in G.nodes(data=True):
-        ntype_count[d.get("node_type","UNK")] = ntype_count.get(d.get("node_type","UNK"), 0) + 1
-    print("Node type counts:", ntype_count)
+    if args.process_all or args.repo_name:
+        repos_root = Path(args.repos_root)
+        processed_root = Path(args.processed_root)
 
-    etype_count = {}
-    for s, t, d in G.edges(data=True):
-        etypes = d.get("etype")
-        if isinstance(etypes, set):
-            for e in etypes:
-                etype_count[e] = etype_count.get(e, 0) + 1
-        else:
-            etype_count[etypes] = etype_count.get(etypes, 0) + 1
-    print("Edge type counts:", etype_count)
+        if not repos_root.exists():
+            print(f"[WARN] Repositories root not found: {repos_root}")
+            return
+
+        if args.process_all:
+            repo_dirs = sorted([p for p in repos_root.iterdir() if p.is_dir()])
+            if not repo_dirs:
+                print(f"[WARN] No repositories found under {repos_root}")
+                return
+            for repo_path in repo_dirs:
+                process_repo_directory(repo_path, processed_root, args.force_reindex)
+            return
+
+        repo_path = repos_root / args.repo_name
+        if not repo_path.exists():
+            print(f"[WARN] Repository not found: {repo_path}")
+            return
+        process_repo_directory(repo_path, processed_root, args.force_reindex)
+        return
+
+    G = build_graph(args.imports, args.symbols)
+    log_graph_stats(G)
 
     export_graph(G, args.out_prefix)
 

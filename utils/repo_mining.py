@@ -7,7 +7,7 @@ from github import Github
 # 配置区
 # =============================
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")  # 建议使用个人token（避免API限流）
-SAVE_DIR = "../dataset/repos/"
+SAVE_DIR = "/scratch/zmao_root/zmao98/boyuann/dataset/repos/"
 MIN_STARS = 100
 SIZE_RANGE = "500..20000"  # KB
 EXCLUDE_TOPICS = ["machine-learning", "deep-learning", "pytorch", "tensorflow", "ml"]
