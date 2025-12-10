@@ -1,6 +1,6 @@
 # RepoGraphReasoner
 
-A comprehensive framework for code repository understanding through knowledge graph construction and multi-hop question answering, with fine-tuning capabilities using LLaMA-Factory.
+A framework for code repository understanding through knowledge graph construction and multi-hop question answering, with fine-tuning capabilities using LLaMA-Factory.
 
 ## Overview
 
@@ -180,29 +180,3 @@ processed_data/<repo-name>/
 ├── graph.json             # JSON format (for inspection)
 └── multi_hop_qas_en_unique.jsonl  # Generated QA pairs
 ```
-
-## Notes
-
-- Large files (>100MB) are excluded from git (checkpoints, large data files)
-- LLaMA-Factory is integrated as a regular directory (not a submodule)
-- Model checkpoints are stored locally and not version controlled
-
-## Citation
-
-If you use this work, please cite:
-
-```bibtex
-@software{repographreasoner,
-  title={RepoGraphReasoner: Code Repository Understanding via Knowledge Graphs},
-  author={Your Name},
-  year={2024}
-}
-```
-
-## License
-
-[Specify your license here]
-
-## Contact
-
-[Your contact information]
