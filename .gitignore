@@ -1,2 +1,15 @@
 .env
 ./dataset/
+
+# Exclude model checkpoints and outputs
+LLaMA-Factory/saves/
+LLaMA-Factory/output/
+LLaMA-Factory/**/checkpoint-*/
+LLaMA-Factory/**/*.safetensors
+LLaMA-Factory/**/*.bin
+LLaMA-Factory/**/adapter_model.bin
+LLaMA-Factory/**/adapter_model.safetensors
+
+# Exclude large data files (>100MB)
+LLaMA-Factory/data/train_llama_factory.jsonl
+LLaMA-Factory/multi_hop_qas_en_unique_cot_qwen_merged.jsonl
