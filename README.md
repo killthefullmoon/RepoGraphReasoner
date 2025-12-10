@@ -1,4 +1,4 @@
-Finetuning using Llama Factory
+## Finetuning using Llama Factory
 
 Our specific config file is LLaMA-Factory/examples/train_lora/llama3_lora_sft.yaml
 
